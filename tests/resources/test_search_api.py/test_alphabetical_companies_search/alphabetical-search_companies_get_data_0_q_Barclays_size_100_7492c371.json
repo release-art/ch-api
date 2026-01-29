@@ -1,0 +1,1154 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "company_name": "BARCLAY PLANT HIRE LLP",
+          "company_number": "OC400392",
+          "company_status": "active",
+          "company_type": "llp",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OC400392"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPLANTHIRE:OC400392"
+        },
+        {
+          "company_name": "BARCLAY PLUMBING & HEATING LTD",
+          "company_number": "04949336",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04949336"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPLUMBINGANDHEATING:04949336"
+        },
+        {
+          "company_name": "BARCLAY PORT LIMITED",
+          "company_number": "14686756",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14686756"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPORT:14686756"
+        },
+        {
+          "company_name": "BARCLAY POWER SOLUTIONS LIMITED",
+          "company_number": "SC513446",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC513446"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPOWERSOLUTIONS:SC513446"
+        },
+        {
+          "company_name": "BARCLAY PROCUREMENT GROUP LTD",
+          "company_number": "11985902",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/11985902"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROCUREMENTGROUP:11985902"
+        },
+        {
+          "company_name": "BARCLAY PROFESSIONAL SERVICES LIMITED",
+          "company_number": "12905411",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/12905411"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROFESSIONALSERVICES:12905411"
+        },
+        {
+          "company_name": "BARCLAY PROJECT MANAGEMENT LIMITED",
+          "company_number": "08245599",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08245599"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROJECTMANAGEMENT:08245599"
+        },
+        {
+          "company_name": "BARCLAY PROPERTIES LIMITED",
+          "company_number": "05608936",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/05608936"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTIES:05608936"
+        },
+        {
+          "company_name": "BARCLAY PROPERTIES AND DEVELOPMENT LTD",
+          "company_number": "12815628",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/12815628"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTIESANDDEVELOPMENT:12815628"
+        },
+        {
+          "company_name": "BARCLAY PROPERTIES BRISTOL LIMITED",
+          "company_number": "08245129",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08245129"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTIESBRISTOL:08245129"
+        },
+        {
+          "company_name": "BARCLAY PROPERTIES NW LIMITED",
+          "company_number": "08190164",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08190164"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTIESNW:08190164"
+        },
+        {
+          "company_name": "BARCLAY PROPERTIES (SOUTHPORT) LIMITED",
+          "company_number": "08374233",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08374233"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTIESSOUTHPORT:08374233"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY CO LIMITED",
+          "company_number": "10664601",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/10664601"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTY:10664601"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY CENTRE LTD",
+          "company_number": "14513184",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14513184"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYCENTRE:14513184"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY GROUP LTD",
+          "company_number": "16014364",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/16014364"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYGROUP:16014364"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY INVESTMENTS 2004 LTD.",
+          "company_number": "SC134239",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC134239"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYINVESTMENTSTWOOOFOUR:SC134239"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY LETTINGS LIMITED",
+          "company_number": "08357973",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08357973"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYLETTINGS:08357973"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY MANAGEMENT LIMITED",
+          "company_number": "08359562",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08359562"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYMANAGEMENT:08359562"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY SERVICES LIMITED",
+          "company_number": "05811007",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/05811007"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYSERVICES:05811007"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY SERVICES (SCOTLAND) LIMITED",
+          "company_number": "SC415910",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC415910"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYSERVICESSCOTLAND:SC415910"
+        },
+        {
+          "company_name": "BARCLAY PROPERTY TRADING LLP",
+          "company_number": "OC316147",
+          "company_status": "active",
+          "company_type": "llp",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OC316147"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPROPERTYTRADING:OC316147"
+        },
+        {
+          "company_name": "BARCLAY PUBS LTD",
+          "company_number": "SC699725",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC699725"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYPUBS:SC699725"
+        },
+        {
+          "company_name": "BARCLAY RAE CONSULTING LIMITED",
+          "company_number": "07599234",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/07599234"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRAECONSULTING:07599234"
+        },
+        {
+          "company_name": "BARCLAY REAL ESTATE LIMITED",
+          "company_number": "12703347",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/12703347"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYREALESTATE:12703347"
+        },
+        {
+          "company_name": "BARCLAY REFRIGERATION LIMITED",
+          "company_number": "SC181006",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC181006"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYREFRIGERATION:SC181006"
+        },
+        {
+          "company_name": "BARCLAY REID LTD",
+          "company_number": "16790242",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/16790242"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYREID:16790242"
+        },
+        {
+          "company_name": "BARCLAY RENOVATIONS LIMITED",
+          "company_number": "07087089",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/07087089"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRENOVATIONS:07087089"
+        },
+        {
+          "company_name": "BARCLAY RESIDENCES LTD",
+          "company_number": "SC495375",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC495375"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENCES:SC495375"
+        },
+        {
+          "company_name": "BARCLAY RESIDENTIAL LIMITED",
+          "company_number": "03391736",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/03391736"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENTIAL:03391736"
+        },
+        {
+          "company_name": "BARCLAY RESIDENTIAL LIMITED",
+          "company_number": "15482026",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/15482026"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENTIAL:15482026"
+        },
+        {
+          "company_name": "BARCLAY RESIDENTIAL INVESTMENTS LIMITED",
+          "company_number": "04179960",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04179960"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENTIALINVESTMENTS:04179960"
+        },
+        {
+          "company_name": "BARCLAY RESIDENTS COMPANY LIMITED",
+          "company_number": "01988749",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01988749"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENTS:01988749"
+        },
+        {
+          "company_name": "BARCLAY RICHMOND ASSOCIATES LTD",
+          "company_number": "16273872",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/16273872"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRICHMONDASSOCIATES:16273872"
+        },
+        {
+          "company_name": "BARCLAY ROAD HOTEL LTD",
+          "company_number": "07365117",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/07365117"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADHOTEL:07365117"
+        },
+        {
+          "company_name": "BARCLAY ROAD MANAGEMENT COMPANY LIMITED",
+          "company_number": "14178968",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14178968"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADMANAGEMENT:14178968"
+        },
+        {
+          "company_name": "BARCLAY ROAD 3A LIMITED",
+          "company_number": "14494937",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14494937"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEA:14494937"
+        },
+        {
+          "company_name": "BARCLAY ROAD (3A) LIMITED",
+          "company_number": "OE017924",
+          "company_status": "removed",
+          "company_type": "registered-overseas-entity",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OE017924"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEA:OE017924"
+        },
+        {
+          "company_name": "BARCLAY ROAD 3B LIMITED",
+          "company_number": "14495203",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14495203"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEB:14495203"
+        },
+        {
+          "company_name": "BARCLAY ROAD (3B) LIMITED",
+          "company_number": "OE016306",
+          "company_status": "removed",
+          "company_type": "registered-overseas-entity",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OE016306"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEB:OE016306"
+        },
+        {
+          "company_name": "BARCLAY ROAD 3C LIMITED",
+          "company_number": "14495517",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14495517"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEC:14495517"
+        },
+        {
+          "company_name": "BARCLAY ROAD (3C) LIMITED",
+          "company_number": "OE016314",
+          "company_status": "removed",
+          "company_type": "registered-overseas-entity",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OE016314"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREEC:OE016314"
+        },
+        {
+          "company_name": "BARCLAY ROAD 3D LIMITED",
+          "company_number": "14495953",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/14495953"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREED:14495953"
+        },
+        {
+          "company_name": "BARCLAY ROAD (3D) LIMITED",
+          "company_number": "OE017955",
+          "company_status": "removed",
+          "company_type": "registered-overseas-entity",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OE017955"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROADTHREED:OE017955"
+        },
+        {
+          "company_name": "BARCLAY ROE LIMITED",
+          "company_number": "03496691",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/03496691"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROE:03496691"
+        },
+        {
+          "company_name": "BARCLAY ROOFING LIMITED",
+          "company_number": "02026578",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02026578"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROOFING:02026578"
+        },
+        {
+          "company_name": "BARCLAY ROOFING (HOLDINGS) LIMITED",
+          "company_number": "04326895",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04326895"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROOFINGHOLDINGS:04326895"
+        },
+        {
+          "company_name": "BARCLAY ROSS & HUTCHISON LIMITED",
+          "company_number": "SC141988",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC141988"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROSSANDHUTCHISON:SC141988"
+        },
+        {
+          "company_name": "BARCLAY ROUGHCASTING & ROOFING SERVICES LTD",
+          "company_number": "SC683430",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC683430"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROUGHCASTINGANDROOFINGSERVICES:SC683430"
+        },
+        {
+          "company_name": "THE BARCLAY (ROYTON) LTD",
+          "company_number": "11348623",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/11348623"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYROYTON:11348623"
+        },
+        {
+          "company_name": "BARCLAY RUSSELL LIMITED",
+          "company_number": "09244833",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/09244833"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRUSSELL:09244833"
+        },
+        {
+          "company_name": "BARCLAYS PLC",
+          "company_number": "00048839",
+          "company_status": "active",
+          "company_type": "plc",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/00048839"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYS:00048839"
+        },
+        {
+          "company_name": "BARCLAYS AFRICA LIMITED",
+          "company_number": "08116606",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/08116606"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSAFRICA:08116606"
+        },
+        {
+          "company_name": "BARCLAYS AFRICA REGIONAL OFFICE (PTY) LTD",
+          "company_number": "FC030869",
+          "company_status": "converted-closed",
+          "company_type": "oversea-company",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/FC030869"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSAFRICAREGIONALOFFICEPTY:FC030869"
+        },
+        {
+          "company_name": "BARCLAYS ALDERSGATE INVESTMENTS LIMITED",
+          "company_number": "02223073",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02223073"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSALDERSGATEINVESTMENTS:02223073"
+        },
+        {
+          "company_name": "BARCLAYS ALMA MATER MANAGEMENT LIMITED PARTNERSHIP",
+          "company_number": "LP009089",
+          "company_status": "active",
+          "company_type": "limited-partnership",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/LP009089"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSALMAMATERMANAGEMENT:LP009089"
+        },
+        {
+          "company_name": "BARCLAYS AMARILLO INVESTMENTS LIMITED",
+          "company_number": "04317223",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04317223"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSAMARILLOINVESTMENTS:04317223"
+        },
+        {
+          "company_name": "BARCLAY SAMSON LIMITED",
+          "company_number": "01993466",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01993466"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSAMSON:01993466"
+        },
+        {
+          "company_name": "BARCLAYS AND BARC FINANCE GROUP LIMITED",
+          "company_number": "11659062",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/11659062"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSANDBARCFINANCEGROUP:11659062"
+        },
+        {
+          "company_name": "BARCLAYS ANTIQUES LIMITED",
+          "company_number": "16440107",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/16440107"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSANTIQUES:16440107"
+        },
+        {
+          "company_name": "BARCLAY SAP & ARCHITECTURAL SERVICES LTD",
+          "company_number": "SC681355",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC681355"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSAPANDARCHITECTURALSERVICES:SC681355"
+        },
+        {
+          "company_name": "BARCLAYS ASSET MANAGEMENT LIMITED",
+          "company_number": "06991560",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/06991560"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSASSETMANAGEMENT:06991560"
+        },
+        {
+          "company_name": "BARCLAYS ASSET MANAGEMENT SERVICES LIMITED",
+          "company_number": "02510148",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02510148"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSASSETMANAGEMENTSERVICES:02510148"
+        },
+        {
+          "company_name": "BARCLAYS BANK PLC",
+          "company_number": "01026167",
+          "company_status": "active",
+          "company_type": "plc",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01026167"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBANK:01026167"
+        },
+        {
+          "company_name": "BARCLAYS BANK UK PLC",
+          "company_number": "09740322",
+          "company_status": "active",
+          "company_type": "plc",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/09740322"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBANKUK:09740322"
+        },
+        {
+          "company_name": "BARCLAYS (BARLEY) LIMITED",
+          "company_number": "04109369",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04109369"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBARLEY:04109369"
+        },
+        {
+          "company_name": "BARCLAYS BARONSMEAD FUND",
+          "company_number": "LP003645",
+          "company_status": "active",
+          "company_type": "limited-partnership",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/LP003645"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBARONSMEADFUND:LP003645"
+        },
+        {
+          "company_name": "BARCLAYS BATHROOMS LTD",
+          "company_number": "SC692480",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/SC692480"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBATHROOMS:SC692480"
+        },
+        {
+          "company_name": "BARCLAYS BATHROOMS ESSEX LTD",
+          "company_number": "13257066",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/13257066"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBATHROOMSESSEX:13257066"
+        },
+        {
+          "company_name": "BARCLAYS BESPOKE PLUMBING LTD",
+          "company_number": "16150328",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/16150328"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBESPOKEPLUMBING:16150328"
+        },
+        {
+          "company_name": "BARCLAYS BGI HOLDINGS LIMITED",
+          "company_number": "BR010187",
+          "company_status": "closed",
+          "company_type": "uk-establishment",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/BR010187"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBGIHOLDINGS:BR010187"
+        },
+        {
+          "company_name": "BARCLAYS BGI HOLDINGS LIMITED",
+          "company_number": "FC028597",
+          "company_status": "converted-closed",
+          "company_type": "oversea-company",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/FC028597"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBGIHOLDINGS:FC028597"
+        },
+        {
+          "company_name": "BARCLAYSBITCON LTD",
+          "company_number": "10985297",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/10985297"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBITCON:10985297"
+        },
+        {
+          "company_name": "BARCLAYS BLOSSOM FINANCE LIMITED PARTNERSHIP",
+          "company_number": "LP022287",
+          "company_status": "active",
+          "company_type": "limited-partnership",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/LP022287"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBLOSSOMFINANCE:LP022287"
+        },
+        {
+          "company_name": "BARCLAYS BOXES LTD",
+          "company_number": "13033936",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/13033936"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBOXES:13033936"
+        },
+        {
+          "company_name": "BARCLAYS BPT",
+          "company_number": "02550797",
+          "company_status": "dissolved",
+          "company_type": "private-unlimited",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02550797"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBPT:02550797"
+        },
+        {
+          "company_name": "BARCLAY'S BRICKWORK LIMITED",
+          "company_number": "10952195",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/10952195"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBRICKWORK:10952195"
+        },
+        {
+          "company_name": "BARCLAYS BUILDERS LTD",
+          "company_number": "09639123",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/09639123"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBUILDERS:09639123"
+        },
+        {
+          "company_name": "BARCLAYS BUILDING SERVICES LTD",
+          "company_number": "15858682",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/15858682"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSBUILDINGSERVICES:15858682"
+        },
+        {
+          "company_name": "BARCLAY SCAFFOLDING LIMITED",
+          "company_number": "07727668",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/07727668"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAFFOLDING:07727668"
+        },
+        {
+          "company_name": "BARCLAY SCAFFOLDING & CRADLE LIMITED",
+          "company_number": "04612717",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/04612717"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAFFOLDINGANDCRADLE:04612717"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL ASIA HOLDINGS LIMITED",
+          "company_number": "05614502",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/05614502"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALASIAHOLDINGS:05614502"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL (CAYMAN) LIMITED",
+          "company_number": "BR000678",
+          "company_status": "open",
+          "company_type": "uk-establishment",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/BR000678"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALCAYMAN:BR000678"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL (CAYMAN) LIMITED",
+          "company_number": "FC015201",
+          "company_status": "active",
+          "company_type": "oversea-company",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/FC015201"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALCAYMAN:FC015201"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL FINANCE LIMITED",
+          "company_number": "00181866",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/00181866"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALFINANCE:00181866"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL JAPAN SECURITIES HOLDINGS LIMITED",
+          "company_number": "05614527",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/05614527"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALJAPANSECURITIESHOLDINGS:05614527"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL MARGIN FINANCING LIMITED",
+          "company_number": "01957771",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01957771"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALMARGINFINANCING:01957771"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL NOMINEES LIMITED",
+          "company_number": "01957372",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01957372"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALNOMINEES:01957372"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL NOMINEES (NO.3) LIMITED",
+          "company_number": "02532430",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02532430"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALNOMINEESNOTHREE:02532430"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL NOMINEES (NO.2) LIMITED",
+          "company_number": "02511441",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02511441"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALNOMINEESNOTWO:02511441"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL OVERSEAS LIMITED",
+          "company_number": "02239504",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02239504"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALOVERSEAS:02239504"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL PROJECTS LIMITED",
+          "company_number": "02793075",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/02793075"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALPROJECTS:02793075"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL SECURITIES LIMITED",
+          "company_number": "01929333",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01929333"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALSECURITIES:01929333"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL SECURITIES CLIENT NOMINEE LIMITED",
+          "company_number": "01764681",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/01764681"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALSECURITIESCLIENTNOMINEE:01764681"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL STRATEGIC ADVISERS LIMITED",
+          "company_number": "05212557",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/05212557"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALSTRATEGICADVISERS:05212557"
+        },
+        {
+          "company_name": "BARCLAYS CAPITAL UK LTD",
+          "company_number": "09442242",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/09442242"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCAPITALUK:09442242"
+        },
+        {
+          "company_name": "BARCLAYS CARBON (UK) HOLDINGS LIMITED",
+          "company_number": "BR015351",
+          "company_status": "closed",
+          "company_type": "uk-establishment",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/BR015351"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCARBONUKHOLDINGS:BR015351"
+        },
+        {
+          "company_name": "BARCLAYS CARBON (UK) HOLDINGS LIMITED",
+          "company_number": "FC030356",
+          "company_status": "converted-closed",
+          "company_type": "oversea-company",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/FC030356"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCARBONUKHOLDINGS:FC030356"
+        },
+        {
+          "company_name": "BARCLAYS CARS LTD",
+          "company_number": "09368528",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/09368528"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCARS:09368528"
+        },
+        {
+          "company_name": "BARCLAYS CCP FUNDING LLP",
+          "company_number": "OC359024",
+          "company_status": "active",
+          "company_type": "llp",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/OC359024"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCCPFUNDING:OC359024"
+        },
+        {
+          "company_name": "BARCLAYS CLAUDAS INVESTMENTS LIMITED PARTNERSHIP",
+          "company_number": "LP012389",
+          "company_status": "active",
+          "company_type": "limited-partnership",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/LP012389"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYSCLAUDASINVESTMENTS:LP012389"
+        }
+      ],
+      "kind": "search#alphabetical-search",
+      "top_hit": {
+        "company_name": "BARCLAYS PLC",
+        "company_number": "00048839",
+        "company_status": "active",
+        "company_type": "plc",
+        "kind": "searchresults#alphabetical-search",
+        "links": {
+          "company_profile": "/company/00048839"
+        },
+        "ordered_alpha_key_with_id": "BARCLAYS:00048839"
+      }
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Thu, 29 Jan 2026 17:32:58 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=7433FA3DFC523E40ED910453BD8C68C1; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "550",
+    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/alphabetical-search/companies?q=Barclays&size=100"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/alphabetical-search/companies?q=Barclays&size=100"
+}

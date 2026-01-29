@@ -1,0 +1,69 @@
+{
+  "content": {
+    "json": {
+      "address": {
+        "address_line_1": "Empress Terrace",
+        "address_line_2": "Douglas",
+        "country": "Isle Of Man",
+        "locality": "Isle Of Man",
+        "postal_code": "IM2 4EE",
+        "premises": "33 Empress Apartment"
+      },
+      "date_of_birth": {
+        "month": 10,
+        "year": 1988
+      },
+      "etag": "40976d08755cf2e75f0f5f99916eb91744bc1369",
+      "is_sanctioned": false,
+      "kind": "individual-beneficial-owner",
+      "links": {
+        "self": "/company/OE000003/persons-with-significant-control/individual-beneficial-owner/SZAhW70tVwifoSKtlDKjT9t_kcg"
+      },
+      "name": "Mr Michael Hanley",
+      "name_elements": {
+        "forename": "Michael",
+        "surname": "Hanley",
+        "title": "Mr"
+      },
+      "nationality": "British",
+      "natures_of_control": [
+        "ownership-of-shares-more-than-25-percent-registered-overseas-entity"
+      ],
+      "notified_on": "2018-10-18"
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Thu, 29 Jan 2026 17:32:54 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=AC3CCA1F7CCFC5DBCDCAD93D1FFDA03F; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "571",
+    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/OE000003/persons-with-significant-control/individual-beneficial-owner/SZAhW70tVwifoSKtlDKjT9t_kcg"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/OE000003/persons-with-significant-control/individual-beneficial-owner/SZAhW70tVwifoSKtlDKjT9t_kcg"
+}

@@ -1,0 +1,68 @@
+{
+  "content": {
+    "json": {
+      "etag": "b939a1bfee839b9d07fcea69c4658f20f2b235e6",
+      "exemptions": {
+        "disclosure_transparency_rules_chapter_five_applies": {
+          "exemption_type": "disclosure-transparency-rules-chapter-five-applies",
+          "items": [
+            {
+              "exempt_from": "2017-04-01",
+              "exempt_to": "2019-04-01"
+            },
+            {
+              "exempt_from": "2020-04-01",
+              "exempt_to": "2023-02-02"
+            }
+          ]
+        },
+        "psc_exempt_as_trading_on_uk_regulated_market": {
+          "exemption_type": "psc-exempt-as-trading-on-uk-regulated-market",
+          "items": [
+            {
+              "exempt_from": "2018-04-01"
+            }
+          ]
+        }
+      },
+      "kind": "exemptions",
+      "links": {
+        "self": "/company/00048839/exemptions"
+      }
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Thu, 29 Jan 2026 17:32:53 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=32CCC18399978C237EC8ACDFD58F4312; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "580",
+    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/00048839/exemptions"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/00048839/exemptions"
+}

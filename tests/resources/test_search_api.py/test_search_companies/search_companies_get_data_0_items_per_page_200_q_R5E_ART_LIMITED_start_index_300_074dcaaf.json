@@ -1,0 +1,2760 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "address": {
+            "address_line_1": "Queen Isabels Avenue",
+            "country": "England",
+            "locality": "Coventry",
+            "postal_code": "CV3 5GE",
+            "premises": "61"
+          },
+          "address_snippet": "61 Queen Isabels Avenue, Coventry, England, CV3 5GE",
+          "company_number": "12059533",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-06-19",
+          "description": "12059533 - Incorporated on 19 June 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12059533"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRICA PERFORMING ARTS THEATRE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Purves Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "NW10 5TG",
+            "premises": "152"
+          },
+          "address_snippet": "152 Purves Road, London, United Kingdom, NW10 5TG",
+          "company_number": "11850405",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-02-27",
+          "description": "11850405 - Incorporated on 27 February 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11850405"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRICA'S BEST ARTISANS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "55 Baldry Gardens",
+            "country": "England",
+            "locality": "Streatham",
+            "postal_code": "SW16 3DL",
+            "premises": "55",
+            "region": "England"
+          },
+          "address_snippet": "55 55 Baldry Gardens, Streatham, England, England, SW16 3DL",
+          "company_number": "15066989",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-08-13",
+          "description": "15066989 - Incorporated on 13 August 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15066989"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRIKAN ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wyvern Close",
+            "country": "England",
+            "locality": "Yeovil",
+            "postal_code": "BA20 2HF",
+            "premises": "3",
+            "region": "Somerset"
+          },
+          "address_snippet": "3 Wyvern Close, Yeovil, Somerset, England, BA20 2HF",
+          "company_number": "03724520",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1999-03-02",
+          "description": "03724520 - Incorporated on 2 March 1999",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03724520"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRO ART RECORDS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hungerhill Road",
+            "address_line_2": "St Anns",
+            "locality": "Nottingham",
+            "postal_code": "NG3 4NB",
+            "premises": "31"
+          },
+          "address_snippet": "31 Hungerhill Road, St Anns, Nottingham, NG3 4NB",
+          "company_number": "01009266",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "1971-04-28",
+          "description": "01009266 - Incorporated on 28 April 1971",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/01009266"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRO-CARIBBEAN NATIONAL ARTISTIC CENTRE (NOTTINGHAM)LIMITED (THE)"
+        },
+        {
+          "address": {
+            "address_line_1": "1, 800 Argyle Street",
+            "country": "Scotland",
+            "locality": "Glasgow",
+            "postal_code": "G3 8RU",
+            "premises": "Flat 3/"
+          },
+          "address_snippet": "Flat 3/ 1, 800 Argyle Street, Glasgow, Scotland, G3 8RU",
+          "company_number": "SC770871",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-05-29",
+          "description": "SC770871 - Incorporated on 29 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC770871"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFROCENTRIC ARTS AND GAMES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hoey Court 4 Barry Blandford Way",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E3 3TR",
+            "premises": "Flat 504"
+          },
+          "address_snippet": "Flat 504 Hoey Court 4 Barry Blandford Way, London, England, E3 3TR",
+          "company_number": "15535700",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-03-02",
+          "description": "15535700 - Incorporated on 2 March 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15535700"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFSHA ARTISTRY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Old High Street",
+            "country": "England",
+            "locality": "Folkestone",
+            "postal_code": "CT20 1RL",
+            "premises": "34"
+          },
+          "address_snippet": "34 The Old High Street, Folkestone, England, CT20 1RL",
+          "company_number": "12309575",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-11-12",
+          "description": "12309575 - Incorporated on 12 November 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12309575"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFTER ART LTD"
+        },
+        {
+          "address": {},
+          "company_number": "CE020237",
+          "company_status": "converted-closed",
+          "company_type": "charitable-incorporated-organisation",
+          "date_of_cessation": "Unknown",
+          "description": "CE020237 - Converted/Closed on ",
+          "description_identifier": [
+            "converted-closed-on"
+          ],
+          "external_registration_number": "1187274",
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/CE020237"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFTER EDEN ARTS FOUNDATION"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Heathfield",
+            "locality": "East Sussex",
+            "postal_code": "TN21 8LS",
+            "premises": "8"
+          },
+          "address_snippet": "8 High Street, Heathfield, East Sussex, TN21 8LS",
+          "company_number": "05629764",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2005-11-20",
+          "description": "05629764 - Incorporated on 20 November 2005",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05629764"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFTERGLOW ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "14637620",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-03",
+          "description": "14637620 - Incorporated on 3 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14637620"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFTER SCHOOL ARTS CLUB LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "First Floor, 20a The Mall",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W5 2PJ",
+            "premises": "Suite 1,"
+          },
+          "address_snippet": "Suite 1, First Floor, 20a The Mall, London, England, W5 2PJ",
+          "company_number": "14690606",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-27",
+          "description": "14690606 - Incorporated on 27 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14690606"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "A GALLERY ARTISTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Warner House Harrovian Business Village",
+            "address_line_2": "Bessborough Road",
+            "country": "England",
+            "locality": "Harrow",
+            "postal_code": "HA1 3EX",
+            "premises": "1"
+          },
+          "address_snippet": "1 Warner House Harrovian Business Village, Bessborough Road, Harrow, England, HA1 3EX",
+          "company_number": "08761484",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-11-05",
+          "description": "08761484 - Incorporated on 5 November 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08761484"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "PAMPOULIDES FINE ART LTD",
+          "title": "AGALMA FINE ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Green Lanes",
+            "locality": "London",
+            "postal_code": "N13 4BS",
+            "premises": "483"
+          },
+          "address_snippet": "483 Green Lanes, London, N13 4BS",
+          "company_number": "13998114",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-05-27",
+          "date_of_creation": "2022-03-23",
+          "description": "13998114 - Dissolved on 27 May 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13998114"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AG ART CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "77 - 79 High Street",
+            "locality": "Egham",
+            "postal_code": "TW20 9HY",
+            "premises": "Gladstone House",
+            "region": "Surrey"
+          },
+          "address_snippet": "Gladstone House, 77 - 79 High Street, Egham, Surrey, TW20 9HY",
+          "company_number": "07642157",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2011-05-20",
+          "description": "07642157 - Incorporated on 20 May 2011",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07642157"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "ALEXIA GOETHE FINE ART LIMITED",
+          "title": "AG ARTS & CO. LIMITED"
+        },
+        {
+          "address": {
+            "country": "England",
+            "locality": "Woodford Green",
+            "postal_code": "IG8 8AA",
+            "premises": "Office C 616-618 Chigwell Road"
+          },
+          "address_snippet": "Office C 616-618 Chigwell Road Woodford Green, England, IG8 8AA",
+          "company_number": "05099754",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2004-04-13",
+          "description": "05099754 - Incorporated on 13 April 2004",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05099754"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "A G ARTWORK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "James Carter Road",
+            "address_line_2": "Mildenhall",
+            "country": "England",
+            "locality": "Bury St. Edmunds",
+            "postal_code": "IP28 7DE",
+            "premises": "Unit 82a"
+          },
+          "address_snippet": "Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE",
+          "company_number": "14869753",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-05-15",
+          "description": "14869753 - Incorporated on 15 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14869753"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGAVE ARTISAN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Albert Place",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N3 1QA",
+            "premises": "C/O Sterlings Ltd, Lawford House"
+          },
+          "address_snippet": "C/O Sterlings Ltd, Lawford House, Albert Place, London, England, N3 1QA",
+          "company_number": "05065462",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2004-03-05",
+          "description": "05065462 - Incorporated on 5 March 2004",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05065462"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGEHALL FINE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Gloucester Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1N 3AX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Old Gloucester Street, London, United Kingdom, WC1N 3AX",
+          "company_number": "11701059",
+          "company_status": "dissolved",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_cessation": "2025-02-04",
+          "date_of_creation": "2018-11-28",
+          "description": "11701059 - Dissolved on 4 February 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11701059"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGENCI ARTS CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Gloucester Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1N 3AX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Old Gloucester Street, London, United Kingdom, WC1N 3AX",
+          "company_number": "11407230",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-06-11",
+          "description": "11407230 - Incorporated on 11 June 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11407230"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGENCJA ARTYSTYCZNA VOULEZ VOUS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "England",
+            "locality": "Crediton",
+            "postal_code": "EX17 3LQ",
+            "premises": "128",
+            "region": "Devon"
+          },
+          "address_snippet": "128 High Street, Crediton, Devon, England, EX17 3LQ",
+          "company_number": "14604605",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-01-19",
+          "description": "14604605 - Incorporated on 19 January 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14604605"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGENCY FOR ART AND AUTISM LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 9BD",
+            "premises": "130"
+          },
+          "address_snippet": "130 Old Street, London, England, EC1V 9BD",
+          "company_number": "11901574",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-03-23",
+          "description": "11901574 - Incorporated on 23 March 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11901574"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGENT ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Rhosllanerchrugog",
+            "country": "Wales",
+            "locality": "Wrexham",
+            "postal_code": "LL14 1LR",
+            "premises": "Hafan Deg Pen Y Graig",
+            "region": "Clwyd"
+          },
+          "address_snippet": "Hafan Deg Pen Y Graig, Rhosllanerchrugog, Wrexham, Clwyd, Wales, LL14 1LR",
+          "company_number": "16704610",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-09-09",
+          "description": "16704610 - Incorporated on 9 September 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16704610"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGENTIC ARTIFICIAL INTELLIGENCE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "The Hive The Park",
+            "address_line_2": "Findhorn",
+            "country": "United Kingdom",
+            "locality": "Forres",
+            "postal_code": "IV36 3SH",
+            "premises": "567"
+          },
+          "address_snippet": "567 The Hive The Park, Findhorn, Forres, United Kingdom, IV36 3SH",
+          "company_number": "SC626909",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc-limited-exemption",
+          "date_of_creation": "2019-04-05",
+          "description": "SC626909 - Incorporated on 5 April 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC626909"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGILE ARTS"
+        },
+        {
+          "address": {
+            "address_line_1": "The Old Dairy",
+            "address_line_2": "Empress Road",
+            "country": "England",
+            "locality": "Southampton",
+            "postal_code": "SO14 0YT",
+            "premises": "Unit 5"
+          },
+          "address_snippet": "Unit 5 The Old Dairy, Empress Road, Southampton, England, SO14 0YT",
+          "company_number": "10715325",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-04-07",
+          "description": "10715325 - Incorporated on 7 April 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10715325"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AG MARTIAL ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Old Dairy, Empress Road",
+            "country": "United Kingdom",
+            "locality": "Southampton",
+            "postal_code": "SO14 0YT",
+            "premises": "Unit 5",
+            "region": "Hampshire"
+          },
+          "address_snippet": "Unit 5 The Old Dairy, Empress Road, Southampton, Hampshire, United Kingdom, SO14 0YT",
+          "company_number": "16305476",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-03-10",
+          "description": "16305476 - Incorporated on 10 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16305476"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AG MARTIAL ARTS ACADEMY CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Pill Box Studios",
+            "address_line_2": "115 Coventry Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E2 6GH",
+            "premises": "Suite 303"
+          },
+          "address_snippet": "Suite 303 Pill Box Studios, 115 Coventry Road, London, England, E2 6GH",
+          "company_number": "15255985",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-11-02",
+          "description": "15255985 - Incorporated on 2 November 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15255985"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGMP ARTISTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bradeley",
+            "country": "England",
+            "locality": "Stoke-On-Trent",
+            "postal_code": "ST6 7NG",
+            "premises": "Moorland View",
+            "region": "Staffordshire"
+          },
+          "address_snippet": "Moorland View, Bradeley, Stoke-On-Trent, Staffordshire, England, ST6 7NG",
+          "company_number": "08283893",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-11-07",
+          "description": "08283893 - Incorporated on 7 November 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08283893"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGNES AND ARTHUR LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Edgware Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "NW9 6LP",
+            "premises": "183"
+          },
+          "address_snippet": "183 Edgware Road, London, England, NW9 6LP",
+          "company_number": "15817458",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-07-03",
+          "description": "15817458 - Incorporated on 3 July 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15817458"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGNK MARTIAL ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Vicarage Parade",
+            "address_line_2": "West Green Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "N15 3BL",
+            "premises": "9c",
+            "region": "Greater London"
+          },
+          "address_snippet": "9c Vicarage Parade, West Green Road, London, Greater London, United Kingdom, N15 3BL",
+          "company_number": "15591755",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2024-03-25",
+          "description": "15591755 - Incorporated on 25 March 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15591755"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGOGO ARTS CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Oxford Road",
+            "country": "England",
+            "locality": "Peterborough",
+            "postal_code": "PE1 3BL",
+            "premises": "22"
+          },
+          "address_snippet": "22 Oxford Road, Peterborough, England, PE1 3BL",
+          "company_number": "16584790",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-07-15",
+          "description": "16584790 - Incorporated on 15 July 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16584790"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGORA ARTISTRY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Stoke Mandeville",
+            "country": "United Kingdom",
+            "locality": "Aylesbury",
+            "postal_code": "HP22 5UU",
+            "premises": "Tall Trees Chapel Lane",
+            "region": "Buckinghamshire"
+          },
+          "address_snippet": "Tall Trees Chapel Lane, Stoke Mandeville, Aylesbury, Buckinghamshire, United Kingdom, HP22 5UU",
+          "company_number": "10262496",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-07-05",
+          "description": "10262496 - Incorporated on 5 July 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10262496"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "THE HOUSE OF THE ARTISTS GALLERY",
+          "title": "AGORA DIGITAL ART (ADA) LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "58 Capital Business Centre",
+            "address_line_2": "22 Carlton Road",
+            "country": "England",
+            "locality": "South Croydon",
+            "postal_code": "CR2 0BS",
+            "premises": "Suite 57-"
+          },
+          "address_snippet": "Suite 57-58 Capital Business Centre, 22 Carlton Road, South Croydon, England, CR2 0BS",
+          "company_number": "15658644",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-04-18",
+          "description": "15658644 - Incorporated on 18 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15658644"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGORAS ART SPACE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Viola Avenue",
+            "country": "England",
+            "locality": "Staines-Upon-Thames",
+            "postal_code": "TW19 7SB",
+            "premises": "56"
+          },
+          "address_snippet": "56 Viola Avenue, Staines-Upon-Thames, England, TW19 7SB",
+          "company_number": "14086678",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-05-04",
+          "description": "14086678 - Incorporated on 4 May 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14086678"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGRAWAL ART PROPERTIES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "New Fetter Lane",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC4A 3AQ",
+            "premises": "Eighth Floor 6 New Street Square"
+          },
+          "address_snippet": "Eighth Floor 6 New Street Square, New Fetter Lane, London, United Kingdom, EC4A 3AQ",
+          "company_number": "12387728",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-01-06",
+          "description": "12387728 - Incorporated on 6 January 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12387728"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGRIPPA ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Castle Terrace",
+            "country": "England",
+            "locality": "Berwick Upon Tweed",
+            "postal_code": "TD15 1NP",
+            "premises": "Ava Lodge",
+            "region": "Northumberland"
+          },
+          "address_snippet": "Ava Lodge, Castle Terrace, Berwick Upon Tweed, Northumberland, England, TD15 1NP",
+          "company_number": "11882524",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-03-14",
+          "description": "11882524 - Incorporated on 14 March 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11882524"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGRIUM ARTWORK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Great Portland Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1W 5PF",
+            "premises": "167-169"
+          },
+          "address_snippet": "167-169 Great Portland Street, London, England, W1W 5PF",
+          "company_number": "16704533",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-09-09",
+          "description": "16704533 - Incorporated on 9 September 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16704533"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AGS ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Swalwell",
+            "country": "United Kingdom",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE16 3HE",
+            "premises": "Flu House"
+          },
+          "address_snippet": "Flu House, Swalwell, Newcastle Upon Tyne, United Kingdom, NE16 3HE",
+          "company_number": "15221671",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-10-19",
+          "description": "15221671 - Incorporated on 19 October 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15221671"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AG UK ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Pound Mead",
+            "country": "England",
+            "locality": "Corsham",
+            "postal_code": "SN13 9HA",
+            "premises": "18"
+          },
+          "address_snippet": "18 Pound Mead, Corsham, England, SN13 9HA",
+          "company_number": "16653070",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-08-15",
+          "description": "16653070 - Incorporated on 15 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16653070"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AH FRAME ARTIST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Victoria Road",
+            "country": "United Kingdom",
+            "locality": "Surbiton",
+            "postal_code": "KT6 4NS",
+            "premises": "76"
+          },
+          "address_snippet": "76 Victoria Road, Surbiton, United Kingdom, KT6 4NS",
+          "company_number": "13595119",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-08-31",
+          "description": "13595119 - Incorporated on 31 August 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13595119"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AH FRAMING AND ART LTD"
+        },
+        {
+          "address": {},
+          "company_number": "IP29104R",
+          "company_status": "active",
+          "company_type": "registered-society-non-jurisdictional",
+          "description": "IP29104R",
+          "description_identifier": [
+            null
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/IP29104R"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIA (ARTS IN ACTION) LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Earl Grey Way",
+            "country": "England",
+            "locality": "North Shields",
+            "postal_code": "NE29 6AR",
+            "premises": "Nautilus House"
+          },
+          "address_snippet": "Nautilus House, Earl Grey Way, North Shields, England, NE29 6AR",
+          "company_number": "16604956",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-07-24",
+          "description": "16604956 - Incorporated on 24 July 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16604956"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "ARTIFICIAL INTELLIGENCE QUALIFICATIONS BODY LIMITED",
+          "title": "AI AND BIG DATA QUALIFICATIONS BODY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bishopsgate",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC2N 4AY",
+            "premises": "110"
+          },
+          "address_snippet": "110 Bishopsgate, London, England, EC2N 4AY",
+          "company_number": "15682083",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2024-04-26",
+          "description": "15682083 - Incorporated on 26 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15682083"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ART FOUNDATION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "16552623",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-07-01",
+          "description": "16552623 - Incorporated on 1 July 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16552623"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ART GEN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "15596472"
+          },
+          "address_snippet": "4385, 15596472 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "15596472",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-09-09",
+          "date_of_creation": "2024-03-27",
+          "description": "15596472 - Dissolved on 9 September 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15596472"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ART GENERATOR LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, London, England, WC2H 9JQ",
+          "company_number": "12705446",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-06-30",
+          "description": "12705446 - Incorporated on 30 June 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12705446"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ART GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Perrymans Cottages Perrymans Lane",
+            "address_line_2": "Burwash",
+            "country": "England",
+            "locality": "Etchingham",
+            "postal_code": "TN19 7DN",
+            "premises": "2"
+          },
+          "address_snippet": "2 Perrymans Cottages Perrymans Lane, Burwash, Etchingham, England, TN19 7DN",
+          "company_number": "16730669",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-09-19",
+          "description": "16730669 - Incorporated on 19 September 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16730669"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ARTISTRY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "128"
+          },
+          "address_snippet": "128 City Road, London, United Kingdom, EC1V 2NX",
+          "company_number": "15362602",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-05-27",
+          "date_of_creation": "2023-12-19",
+          "description": "15362602 - Dissolved on 27 May 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15362602"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI ARTISTRY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Rivermead Drive",
+            "country": "United Kingdom",
+            "locality": "Swindon",
+            "postal_code": "SN5 7EX",
+            "premises": "Basepoint Business Centre Rivermead Industrial Estate"
+          },
+          "address_snippet": "Basepoint Business Centre Rivermead Industrial Estate, Rivermead Drive, Swindon, United Kingdom, SN5 7EX",
+          "company_number": "15251758",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-11-01",
+          "description": "15251758 - Incorporated on 1 November 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15251758"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIAS ARTIFICIAL INTELLIGENCE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": ",Beckton Retail Park",
+            "address_line_2": "Alpine Way",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "E6 6LA",
+            "premises": "4c"
+          },
+          "address_snippet": "4c,Beckton Retail Park, Alpine Way, London, United Kingdom, E6 6LA",
+          "company_number": "11196229",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-02-08",
+          "description": "11196229 - Incorporated on 8 February 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11196229"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI BEAUTY & PERMANENT ARTIST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ocean Village",
+            "country": "England",
+            "locality": "Southampton",
+            "postal_code": "SO14 3XB",
+            "premises": "Enterprise House Ocean Way",
+            "region": "Hampshire"
+          },
+          "address_snippet": "Enterprise House Ocean Way, Ocean Village, Southampton, Hampshire, England, SO14 3XB",
+          "company_number": "14745014",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-03-21",
+          "description": "14745014 - Incorporated on 21 March 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14745014"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AILAB (ARTIFICIAL INTELLIGENCE LABORATORY) LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Clifton Moor Business Village",
+            "address_line_2": "James Nicolson Link",
+            "country": "England",
+            "locality": "York",
+            "postal_code": "YO30 4XG",
+            "premises": "2",
+            "region": "North Yorkshire"
+          },
+          "address_snippet": "2 Clifton Moor Business Village, James Nicolson Link, York, North Yorkshire, England, YO30 4XG",
+          "company_number": "10596605",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-02-02",
+          "description": "10596605 - Incorporated on 2 February 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10596605"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI MARTIAL ARTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "St. Marys Road",
+            "country": "England",
+            "locality": "Tonbridge",
+            "postal_code": "TN9 2NL",
+            "premises": "125",
+            "region": "Kent"
+          },
+          "address_snippet": "125 St. Marys Road, Tonbridge, Kent, England, TN9 2NL",
+          "company_number": "10188582",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-05-19",
+          "description": "10188582 - Incorporated on 19 May 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10188582"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIMD ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "48 West George Street",
+            "country": "Scotland",
+            "locality": "Glasgow",
+            "postal_code": "G2 1BP",
+            "premises": "Clyde Offices"
+          },
+          "address_snippet": "Clyde Offices, 48 West George Street, Glasgow, Scotland, G2 1BP",
+          "company_number": "SC743073",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-09-01",
+          "description": "SC743073 - Incorporated on 1 September 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC743073"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AINETHEON ARTS LTD"
+        },
+        {
+          "address": {
+            "locality": "Aveton Gifford",
+            "postal_code": "TQ7 4PD",
+            "premises": "Lower Stadbury Manor",
+            "region": "Devon"
+          },
+          "address_snippet": "Lower Stadbury Manor, Aveton Gifford, Devon, TQ7 4PD",
+          "company_number": "03052231",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1995-05-02",
+          "description": "03052231 - Incorporated on 2 May 1995",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03052231"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AINSCOUGH CONTEMPORARY ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "128"
+          },
+          "address_snippet": "128 City Road, London, United Kingdom, EC1V 2NX",
+          "company_number": "16010387",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-10-10",
+          "description": "16010387 - Incorporated on 10 October 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16010387"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AINSWORTH ART EDUCATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Aintree Lane",
+            "country": "England",
+            "locality": "Liverpool",
+            "postal_code": "L10 2JJ",
+            "premises": "Old Presbytery"
+          },
+          "address_snippet": "Old Presbytery, Aintree Lane, Liverpool, England, L10 2JJ",
+          "company_number": "15874368",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2024-08-03",
+          "description": "15874368 - Incorporated on 3 August 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15874368"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AINTREE INITIATIVES FOR PERFORMING ARTS CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "15962046",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-09-17",
+          "description": "15962046 - Incorporated on 17 September 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15962046"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "GET YOUR ARTS LTD",
+          "title": "AI PLANNING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wenlock Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N1 7GU",
+            "premises": "20"
+          },
+          "address_snippet": "20 Wenlock Road, London, England, N1 7GU",
+          "company_number": "16147557",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-12-20",
+          "description": "16147557 - Incorporated on 20 December 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16147557"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI-Q ARTIFICIAL INTELLIGENCE QUOTIENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "United Kingdom",
+            "locality": "Wendover",
+            "postal_code": "HP22 6EA",
+            "premises": "32"
+          },
+          "address_snippet": "32 High Street, Wendover, United Kingdom, HP22 6EA",
+          "company_number": "10751002",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-05-03",
+          "description": "10751002 - Incorporated on 3 May 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10751002"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIR+D ARTIFICIAL INTELLIGENCE RETAIL & DESIGN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Finchley Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "NW3 6LH",
+            "premises": "Harben House Harben Parade"
+          },
+          "address_snippet": "Harben House Harben Parade, Finchley Road, London, United Kingdom, NW3 6LH",
+          "company_number": "07001969",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2009-08-26",
+          "description": "07001969 - Incorporated on 26 August 2009",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07001969"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIR ARTIST AGENCY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Wenlock Way",
+            "country": "England",
+            "locality": "Northampton",
+            "postal_code": "NN5 6EB",
+            "premises": "8"
+          },
+          "address_snippet": "8 Wenlock Way, Northampton, England, NN5 6EB",
+          "company_number": "16513214",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-06-12",
+          "description": "16513214 - Incorporated on 12 June 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16513214"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIR ARTISTRY UK LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Allerburn Lea",
+            "locality": "Alnwick",
+            "postal_code": "NE66 2QR",
+            "premises": "189",
+            "region": "Northumberland"
+          },
+          "address_snippet": "189 Allerburn Lea, Alnwick, Northumberland, NE66 2QR",
+          "company_number": "09506648",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-03-24",
+          "description": "09506648 - Incorporated on 24 March 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09506648"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIRBORNE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Walton Highway",
+            "country": "England",
+            "locality": "Wisbech",
+            "postal_code": "PE14 7EB",
+            "premises": "Tudor Lodge Salts Road"
+          },
+          "address_snippet": "Tudor Lodge Salts Road, Walton Highway, Wisbech, England, PE14 7EB",
+          "company_number": "09700738",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-30",
+          "date_of_creation": "2015-07-23",
+          "description": "09700738 - Dissolved on 30 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09700738"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "AIRBRUSH ART SUPPLIES LTD",
+          "title": "AIRBRUSH ART SCHOOL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "London Road South",
+            "address_line_2": "Merstham",
+            "country": "England",
+            "locality": "Redhill",
+            "postal_code": "RH1 3AX",
+            "premises": "89"
+          },
+          "address_snippet": "89 London Road South, Merstham, Redhill, England, RH1 3AX",
+          "company_number": "14400966",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-10-05",
+          "description": "14400966 - Incorporated on 5 October 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14400966"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIRCON ART LTD"
+        },
+        {
+          "address": {},
+          "company_number": "CS007599",
+          "company_type": "scottish-charitable-incorporated-organisation",
+          "description": "CS007599 - Registered externally as SC054337",
+          "description_identifier": [
+            "registered-externally"
+          ],
+          "external_registration_number": "SC054337",
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/CS007599"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIRDRIE MARTIAL ARTS CENTRE"
+        },
+        {
+          "address": {
+            "address_line_1": "Oakworth Road",
+            "country": "England",
+            "locality": "Keighley",
+            "postal_code": "BD21 1SL",
+            "premises": "Springfield Mills"
+          },
+          "address_snippet": "Springfield Mills, Oakworth Road, Keighley, England, BD21 1SL",
+          "company_number": "11944640",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-04-13",
+          "description": "11944640 - Incorporated on 13 April 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11944640"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "AIR VALLEY MARTIAL ARTS LTD",
+          "title": "AIRE VALLEY MARTIAL ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Pear Street",
+            "country": "England",
+            "locality": "Keighley",
+            "postal_code": "BD21 5EZ",
+            "premises": "7"
+          },
+          "address_snippet": "7 Pear Street, Keighley, England, BD21 5EZ",
+          "company_number": "16833382",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-11-05",
+          "description": "16833382 - Incorporated on 5 November 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16833382"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIRE VALLEY MARTIAL ARTS PROJECTS CIC"
+        },
+        {
+          "address": {
+            "locality": "Edinburgh",
+            "po_box": "24238",
+            "postal_code": "EH7 9HR",
+            "premises": "SC825990 - COMPANIES HOUSE DEFAULT ADDRESS"
+          },
+          "address_snippet": "24238, SC825990 - COMPANIES HOUSE DEFAULT ADDRESS, Edinburgh, EH7 9HR",
+          "company_number": "SC825990",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-10-16",
+          "description": "SC825990 - Incorporated on 16 October 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC825990"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIREY ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Homer Road",
+            "country": "England",
+            "locality": "Solihull",
+            "postal_code": "B91 3QG",
+            "premises": "1"
+          },
+          "address_snippet": "1 Homer Road, Solihull, England, B91 3QG",
+          "company_number": "13664915",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-10-06",
+          "description": "13664915 - Incorporated on 6 October 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13664915"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AIR FINE ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hamilton Terrace",
+            "locality": "London",
+            "postal_code": "NW8 9UJ",
+            "premises": "58"
+          },
+          "address_snippet": "58 Hamilton Terrace, London, NW8 9UJ",
+          "company_number": "06804010",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-02-18",
+          "date_of_creation": "2009-01-28",
+          "description": "06804010 - Dissolved on 18 February 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06804010"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "AISHA CAAN FINE ART",
+          "title": "AISHA CAHN FINE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "61 Ashgrove",
+            "country": "England",
+            "locality": "Bradford",
+            "postal_code": "BD7 1BL",
+            "premises": "Flat 3"
+          },
+          "address_snippet": "Flat 3 61 Ashgrove, Bradford, England, BD7 1BL",
+          "company_number": "15290309",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-11-16",
+          "description": "15290309 - Incorporated on 16 November 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15290309"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AI SKIN ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Floor Cordy House",
+            "address_line_2": "87-95 Curtain Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC2A 3BS",
+            "premises": "1st"
+          },
+          "address_snippet": "1st Floor Cordy House, 87-95 Curtain Road, London, United Kingdom, EC2A 3BS",
+          "company_number": "11483565",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-07-25",
+          "description": "11483565 - Incorporated on 25 July 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11483565"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AITCH ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street,",
+            "country": "United Kingdom",
+            "locality": "North Ferriby",
+            "postal_code": "HU14 3JP",
+            "premises": "18",
+            "region": "East Yorkshire"
+          },
+          "address_snippet": "18 High Street,, North Ferriby, East Yorkshire, United Kingdom, HU14 3JP",
+          "company_number": "16057364",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-11-04",
+          "description": "16057364 - Incorporated on 4 November 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16057364"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AITKEN ARTIFACTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "54 Gordon Street",
+            "country": "Scotland",
+            "locality": "Glasgow",
+            "postal_code": "G1 3PU",
+            "premises": "3/7"
+          },
+          "address_snippet": "3/7 54 Gordon Street, Glasgow, Scotland, G1 3PU",
+          "company_number": "SC700172",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-05-28",
+          "description": "SC700172 - Incorporated on 28 May 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC700172"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AITKEN ARTISAN PLASTERWORK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Threshelfords Business Park",
+            "address_line_2": "Inworth Road",
+            "country": "England",
+            "locality": "Feering",
+            "postal_code": "CO5 9SE",
+            "premises": "Unit 3",
+            "region": "Essex"
+          },
+          "address_snippet": "Unit 3 Threshelfords Business Park, Inworth Road, Feering, Essex, England, CO5 9SE",
+          "company_number": "16162657",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-01-03",
+          "description": "16162657 - Incorporated on 3 January 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16162657"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "AIWP - ARTIFICIALLY INTELLIGENT WORKGROUPS LTD",
+          "title": "AIW - ARTIFICIALLY INTELLIGENT WORKGROUPS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Marlborough Road",
+            "country": "England",
+            "locality": "Norwich",
+            "postal_code": "NR3 4PL",
+            "premises": "83"
+          },
+          "address_snippet": "83 Marlborough Road, Norwich, England, NR3 4PL",
+          "company_number": "16666399",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-08-21",
+          "description": "16666399 - Incorporated on 21 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16666399"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AJANTIS ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Drayhorse Drive",
+            "country": "England",
+            "locality": "Bagshot",
+            "postal_code": "GU19 5RF",
+            "premises": "18"
+          },
+          "address_snippet": "18 Drayhorse Drive, Bagshot, England, GU19 5RF",
+          "company_number": "13053163",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-12-01",
+          "description": "13053163 - Incorporated on 1 December 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13053163"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AJ ARTEMIS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Cross Flatts Mount",
+            "country": "England",
+            "locality": "Leeds",
+            "postal_code": "LS11 7BL",
+            "premises": "12"
+          },
+          "address_snippet": "12 Cross Flatts Mount, Leeds, England, LS11 7BL",
+          "company_number": "16962480",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-01-14",
+          "description": "16962480 - Incorporated on 14 January 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16962480"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AJ CREATIVE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "England",
+            "locality": "Chislehurst",
+            "postal_code": "BR7 5AN",
+            "premises": "10a"
+          },
+          "address_snippet": "10a High Street, Chislehurst, England, BR7 5AN",
+          "company_number": "14738417",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-03-17",
+          "description": "14738417 - Incorporated on 17 March 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14738417"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AJ DOUGLAS ARTWORK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Newport Street",
+            "country": "England",
+            "locality": "Oldham",
+            "postal_code": "OL8 4AJ",
+            "premises": "12"
+          },
+          "address_snippet": "12 Newport Street, Oldham, England, OL8 4AJ",
+          "company_number": "11733025",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2018-12-18",
+          "description": "11733025 - Incorporated on 18 December 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11733025"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKA - ALLIANCE OF KASHMIRI ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Saddlecote Close",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M8 5QE",
+            "premises": "75"
+          },
+          "address_snippet": "75 Saddlecote Close, Manchester, England, M8 5QE",
+          "company_number": "12241471",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-10-03",
+          "description": "12241471 - Incorporated on 3 October 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12241471"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AK ACADEMY OF MARTIAL ARTS LTD"
+        },
+        {
+          "address": {
+            "country": "England",
+            "locality": "Leigh-On-Sea",
+            "postal_code": "SS9 1JL",
+            "premises": "Charter House 103-105 Leigh Road"
+          },
+          "address_snippet": "Charter House 103-105 Leigh Road, Leigh-On-Sea, England, SS9 1JL",
+          "company_number": "14034440",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-04-08",
+          "description": "14034440 - Incorporated on 8 April 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14034440"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKA FINE ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Molyneux House 10-11 Molyneux Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1H 5HZ",
+            "premises": "Flat 7"
+          },
+          "address_snippet": "Flat 7 Molyneux House 10-11 Molyneux Street, London, England, W1H 5HZ",
+          "company_number": "16669089",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-08-23",
+          "description": "16669089 - Incorporated on 23 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16669089"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AK ART ADVISOR LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Montpellier Crescent",
+            "country": "England",
+            "locality": "Brighton",
+            "postal_code": "BN1 3JF",
+            "premises": "2"
+          },
+          "address_snippet": "2 Montpellier Crescent, Brighton, England, BN1 3JF",
+          "company_number": "13462223",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-30",
+          "date_of_creation": "2021-06-17",
+          "description": "13462223 - Dissolved on 30 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13462223"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AK ART BEAUTY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Horsforth",
+            "country": "England",
+            "locality": "Leeds",
+            "postal_code": "LS18 5NT",
+            "premises": "Buckle Barton Sanderson House Station Road"
+          },
+          "address_snippet": "Buckle Barton Sanderson House Station Road, Horsforth, Leeds, England, LS18 5NT",
+          "company_number": "10949633",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-09-30",
+          "date_of_creation": "2017-09-06",
+          "description": "10949633 - Dissolved on 30 September 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10949633"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AK ARTWORK COMPANY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Golders Rise",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "NW4 2HX",
+            "premises": "29"
+          },
+          "address_snippet": "29 Golders Rise, London, England, NW4 2HX",
+          "company_number": "14692907",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-27",
+          "description": "14692907 - Incorporated on 27 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14692907"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKIVA BRODER ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Commonwealth Road",
+            "country": "England",
+            "locality": "Caterham",
+            "postal_code": "CR3 6LW",
+            "premises": "99a",
+            "region": "Surrey"
+          },
+          "address_snippet": "99a Commonwealth Road, Caterham, Surrey, England, CR3 6LW",
+          "company_number": "10477839",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2016-11-15",
+          "description": "10477839 - Incorporated on 15 November 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10477839"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKOMAASA PERFORMING ARTS ACADEMY CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "12 Pond Street",
+            "locality": "London",
+            "postal_code": "NW3 2PS",
+            "premises": "Apartment 30"
+          },
+          "address_snippet": "Apartment 30 12 Pond Street, London, NW3 2PS",
+          "company_number": "08396010",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-02-08",
+          "description": "08396010 - Incorporated on 8 February 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08396010"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKS ARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Cowdray Close",
+            "country": "England",
+            "locality": "Leamington Spa",
+            "postal_code": "CV31 1LB",
+            "premises": "17"
+          },
+          "address_snippet": "17 Cowdray Close, Leamington Spa, England, CV31 1LB",
+          "company_number": "15329084",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-12-05",
+          "description": "15329084 - Incorporated on 5 December 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15329084"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKS MAKEUP ARTIST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Willows Lane",
+            "country": "England",
+            "locality": "Bolton",
+            "postal_code": "BL3 4BU",
+            "premises": "Flat Above 172 A Willows Lane"
+          },
+          "address_snippet": "Flat Above 172 A Willows Lane, Willows Lane, Bolton, England, BL3 4BU",
+          "company_number": "16288775",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-03-03",
+          "description": "16288775 - Incorporated on 3 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16288775"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKS O NAQSH - REFLECTION OF ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Broom Hill Road",
+            "country": "England",
+            "locality": "Ipswich",
+            "postal_code": "IP1 4EH",
+            "premises": "36"
+          },
+          "address_snippet": "36 Broom Hill Road, Ipswich, England, IP1 4EH",
+          "company_number": "09896908",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-12-01",
+          "description": "09896908 - Incorporated on 1 December 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09896908"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AK247 ART INSTALLATION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Westmacott House",
+            "address_line_2": "Hatton St",
+            "locality": "London",
+            "postal_code": "NW8 8PR",
+            "premises": "18"
+          },
+          "address_snippet": "18 Westmacott House, Hatton St, London, NW8 8PR",
+          "company_number": "09337751",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-12-02",
+          "description": "09337751 - Incorporated on 2 December 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09337751"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AKU ART (UK) LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Great Portland Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1W 5PF",
+            "premises": "167-169"
+          },
+          "address_snippet": "167-169 Great Portland Street, London, England, W1W 5PF",
+          "company_number": "15454063",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-01-30",
+          "description": "15454063 - Incorporated on 30 January 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15454063"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "A LA ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "49 Beulah Hill",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "SE19 3FF",
+            "premises": "Flat 18"
+          },
+          "address_snippet": "Flat 18 49 Beulah Hill, London, United Kingdom, SE19 3FF",
+          "company_number": "09441836",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-02-16",
+          "description": "09441836 - Incorporated on 16 February 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09441836"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ALAN DERBYSHIRE ART CONSERVATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Parkway Daisyhill",
+            "country": "England",
+            "locality": "Westhoughton",
+            "postal_code": "BL5 2RY",
+            "premises": "2",
+            "region": "Greater Manchester"
+          },
+          "address_snippet": "2 Parkway Daisyhill, Westhoughton, Greater Manchester, England, BL5 2RY",
+          "company_number": "10743813",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-04-27",
+          "description": "10743813 - Incorporated on 27 April 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10743813"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ALAN FRAZER ARTISTES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Byland Road",
+            "country": "United Kingdom",
+            "locality": "Saltburn-By-The-Sea",
+            "postal_code": "TS12 2YW",
+            "premises": "28"
+          },
+          "address_snippet": "28 Byland Road, Saltburn-By-The-Sea, United Kingdom, TS12 2YW",
+          "company_number": "16428654",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-02",
+          "date_of_creation": "2025-05-04",
+          "description": "16428654 - Dissolved on 2 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16428654"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ALANNAH RIDDIOUGH MAKEUP ARTIST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Riverside Studios Amethyst Road",
+            "address_line_2": "Newcastle Business Park",
+            "country": "England",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE4 7YL",
+            "premises": "15"
+          },
+          "address_snippet": "15 Riverside Studios Amethyst Road, Newcastle Business Park, Newcastle Upon Tyne, England, NE4 7YL",
+          "company_number": "04886608",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2003-09-03",
+          "description": "04886608 - Incorporated on 3 September 2003",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04886608"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ALAN REED ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Masons Yard",
+            "address_line_2": "St James",
+            "locality": "London",
+            "postal_code": "SW1Y 6BU",
+            "premises": "22"
+          },
+          "address_snippet": "22 Masons Yard, St James, London, SW1Y 6BU",
+          "company_number": "06797344",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2009-01-21",
+          "description": "06797344 - Incorporated on 21 January 2009",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06797344"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ALAN WHEATLEY ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ardmore Gardens",
+            "address_line_2": "Drymen",
+            "locality": "Glasgow",
+            "postal_code": "G63 0BD",
+            "premises": "1"
+          },
+          "address_snippet": "1 Ardmore Gardens, Drymen, Glasgow, G63 0BD",
+          "company_number": "SC408084",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2011-09-23",
+          "description": "SC408084 - Incorporated on 23 September 2011",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC408084"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AL ARTIFICIAL LAWNS LTD"
+        }
+      ],
+      "items_per_page": 100,
+      "kind": "search#companies",
+      "page_number": 4,
+      "start_index": 300,
+      "total_results": 10000
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Thu, 29 Jan 2026 17:33:00 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=B748475B36F27F08BA584A4944A708C3; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "545",
+    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/search/companies?q=R5E+ART+LIMITED&start_index=300&items_per_page=200"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/search/companies?q=R5E+ART+LIMITED&start_index=300&items_per_page=200"
+}

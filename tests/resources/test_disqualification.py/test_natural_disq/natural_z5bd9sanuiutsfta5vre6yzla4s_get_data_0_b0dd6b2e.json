@@ -1,0 +1,77 @@
+{
+  "content": {
+    "json": {
+      "date_of_birth": "1976-02-15",
+      "disqualifications": [
+        {
+          "address": {
+            "address_line_1": "Castledine Avenue",
+            "address_line_2": "Quorn",
+            "country": "United Kingdom",
+            "locality": "Loughborough",
+            "postal_code": "LE12 8DN",
+            "premises": "35"
+          },
+          "case_identifier": "INV7307917",
+          "company_names": [
+            "ORANGE GENIE PAY LIMITED"
+          ],
+          "disqualification_type": "undertaking",
+          "disqualified_from": "2026-01-27",
+          "disqualified_until": "2033-01-26",
+          "reason": {
+            "act": "company-directors-disqualification-act-1986",
+            "description_identifier": "order-or-undertaking-and-reporting-provisions",
+            "section": "7"
+          },
+          "undertaken_on": "2026-01-06"
+        }
+      ],
+      "etag": "1636c763cd4292690fd02c32ffe757a0699eb27b",
+      "forename": "Paul",
+      "kind": "natural-disqualification",
+      "links": {
+        "self": "/disqualified-officers/natural/z5BD9sANUiUtsFTa5vRE6yZlA4s"
+      },
+      "nationality": "British",
+      "other_forenames": "Anthony",
+      "person_number": "130518540004",
+      "surname": "BRESNIHAN",
+      "title": "Mr"
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Thu, 29 Jan 2026 17:32:51 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=89D54DF00D1F280C21401D8F010FFE43; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "590",
+    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/disqualified-officers/natural/z5BD9sANUiUtsFTa5vRE6yZlA4s"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/disqualified-officers/natural/z5BD9sANUiUtsFTa5vRE6yZlA4s"
+}

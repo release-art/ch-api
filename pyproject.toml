@@ -1,0 +1,147 @@
+[project]
+name = "ch-api"
+description = "Pythonic Company House API"
+authors = [
+    {name = "Ilja Orlovs", email = "VRGhost@users.noreply.github.com"},
+]
+dynamic = ["version"]
+dependencies = ["httpx>=0.28.1", "pydantic>=2.12.5"]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+keywords = [
+    "Companies House",
+    "CH",
+    "restful api",
+    "uk",
+    "united kingdom",
+]
+
+classifiers = [
+        "Environment :: Console",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Development Status :: 4 - Beta",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: MacOS",
+        "Operating System :: Microsoft :: Windows",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-mock>=3.15.1",
+    "pytest-cov>=7.0.0",
+    "pytest-asyncio>=1.3.0",
+    "ruff>=0.14.13",
+    "myst-parser>=5.0.0",
+    "sphinx>=9.0.4",
+    "sphinx-autobuild>=2025.8.25",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-design>=0.7.0",
+    "pydata-sphinx-theme>=0.16.1",
+    "autodoc-pydantic>=2.2.0",
+]
+
+[project.urls]
+Homepage = "https://docs.release.art/ch-api/"
+Documentation = "https://docs.release.art/ch-api/"
+Repository = "https://github.com/release-art/ch-api/"
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.ruff]
+target-version = "py313"
+lint.select = [
+    # https://beta.ruff.rs/docs/rules/
+    "A", # do not shadow bultins - TODO
+    "B",  # flake8-bugbear
+    "C",
+    "E",
+    "F",
+    "I",  # isort
+    "W",  # pycodestyle
+    "N",  # pep8 naming
+    "C4", # list comprehensions
+    "T20", # print()
+    "PTH", # use-pathlib - todo
+]
+lint.ignore = ["N802", "F841"]
+line-length = 120
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    # imported but unused
+    "F401",
+    # E402 Module level import not at top of file
+    "E402",
+]
+
+"bin/**/*.py" = [
+    # print()
+    "T201",
+]
+
+"main.py" = [
+    "B008" # the typer.Option() as default arg
+]
+
+[tool.ruff.lint.isort]
+order-by-type = true
+combine-as-imports = true
+force-wrap-aliases = true
+known-first-party = ["ch_api"]
+forced-separate = ["tests"]
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.version]
+source = "file"
+path = "src/ch_api/__version__.py"
+
+[tool.pdm.scripts]
+doc = {shell = "sphinx-build -b html -W -T -E ./docs ./dist/docs/html", help="Build sphynx docs"}
+lint = {shell = "./bin/autoformat.sh", help = "Lint source with Ruff"}
+
+
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = """\
+    --cache-clear \
+    --code-highlight=yes \
+    --color=yes \
+    --cov=src \
+    --cov-config=pyproject.toml \
+    --cov-report=xml \
+    --cov-report=html \
+    --cov-report=term-missing:skip-covered \
+    -ra \
+    --tb=native \
+    --verbosity=3 \
+"""
+filterwarnings = [
+    "ignore::DeprecationWarning"
+]
+python_files = ["test_*.py",]
+python_classes = ["Test", "Acceptance",]
+python_functions = ["test"]
+testpaths = [
+    "tests/",
+]
+markers = [
+    # Test tags/labels/markers - not using any currently
+]
