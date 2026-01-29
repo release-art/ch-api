@@ -249,6 +249,25 @@ class TestMultipageListIteration:
         async for _ in ml:
             pass  # Exhaust first page
 
+    @pytest.mark.asyncio
+    async def test_len_no_init(self, fetch_fn_mock):
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        with pytest.raises(ValueError) as err:
+            len(ml)
+        assert "Cannot determine length" in str(err.value)
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("total_count", [0, 5, 100])
+    async def test_len_prefiction(self, fetch_fn_mock, total_count):
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=True, total_count=total_count),
+            [MockItem.new(i) for i in range(min(10, total_count))],
+        )
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
+
+        assert len(ml) == total_count
+
 
 class TestMultipageListUtilityMethods:
     """Test utility methods."""
