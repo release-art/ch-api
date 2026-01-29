@@ -1,5 +1,10 @@
 # Companies House API Python Client
 
+[![CI](https://github.com/release-art/ch-api/actions/workflows/ci.yml/badge.svg)](https://github.com/release-art/ch-api/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/release-art/ch-api/actions/workflows/codeql.yml/badge.svg)](https://github.com/release-art/ch-api/actions/workflows/codeql.yml)
+[![License: MPL 2.0](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://img.shields.io/pypi/v/ch-api?logo=python&color=41bb13)](https://pypi.org/project/ch-api)
+
 A comprehensive, asynchronous Python client for the Companies House API, providing real-time access to UK company information including profiles, officers, charges, filing history, and persons with significant control.
 
 ## Features
