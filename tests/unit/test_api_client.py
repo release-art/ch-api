@@ -56,7 +56,7 @@ class TestClientInitialization:
             api.Client(credentials="invalid-string")
 
         assert "credentials must be either" in str(exc_info.value)
-        assert "Got <class 'str'> instead" in str(exc_info.value)
+        assert "got str instead" in str(exc_info.value)
 
     def test_init_with_invalid_credentials_tuple(self):
         """Test initialization fails when credentials are a tuple."""

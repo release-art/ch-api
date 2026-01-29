@@ -18,6 +18,11 @@ See Also:
     https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
 """
 
+__all__ = [
+    "CompaniesHouseApiError",
+    "UnexpectedApiResponseError",
+]
+
 
 class CompaniesHouseApiError(Exception):
     """Base exception for Companies House API errors.

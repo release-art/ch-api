@@ -21,6 +21,11 @@ logger = logging.getLogger(__name__)
 
 T = typing.TypeVar("T")
 
+__all__ = [
+    "UndocumentedNullable",
+    "RelaxedLiteral",
+]
+
 #: Type alias for fields that may be null but this is not documented in the official API.
 #:
 #: This is used to mark fields that the API sometimes returns as ``null`` even though

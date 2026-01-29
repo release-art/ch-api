@@ -339,16 +339,18 @@ class MultipageList(typing.Generic[T]):
         """
         if self.local_len() > desired_item_idx or not self._has_next_page():
             return None
+
         new_page_info = None
         async with self._lock:
             # Double-check after acquiring the lock.
             while self.local_len() <= desired_item_idx and self._has_next_page():
-                if isinstance(self._result_info, SpecialResultInfoState):
-                    last_fetched_page = -1
-                else:
-                    last_fetched_page = self._result_info.page
+                last_fetched_page = (
+                    -1 if isinstance(self._result_info, SpecialResultInfoState) else self._result_info.page
+                )
 
-                first_known_item = last_known_item = None
+                first_known_item = None
+                last_known_item = None
+
                 if self._pages:
                     if first_items := self._pages[0].items:
                         first_known_item = first_items[0]
@@ -366,18 +368,22 @@ class MultipageList(typing.Generic[T]):
                     (new_page_info, new_items) = await self._fetch_page_cb(call_arg)
                 except (httpx.RequestError, exc.CompaniesHouseApiError) as e:
                     logger.exception(f"Failed to fetch page {last_fetched_page + 1}: {e}")
-                    if last_fetched_page == -1:
-                        self._result_info = SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
-                    else:
-                        self._result_info = SpecialResultInfoState.PAGE_FETCH_FAILED
+                    self._result_info = (
+                        SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+                        if last_fetched_page == -1
+                        else SpecialResultInfoState.PAGE_FETCH_FAILED
+                    )
                     return None
+
                 self._max_fetched_page = last_fetched_page + 1
                 self._pages.append(FetchedPageData(items=tuple(new_items), page_info=new_page_info))
+
                 if new_page_info is None:
-                    if last_fetched_page == -1:
-                        self._result_info = SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
-                    else:
-                        self._result_info = SpecialResultInfoState.ALL_PAGES_FETCHED
+                    self._result_info = (
+                        SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+                        if last_fetched_page == -1
+                        else SpecialResultInfoState.ALL_PAGES_FETCHED
+                    )
                 else:
                     assert new_page_info.page == last_fetched_page + 1, (
                         new_page_info.page,
@@ -435,6 +441,26 @@ class MultipageList(typing.Generic[T]):
             A tuple of locally cached pages, each page is a tuple of items.
         """
         return tuple(tuple(page.items) for page in self._pages)
+
+    @property
+    def is_fully_fetched(self) -> bool:
+        """Check if all pages have been fetched from the API.
+
+        Returns:
+            True if all pages have been fetched and cached locally, False otherwise.
+
+        Example:
+            Check before performing operations that require all data::
+
+                results = await client.search_companies("Apple")
+                if not results.is_fully_fetched:
+                    await results.fetch_all_pages()
+
+                # Now safe to perform bulk operations
+                for company in results.local_items():
+                    process(company)
+        """
+        return not self._has_next_page()
 
     def __len__(self) -> int:
         """Return the total number of items reported by the API.

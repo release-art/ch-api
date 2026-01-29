@@ -184,3 +184,23 @@ See LICENSE file for details.
 """
 
 from . import __version__, api, api_settings, exc, types
+
+__all__ = [
+    "__version__",
+    "api",
+    "api_settings",
+    "exc",
+    "types",
+    "Client",
+    "AuthSettings",
+    "ApiSettings",
+    "LIVE_API_SETTINGS",
+    "TEST_API_SETTINGS",
+]
+
+# Convenience imports for common classes
+Client = api.Client
+AuthSettings = api_settings.AuthSettings
+ApiSettings = api_settings.ApiSettings
+LIVE_API_SETTINGS = api_settings.LIVE_API_SETTINGS
+TEST_API_SETTINGS = api_settings.TEST_API_SETTINGS

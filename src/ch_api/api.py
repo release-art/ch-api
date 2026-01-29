@@ -144,6 +144,7 @@ class Client:
     _api_session: httpx.AsyncClient
     _api_limiter: LimiterContextT
     _settings: api_settings.ApiSettings
+    _owns_session: bool  # Track if we created the session (for cleanup)
 
     def __init__(
         self,
@@ -214,6 +215,11 @@ class Client:
 
             client = Client(credentials=auth, api_limiter=rate_limiter)
 
+        Use as async context manager for automatic cleanup::
+
+            async with Client(credentials=auth) as client:
+                company = await client.get_company_profile("09370755")
+
         See Also
         --------
         ch_api.api_settings.AuthSettings : API key credential container
@@ -223,6 +229,7 @@ class Client:
         self._settings = settings
         if isinstance(credentials, httpx.AsyncClient):
             self._api_session = credentials
+            self._owns_session = False
         elif isinstance(credentials, api_settings.AuthSettings):
             auth = httpx.BasicAuth(username=credentials.api_key, password="")
             self._api_session = httpx.AsyncClient(
@@ -231,16 +238,56 @@ class Client:
                     "ACCEPT": "application/json",
                 },
             )
+            self._owns_session = True
         else:
             raise ValueError(
-                "credentials must be either a tuple of (api_username: str, api_key: str) "
-                "or an instance of httpx.AsyncClient."
-                f"Got {type(credentials)} instead."
+                f"credentials must be either an AuthSettings instance or an httpx.AsyncClient, "
+                f"got {type(credentials).__name__} instead."
             )
         if api_limiter is None:
             self._api_limiter = _noop_limiter
         else:
             self._api_limiter = api_limiter
+
+    async def __aenter__(self) -> "Client":
+        """Enter async context manager."""
+        return self
+
+    async def __aexit__(
+        self,
+        exc_type: typing.Optional[typing.Type[BaseException]],
+        exc_val: typing.Optional[BaseException],
+        exc_tb: typing.Optional[typing.Any],
+    ) -> None:
+        """Exit async context manager and cleanup resources."""
+        await self.aclose()
+
+    async def aclose(self) -> None:
+        """Close the HTTP session if owned by this client.
+
+        This method should be called when you're done with the client to properly
+        clean up network resources. If the client was initialized with an
+        AuthSettings object (meaning it created its own session), this will close
+        the underlying HTTP session. If initialized with an external AsyncClient,
+        the session is not closed as it's assumed to be managed externally.
+
+        Example
+        -------
+        Manual cleanup::
+
+            client = Client(credentials=auth)
+            try:
+                company = await client.get_company_profile("09370755")
+            finally:
+                await client.aclose()
+
+        Or use as context manager for automatic cleanup::
+
+            async with Client(credentials=auth) as client:
+                company = await client.get_company_profile("09370755")
+        """
+        if self._owns_session:
+            await self._api_session.aclose()
 
     async def _execute_request(
         self,
@@ -589,20 +636,26 @@ class Client:
         typing.Optional[types.pagination.types.PaginatedResultInfo],
         typing.Optional[types.public_data.search_companies.AlphabeticalCompanySearchResult[ModelT]],
     ]:
+        # Alphabetical search uses cursor-based pagination with search_above/search_below
+        # parameters. Currently only forward pagination (search_below) is implemented.
+        # Backward pagination would require tracking search_above cursors from previous pages.
         if target.last_fetched_page > 0:
-            # FIXME: We can't page further back than the first page currently.
             return (None, None)
+
         search_below = target.last_known_item.ordered_alpha_key_with_id if target.last_known_item else None
         search_above = target.first_known_item.ordered_alpha_key_with_id if target.first_known_item else None
+
         if (None in (search_above, search_below)) and target.last_fetched_page > 0:
             # search_below = None indicates start of list, so if we have already fetched at least one page
             return (None, None)
+
         my_query_params = query_params.copy()
         if search_above is not None:
             my_query_params["search_above"] = search_above
         if search_below is not None:
             my_query_params["search_below"] = search_below
         assert my_query_params
+
         this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
         request = self._api_session.build_request(
             method="GET",
@@ -1213,21 +1266,52 @@ class Client:
             convert_item_fn=lambda fetched_list: fetched_list.items or (),
         )
 
+    async def _get_psc_by_type(
+        self,
+        company_number: str,
+        psc_id: str,
+        psc_type: str,
+        result_type: typing.Type[ModelT],
+    ) -> ModelT:
+        """Helper method to fetch PSC records by type.
+
+        This reduces code duplication across the multiple PSC endpoint methods.
+
+        Parameters
+        ----------
+        company_number : str
+            The company number
+        psc_id : str
+            The PSC identifier
+        psc_type : str
+            The PSC type path component (e.g., 'individual', 'corporate-entity')
+        result_type : Type[ModelT]
+            The expected response model type
+
+        Returns
+        -------
+        ModelT
+            The validated PSC record
+        """
+        url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/{psc_type}/{psc_id}"
+        request = self._api_session.build_request(
+            method="GET",
+            url=url,
+        )
+        return await self._execute_request(request, result_type)
+
     @pydantic.validate_call
     async def get_company_corporate_psc(
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.CorporateEntity:
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/"
-            f"persons-with-significant-control/corporate-entity/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "corporate-entity",
+            types.public_data.psc.CorporateEntity,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.CorporateEntity)
 
     @pydantic.validate_call
     async def get_company_corporate_psc_beneficial_owner(
@@ -1235,16 +1319,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.CorporateEntityBeneficialOwner:
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/"
-            f"persons-with-significant-control/"
-            f"corporate-entity-beneficial-owner/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "corporate-entity-beneficial-owner",
+            types.public_data.psc.CorporateEntityBeneficialOwner,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.CorporateEntityBeneficialOwner)
 
     @pydantic.validate_call
     async def get_company_individual_psc_beneficial_owner(
@@ -1252,16 +1332,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.IndividualBeneficialOwner:
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/"
-            f"persons-with-significant-control/"
-            f"individual-beneficial-owner/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "individual-beneficial-owner",
+            types.public_data.psc.IndividualBeneficialOwner,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.IndividualBeneficialOwner)
 
     @pydantic.validate_call
     async def get_company_individual_psc(
@@ -1269,12 +1345,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.Individual:
-        url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/individual/{psc_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "individual",
+            types.public_data.psc.Individual,
         )
-        return await self._execute_request(request, types.public_data.psc.Individual)
 
     @pydantic.validate_call
     async def get_company_legal_person_psc_beneficial_owner(
@@ -1282,16 +1358,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.LegalPersonBeneficialOwner:
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/"
-            f"persons-with-significant-control/"
-            f"legal-person-beneficial-owner/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "legal-person-beneficial-owner",
+            types.public_data.psc.LegalPersonBeneficialOwner,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.LegalPersonBeneficialOwner)
 
     @pydantic.validate_call
     async def get_company_legal_person_psc(
@@ -1299,14 +1371,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.LegalPerson:
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/legal-person/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "legal-person",
+            types.public_data.psc.LegalPerson,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.LegalPerson)
 
     @pydantic.validate_call
     async def get_company_super_secure_psc(
@@ -1314,14 +1384,12 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.SuperSecure:  # pragma: no cover - can't test
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/super-secure/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "super-secure",
+            types.public_data.psc.SuperSecure,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.SuperSecure)
 
     @pydantic.validate_call
     async def get_company_super_secure_beneficial_owner_psc(
@@ -1329,13 +1397,9 @@ class Client:
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
     ) -> types.public_data.psc.SuperSecureBeneficialOwner:  # pragma: no cover - can't test
-        url = (
-            f"{self._settings.api_url}/company/{company_number}/"
-            f"persons-with-significant-control/"
-            f"super-secure-beneficial-owner/{psc_id}"
+        return await self._get_psc_by_type(
+            company_number,
+            psc_id,
+            "super-secure-beneficial-owner",
+            types.public_data.psc.SuperSecureBeneficialOwner,
         )
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.psc.SuperSecureBeneficialOwner)

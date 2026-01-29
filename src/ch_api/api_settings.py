@@ -34,6 +34,13 @@ See Also:
 
 import dataclasses
 
+__all__ = [
+    "AuthSettings",
+    "ApiSettings",
+    "LIVE_API_SETTINGS",
+    "TEST_API_SETTINGS",
+]
+
 
 @dataclasses.dataclass(frozen=True, kw_only=True)
 class AuthSettings:
