@@ -16,17 +16,17 @@ class MockItem(base.BaseModel):
     value: str
     id: int
 
+    @classmethod
+    def new(cls, val: int) -> "MockItem":
+        """Create a new MockItem with given id."""
+        return cls(value=f"item-{val}", id=val)
+
 
 @pytest.fixture
 def fetch_fn_mock(mocker):
     """Fixture for a mock fetch_page function."""
-    return mocker.AsyncMock(name="mock_fetch_page")
-
-
-@pytest.fixture
-def multipage_list(fetch_fn_mock):
-    """Fixture for a MultipageList with a mock fetch_page function."""
-    return paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+    out = mocker.AsyncMock(name="mock_fetch_page")
+    return out
 
 
 class TestMultipageListErrorHandling:
@@ -39,7 +39,7 @@ class TestMultipageListErrorHandling:
         fetch_fn_mock.side_effect = [
             (
                 types.PaginatedResultInfo(page=0, has_next=True),
-                [MockItem(value="item1", id=1)],
+                [MockItem.new(1)],
             ),
             httpx.RequestError("Network error"),
         ]
@@ -65,7 +65,7 @@ class TestMultipageListErrorHandling:
         fetch_fn_mock.side_effect = [
             (
                 types.PaginatedResultInfo(page=0, has_next=True),
-                [MockItem(value="item1", id=1)],
+                [MockItem.new(1)],
             ),
             exc.CompaniesHouseApiError("API error"),
         ]
@@ -101,9 +101,9 @@ class TestMultipageListErrorHandling:
         fetch_fn_mock.side_effect = [
             (
                 types.PaginatedResultInfo(page=0, has_next=True),
-                [MockItem(value="item1", id=1)],
+                [MockItem.new(1)],
             ),
-            (None, [MockItem(value="item2", id=2)]),
+            (None, [MockItem.new(2)]),
         ]
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
@@ -118,7 +118,7 @@ class TestMultipageListErrorHandling:
     @pytest.mark.asyncio
     async def test_fetch_page_returns_none_page_info_on_first_page(self, fetch_fn_mock):
         """Test when first page returns None for page_info (line 395)."""
-        fetch_fn_mock.return_value = (None, [MockItem(value="item1", id=1)])
+        fetch_fn_mock.return_value = (None, [MockItem.new(1)])
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
 
@@ -139,7 +139,7 @@ class TestMultipageListIteration:
         fetch_fn_mock.side_effect = [
             (
                 types.PaginatedResultInfo(page=0, has_next=False),
-                [MockItem(value=f"item{i}", id=i) for i in range(2)],
+                [MockItem.new(i) for i in range(2)],
             ),
             (None, []),
         ]
@@ -160,7 +160,7 @@ class TestMultipageListIteration:
         """Test __aiter__ breaks when IndexError occurs and idx >= len (lines 404-406)."""
         fetch_fn_mock.return_value = (
             types.PaginatedResultInfo(page=0, has_next=False),
-            [MockItem(value=f"item{i}", id=i) for i in range(2)],
+            [MockItem.new(i) for i in range(2)],
         )
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
@@ -174,6 +174,19 @@ class TestMultipageListIteration:
         assert len(items) == 2
         # This test verifies the break path (line 406) gets executed
 
+    @pytest.mark.asyncio
+    async def test_aiter_errs_on_negative_idx(self, fetch_fn_mock):
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=False),
+            [MockItem.new(i) for i in range(2)],
+        )
+
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
+
+        with pytest.raises(IndexError):
+            await ml[-1]
+
 
 class TestMultipageListUtilityMethods:
     """Test utility methods."""
@@ -184,11 +197,11 @@ class TestMultipageListUtilityMethods:
         fetch_fn_mock.side_effect = [
             (
                 types.PaginatedResultInfo(page=0, has_next=True),
-                [MockItem(value=f"item{i}", id=i) for i in range(3)],
+                [MockItem.new(i) for i in range(3)],
             ),
             (
                 types.PaginatedResultInfo(page=1, has_next=False),
-                [MockItem(value=f"item{i}", id=i) for i in range(3, 6)],
+                [MockItem.new(i) for i in range(3, 6)],
             ),
             (None, []),
         ]
@@ -212,7 +225,7 @@ class TestMultipageListUtilityMethods:
         """Test __len__ returns local_len when all pages fetched (lines 448-454)."""
         fetch_fn_mock.return_value = (
             types.PaginatedResultInfo(page=0, has_next=False),
-            [MockItem(value=f"item{i}", id=i) for i in range(3)],
+            [MockItem.new(i) for i in range(3)],
         )
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
@@ -228,7 +241,7 @@ class TestMultipageListUtilityMethods:
         """Test __repr__ method (line 457)."""
         fetch_fn_mock.return_value = (
             types.PaginatedResultInfo(page=0, has_next=False, total_count=2),
-            [MockItem(value=f"item{i}", id=i) for i in range(2)],
+            [MockItem.new(i) for i in range(2)],
         )
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
@@ -244,7 +257,7 @@ class TestMultipageListUtilityMethods:
         """Test model_dump method (line 465)."""
         fetch_fn_mock.return_value = (
             types.PaginatedResultInfo(page=0, has_next=False),
-            [MockItem(value="test1", id=1), MockItem(value="test2", id=2)],
+            [MockItem.new(1), MockItem.new(2)],
         )
 
         ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
@@ -253,13 +266,13 @@ class TestMultipageListUtilityMethods:
         # Test model_dump with json mode (line 465)
         dumped = ml.model_dump(mode="json")
         assert len(dumped) == 2
-        assert dumped[0] == {"value": "test1", "id": 1}
-        assert dumped[1] == {"value": "test2", "id": 2}
+        assert dumped[0] == {"value": "item-1", "id": 1}
+        assert dumped[1] == {"value": "item-2", "id": 2}
 
         # Test model_dump with python mode
         dumped_python = ml.model_dump(mode="python")
         assert len(dumped_python) == 2
-        assert dumped_python[0] == {"value": "test1", "id": 1}
+        assert dumped_python[0] == {"value": "item-1", "id": 1}
 
 
 class TestMultipageListPydanticSchema:
