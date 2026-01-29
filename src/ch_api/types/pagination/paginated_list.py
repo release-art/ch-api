@@ -403,17 +403,19 @@ class MultipageList(typing.Generic[T]):
         return self.local_items()[index]
 
     async def __aiter__(self) -> typing.AsyncIterator[T]:
-        idx = 0
-        for idx in range(len(self)):
-            try:
-                yield await self[idx]
-            except IndexError:
-                # Double check that this is an actual IndexError, or the __len__
-                # has changed due to Companies House API inconsistencies.
-                if idx >= len(self):
-                    break
+        cur_page_idx = 0
+        while len(self._pages) > cur_page_idx:
+            page = self._pages[cur_page_idx]
+            for item in page.items:
+                yield item
+            cur_page_idx += 1
+            if len(self._pages) <= cur_page_idx:
+                # need to fetch next page
+                if self._has_next_page():
+                    await self._fetch_page_to_item_idx(self.local_len() + 1)
                 else:
-                    raise
+                    # no more pages
+                    break
 
     def local_items(self) -> typing.Tuple[T, ...]:
         """Return the items that have been locally cached without making API calls.
@@ -474,7 +476,12 @@ class MultipageList(typing.Generic[T]):
         if self._has_next_page():
             # while the list was not fully fetched,
             # return an estimate based on the total_count from result_info
-            out = self._result_info.total_count
+            if isinstance(self._result_info, types.PaginatedResultInfo):
+                if self._result_info.total_count is None:
+                    raise ValueError("Cannot determine length: total_count is not available in result_info.")
+                out = self._result_info.total_count
+            else:
+                raise ValueError("Cannot determine length: first page not yet fetched.")
         else:
             out = self.local_len()
         return out

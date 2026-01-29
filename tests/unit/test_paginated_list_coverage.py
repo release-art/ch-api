@@ -187,6 +187,68 @@ class TestMultipageListIteration:
         with pytest.raises(IndexError):
             await ml[-1]
 
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("unexpected_len_change", [True, False])
+    async def test_index_error_on_len_change(self, fetch_fn_mock, unexpected_len_change):
+        first_rv = (
+            types.PaginatedResultInfo(page=0, has_next=True, total_count=100),
+            [MockItem.new(i) for i in range(2)],
+        )
+        if unexpected_len_change:
+            second_rv = (
+                types.PaginatedResultInfo(page=1, has_next=True, total_count=4),
+                [MockItem.new(2)],
+            )
+        else:
+            second_rv = (
+                types.PaginatedResultInfo(page=1, has_next=True, total_count=4),
+                [MockItem.new(i) for i in range(2, 4)],
+            )
+
+        third_rv = (
+            types.PaginatedResultInfo(page=2, has_next=False, total_count=1),
+            [],
+        )
+
+        fetch_fn_mock.side_effect = [first_rv, second_rv, third_rv]
+
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
+        assert not ml.is_fully_fetched
+
+        async for _ in ml:
+            pass  # Exhaust first page
+
+        assert ml.is_fully_fetched
+
+    @pytest.mark.asyncio
+    async def test_iter_unknown_len(self, fetch_fn_mock):
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=True, total_count=None),
+                [MockItem.new(i) for i in range(2)],
+            ),
+            (
+                types.PaginatedResultInfo(page=1, has_next=True, total_count=None),
+                [MockItem.new(i) for i in range(2)],
+            ),
+            (
+                types.PaginatedResultInfo(page=2, has_next=False, total_count=None),
+                [MockItem.new(i) for i in range(100)],
+            ),
+        ]
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
+        assert not ml.is_fully_fetched
+
+        with pytest.raises(ValueError) as err:
+            len(ml)
+
+        assert "Cannot determine length" in str(err.value)
+
+        async for _ in ml:
+            pass  # Exhaust first page
+
 
 class TestMultipageListUtilityMethods:
     """Test utility methods."""
