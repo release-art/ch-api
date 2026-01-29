@@ -17,191 +17,158 @@ class MockItem(base.BaseModel):
     id: int
 
 
+@pytest.fixture
+def fetch_fn_mock(mocker):
+    """Fixture for a mock fetch_page function."""
+    return mocker.AsyncMock(name="mock_fetch_page")
+
+
+@pytest.fixture
+def multipage_list(fetch_fn_mock):
+    """Fixture for a MultipageList with a mock fetch_page function."""
+    return paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+
+
 class TestMultipageListErrorHandling:
     """Test error handling in MultipageList."""
 
     @pytest.mark.asyncio
-    async def test_fetch_page_with_httpx_request_error(self):
+    async def test_fetch_page_with_httpx_request_error(self, fetch_fn_mock):
         """Test that httpx.RequestError during page fetch is handled (lines 367-373)."""
+        # Configure mock to succeed on first page, fail on second
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=True),
+                [MockItem(value="item1", id=1)],
+            ),
+            httpx.RequestError("Network error"),
+        ]
 
-        # Create a callback that raises httpx.RequestError
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            if target.last_fetched_page == -1:
-                # First page succeeds
-                return (
-                    types.PaginatedResultInfo(
-                        page=0,
-                        has_next=True,
-                    ),
-                    [MockItem(value="item1", id=1)],
-                )
-            else:
-                # Second page fails with httpx.RequestError
-                raise httpx.RequestError("Network error")
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # First item should work
-        first_item = await multipage_list[0]
+        first_item = await ml[0]
         assert first_item.id == 1
 
         # Try to fetch second item (which should trigger the error)
-        result = await multipage_list._fetch_page_to_item_idx(1)
+        result = await ml._fetch_page_to_item_idx(1)
 
         # Should return None and set state to PAGE_FETCH_FAILED (line 373)
         assert result is None
-        assert multipage_list._result_info == paginated_list.SpecialResultInfoState.PAGE_FETCH_FAILED
+        assert ml._result_info == paginated_list.SpecialResultInfoState.PAGE_FETCH_FAILED
 
     @pytest.mark.asyncio
-    async def test_fetch_page_with_companies_house_api_error(self):
+    async def test_fetch_page_with_companies_house_api_error(self, fetch_fn_mock):
         """Test that CompaniesHouseApiError during page fetch is handled (lines 367-373)."""
+        # Configure mock to succeed on first page, fail on second
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=True),
+                [MockItem(value="item1", id=1)],
+            ),
+            exc.CompaniesHouseApiError("API error"),
+        ]
 
-        # Create a callback that raises CompaniesHouseApiError
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            if target.last_fetched_page == -1:
-                # First page succeeds
-                return (
-                    types.PaginatedResultInfo(
-                        page=0,
-                        has_next=True,
-                    ),
-                    [MockItem(value="item1", id=1)],
-                )
-            else:
-                # Second page fails with CompaniesHouseApiError
-                raise exc.CompaniesHouseApiError("API error")
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Try to fetch second item
-        result = await multipage_list._fetch_page_to_item_idx(1)
+        result = await ml._fetch_page_to_item_idx(1)
 
         # Should return None and set state to PAGE_FETCH_FAILED
         assert result is None
-        assert multipage_list._result_info == paginated_list.SpecialResultInfoState.PAGE_FETCH_FAILED
+        assert ml._result_info == paginated_list.SpecialResultInfoState.PAGE_FETCH_FAILED
 
     @pytest.mark.asyncio
-    async def test_fetch_page_error_on_first_page(self):
+    async def test_fetch_page_error_on_first_page(self, fetch_fn_mock):
         """Test that error on first page sets FIRST_PAGE_FETCH_FAILED (line 371)."""
+        fetch_fn_mock.side_effect = httpx.RequestError("Network error on first page")
 
-        # Create a callback that fails on first page
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            raise httpx.RequestError("Network error on first page")
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
 
         # Try to initialize (which fetches first page)
-        result = await multipage_list._fetch_page_to_item_idx(0)
+        result = await ml._fetch_page_to_item_idx(0)
 
         # Should return None and set state to FIRST_PAGE_FETCH_FAILED (line 371)
         assert result is None
-        assert multipage_list._result_info == paginated_list.SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+        assert ml._result_info == paginated_list.SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
 
     @pytest.mark.asyncio
-    async def test_fetch_page_returns_none_page_info(self):
+    async def test_fetch_page_returns_none_page_info(self, fetch_fn_mock):
         """Test handling when new_page_info is None (lines 394-397)."""
-        fetch_count = 0
+        # First page succeeds, second returns None for page_info
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=True),
+                [MockItem(value="item1", id=1)],
+            ),
+            (None, [MockItem(value="item2", id=2)]),
+        ]
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            nonlocal fetch_count
-            fetch_count += 1
-
-            if fetch_count == 1:
-                # First page succeeds
-                return (
-                    types.PaginatedResultInfo(
-                        page=0,
-                        has_next=True,
-                    ),
-                    [MockItem(value="item1", id=1)],
-                )
-            else:
-                # Second fetch returns None for page_info (lines 394-397)
-                return (None, [MockItem(value="item2", id=2)])
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Try to fetch second item
-        result = await multipage_list._fetch_page_to_item_idx(1)
+        result = await ml._fetch_page_to_item_idx(1)
 
         # Should set state to ALL_PAGES_FETCHED (line 397)
-        assert multipage_list._result_info == paginated_list.SpecialResultInfoState.ALL_PAGES_FETCHED
+        assert ml._result_info == paginated_list.SpecialResultInfoState.ALL_PAGES_FETCHED
 
     @pytest.mark.asyncio
-    async def test_fetch_page_returns_none_page_info_on_first_page(self):
+    async def test_fetch_page_returns_none_page_info_on_first_page(self, fetch_fn_mock):
         """Test when first page returns None for page_info (line 395)."""
+        fetch_fn_mock.return_value = (None, [MockItem(value="item1", id=1)])
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            # First page returns None for page_info
-            return (None, [MockItem(value="item1", id=1)])
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
 
         # Try to initialize
-        result = await multipage_list._fetch_page_to_item_idx(0)
+        result = await ml._fetch_page_to_item_idx(0)
 
         # Should set state to FIRST_PAGE_FETCH_FAILED (line 395)
-        assert multipage_list._result_info == paginated_list.SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+        assert ml._result_info == paginated_list.SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
 
 
 class TestMultipageListIteration:
     """Test iteration edge cases."""
 
     @pytest.mark.asyncio
-    async def test_aiter_with_index_error_and_len_changed(self):
+    async def test_aiter_with_index_error_and_len_changed(self, fetch_fn_mock):
         """Test __aiter__ exception handling when __len__ changes (lines 400-410)."""
-        # Create a list that changes length during iteration
-        fetch_count = 0
+        # First page reports 5 items but only returns 2
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=False),
+                [MockItem(value=f"item{i}", id=i) for i in range(2)],
+            ),
+            (None, []),
+        ]
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            nonlocal fetch_count
-            fetch_count += 1
-
-            if fetch_count == 1:
-                # First page reports 5 items but only returns 2
-                return (
-                    types.PaginatedResultInfo(
-                        page=0,
-                        has_next=False,
-                    ),
-                    [MockItem(value=f"item{i}", id=i) for i in range(2)],
-                )
-            return (None, [])
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Iteration should handle the inconsistency
         items = []
-        async for item in multipage_list:
+        async for item in ml:
             items.append(item)
 
-        # Should only get 2 items despite total_count being 5
+        # Should only get 2 items
         assert len(items) == 2
 
     @pytest.mark.asyncio
-    async def test_aiter_with_break_on_index_error(self):
+    async def test_aiter_with_break_on_index_error(self, fetch_fn_mock):
         """Test __aiter__ breaks when IndexError occurs and idx >= len (lines 404-406)."""
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=False),
+            [MockItem(value=f"item{i}", id=i) for i in range(2)],
+        )
 
-        # Create a list where total_count is accurate
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            return (
-                types.PaginatedResultInfo(
-                    page=0,
-                    has_next=False,
-                ),
-                [MockItem(value=f"item{i}", id=i) for i in range(2)],
-            )
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Normal iteration should work fine
         items = []
-        async for item in multipage_list:
+        async for item in ml:
             items.append(item)
 
         assert len(items) == 2
@@ -212,31 +179,28 @@ class TestMultipageListUtilityMethods:
     """Test utility methods."""
 
     @pytest.mark.asyncio
-    async def test_local_pages(self):
+    async def test_local_pages(self, fetch_fn_mock):
         """Test local_pages method (line 437)."""
+        fetch_fn_mock.side_effect = [
+            (
+                types.PaginatedResultInfo(page=0, has_next=True),
+                [MockItem(value=f"item{i}", id=i) for i in range(3)],
+            ),
+            (
+                types.PaginatedResultInfo(page=1, has_next=False),
+                [MockItem(value=f"item{i}", id=i) for i in range(3, 6)],
+            ),
+            (None, []),
+        ]
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            page_num = target.last_fetched_page + 1
-            if page_num == 0:
-                return (
-                    types.PaginatedResultInfo(page=0, has_next=True),
-                    [MockItem(value=f"item{i}", id=i) for i in range(3)],
-                )
-            elif page_num == 1:
-                return (
-                    types.PaginatedResultInfo(page=1, has_next=False),
-                    [MockItem(value=f"item{i}", id=i) for i in range(3, 6)],
-                )
-            return (None, [])
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Fetch second page
-        await multipage_list._fetch_page_to_item_idx(5)
+        await ml._fetch_page_to_item_idx(5)
 
         # Test local_pages (line 437)
-        pages = multipage_list.local_pages()
+        pages = ml.local_pages()
         assert len(pages) == 2
         assert len(pages[0]) == 3
         assert len(pages[1]) == 3
@@ -244,62 +208,56 @@ class TestMultipageListUtilityMethods:
         assert pages[1][0].id == 3
 
     @pytest.mark.asyncio
-    async def test_len_when_all_pages_fetched(self):
+    async def test_len_when_all_pages_fetched(self, fetch_fn_mock):
         """Test __len__ returns local_len when all pages fetched (lines 448-454)."""
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=False),
+            [MockItem(value=f"item{i}", id=i) for i in range(3)],
+        )
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            return (
-                types.PaginatedResultInfo(page=0, has_next=False),
-                [MockItem(value=f"item{i}", id=i) for i in range(3)],
-            )
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Since has_next=False, all pages are fetched
         # __len__ should return local_len (line 453)
-        assert len(multipage_list) == 3
-        assert not multipage_list._has_next_page()
+        assert len(ml) == 3
+        assert not ml._has_next_page()
 
     @pytest.mark.asyncio
-    async def test_repr(self):
+    async def test_repr(self, fetch_fn_mock):
         """Test __repr__ method (line 457)."""
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=False, total_count=2),
+            [MockItem(value=f"item{i}", id=i) for i in range(2)],
+        )
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            return (
-                types.PaginatedResultInfo(page=0, has_next=False, total_count=2),
-                [MockItem(value=f"item{i}", id=i) for i in range(2)],
-            )
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Test __repr__ (line 457)
-        repr_str = repr(multipage_list)
+        repr_str = repr(ml)
         assert "MultipageList" in repr_str
         assert "_pages" in repr_str or "FetchedPageData" in repr_str
 
     @pytest.mark.asyncio
-    async def test_model_dump(self):
+    async def test_model_dump(self, fetch_fn_mock):
         """Test model_dump method (line 465)."""
+        fetch_fn_mock.return_value = (
+            types.PaginatedResultInfo(page=0, has_next=False),
+            [MockItem(value="test1", id=1), MockItem(value="test2", id=2)],
+        )
 
-        async def fetch_page_cb(target: types.FetchPageCallArg):
-            return (
-                types.PaginatedResultInfo(page=0, has_next=False),
-                [MockItem(value="test1", id=1), MockItem(value="test2", id=2)],
-            )
-
-        multipage_list = paginated_list.MultipageList(fetch_page=fetch_page_cb)
-        await multipage_list._async_init()
+        ml = paginated_list.MultipageList(fetch_page=fetch_fn_mock)
+        await ml._async_init()
 
         # Test model_dump with json mode (line 465)
-        dumped = multipage_list.model_dump(mode="json")
+        dumped = ml.model_dump(mode="json")
         assert len(dumped) == 2
         assert dumped[0] == {"value": "test1", "id": 1}
         assert dumped[1] == {"value": "test2", "id": 2}
 
         # Test model_dump with python mode
-        dumped_python = multipage_list.model_dump(mode="python")
+        dumped_python = ml.model_dump(mode="python")
         assert len(dumped_python) == 2
         assert dumped_python[0] == {"value": "test1", "id": 1}
 
