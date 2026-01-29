@@ -308,6 +308,67 @@ class Client:
             return expected_out.model_validate(response.json())
         return None
 
+    async def _get_resource(
+        self,
+        url: str,
+        result_type: typing.Type[ModelT],
+    ) -> ModelT:
+        """Helper method for simple GET requests.
+
+        Reduces duplication for endpoints that just need to fetch a resource.
+
+        Parameters
+        ----------
+        url : str
+            The full API endpoint URL
+        result_type : Type[ModelT]
+            The expected response model type
+
+        Returns
+        -------
+        ModelT
+            The validated API response
+        """
+        request = self._api_session.build_request(method="GET", url=url)
+        return await self._execute_request(request, result_type)
+
+    async def _create_paginated_list(
+        self,
+        output_t: typing.Type[ModelT],
+        base_url: str,
+        query_params: dict[str, typing.Union[str, list[str]]],
+        items_per_page: int = 200,
+    ) -> types.pagination.paginated_list.MultipageList[ModelT]:
+        """Helper to create and initialize a paginated list for search endpoints.
+
+        Parameters
+        ----------
+        output_t : Type[ModelT]
+            The type of items in the list
+        base_url : str
+            The base API endpoint URL
+        query_params : dict
+            Query parameters for the search
+        items_per_page : int
+            Number of items per page (default: 200)
+
+        Returns
+        -------
+        MultipageList[ModelT]
+            Initialized paginated list ready for iteration
+        """
+        result = types.pagination.paginated_list.MultipageList(
+            fetch_page=lambda target: self._get_paginated_search_result(
+                output_t=output_t,
+                base_url=base_url,
+                query_params=query_params,
+                target=target,
+                items_per_page=items_per_page,
+            ),
+        )
+        await result._async_init()
+        return result
+
     @pydantic.validate_call
     async def create_test_company(
         self, company: types.test_data_generator.CreateTestCompanyRequest
@@ -351,12 +412,10 @@ class Client:
             types.public_data.company_profile.CompanyProfile
                 The company profile data.
         """
-        url = f"{self._settings.api_url}/company/{company_number}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}",
+            types.public_data.company_profile.CompanyProfile,
         )
-        return await self._execute_request(request, types.public_data.company_profile.CompanyProfile)
 
     @pydantic.validate_call
     async def registered_office_address(
@@ -374,13 +433,8 @@ class Client:
             types.public_data.registered_office.RegisteredOfficeAddress
                 The registered office address data for the company.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/registered-office-address"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(
-            request,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/registered-office-address",
             types.public_data.registered_office.RegisteredOfficeAddress,
         )
 
@@ -398,13 +452,9 @@ class Client:
         }
         assert my_query_params
         this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=this_url,
-        )
         try:
-            result = await self._execute_request(
-                request, types.public_data.search_companies.GenericSearchResult[output_t]
+            result = await self._get_resource(
+                this_url, types.public_data.search_companies.GenericSearchResult[output_t]
             )
         except httpx.HTTPStatusError as e:
             if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
@@ -482,11 +532,7 @@ class Client:
         appointment_id: str,
     ) -> types.public_data.company_officers.OfficerSummary:
         url = f"{self._settings.api_url}/company/{company_number}/appointments/{appointment_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(request, types.public_data.company_officers.OfficerSummary)
+        return await self._get_resource(url, types.public_data.company_officers.OfficerSummary)
 
     @pydantic.validate_call
     async def get_company_registers(
@@ -494,12 +540,8 @@ class Client:
         company_number: CompanyNumberStrT,
     ) -> types.public_data.company_registers.CompanyRegister | None:
         url = f"{self._settings.api_url}/company/{company_number}/registers"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
         try:
-            return await self._execute_request(request, types.public_data.company_registers.CompanyRegister)
+            return await self._get_resource(url, types.public_data.company_registers.CompanyRegister)
         except httpx.HTTPStatusError as e:
             if e.response.status_code == httpx.codes.NOT_FOUND:
                 # No registers found
@@ -744,61 +786,45 @@ class Client:
             query: str
                 The search query string.
         """
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.search.CompanySearchItem,
-                base_url=f"{self._settings.api_url}/search/companies",
-                query_params={"q": query},
-                target=target,
-                items_per_page=200,
-            ),
+        return await self._create_paginated_list(
+            types.public_data.search.CompanySearchItem,
+            f"{self._settings.api_url}/search/companies",
+            {"q": query},
         )
-        await out._async_init()
-        return out
 
     @pydantic.validate_call
     async def search_officers(
         self, query: str
     ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.OfficerSearchItem]:
-        """Search for officers using the Companies House search API.§
+        """Search for officers using the Companies House search API.
+
         Parameters
         ----------
             query: str
                 The search query string.
         """
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.search.OfficerSearchItem,
-                base_url=f"{self._settings.api_url}/search/officers",
-                query_params={"q": query},
-                target=target,
-                items_per_page=200,
-            ),
+        return await self._create_paginated_list(
+            types.public_data.search.OfficerSearchItem,
+            f"{self._settings.api_url}/search/officers",
+            {"q": query},
         )
-        await out._async_init()
-        return out
 
     @pydantic.validate_call
     async def search_disqualified_officers(
         self, query: str
     ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.DisqualifiedOfficerSearchItem]:
         """Search for disqualified officers using the Companies House search API.
+
         Parameters
         ----------
             query: str
                 The search query string.
         """
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.search.DisqualifiedOfficerSearchItem,
-                base_url=f"{self._settings.api_url}/search/disqualified-officers",
-                query_params={"q": query},
-                target=target,
-                items_per_page=200,
-            ),
+        return await self._create_paginated_list(
+            types.public_data.search.DisqualifiedOfficerSearchItem,
+            f"{self._settings.api_url}/search/disqualified-officers",
+            {"q": query},
         )
-        await out._async_init()
-        return out
 
     @pydantic.validate_call
     async def get_company_charges(
@@ -817,12 +843,10 @@ class Client:
             types.public_data.charges.ChargeList
                 The list of charges for the company.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/charges"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/charges",
+            types.public_data.charges.ChargeList,
         )
-        return await self._execute_request(request, types.public_data.charges.ChargeList)
 
     @pydantic.validate_call
     async def get_company_charge_details(
@@ -844,12 +868,10 @@ class Client:
             types.public_data.charges.ChargeDetails
                 The details of the charge for the company.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/charges/{charge_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/charges/{charge_id}",
+            types.public_data.charges.ChargeDetails,
         )
-        return await self._execute_request(request, types.public_data.charges.ChargeDetails)
 
     async def _get_filing_history_page(
         self,
@@ -864,12 +886,8 @@ class Client:
         }
         assert my_query_params
         this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=this_url,
-        )
         try:
-            result = await self._execute_request(request, types.public_data.filing_history.FilingHistoryList)
+            result = await self._get_resource(this_url, types.public_data.filing_history.FilingHistoryList)
         except httpx.HTTPStatusError as e:
             if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
                 # No results
@@ -963,62 +981,54 @@ class Client:
             types.public_data.filing_history.FilingHistoryItem
                 The filing history item data.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/filing-history/{filing_history_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/filing-history/{filing_history_id}",
+            types.public_data.filing_history.FilingHistoryItem,
         )
-        return await self._execute_request(request, types.public_data.filing_history.FilingHistoryItem)
 
     @pydantic.validate_call
     async def get_company_insolvency(
         self,
         company_number: CompanyNumberStrT,
     ) -> types.public_data.insolvency.CompanyInsolvency:
-        """Fetch a specific filing history item for a given company.
+        """Fetch insolvency information for a given company.
 
         Parameters
         ----------
             company_number: str
-                The company number to fetch the filing history item for.
-            filing_history_id: str
-                The filing history ID to fetch.
+                The company number to fetch insolvency information for.
 
         Returns
         -------
-            types.public_data.filing_history.FilingHistoryItem
-                The filing history item data.
+            types.public_data.insolvency.CompanyInsolvency
+                The company insolvency data.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/insolvency"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/insolvency",
+            types.public_data.insolvency.CompanyInsolvency,
         )
-        return await self._execute_request(request, types.public_data.insolvency.CompanyInsolvency)
 
     @pydantic.validate_call
     async def get_company_exemptions(
         self,
         company_number: CompanyNumberStrT,
     ) -> types.public_data.exemptions.CompanyExemptions:
-        """Fetch a specific exemptions item for a given company.
+        """Fetch exemptions information for a given company.
 
         Parameters
         ----------
             company_number: str
-                The company number to fetch the exemptions item for.
+                The company number to fetch exemptions for.
 
         Returns
         -------
             types.public_data.exemptions.CompanyExemptions
-                The exemptions item data.
+                The exemptions data.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/exemptions"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/exemptions",
+            types.public_data.exemptions.CompanyExemptions,
         )
-        return await self._execute_request(request, types.public_data.exemptions.CompanyExemptions)
 
     @pydantic.validate_call
     async def get_corporate_officer_disqualification(
@@ -1033,16 +1043,11 @@ class Client:
 
         Returns
         -------
-            types.public_data.disqualifications.CorporateOfficerDisqualification
+            types.public_data.disqualifications.CorporateDisqualification
                 The corporate officer disqualification data.
         """
-        url = f"{self._settings.api_url}/disqualified-officers/corporate/{officer_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
-        )
-        return await self._execute_request(
-            request,
+        return await self._get_resource(
+            f"{self._settings.api_url}/disqualified-officers/corporate/{officer_id}",
             types.public_data.disqualifications.CorporateDisqualification,
         )
 
@@ -1059,15 +1064,13 @@ class Client:
 
         Returns
         -------
-            types.public_data.disqualifications.NaturalOfficerDisqualification
+            types.public_data.disqualifications.NaturalDisqualification
                 The natural officer disqualification data.
         """
-        url = f"{self._settings.api_url}/disqualified-officers/natural/{officer_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/disqualified-officers/natural/{officer_id}",
+            types.public_data.disqualifications.NaturalDisqualification,
         )
-        return await self._execute_request(request, types.public_data.disqualifications.NaturalDisqualification)
 
     @pydantic.validate_call
     async def get_officer_appointments(
@@ -1134,15 +1137,13 @@ class Client:
 
         Returns
         -------
-            types.compound_api_types.UKEstablishments
+            types.public_data.uk_establishments.CompanyUKEstablishments
                 The UK establishments data.
         """
-        url = f"{self._settings.api_url}/company/{company_number}/uk-establishments"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/uk-establishments",
+            types.public_data.uk_establishments.CompanyUKEstablishments,
         )
-        return await self._execute_request(request, types.public_data.uk_establishments.CompanyUKEstablishments)
 
     async def _fetch_paginated_container(
         self,
@@ -1293,12 +1294,10 @@ class Client:
         ModelT
             The validated PSC record
         """
-        url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/{psc_type}/{psc_id}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=url,
+        return await self._get_resource(
+            f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/{psc_type}/{psc_id}",
+            result_type,
         )
-        return await self._execute_request(request, result_type)
 
     @pydantic.validate_call
     async def get_company_corporate_psc(
