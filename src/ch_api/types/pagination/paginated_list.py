@@ -403,7 +403,7 @@ class MultipageList(typing.Generic[T]):
                 yield await self[idx]
             except IndexError:
                 # Double check that this is an actual IndexError, or the __len__
-                # has changed due to FCA api inconsistencies.
+                # has changed due to Companies House API inconsistencies.
                 if idx >= len(self):
                     break
                 else:
@@ -440,7 +440,7 @@ class MultipageList(typing.Generic[T]):
         """Return the total number of items reported by the API.
 
         When not all pages have been fetched this uses the ``total_count``
-        value from the pagination metadata returned by the FCA API, so it
+        value from the pagination metadata returned by the Companies House API, so it
         should be treated as an estimate. In rare cases where the backend
         metadata is inconsistent it is still possible to receive an
         ``IndexError`` when accessing an index that is less than this length.

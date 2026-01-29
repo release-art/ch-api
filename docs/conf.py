@@ -63,7 +63,7 @@ rst_epilog = f"""
 .. |project|                replace:: **{project}**
 .. |project_description|    replace:: {description}
 .. |release|                replace:: **{release}**
-.. |github_release_target|  replace:: https://github.com/VRGhost/ch-api/releases/tag/{release}
+.. |github_release_target|  replace:: https://github.com/release-art/ch-api/releases/tag/{release}
 .. |pypi_release_target|    replace:: https://pypi.org/project/ch-api/{release}
 """
 
@@ -143,9 +143,9 @@ suppress_warnings = ['docutils']
 pygments_style = 'sphinx'
 
 # A list of prefixes that are ignored when creating the module index. (new in Sphinx 0.6)
-modindex_common_prefix = ["fca_api."]
+modindex_common_prefix = ["ch_api."]
 
-doctest_global_setup = "import fca_api"
+doctest_global_setup = "import ch_api"
 
 # If this is True, the ``todo`` and ``todolist`` extension directives
 # produce output, else they produce nothing. The default is ``False``.
@@ -169,7 +169,7 @@ html_context = {
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 # General (non-theme) HTML output options
-html_baseurl = 'https://docs.release.art/fca-api/'
+html_baseurl = 'https://docs.release.art/ch-api/'
 
 # HTML theme options
 html_theme = 'pydata_sphinx_theme'
@@ -219,4 +219,4 @@ html_show_sourcelink = True
 html_copy_source = True
 
 # Output file base name for HTML help builder - use the project name
-htmlhelp_basename = 'fca-api'
+htmlhelp_basename = 'ch-api'

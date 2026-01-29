@@ -13,10 +13,10 @@ Contributors and contributions are welcome. Please read these guidelines first.
 Git :fab:`github`
 =================
 
-The project homepage is on `GitHub <https://github.com/VRGhost/ch-api>`_.
+The project homepage is on `GitHub <https://github.com/release-art/ch-api>`_.
 
-Contributors can open pull requests from a fork targeting the parent `main branch <https://github.com/VRGhost/ch-api/tree/main>`_. But it may be a good first step to create an `issue <https://github.com/VRGhost/ch-api/issues>`_ or open
-a `discussion topic <https://github.com/VRGhost/ch-api/discussions>`_.
+Contributors can open pull requests from a fork targeting the parent `main branch <https://github.com/release-art/ch-api/tree/main>`_. But it may be a good first step to create an `issue <https://github.com/release-art/ch-api/issues>`_ or open
+a `discussion topic <https://github.com/release-art/ch-api/discussions>`_.
 
 .. _contributing.repo:
 
@@ -37,7 +37,7 @@ Runtime dependencies are defined in the ``[project]`` section of ``pyproject.tom
 * `httpx <https://www.python-httpx.org/>`_ for asynchronous HTTP communication.
 * `pydantic <https://docs.pydantic.dev/>`_ for data validation and typed models.
 
-Development and tooling dependencies are specified under ``[tool.pdm.dev-dependencies]`` in the `project TOML <https://github.com/VRGhost/ch-api/blob/main/pyproject.toml>`_.
+Development and tooling dependencies are specified under ``[tool.pdm.dev-dependencies]`` in the `project TOML <https://github.com/release-art/ch-api/blob/main/pyproject.toml>`_.
 
 .. _contributing.tests:
 
@@ -71,7 +71,7 @@ The Sphinx theme in use is `pydata-sphinx-theme <https://pydata-sphinx-theme.rea
 CI :fas:`circle-play`
 =====================
 
-The CI workflows are defined `here <https://github.com/VRGhost/ch-api/blob/main/.github/workflows/ci.yml>`_ and there is also a separate `CodeQL workflow <https://github.com/VRGhost/ch-api/blob/main/.github/workflows/codeql-analysis.yml>`_.
+The CI workflows are defined `here <https://github.com/release-art/ch-api/blob/main/.github/workflows/ci.yml>`_ and there is also a separate `CodeQL workflow <https://github.com/release-art/ch-api/blob/main/.github/workflows/codeql-analysis.yml>`_.
 
 .. _contributing.versioning-and-releases:
 

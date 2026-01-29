@@ -1,4 +1,4 @@
-"""Mock session module for testing the Financial Services Register API without network requests."""
+"""Mock session module for testing the Companies House API without network requests."""
 
 import pathlib
 
