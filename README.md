@@ -40,7 +40,7 @@ pip install ch-api
 Or install from source:
 
 ```bash
-git clone https://github.com/yourusername/ch-api.git
+git clone https://github.com/release-art/ch-api.git
 cd ch-api
 pip install -e .
 ```
