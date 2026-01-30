@@ -1,56 +1,19 @@
-"""Companies House API client.
+"""Async Companies House API client.
 
-This module provides direct, async access to the Companies House public data API
-with minimal abstraction and data validation. It handles HTTP communication,
-authentication, rate limiting, and pagination.
-
-The client is based on the Companies House API specifications:
-    https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
-
-Key Features:
-    - **Async-first design**: All API calls are asynchronous using httpx
-    - **Flexible authentication**: Support for API key credentials or pre-configured sessions
-    - **Rate limiting**: Optional async rate limiter support for controlling request velocity
-    - **Automatic pagination**: Built-in pagination handling for search and list endpoints
-    - **Type safety**: Full Pydantic model validation for all API responses
-
-The Companies House API provides read-only access to live public company information including:
-    - Company profiles and registration data
-    - Officer and director information
-    - Persons with Significant Control (PSC) details
-    - Filing history and accounts
-    - Charges, insolvency, and exemption data
-    - Company search and advanced search capabilities
-
-Authentication:
-    All API calls require authentication via an API key. Pass your credentials
-    via the AuthSettings object or use a pre-configured httpx.AsyncClient.
-
-Rate Limiting:
-    Consider using an async rate limiter (e.g., asyncio-throttle) to control
-    request frequency and respect API rate limits.
+Provides direct access to the Companies House public data API with authentication,
+rate limiting, and automatic pagination support.
 
 Example:
-    Basic usage with API key authentication::
+    Basic usage::
 
         from ch_api import Client, api_settings
 
         auth = api_settings.AuthSettings(api_key="your-api-key")
         client = Client(credentials=auth)
-
-        # Fetch company profile
         company = await client.get_company_profile("09370755")
-        print(f"Company: {company.company_name}")
-
-        # Search for companies
-        results = await client.search_companies("BBC")
-        async for company in results:
-            print(f"Found: {company.title}")
 
 See Also:
-    - :class:`Client`: The main API client class
-    - :mod:`ch_api.api_settings`: Configuration and authentication settings
-    - :mod:`ch_api.types`: Pydantic models for API responses
+    https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
 """
 
 import contextlib

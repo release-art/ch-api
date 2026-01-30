@@ -1,6 +1,6 @@
 [project]
 name = "ch-api"
-description = "Pythonic Company House API"
+description = "UK Companies House API"
 authors = [
     {name = "Ilja Orlovs", email = "VRGhost@users.noreply.github.com"},
 ]
