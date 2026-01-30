@@ -247,32 +247,3 @@ class TestCompanyOfficersMethod:
         # Verify the result is a MultipageList
         assert hasattr(result, "_fetch_page_cb")
 
-
-class TestGetCompanyRegistersNotFound:
-    """Test get_company_registers with NOT_FOUND status."""
-
-    @pytest.mark.asyncio
-    async def test_get_company_registers_not_found_returns_none(self):
-        """Test that 404 status returns None (lines 461)."""
-        auth = api_settings.AuthSettings(api_key="test-key")
-        client = api.Client(credentials=auth)
-
-        # Create a mock response that raises 404 error
-        response = MagicMock()
-        response.status_code = 404
-
-        http_error = httpx.HTTPStatusError(
-            message="Not Found",
-            request=MagicMock(),
-            response=response,
-        )
-
-        # Mock the API session
-        mock_request = MagicMock()
-        client._api_session.build_request = MagicMock(return_value=mock_request)
-        client._api_session.send = AsyncMock(side_effect=http_error)
-
-        result = await client.get_company_registers("12345678")
-
-        # Should return None for 404 status
-        assert result is None

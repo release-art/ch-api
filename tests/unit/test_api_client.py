@@ -208,14 +208,15 @@ class TestExecuteRequestMethod:
 
     @pytest.mark.asyncio
     async def test_execute_request_with_http_error(self):
-        """Test _execute_request propagates HTTP errors."""
+        """Test _execute_request propagates HTTP errors (non-404)."""
         auth = api_settings.AuthSettings(api_key="test-key")
         client = api.Client(credentials=auth)
 
-        # Create mock response that raises on raise_for_status
+        # Create mock response that raises on raise_for_status (500 error)
         mock_response = MagicMock(spec=httpx.Response)
+        mock_response.status_code = 500
         mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(
-            "404 Not Found", request=MagicMock(), response=mock_response
+            "500 Internal Server Error", request=MagicMock(), response=mock_response
         )
 
         # Create mock request
@@ -226,6 +227,26 @@ class TestExecuteRequestMethod:
 
         with pytest.raises(httpx.HTTPStatusError):
             await client._execute_request(mock_request, None)
+
+    @pytest.mark.asyncio
+    async def test_execute_request_with_404_returns_none(self):
+        """Test _execute_request returns None for 404 status."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create mock response with 404 status
+        mock_response = MagicMock(spec=httpx.Response)
+        mock_response.status_code = 404
+
+        # Create mock request
+        mock_request = MagicMock(spec=httpx.Request)
+
+        # Mock the session
+        client._api_session.send = AsyncMock(return_value=mock_response)
+
+        result = await client._execute_request(mock_request, None)
+
+        assert result is None
 
 
 class TestNoopLimiter:

@@ -260,6 +260,9 @@ class Client:
         """Placeholder for request execution logic."""
         async with self._api_limiter():
             response = await self._api_session.send(request)
+        if response.status_code == 404:
+            # Resource not found
+            return None
         response.raise_for_status()
         if expected_out is not None:
             if response.status_code in (httpx.codes.NO_CONTENT,):
@@ -503,14 +506,7 @@ class Client:
         company_number: CompanyNumberStrT,
     ) -> types.public_data.company_registers.CompanyRegister | None:
         url = f"{self._settings.api_url}/company/{company_number}/registers"
-        try:
-            return await self._get_resource(url, types.public_data.company_registers.CompanyRegister)
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == httpx.codes.NOT_FOUND:
-                # No registers found
-                return None
-            else:
-                raise
+        return await self._get_resource(url, types.public_data.company_registers.CompanyRegister)
 
     @pydantic.validate_call
     async def search(
@@ -1128,10 +1124,7 @@ class Client:
         try:
             rv_list = await self._execute_request(request, output_t)
         except httpx.HTTPStatusError as e:
-            if e.response.status_code in (
-                httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE,
-                httpx.codes.NOT_FOUND,
-            ):
+            if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
                 # No results
                 rv_list = None
             else:

@@ -6,9 +6,8 @@ import ch_api
 
 @pytest.mark.asyncio
 async def test_get_r5e_company_exemptions(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    with pytest.raises(httpx.HTTPStatusError) as exc_info:
-        await live_env_test_client.get_company_exemptions(r5e_company_number)
-    assert exc_info.value.response.status_code == 404
+    result = await live_env_test_client.get_company_exemptions(r5e_company_number)
+    assert result is None
 
 
 @pytest.mark.asyncio
