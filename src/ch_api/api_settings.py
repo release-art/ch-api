@@ -15,17 +15,15 @@ Authentication:
 Example:
     Configure the client with live API settings::
 
-        from ch_api import api_settings
-
-        auth = api_settings.AuthSettings(api_key="your-api-key")
-        # Uses LIVE_API_SETTINGS by default
+        >>> from ch_api import api_settings
+        >>> auth = api_settings.AuthSettings(api_key="your-api-key")
+        >>> # Uses LIVE_API_SETTINGS by default
 
     Use sandbox for testing::
 
-        from ch_api import api_settings
-
-        auth = api_settings.AuthSettings(api_key="your-test-key")
-        client = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)
+        >>> from ch_api import api_settings
+        >>> auth = api_settings.AuthSettings(api_key="your-test-key")
+        >>> client = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)  # doctest: +SKIP
 
 See Also:
     - https://developer-specs.company-information.service.gov.uk/guides/authorisation

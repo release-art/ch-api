@@ -6,11 +6,10 @@ rate limiting, and automatic pagination support.
 Example:
     Basic usage::
 
-        from ch_api import Client, api_settings
-
-        auth = api_settings.AuthSettings(api_key="your-api-key")
-        client = Client(credentials=auth)
-        company = await client.get_company_profile("09370755")
+        >>> from ch_api import Client, api_settings
+        >>> auth = api_settings.AuthSettings(api_key="your-api-key")
+        >>> client = Client(credentials=auth)
+        >>> company = await client.get_company_profile("09370755")  # doctest: +SKIP
 
 See Also:
     https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
@@ -75,24 +74,23 @@ class Client:
     Example:
         Create a client and fetch company information::
 
-            from ch_api import Client, api_settings
-
-            auth = api_settings.AuthSettings(api_key="your-api-key")
-            client = Client(credentials=auth)
-
-            # Fetch a company's profile
-            profile = await client.get_company_profile("09370755")
-            print(f"{profile.company_name} - Status: {profile.company_status}")
-
-            # Fetch company officers
-            officers = await client.get_officer_list("09370755")
-            async for officer in officers:
-                print(f"Officer: {officer.name}")
-
-            # Search for companies
-            results = await client.search_companies("Apple")
-            async for result in results:
-                print(f"Found: {result.title} ({result.company_number})")
+            >>> from ch_api import Client, api_settings
+            >>> auth = api_settings.AuthSettings(api_key="your-api-key")
+            >>> client = Client(credentials=auth)  # doctest: +SKIP
+            ...
+            >>> # Fetch a company's profile
+            >>> profile = await client.get_company_profile("09370755")  # doctest: +SKIP
+            >>> print(f"{profile.company_name} - Status: {profile.company_status}")  # doctest: +SKIP
+            ...
+            >>> # Fetch company officers
+            >>> officers = await client.get_officer_list("09370755")  # doctest: +SKIP
+            >>> async for officer in officers:  # doctest: +SKIP
+            ...     print(f"Officer: {officer.name}")
+            ...
+            >>> # Search for companies
+            >>> results = await client.search_companies("Apple")  # doctest: +SKIP
+            >>> async for result in results:  # doctest: +SKIP
+            ...     print(f"Found: {result.title} ({result.company_number})")
 
     Note:
         All methods are asynchronous and must be called with ``await``.
@@ -238,16 +236,16 @@ class Client:
         -------
         Manual cleanup::
 
-            client = Client(credentials=auth)
-            try:
-                company = await client.get_company_profile("09370755")
-            finally:
-                await client.aclose()
+            >>> client = Client(credentials=auth)  # doctest: +SKIP
+            >>> try:
+            ...     company = await client.get_company_profile("09370755")
+            ... finally:
+            ...     await client.aclose()
 
         Or use as context manager for automatic cleanup::
 
-            async with Client(credentials=auth) as client:
-                company = await client.get_company_profile("09370755")
+            >>> async with Client(credentials=auth) as client:  # doctest: +SKIP
+            ...     company = await client.get_company_profile("09370755")
         """
         if self._owns_session:
             await self._api_session.aclose()

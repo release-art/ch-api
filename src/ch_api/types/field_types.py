@@ -80,50 +80,50 @@ def RelaxedLiteral(*expected_values: str):
     -------
     Define a model with relaxed literal fields for enumerated types::
 
-        from ch_api.types.base import BaseModel
-        from ch_api.types import field_types
-        import pydantic
-        import typing
-
-        class CompanyProfile(BaseModel):
-            # Strict company statuses (for example purposes)
-            company_status: typing.Annotated[
-                str,
-                field_types.RelaxedLiteral(
-                    "active",
-                    "dissolved",
-                    "liquidation",
-                    "administration"
-                )
-            ] = pydantic.Field(..., description="Company status")
-
-            # Optional field with relaxed validation
-            company_type: typing.Annotated[
-                str | None,
-                field_types.RelaxedLiteral(
-                    "private-unlimited",
-                    "ltd",
-                    "plc"
-                )
-            ] = pydantic.Field(default=None, description="Company type")
-
-        # Accepts known values without warning
-        profile = CompanyProfile.model_validate({
-            "company_status": "active",
-            "company_type": "ltd"
-        })
-
-        # Accepts new values from API update, logs warning
-        profile = CompanyProfile.model_validate({
-            "company_status": "administration",  # Known
-            "company_type": "new-type-added-by-api"  # Unknown - logs warning
-        })
-
-        # Works with None values
-        profile = CompanyProfile.model_validate({
-            "company_status": "active",
-            "company_type": None  # OK - field is optional
-        })
+        >>> from ch_api.types.base import BaseModel
+        >>> from ch_api.types import field_types
+        >>> import pydantic
+        >>> import typing
+        ...
+        >>> class CompanyProfile(BaseModel):  # doctest: +SKIP
+        ...     # Strict company statuses (for example purposes)
+        ...     company_status: typing.Annotated[
+        ...         str,
+        ...         field_types.RelaxedLiteral(
+        ...             "active",
+        ...             "dissolved",
+        ...             "liquidation",
+        ...             "administration"
+        ...         )
+        ...     ] = pydantic.Field(..., description="Company status")
+        ...
+        ...     # Optional field with relaxed validation
+        ...     company_type: typing.Annotated[
+        ...         str | None,
+        ...         field_types.RelaxedLiteral(
+        ...             "private-unlimited",
+        ...             "ltd",
+        ...             "plc"
+        ...         )
+        ...     ] = pydantic.Field(default=None, description="Company type")
+        ...
+        >>> # Accepts known values without warning
+        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        ...     "company_status": "active",
+        ...     "company_type": "ltd"
+        ... })
+        ...
+        >>> # Accepts new values from API update, logs warning
+        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        ...     "company_status": "administration",  # Known
+        ...     "company_type": "new-type-added-by-api"  # Unknown - logs warning
+        ... })
+        ...
+        >>> # Works with None values
+        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        ...     "company_status": "active",
+        ...     "company_type": None  # OK - field is optional
+        ... })
 
     Benefits for Companies House API
     --------------------------------

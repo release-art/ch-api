@@ -106,18 +106,18 @@ Example
 -------
 Access models for a specific endpoint::
 
-    from ch_api import types
-
-    # Company profile models
-    profile: types.public_data.company_profile.CompanyProfile
-    accounts: types.public_data.company_profile.Accounts
-
-    # Officer models
-    officer: types.public_data.company_officers.OfficerSummary
-    changes: types.public_data.officer_changes.Officer
-
-    # Search results
-    result: types.public_data.search.CompanySearchItem
+    >>> from ch_api import types
+    ...
+    >>> # Company profile models
+    >>> profile: types.public_data.company_profile.CompanyProfile  # doctest: +SKIP
+    >>> accounts: types.public_data.company_profile.Accounts  # doctest: +SKIP
+    ...
+    >>> # Officer models
+    >>> officer: types.public_data.company_officers.OfficerSummary  # doctest: +SKIP
+    >>> changes: types.public_data.officer_changes.Officer  # doctest: +SKIP
+    ...
+    >>> # Search results
+    >>> result: types.public_data.search.CompanySearchItem  # doctest: +SKIP
 
 API Response Structure
 ---------------------

@@ -59,14 +59,14 @@ class BaseModel(pydantic.BaseModel):
         -------
         Validate API response with mixed-case field names::
 
-            from ch_api.types.company_profile import CompanyProfile
-
-            api_response = {
-                "CompanyNumber": "09370755",
-                "CompanyName": "Example Company",
-                "CompanyStatus": "active",
-                "OldField[notinuse]": "deprecated value"
-            }
+            >>> from ch_api.types.company_profile import CompanyProfile  # doctest: +SKIP
+            ...
+            >>> api_response = {
+            ...     "CompanyNumber": "09370755",
+            ...     "CompanyName": "Example Company",
+            ...     "CompanyStatus": "active",
+            ...     "OldField[notinuse]": "deprecated value"
+            ... }
 
             company = CompanyProfile.model_validate(api_response)
             # Field names normalized, unused fields filtered

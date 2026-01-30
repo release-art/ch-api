@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:62875b05c80801b1fee2fa3424d8c9d487aeab72fdd3ceaa71edc3b6c6a9e888"
+content_hash = "sha256:d39e32a877189fe8dff6b118b82785fe97b17976d4c1c48bcbe5c4ad489845b5"
 
 [[metadata.targets]]
 requires_python = ">=3.11"
@@ -866,6 +866,21 @@ dependencies = [
 files = [
     {file = "pytest_cov-7.0.0-py3-none-any.whl", hash = "sha256:3b8e9558b16cc1479da72058bdecf8073661c7f57f7d3c5f22a1c23507f2d861"},
     {file = "pytest_cov-7.0.0.tar.gz", hash = "sha256:33c97eda2e049a0c5298e91f519302a1334c26ac65c1a483d6206fd458361af1"},
+]
+
+[[package]]
+name = "pytest-doctestplus"
+version = "1.7.1"
+requires_python = ">=3.10"
+summary = "Pytest plugin with advanced doctest features."
+groups = ["dev"]
+dependencies = [
+    "packaging>=17.0",
+    "pytest>=7.0",
+]
+files = [
+    {file = "pytest_doctestplus-1.7.1-py3-none-any.whl", hash = "sha256:18c0ff78d7ad08a15f415b153b3c407078c8a8c055ceb9055b5c7be5eb7c80be"},
+    {file = "pytest_doctestplus-1.7.1.tar.gz", hash = "sha256:64ae16dbda66c3db775ef596828d8d7adda09c6f34dd85099c119e4ff8cfe5b6"},
 ]
 
 [[package]]

@@ -44,14 +44,14 @@ Example Usage
 -----
 Fetch officers for a company::
 
-    from ch_api import Client, api_settings
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    officers = await client.get_officer_list("09370755")
-    async for officer in officers:
-        print(f"{officer.name} - Appointed: {officer.appointed_on}")
+    >>> from ch_api import Client, api_settings
+    >>> auth = api_settings.AuthSettings(api_key="your-key")
+    >>> client = Client(credentials=auth)  # doctest: +SKIP
+    ...
+    >>> officers = await client.get_officer_list("09370755")  # doctest: +SKIP
+    >>> async for officer in officers:  # doctest: +SKIP
+    ...     print(f"{officer.name} - Appointed: {officer.appointed_on}")
+    ...
 
 Filter by Officer Type
 -----

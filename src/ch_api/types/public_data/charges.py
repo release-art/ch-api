@@ -55,23 +55,24 @@ Example Usage
 -----
 Fetch all charges for a company::
 
-    from ch_api import Client, api_settings
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    charges = await client.get_company_charges("09370755")
-    for charge in charges.items or []:
-        print(f"Charge {charge.charge_number}: {charge.charge_code}")
+    >>> from ch_api import Client, api_settings
+    >>> auth = api_settings.AuthSettings(api_key="your-key")
+    >>> client = Client(credentials=auth)  # doctest: +SKIP
+    ...
+    >>> charges = await client.get_company_charges("09370755")  # doctest: +SKIP
+    >>> for charge in charges.items or []:  # doctest: +SKIP
+    ...     print(f"Charge {charge.charge_number}: {charge.charge_code}")
 
 Get detailed charge information::
 
-    details = await client.get_company_charge_details(
-        "09370755",
-        "charge_id_123"
-    )
-    print(f"Status: {details.status}")
-    print(f"Created: {details.created_on}")
+    >>> details = await client.get_company_charge_details(  # doctest: +SKIP
+    ...     "09370755",
+    ...     "charge_id_123"
+    ... )
+    >>> print(f"Status: {details.status}")  # doctest: +SKIP
+    Status: ...
+    >>> print(f"Created: {details.created_on}")  # doctest: +SKIP
+    Created: ...
 
 See Also
 --------

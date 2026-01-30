@@ -80,30 +80,29 @@ Example Usage
 -----
 Advanced company search::
 
-    from ch_api import Client, api_settings
-    import datetime
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    results = await client.advanced_company_search(
-        company_name_includes="Apple",
-        company_status="active",
-        company_type="private-unlimited",
-        location="England"
-    )
+    >>> from ch_api import Client, api_settings
+    >>> import datetime
+    >>> auth = api_settings.AuthSettings(api_key="your-key")
+    >>> client = Client(credentials=auth)  # doctest: +SKIP
+    ...
+    >>> results = await client.advanced_company_search(  # doctest: +SKIP
+    ...     company_name_includes="Apple",
+    ...     company_status="active",
+    ...     company_type="private-unlimited",
+    ...     location="England"
+    ... )
 
 Alphabetical search::
 
-    results = await client.alphabetical_companies_search("BBC")
-    async for company in results:
-        print(f"{company.title}")
+    >>> results = await client.alphabetical_companies_search("BBC")  # doctest: +SKIP
+    >>> async for company in results:  # doctest: +SKIP
+    ...     print(f"{company.title}")
 
 Dissolved company search::
 
-    dissolved = await client.search_dissolved_companies("Enron")
-    async for company in dissolved:
-        print(f"{company.title}")
+    >>> dissolved = await client.search_dissolved_companies("Enron")  # doctest: +SKIP
+    >>> async for company in dissolved:  # doctest: +SKIP
+    ...     print(f"{company.title}")
 
 See Also
 --------

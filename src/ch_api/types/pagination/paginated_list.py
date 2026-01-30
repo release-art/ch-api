@@ -253,12 +253,12 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual MultipageList creation::
 
-                async def fetch_firms(page_idx: int):
-                    response = await raw_client.search_frn("test", page=page_idx)
-                    # Parse and return (info, items)
-
-                results = MultipageList(fetch_page=fetch_firms)
-                await results._async_init()  # Required!
+                >>> async def fetch_firms(page_idx: int):  # doctest: +SKIP
+                ...     response = await raw_client.search_frn("test", page=page_idx)
+                ...     # Parse and return (info, items)
+                ...
+                >>> results = MultipageList(fetch_page=fetch_firms)  # doctest: +SKIP
+                >>> await results._async_init()  # Required!
         """
         self._pages = []
         self._lock = asyncio.Lock()
@@ -292,9 +292,10 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual initialization::
 
-                results = MultipageList(fetch_page=my_fetch_function)
-                await results._async_init()  # Required before use
-                print(len(results))  # Now safe to call
+                >>> results = MultipageList(fetch_page=my_fetch_function)  # doctest: +SKIP
+                >>> await results._async_init()  # Required before use
+                >>> print(len(results))  # Now safe to call
+                ...
         """
         # Fetch the first page to initialize the result info.
         await self._fetch_page_to_item_idx(0)
@@ -312,16 +313,17 @@ class MultipageList(typing.Generic[T]):
         Example:
             Bulk processing pattern::
 
-                results = await client.search_frn("test")
-
-                # Load all data once
-                await results.fetch_all_pages()
-
-                # Now process multiple times without API calls
-                authorised = [f for f in results.local_items() if f.status == "Authorised"]
-                unauthorised = [f for f in results.local_items() if f.status != "Authorised"]
-
-                print(f"Authorised: {len(authorised)}, Unauthorised: {len(unauthorised)}")
+                >>> results = await client.search_frn("test")  # doctest: +SKIP
+                ...
+                >>> # Load all data once
+                >>> await results.fetch_all_pages()  # doctest: +SKIP
+                ...
+                >>> # Now process multiple times without API calls
+                >>> authorised = [f for f in results.local_items() if f.status == "Authorised"]  # doctest: +SKIP
+                >>> unauthorised = [f for f in results.local_items() if f.status != "Authorised"]  # doctest: +SKIP
+                ...
+                >>> print(f"Authorised: {len(authorised)}, Unauthorised: {len(unauthorised)}")  # doctest: +SKIP
+                Authorised: ..., Unauthorised: ...
 
         Warning:
             This method can consume significant memory and time for large result
@@ -454,13 +456,13 @@ class MultipageList(typing.Generic[T]):
         Example:
             Check before performing operations that require all data::
 
-                results = await client.search_companies("Apple")
-                if not results.is_fully_fetched:
-                    await results.fetch_all_pages()
-
-                # Now safe to perform bulk operations
-                for company in results.local_items():
-                    process(company)
+                >>> results = await client.search_companies("Apple")  # doctest: +SKIP
+                >>> if not results.is_fully_fetched:
+                ...     await results.fetch_all_pages()
+                ...
+                >>> # Now safe to perform bulk operations
+                >>> for company in results.local_items():  # doctest: +SKIP
+                ...     process(company)
         """
         return not self._has_next_page()
 
