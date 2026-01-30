@@ -247,3 +247,59 @@ class TestCompanyOfficersMethod:
         # Verify the result is a MultipageList
         assert hasattr(result, "_fetch_page_cb")
 
+
+class TestAdvancedCompanySearch:
+    """Test advanced_company_search method."""
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        "filter_args",
+        [
+            {"company_status": "active"},
+            {"company_type": "test-type"},
+            {"company_subtype": "test-subtype"},
+        ],
+    )
+    async def test_advanced_company_search_with_string_company_status(self, filter_args):
+        """Test advanced_company_search with company_status as string (line 591)."""
+        import datetime
+
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Mock the _get_paginated_advanced_search_result method
+        client._get_paginated_advanced_search_result = AsyncMock(return_value=(None, None))
+
+        # Create a mock result that will be returned by from_api_paginated_list
+        mock_result = MagicMock()
+
+        # Mock the AdvancedSearchResult.from_api_paginated_list to avoid full initialization
+        from ch_api.types.compound_api_types.public_data import search_companies
+
+        original_method = search_companies.AdvancedSearchResult.from_api_paginated_list
+
+        async def mock_from_api_paginated_list(fetch_page_fn, convert_item_fn):
+            # Call the fetch_page_fn to ensure the code path is executed
+            from ch_api.types.pagination import types as pagination_types
+
+            target = pagination_types.FetchPageCallArg(
+                first_known_item=None,
+                last_known_item=None,
+                last_fetched_page=-1,
+                current_total_list_len=0,
+            )
+            await fetch_page_fn(target)
+            return mock_result
+
+        search_companies.AdvancedSearchResult.from_api_paginated_list = staticmethod(mock_from_api_paginated_list)
+
+        try:
+            result = await client.advanced_company_search(
+                company_name_includes="Test", dissolved_from=datetime.date(2020, 1, 1), **filter_args
+            )
+
+            # Verify result is returned
+            assert result is mock_result
+        finally:
+            # Restore the original method
+            search_companies.AdvancedSearchResult.from_api_paginated_list = original_method
