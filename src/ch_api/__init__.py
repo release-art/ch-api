@@ -11,21 +11,18 @@ Get started with just a few lines of code::
 
     >>> from ch_api import Client, api_settings
     ...
-    >>> # Create credentials
-    >>> auth = api_settings.AuthSettings(api_key="your-api-key")
-    ...
-    >>> # Create client
-    >>> client = Client(credentials=auth)
-    ...
     >>> # Fetch company information
-    >>> company = await client.get_company_profile("09370755")
+    >>> company = run_async_func(lambda client: client.get_company_profile("09370755"))
     >>> print(f"Company: {company.company_name} ({company.company_status})")
     Company: ...
     ...
     >>> # Search for companies
-    >>> results = await client.search_companies("Apple")
-    >>> async for company in results:
-    ...     print(f"Found: {company.title}")
+    >>> @run_async_func
+    ... async def search_companies_example(client):
+    ...     results = await client.search_companies("Apple")
+    ...     async for company in results:
+    ...         print(f"Found: {company.title}")
+    ...
     Found: ...
     ...
     >>> # Get officers

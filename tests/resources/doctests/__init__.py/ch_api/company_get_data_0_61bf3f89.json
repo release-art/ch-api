@@ -3,63 +3,58 @@
     "json": {
       "accounts": {
         "accounting_reference_date": {
-          "day": "30",
-          "month": "06"
+          "day": "31",
+          "month": "12"
         },
         "last_accounts": {
-          "made_up_to": "2025-06-30",
-          "period_end_on": "2025-06-30",
-          "period_start_on": "2024-07-01",
-          "type": "total-exemption-full"
+          "made_up_to": "2024-12-31",
+          "period_end_on": "2024-12-31",
+          "period_start_on": "2024-01-01",
+          "type": "dormant"
         },
         "next_accounts": {
-          "due_on": "2027-03-31",
+          "due_on": "2026-09-30",
           "overdue": false,
-          "period_end_on": "2026-06-30",
-          "period_start_on": "2025-07-01"
+          "period_end_on": "2025-12-31",
+          "period_start_on": "2025-01-01"
         },
-        "next_due": "2027-03-31",
-        "next_made_up_to": "2026-06-30",
+        "next_due": "2026-09-30",
+        "next_made_up_to": "2025-12-31",
         "overdue": false
       },
       "can_file": true,
-      "company_name": "RELEASE.ART LIMITED",
-      "company_number": "14200734",
+      "company_name": "NES ITALIA LTD",
+      "company_number": "09370755",
       "company_status": "active",
       "confirmation_statement": {
-        "last_made_up_to": "2025-06-27",
-        "next_due": "2026-07-11",
-        "next_made_up_to": "2026-06-27",
+        "last_made_up_to": "2025-12-31",
+        "next_due": "2027-01-14",
+        "next_made_up_to": "2026-12-31",
         "overdue": false
       },
-      "date_of_creation": "2022-06-28",
-      "etag": "61a4ecb31e10874058e174e9aa51a04261763c4b",
+      "date_of_creation": "2014-12-31",
+      "etag": "949c1935266749b89a6f2354992dfe0298edec4e",
       "has_charges": false,
       "has_insolvency_history": false,
       "has_super_secure_pscs": false,
       "jurisdiction": "england-wales",
+      "last_full_members_list_date": "2015-12-31",
       "links": {
-        "filing_history": "/company/14200734/filing-history",
-        "officers": "/company/14200734/officers",
-        "persons_with_significant_control": "/company/14200734/persons-with-significant-control",
-        "self": "/company/14200734"
+        "filing_history": "/company/09370755/filing-history",
+        "officers": "/company/09370755/officers",
+        "persons_with_significant_control": "/company/09370755/persons-with-significant-control",
+        "self": "/company/09370755"
       },
-      "previous_company_names": [
-        {
-          "ceased_on": "2026-01-27",
-          "effective_from": "2022-06-28",
-          "name": "R5E ART LIMITED"
-        }
-      ],
       "registered_office_address": {
-        "address_line_1": "124 City Road",
-        "country": "United Kingdom",
-        "locality": "London",
-        "postal_code": "EC1V 2NX"
+        "address_line_1": "Apt 222, 87 High Street, Manchester High Street",
+        "country": "England",
+        "locality": "Manchester",
+        "postal_code": "M4 1BF"
       },
       "registered_office_is_in_dispute": false,
       "sic_codes": [
-        "62090"
+        "26400",
+        "46520"
       ],
       "type": "ltd",
       "undeliverable_registered_office_address": false
@@ -73,16 +68,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Thu, 29 Jan 2026 17:32:50 GMT",
+    "date": "Fri, 30 Jan 2026 12:34:58 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=BCB3DCF0549FD447CE9225D8B464F6C3; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=FCCF87C55A71EF1B17DD071B8EED8477; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "596",
-    "x-ratelimit-reset": "1769708269",
+    "x-ratelimit-remain": "599",
+    "x-ratelimit-reset": "1769776798",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
@@ -95,8 +90,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/company/14200734"
+    "url": "https://api.company-information.service.gov.uk/company/09370755"
   },
   "status_code": 200,
-  "url": "https://api.company-information.service.gov.uk/company/14200734"
+  "url": "https://api.company-information.service.gov.uk/company/09370755"
 }
