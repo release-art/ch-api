@@ -59,6 +59,89 @@ class TestCreateTestCompany:
         assert "Test Data Generator URL is not configured" in str(exc_info.value)
 
 
+class TestPaginatedSearchResultErrors:
+    """Test _get_paginated_search_result error handling."""
+
+    @pytest.mark.asyncio
+    async def test_get_paginated_search_result_416_returns_empty(self):
+        """Test that 416 status returns (None, []) (line 424-426)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock response that raises 416 error
+        response = MagicMock()
+        response.status_code = 416
+
+        http_error = httpx.HTTPStatusError(
+            message="Range Not Satisfiable",
+            request=MagicMock(),
+            response=response,
+        )
+
+        # Mock the _get_resource method to raise 416 error
+        client._get_resource = AsyncMock(side_effect=http_error)
+
+        # Create a target for pagination
+        from ch_api.types.pagination import types as pagination_types
+
+        target = pagination_types.FetchPageCallArg(
+            first_known_item=None,
+            last_known_item=None,
+            last_fetched_page=-1,
+            current_total_list_len=0,
+        )
+
+        result = await client._get_paginated_search_result(
+            output_t=str,
+            base_url="https://api.example.com/search",
+            query_params={"query": "test"},
+            target=target,
+        )
+
+        # Should return (None, []) for 416 status
+        assert result == (None, [])
+
+    @pytest.mark.asyncio
+    async def test_get_paginated_search_result_other_error_reraises(self):
+        """Test that non-416 HTTPStatusError is re-raised (line 427)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock response that raises 500 error
+        response = MagicMock()
+        response.status_code = 500
+
+        http_error = httpx.HTTPStatusError(
+            message="Internal Server Error",
+            request=MagicMock(),
+            response=response,
+        )
+
+        # Mock the _get_resource method to raise 500 error
+        client._get_resource = AsyncMock(side_effect=http_error)
+
+        # Create a target for pagination
+        from ch_api.types.pagination import types as pagination_types
+
+        target = pagination_types.FetchPageCallArg(
+            first_known_item=None,
+            last_known_item=None,
+            last_fetched_page=-1,
+            current_total_list_len=0,
+        )
+
+        # Should re-raise the error for non-416 status codes (line 427)
+        with pytest.raises(httpx.HTTPStatusError) as exc_info:
+            await client._get_paginated_search_result(
+                output_t=str,
+                base_url="https://api.example.com/search",
+                query_params={"query": "test"},
+                target=target,
+            )
+
+        assert exc_info.value.response.status_code == 500
+
+
 class TestGetCompanyRegistersNotFound:
     """Test get_company_registers with NOT_FOUND status."""
 
