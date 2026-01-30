@@ -383,3 +383,118 @@ class TestFilingHistoryPagination:
             )
 
         assert exc_info.value.response.status_code == 500
+
+
+class TestFetchPaginatedContainer:
+    """Test _fetch_paginated_container error handling."""
+
+    @pytest.mark.asyncio
+    async def test_fetch_paginated_container_416_returns_none(self):
+        """Test that 416 status returns (None, None) (lines 1128-1130)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock response that raises 416 error
+        response = MagicMock()
+        response.status_code = 416
+
+        http_error = httpx.HTTPStatusError(
+            message="Range Not Satisfiable",
+            request=MagicMock(),
+            response=response,
+        )
+
+        # Mock the _execute_request method to raise 416 error
+        client._execute_request = AsyncMock(side_effect=http_error)
+
+        # Create a mock request
+        mock_request = MagicMock(spec=httpx.Request)
+
+        result = await client._fetch_paginated_container(
+            request=mock_request,
+            output_t=MagicMock,
+            to_pagination_info_args=lambda x: {"page": 1},
+        )
+
+        # Should return (None, None) for 416 status
+        assert result == (None, None)
+
+    @pytest.mark.asyncio
+    async def test_fetch_paginated_container_other_error_reraises(self):
+        """Test that non-416 HTTPStatusError is re-raised (line 1131)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock response that raises 500 error
+        response = MagicMock()
+        response.status_code = 500
+
+        http_error = httpx.HTTPStatusError(
+            message="Internal Server Error",
+            request=MagicMock(),
+            response=response,
+        )
+
+        # Mock the _execute_request method to raise 500 error
+        client._execute_request = AsyncMock(side_effect=http_error)
+
+        # Create a mock request
+        mock_request = MagicMock(spec=httpx.Request)
+
+        # Should re-raise the error for non-416 status codes (line 1131)
+        with pytest.raises(httpx.HTTPStatusError) as exc_info:
+            await client._fetch_paginated_container(
+                request=mock_request,
+                output_t=MagicMock,
+                to_pagination_info_args=lambda x: {"page": 1},
+            )
+
+        assert exc_info.value.response.status_code == 500
+
+
+class TestGetOfficerAppointments:
+    """Test get_officer_appointments method."""
+
+    @pytest.mark.asyncio
+    async def test_get_officer_appointments_with_filter(self):
+        """Test get_officer_appointments method with filter parameter (line 1069)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Mock the _fetch_paginated_container method
+        client._fetch_paginated_container = AsyncMock(return_value=(None, None))
+
+        # Create a mock result
+        mock_result = MagicMock()
+
+        # Mock the OfficerAppointments.from_api_paginated_list
+        from ch_api.types.compound_api_types.public_data import officer_appointments
+
+        original_method = officer_appointments.OfficerAppointments.from_api_paginated_list
+
+        async def mock_from_api_paginated_list(fetch_page_fn, convert_item_fn):
+            # Call the fetch_page_fn to ensure code path is executed
+            from ch_api.types.pagination import types as pagination_types
+
+            target = pagination_types.FetchPageCallArg(
+                first_known_item=None,
+                last_known_item=None,
+                last_fetched_page=-1,
+                current_total_list_len=0,
+            )
+            await fetch_page_fn(target)
+            return mock_result
+
+        officer_appointments.OfficerAppointments.from_api_paginated_list = staticmethod(mock_from_api_paginated_list)
+
+        try:
+            result = await client.get_officer_appointments(
+                officer_id="officer123",
+                filter="active",  # This triggers line 1069
+            )
+
+            # Verify result is returned
+            assert result is mock_result
+        finally:
+            # Restore the original method
+            officer_appointments.OfficerAppointments.from_api_paginated_list = original_method
