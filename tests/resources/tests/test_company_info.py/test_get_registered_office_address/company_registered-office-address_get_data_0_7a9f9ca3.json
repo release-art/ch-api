@@ -1,0 +1,42 @@
+{
+  "content": {
+    "json": {
+      "address_line_1": "124 City Road",
+      "country": "United Kingdom",
+      "etag": "61a4ecb31e10874058e174e9aa51a04261763c4b",
+      "kind": "registered-office-address",
+      "links": {
+        "self": "/company/14200734/registered-office-address"
+      },
+      "locality": "London",
+      "postal_code": "EC1V 2NX"
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "connection": "keep-alive",
+    "content-length": "254",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:41:29 GMT",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "579",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/14200734/registered-office-address"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/14200734/registered-office-address"
+}

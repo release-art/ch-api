@@ -1,0 +1,46 @@
+{
+  "content": {
+    "json": {
+      "etag": "7d154971d0dc6d339c2a61cb46a37b9b8ed557a2",
+      "items": [],
+      "kind": "related-companies",
+      "links": {
+        "self": "/company/14200734"
+      }
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:41:31 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=3C223BCE3DBFA52E5D68FFA80E483C52; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "567",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/14200734/uk-establishments"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/14200734/uk-establishments"
+}

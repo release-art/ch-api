@@ -7,9 +7,10 @@ Example:
     Basic usage::
 
         >>> from ch_api import Client, api_settings
-        >>> auth = api_settings.AuthSettings(api_key="your-api-key")
-        >>> client = Client(credentials=auth)
-        >>> company = await client.get_company_profile("09370755")
+        >>> @run_async_func
+        ... async def basic_example(client):
+        ...     company = await client.get_company_profile("09370755")
+        ...     return True
 
 See Also:
     https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
@@ -75,22 +76,21 @@ class Client:
         Create a client and fetch company information::
 
             >>> from ch_api import Client, api_settings
-            >>> auth = api_settings.AuthSettings(api_key="your-api-key")
-            >>> client = Client(credentials=auth)
+            >>> @run_async_func  # doctest: +ELLIPSIS
+            ... async def client_example(client):
+            ...     # Fetch a company's profile
+            ...     profile = await client.get_company_profile("09370755")
+            ...     print(f"{profile.company_name} - Status: {profile.company_status}")
+            ...     # Fetch company officers
+            ...     officers = await client.get_officer_list("09370755")
+            ...     async for officer in officers:
+            ...         print(f"Officer: {officer.name}")
+            ...     # Search for companies
+            ...     results = await client.search_companies("Apple")
+            ...     async for result in results:
+            ...         print(f"Found: {result.title} ({result.company_number})")
             ...
-            >>> # Fetch a company's profile
-            >>> profile = await client.get_company_profile("09370755")
-            >>> print(f"{profile.company_name} - Status: {profile.company_status}")
-            ...
-            >>> # Fetch company officers
-            >>> officers = await client.get_officer_list("09370755")
-            >>> async for officer in officers:
-            ...     print(f"Officer: {officer.name}")
-            ...
-            >>> # Search for companies
-            >>> results = await client.search_companies("Apple")
-            >>> async for result in results:
-            ...     print(f"Found: {result.title} ({result.company_number})")
+            ...  # doctest: +SKIP
 
     Note:
         All methods are asynchronous and must be called with ``await``.
@@ -236,16 +236,20 @@ class Client:
         -------
         Manual cleanup::
 
-            >>> client = Client(credentials=auth)
-            >>> try:
-            ...     company = await client.get_company_profile("09370755")
-            ... finally:
-            ...     await client.aclose()
+            >>> @run_async_func
+            ... async def manual_cleanup(client):
+            ...     c = Client(credentials=client._api_session)
+            ...     try:
+            ...         company = await c.get_company_profile("09370755")
+            ...     finally:
+            ...         await c.aclose()
 
         Or use as context manager for automatic cleanup::
 
-            >>> async with Client(credentials=auth) as client:
-            ...     company = await client.get_company_profile("09370755")
+            >>> @run_async_func
+            ... async def context_cleanup(client):
+            ...     async with client:
+            ...         company = await client.get_company_profile("09370755")
         """
         if self._owns_session:
             await self._api_session.aclose()

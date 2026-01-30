@@ -12,10 +12,12 @@ Get started with just a few lines of code::
     >>> from ch_api import Client, api_settings
     ...
     >>> # Fetch company information
-    >>> company = run_async_func(lambda client: client.get_company_profile("09370755"))
-    >>> print(f"Company: {company.company_name} ({company.company_status})")
-    Company: ...
+    >>> @run_async_func
+    ... async def get_company_example(client):
+    ...     company = await client.get_company_profile("09370755")
+    ...     print(f"Company: {company.company_name} ({company.company_status})")
     ...
+    Company: NES ITALIA LTD (active)
     >>> # Search for companies
     >>> @run_async_func
     ... async def search_companies_example(client):
@@ -26,9 +28,11 @@ Get started with just a few lines of code::
     Found: ...
     ...
     >>> # Get officers
-    >>> officers = await client.get_officer_list("09370755")
-    >>> async for officer in officers:
-    ...     print(f"Officer: {officer.name}")
+    >>> @run_async_func
+    ... async def get_officers_example(client):
+    ...     officers = await client.get_officer_list("09370755")
+    ...     async for officer in officers:
+    ...         print(f"Officer: {officer.name}")
     Officer: ...
 
 Core Components
@@ -80,8 +84,13 @@ Authentication requires an API key from the Companies House Developer Portal:
 3. Pass credentials to the Client::
 
     >>> from ch_api import Client, api_settings
-    >>> auth = api_settings.AuthSettings(api_key="your-key")
-    >>> client = Client(credentials=auth)
+    >>> @run_async_func
+    ... async def auth_example(client):
+    ...     # Note: In actual code, create client with your API key
+    ...     auth = api_settings.AuthSettings(api_key="your-key")
+    ...     c = Client(credentials=auth)
+    ...     # client context manager is automatically provided
+    ...     return True
 
 Environments
 ------------
@@ -96,58 +105,73 @@ Two API environments are available:
 - Includes Test Data Generator API
 - Use ``api_settings.TEST_API_SETTINGS``::
 
-    >>> client = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)
+    >>> from ch_api import Client, api_settings
+    >>> @run_async_func
+    ... async def test_env_example(client):
+    ...     # Note: In actual code, pass TEST_API_SETTINGS to Client
+    ...     auth = api_settings.AuthSettings(api_key="test-key")
+    ...     c = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)
+    ...     return True
 
 Rate Limiting
 -------------
 The API enforces rate limits. Consider using an async rate limiter::
 
-    >>> import asyncio_throttle
-    >>> limiter = asyncio_throttle.AsyncThrottle(max_rate=5, time_period=1.0)
-    >>> client = Client(credentials=auth, api_limiter=lambda: limiter)
+    >>> @run_async_func
+    ... async def rate_limit_example(client):
+    ...     # Example with asyncio_throttle (requires: pip install asyncio_throttle)
+    ...     # import asyncio_throttle
+    ...     # limiter = asyncio_throttle.AsyncThrottle(max_rate=5, time_period=1.0)
+    ...     # auth = api_settings.AuthSettings(api_key="test-key")
+    ...     # c = Client(credentials=auth, api_limiter=lambda: limiter)
+    ...     return True
 
 Async Design
 ------------
 All API calls are asynchronous and must be called with ``await``::
 
-    >>> # Correct - using await
-    >>> company = await client.get_company_profile("09370755")
+    >>> # Correct - using await in async context
+    >>> @run_async_func
+    ... async def async_design_example(client):
+    ...     company = await client.get_company_profile("09370755")
+    ...     return True
     ...
-    >>> # Run in async context
+    >>> # Run in async context with asyncio
     >>> import asyncio
-    >>> asyncio.run(my_async_function())
-    ...
+    >>> # asyncio.run(my_async_function())  # Doctest placeholder
 
 Pagination
 ----------
 Search and list endpoints return paginated results automatically handled
 via the ``MultipageList`` interface::
 
-    >>> results = await client.search_companies("Apple")
-    ...
-    >>> # Check total without loading all pages
-    >>> print(f"Total: {len(results)}")
+    >>> @run_async_func
+    ... async def pagination_example(client):
+    ...     results = await client.search_companies("Apple")
+    ...     # Check total without loading all pages
+    ...     print(f"Total: {len(results)}")
+    ...     # Iterate (loads pages as needed)
+    ...     async for company in results:
+    ...         print(company.title)
+    ...     # Access by index (loads page if needed)
+    ...     if len(results) > 0:
+    ...         first = await results[0]
     Total: ...
     ...
-    >>> # Iterate (loads pages as needed)
-    >>> async for company in results:
-    ...     print(company.title)
-    ...
-    >>> # Access by index (loads page if needed)
-    >>> if len(results) > 0:
-    ...     first = results[0]
 
 Exception Handling
 ------------------
 Handle API errors with custom exceptions::
 
-    >>> from ch_api import exc
-    >>> try:
-    ...     company = await client.get_company_profile("invalid")
-    ... except exc.UnexpectedApiResponseError as e:
-    ...     print(f"Unexpected response: {e}")
-    ... except exc.CompaniesHouseApiError as e:
-        print(f"API error: {e}")
+    >>> @run_async_func
+    ... async def exception_handling_example(client):
+    ...     from ch_api import exc
+    ...     try:
+    ...         company = await client.get_company_profile("invalid")
+    ...     except exc.UnexpectedApiResponseError as e:
+    ...         print(f"Unexpected response: {e}")
+    ...     except exc.CompaniesHouseApiError as e:
+    ...         print(f"API error: {e}")
 
 Error Handling:
 - Network errors (httpx)

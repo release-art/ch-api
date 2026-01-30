@@ -1,0 +1,97 @@
+{
+  "content": {
+    "json": {
+      "accounts": {
+        "accounting_reference_date": {
+          "day": "31",
+          "month": "12"
+        },
+        "last_accounts": {
+          "made_up_to": "2024-12-31",
+          "period_end_on": "2024-12-31",
+          "period_start_on": "2024-01-01",
+          "type": "dormant"
+        },
+        "next_accounts": {
+          "due_on": "2026-09-30",
+          "overdue": false,
+          "period_end_on": "2025-12-31",
+          "period_start_on": "2025-01-01"
+        },
+        "next_due": "2026-09-30",
+        "next_made_up_to": "2025-12-31",
+        "overdue": false
+      },
+      "can_file": true,
+      "company_name": "NES ITALIA LTD",
+      "company_number": "09370755",
+      "company_status": "active",
+      "confirmation_statement": {
+        "last_made_up_to": "2025-12-31",
+        "next_due": "2027-01-14",
+        "next_made_up_to": "2026-12-31",
+        "overdue": false
+      },
+      "date_of_creation": "2014-12-31",
+      "etag": "949c1935266749b89a6f2354992dfe0298edec4e",
+      "has_charges": false,
+      "has_insolvency_history": false,
+      "has_super_secure_pscs": false,
+      "jurisdiction": "england-wales",
+      "last_full_members_list_date": "2015-12-31",
+      "links": {
+        "filing_history": "/company/09370755/filing-history",
+        "officers": "/company/09370755/officers",
+        "persons_with_significant_control": "/company/09370755/persons-with-significant-control",
+        "self": "/company/09370755"
+      },
+      "registered_office_address": {
+        "address_line_1": "Apt 222, 87 High Street, Manchester High Street",
+        "country": "England",
+        "locality": "Manchester",
+        "postal_code": "M4 1BF"
+      },
+      "registered_office_is_in_dispute": false,
+      "sic_codes": [
+        "26400",
+        "46520"
+      ],
+      "type": "ltd",
+      "undeliverable_registered_office_address": false
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:40:40 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=B88D1FCFBCAD2C7608A0A86861BB2CC3; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "596",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/09370755"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/09370755"
+}

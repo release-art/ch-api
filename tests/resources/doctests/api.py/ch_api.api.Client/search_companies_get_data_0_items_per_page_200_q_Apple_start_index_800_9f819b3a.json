@@ -1,0 +1,2873 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "address": {
+            "address_line_1": "Wenlock Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N1 7GU",
+            "premises": "20-22"
+          },
+          "address_snippet": "20-22 Wenlock Road, London, England, N1 7GU",
+          "company_number": "13909420",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-07-18",
+          "date_of_creation": "2022-02-11",
+          "description": "13909420 - Dissolved on 18 July 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13909420"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE VR LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Baberton Mains Drive",
+            "country": "United Kingdom",
+            "locality": "Edinburgh",
+            "postal_code": "EH14 3EA",
+            "premises": "198"
+          },
+          "address_snippet": "198 Baberton Mains Drive, Edinburgh, United Kingdom, EH14 3EA",
+          "company_number": "SC722495",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-07-11",
+          "date_of_creation": "2022-02-08",
+          "description": "SC722495 - Dissolved on 11 July 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC722495"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES FOR JAM, EARLSTON LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "1 -3 Canfield Place",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "NW6 3BT",
+            "premises": "Suite F"
+          },
+          "address_snippet": "Suite F, 1 -3 Canfield Place, London, England, NW6 3BT",
+          "company_number": "11110570",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-27",
+          "date_of_creation": "2017-12-13",
+          "description": "11110570 - Dissolved on 27 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11110570"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE & MANGO PICTURES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Hall Lane",
+            "country": "United Kingdom",
+            "locality": "Manchester",
+            "postal_code": "M19 2AJ",
+            "premises": "4",
+            "region": "England"
+          },
+          "address_snippet": "4 Old Hall Lane, Manchester, England, United Kingdom, M19 2AJ",
+          "company_number": "13868890",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-27",
+          "date_of_creation": "2022-01-24",
+          "description": "13868890 - Dissolved on 27 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13868890"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE EDUCATION SYSTEM LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Pow Green",
+            "address_line_2": "Bosbury",
+            "country": "England",
+            "locality": "Ledbury",
+            "postal_code": "HR8 1JU",
+            "premises": "1",
+            "region": "Herefordshire"
+          },
+          "address_snippet": "1 Pow Green, Bosbury, Ledbury, Herefordshire, England, HR8 1JU",
+          "company_number": "11430379",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-27",
+          "date_of_creation": "2018-06-25",
+          "description": "11430379 - Dissolved on 27 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11430379"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE FARM RETREATS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Elder Court",
+            "address_line_2": "Lions Drive",
+            "country": "England",
+            "locality": "Blackburn",
+            "postal_code": "BB1 2EQ",
+            "premises": "Unit 12"
+          },
+          "address_snippet": "Unit 12 Elder Court, Lions Drive, Blackburn, England, BB1 2EQ",
+          "company_number": "13802365",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-13",
+          "date_of_creation": "2021-12-15",
+          "description": "13802365 - Dissolved on 13 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13802365"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE FAST COMPANY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": ": COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "11026435"
+          },
+          "address_snippet": "4385, 11026435 : COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "11026435",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-13",
+          "date_of_creation": "2017-10-23",
+          "description": "11026435 - Dissolved on 13 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11026435"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE WHIZZ LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bruce Street",
+            "country": "Scotland",
+            "locality": "Kilmarnock",
+            "postal_code": "KA1 4LP",
+            "premises": "59"
+          },
+          "address_snippet": "59 Bruce Street, Kilmarnock, Scotland, KA1 4LP",
+          "company_number": "SC717829",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-06-06",
+          "date_of_creation": "2021-12-16",
+          "description": "SC717829 - Dissolved on 6 June 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC717829"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE CONTRACTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Stowheath Lane",
+            "country": "England",
+            "locality": "Wolverhampton",
+            "postal_code": "WV1 2TW",
+            "premises": "41"
+          },
+          "address_snippet": "41 Stowheath Lane, Wolverhampton, England, WV1 2TW",
+          "company_number": "10519242",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-30",
+          "date_of_creation": "2016-12-09",
+          "description": "10519242 - Dissolved on 30 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10519242"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE GREEN DATTA SERVICES",
+          "title": "APPLE GREEN DATA SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Peterhouse Drive",
+            "country": "England",
+            "locality": "Otley",
+            "postal_code": "LS21 1DS",
+            "premises": "16"
+          },
+          "address_snippet": "16 Peterhouse Drive, Otley, England, LS21 1DS",
+          "company_number": "13911800",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-23",
+          "date_of_creation": "2022-02-12",
+          "description": "13911800 - Dissolved on 23 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13911800"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE EPOXY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "United Kingdom",
+            "locality": "Edgware",
+            "postal_code": "HA8 7DB",
+            "premises": "111",
+            "region": "Middlesex"
+          },
+          "address_snippet": "111 High Street, Edgware, Middlesex, United Kingdom, HA8 7DB",
+          "company_number": "09872864",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-16",
+          "date_of_creation": "2015-11-16",
+          "description": "09872864 - Dissolved on 16 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09872864"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE LEISURE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Aldwarke Lane",
+            "country": "United Kingdom",
+            "locality": "Rotherham",
+            "postal_code": "S65 3SR",
+            "premises": "Capgemini"
+          },
+          "address_snippet": "Capgemini, Aldwarke Lane, Rotherham, United Kingdom, S65 3SR",
+          "company_number": "13758075",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-16",
+          "date_of_creation": "2021-11-22",
+          "description": "13758075 - Dissolved on 16 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13758075"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE YARD FABRICATION AND RECYCLING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Retreat",
+            "country": "England",
+            "locality": "Frome",
+            "postal_code": "BA11 5JU",
+            "premises": "Wallbridge Mills"
+          },
+          "address_snippet": "Wallbridge Mills, The Retreat, Frome, England, BA11 5JU",
+          "company_number": "10495442",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-09",
+          "date_of_creation": "2016-11-24",
+          "description": "10495442 - Dissolved on 9 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10495442"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ISLAND INK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Listymore Park",
+            "country": "Northern Ireland",
+            "locality": "Castlederg",
+            "postal_code": "BT81 7LN",
+            "premises": "9"
+          },
+          "address_snippet": "9 Listymore Park, Castlederg, Northern Ireland, BT81 7LN",
+          "company_number": "NI683603",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-02",
+          "date_of_creation": "2021-11-05",
+          "description": "NI683603 - Dissolved on 2 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/NI683603"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLOSSOM CONTRACTS MANAGEMENT & DESIGN LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Gloucester Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1N 3AX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Old Gloucester Street, London, United Kingdom, WC1N 3AX",
+          "company_number": "13721184",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-02",
+          "date_of_creation": "2021-11-03",
+          "description": "13721184 - Dissolved on 2 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13721184"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HORSE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wyndham Terrace",
+            "address_line_2": "Llanishen",
+            "country": "Wales",
+            "locality": "Cardiff",
+            "postal_code": "CF14 5NL",
+            "premises": "9",
+            "region": "South Wales"
+          },
+          "address_snippet": "9 Wyndham Terrace, Llanishen, Cardiff, South Wales, Wales, CF14 5NL",
+          "company_number": "13723327",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-02",
+          "date_of_creation": "2021-11-04",
+          "description": "13723327 - Dissolved on 2 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13723327"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE MOTOR VEHICLES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Rostrevor Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW6 5AD",
+            "premises": "54"
+          },
+          "address_snippet": "54 Rostrevor Road, London, England, SW6 5AD",
+          "company_number": "12506902",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-02",
+          "date_of_creation": "2020-03-09",
+          "description": "12506902 - Dissolved on 2 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12506902"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE INVESTMENTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Westwoodside",
+            "country": "England",
+            "locality": "Doncaster",
+            "postal_code": "DN9 2AH",
+            "premises": "Appleton Lodge Upperthorpe Road"
+          },
+          "address_snippet": "Appleton Lodge Upperthorpe Road, Westwoodside, Doncaster, England, DN9 2AH",
+          "company_number": "13999259",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-05-02",
+          "date_of_creation": "2022-03-23",
+          "description": "13999259 - Dissolved on 2 May 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13999259"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE REMOVALS AND LIGHT HAULAGE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Lillie Road",
+            "address_line_2": "Fulham",
+            "locality": "London",
+            "postal_code": "SW6 7SR",
+            "premises": "94"
+          },
+          "address_snippet": "94 Lillie Road, Fulham, London, SW6 7SR",
+          "company_number": "07117720",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-04-25",
+          "date_of_creation": "2010-01-06",
+          "description": "07117720 - Dissolved on 25 April 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07117720"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HEALTH LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Town Quay",
+            "locality": "Southampton",
+            "postal_code": "SO14 2AQ",
+            "premises": "Office D Beresford House"
+          },
+          "address_snippet": "Office D Beresford House, Town Quay, Southampton, SO14 2AQ",
+          "company_number": "03937246",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-04-12",
+          "date_of_creation": "2000-03-01",
+          "description": "03937246 - Dissolved on 12 April 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03937246"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PANELS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Piper Street",
+            "country": "England",
+            "locality": "Plymouth",
+            "postal_code": "PL6 8DJ",
+            "premises": "17"
+          },
+          "address_snippet": "17 Piper Street, Plymouth, England, PL6 8DJ",
+          "company_number": "13445851",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-04-04",
+          "date_of_creation": "2021-06-08",
+          "description": "13445851 - Dissolved on 4 April 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13445851"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ENGINEERING SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Chester Road",
+            "country": "United Kingdom",
+            "locality": "Knutsford",
+            "postal_code": "WA16 0PP",
+            "premises": "Tabley Mere"
+          },
+          "address_snippet": "Tabley Mere, Chester Road, Knutsford, United Kingdom, WA16 0PP",
+          "company_number": "13631808",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-03-14",
+          "date_of_creation": "2021-09-20",
+          "description": "13631808 - Dissolved on 14 March 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13631808"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ALLEY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Montrose Avenue",
+            "country": "England",
+            "locality": "Welling",
+            "postal_code": "DA16 2QT",
+            "premises": "123"
+          },
+          "address_snippet": "123 Montrose Avenue, Welling, England, DA16 2QT",
+          "company_number": "12915478",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-01-07",
+          "date_of_creation": "2020-09-30",
+          "description": "12915478 - Dissolved on 7 January 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12915478"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE WINE AND DINE",
+          "title": "LOYTE DIGITAL LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "East Wing Sterling House",
+            "address_line_2": "Langston Road",
+            "country": "England",
+            "locality": "Loughton",
+            "postal_code": "IG10 3TS",
+            "premises": "Suite 310e"
+          },
+          "address_snippet": "Suite 310e East Wing Sterling House, Langston Road, Loughton, England, IG10 3TS",
+          "company_number": "13043750",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-02-14",
+          "date_of_creation": "2020-11-25",
+          "description": "13043750 - Dissolved on 14 February 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13043750"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HOUSING SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Berber Road",
+            "country": "England",
+            "locality": "Rochester",
+            "postal_code": "ME2 3AN",
+            "premises": "24"
+          },
+          "address_snippet": "24 Berber Road, Rochester, England, ME2 3AN",
+          "company_number": "13566867",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-02-07",
+          "date_of_creation": "2021-08-16",
+          "description": "13566867 - Dissolved on 7 February 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13566867"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BUILDING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "7 Runcorn Place",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W11 4HR",
+            "premises": "Flat 42"
+          },
+          "address_snippet": "Flat 42 7 Runcorn Place, London, England, W11 4HR",
+          "company_number": "13561385",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-02-07",
+          "date_of_creation": "2021-08-11",
+          "description": "13561385 - Dissolved on 7 February 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13561385"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES OF ATLAS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "160 City Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "Kemp House"
+          },
+          "address_snippet": "Kemp House, 160 City Road, London, United Kingdom, EC1V 2NX",
+          "company_number": "11682460",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-02-07",
+          "date_of_creation": "2018-11-16",
+          "description": "11682460 - Dissolved on 7 February 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11682460"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE BUILDING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Walkergate Mews",
+            "country": "United Kingdom",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE6 4AG",
+            "premises": "11",
+            "region": "Tyne And Wear"
+          },
+          "address_snippet": "11 Walkergate Mews, Newcastle Upon Tyne, Tyne And Wear, United Kingdom, NE6 4AG",
+          "company_number": "13684497",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-31",
+          "date_of_creation": "2021-10-18",
+          "description": "13684497 - Dissolved on 31 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13684497"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLOSSOM KIDS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Naburn Street",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M13 0FL",
+            "premises": "17"
+          },
+          "address_snippet": "17 Naburn Street, Manchester, England, M13 0FL",
+          "company_number": "13583703",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-31",
+          "date_of_creation": "2021-08-24",
+          "description": "13583703 - Dissolved on 31 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13583703"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CROSS TRANSPORT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Monkville Avenue",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "NW11 0AH",
+            "premises": "Bishops House"
+          },
+          "address_snippet": "Bishops House, Monkville Avenue, London, England, NW11 0AH",
+          "company_number": "12157067",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-31",
+          "date_of_creation": "2019-08-15",
+          "description": "12157067 - Dissolved on 31 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12157067"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & PEARS CONSULTANCY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Crow Road",
+            "address_line_2": "Glasgow",
+            "postal_code": "G11 7RT",
+            "premises": "23"
+          },
+          "address_snippet": "23 Crow Road, Glasgow, G11 7RT",
+          "company_number": "SC329046",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-24",
+          "date_of_creation": "2007-08-09",
+          "description": "SC329046 - Dissolved on 24 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC329046"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HEALTHCARE HOLDINGS LTD."
+        },
+        {
+          "address": {
+            "address_line_1": "Crow Road",
+            "address_line_2": "Glasgow",
+            "postal_code": "G11 7RT",
+            "premises": "23"
+          },
+          "address_snippet": "23 Crow Road, Glasgow, G11 7RT",
+          "company_number": "SC246336",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-24",
+          "date_of_creation": "2003-03-24",
+          "description": "SC246336 - Dissolved on 24 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC246336"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HEALTHCARE SCOTLAND LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Merlin Centre",
+            "address_line_2": "Gatehouse Close",
+            "locality": "Aylesbury",
+            "postal_code": "HP19 8DP",
+            "premises": "7"
+          },
+          "address_snippet": "7 Merlin Centre, Gatehouse Close, Aylesbury, HP19 8DP",
+          "company_number": "08071561",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-03",
+          "date_of_creation": "2012-05-16",
+          "description": "08071561 - Dissolved on 3 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08071561"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE HILL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Sharples Street",
+            "country": "England",
+            "locality": "Stockport",
+            "postal_code": "SK4 1QE",
+            "premises": "5"
+          },
+          "address_snippet": "5 Sharples Street, Stockport, England, SK4 1QE",
+          "company_number": "13615852",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-03",
+          "date_of_creation": "2021-09-10",
+          "description": "13615852 - Dissolved on 3 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13615852"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE SERVICES & ELECTRICAL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bede Close",
+            "address_line_2": "Kirkby",
+            "country": "England",
+            "locality": "Liverpool",
+            "postal_code": "L33 4EN",
+            "premises": "5"
+          },
+          "address_snippet": "5 Bede Close, Kirkby, Liverpool, England, L33 4EN",
+          "company_number": "13407875",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-12-27",
+          "date_of_creation": "2021-05-19",
+          "description": "13407875 - Dissolved on 27 December 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13407875"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CAR SALES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Whitegate Drive",
+            "address_line_2": "Blackpool",
+            "locality": "Lancashire",
+            "postal_code": "FY3 9XH",
+            "premises": "112/114"
+          },
+          "address_snippet": "112/114 Whitegate Drive, Blackpool, Lancashire, FY3 9XH",
+          "company_number": "04789097",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-12-13",
+          "date_of_creation": "2003-06-05",
+          "description": "04789097 - Dissolved on 13 December 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04789097"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BIKES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Regency Court Upper Fifth Street",
+            "country": "England",
+            "locality": "Milton Keynes",
+            "postal_code": "MK9 2HR",
+            "premises": "206"
+          },
+          "address_snippet": "206 Regency Court Upper Fifth Street, Milton Keynes, England, MK9 2HR",
+          "company_number": "12337379",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-11-27",
+          "description": "12337379 - Incorporated on 27 November 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12337379"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE LINK SOLUTIONS LTD",
+          "title": "FULL SUPPORT RECRUITMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "1 City Road East",
+            "locality": "Manchester",
+            "postal_code": "M15 4PN",
+            "premises": "KAY JOHNSON GEE CORPORATE RECOVERY LTD"
+          },
+          "address_snippet": "KAY JOHNSON GEE CORPORATE RECOVERY LTD, 1 City Road East, Manchester, M15 4PN",
+          "company_number": "10058924",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-11-25",
+          "date_of_creation": "2016-03-11",
+          "description": "10058924 - Dissolved on 25 November 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10058924"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE COUNTY INTERIORS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Carlisle Street",
+            "address_line_2": "First Floor",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1D 3BU",
+            "premises": "17"
+          },
+          "address_snippet": "17 Carlisle Street, First Floor, London, England, W1D 3BU",
+          "company_number": "12297555",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-11-01",
+          "date_of_creation": "2019-11-04",
+          "description": "12297555 - Dissolved on 1 November 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12297555"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BEE MERCHANT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bourne Road",
+            "country": "England",
+            "locality": "Godalming",
+            "postal_code": "GU7 3NL",
+            "premises": "44"
+          },
+          "address_snippet": "44 Bourne Road, Godalming, England, GU7 3NL",
+          "company_number": "12055021",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-10-25",
+          "date_of_creation": "2019-06-17",
+          "description": "12055021 - Dissolved on 25 October 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12055021"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CRUMBLE AND FISH LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Willow Court Pengam Road",
+            "address_line_2": "Pengam",
+            "locality": "Blackwood",
+            "postal_code": "NP12 3SL",
+            "premises": "1",
+            "region": "Gwent"
+          },
+          "address_snippet": "1 Willow Court Pengam Road, Pengam, Blackwood, Gwent, NP12 3SL",
+          "company_number": "08893668",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-10-25",
+          "date_of_creation": "2014-02-13",
+          "description": "08893668 - Dissolved on 25 October 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08893668"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HEARING & HEALTHCARE LIMITED"
+        },
+        {
+          "address": {
+            "locality": "Edinburgh",
+            "po_box": "24072",
+            "postal_code": "EH3 1FD",
+            "premises": "SC699641: COMPANIES HOUSE DEFAULT ADDRESS"
+          },
+          "address_snippet": "24072, SC699641: COMPANIES HOUSE DEFAULT ADDRESS Edinburgh, EH3 1FD",
+          "company_number": "SC699641",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-10-25",
+          "date_of_creation": "2021-05-24",
+          "description": "SC699641 - Dissolved on 25 October 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC699641"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE SCOTLAND LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Longford Court",
+            "country": "England",
+            "locality": "Epsom",
+            "postal_code": "KT19 9PX",
+            "premises": "11"
+          },
+          "address_snippet": "11 Longford Court, Epsom, England, KT19 9PX",
+          "company_number": "13397637",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-10-18",
+          "date_of_creation": "2021-05-14",
+          "description": "13397637 - Dissolved on 18 October 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13397637"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HOG ROAST LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Fall Lane",
+            "locality": "Liversedge",
+            "postal_code": "WF15 8AP",
+            "premises": "35",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "35 Fall Lane, Liversedge, West Yorkshire, WF15 8AP",
+          "company_number": "09823515",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-10-13",
+          "date_of_creation": "2015-10-14",
+          "description": "09823515 - Dissolved on 13 October 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09823515"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE FITTED BEDROOMS & BATHROOMS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Westbury-On-Trym",
+            "country": "England",
+            "locality": "Bristol",
+            "postal_code": "BS9 3ED",
+            "premises": "73"
+          },
+          "address_snippet": "73 High Street, Westbury-On-Trym, Bristol, England, BS9 3ED",
+          "company_number": "14051729",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-27",
+          "date_of_creation": "2022-04-19",
+          "description": "14051729 - Dissolved on 27 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14051729"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLEBY APPLES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "44 Stafford Road",
+            "country": "United Kingdom",
+            "locality": "Wallington",
+            "postal_code": "SM6 9AA",
+            "premises": "Parker House",
+            "region": "Surrey"
+          },
+          "address_snippet": "Parker House, 44 Stafford Road, Wallington, Surrey, United Kingdom, SM6 9AA",
+          "company_number": "12807832",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-27",
+          "date_of_creation": "2020-08-12",
+          "description": "12807832 - Dissolved on 27 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12807832"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CLEARANCE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Harvington Road",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B29 5ES",
+            "premises": "149"
+          },
+          "address_snippet": "149 Harvington Road, Birmingham, England, B29 5ES",
+          "company_number": "13639735",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-09-23",
+          "description": "13639735 - Incorporated on 23 September 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13639735"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE PLUS CARE AND SERVICES",
+          "title": "OYATO TRADING COMPANY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Manneby Prior Cumming Street",
+            "address_line_2": "Islington",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "N1 9JA",
+            "premises": "40"
+          },
+          "address_snippet": "40 Manneby Prior Cumming Street, Islington, London, United Kingdom, N1 9JA",
+          "company_number": "12941807",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-20",
+          "date_of_creation": "2020-10-09",
+          "description": "12941807 - Dissolved on 20 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12941807"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE LETTINGS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Draycot Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E11 2NX",
+            "premises": "37"
+          },
+          "address_snippet": "37 Draycot Road, London, England, E11 2NX",
+          "company_number": "13317339",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-13",
+          "date_of_creation": "2021-04-07",
+          "description": "13317339 - Dissolved on 13 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13317339"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & PEARS PERSONAL ORGANISER & ASSISTANT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Blockley Road",
+            "locality": "Wembley",
+            "postal_code": "HA0 3LW",
+            "premises": "58",
+            "region": "Middlesex"
+          },
+          "address_snippet": "58 Blockley Road, Wembley, Middlesex, HA0 3LW",
+          "company_number": "09167622",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-06",
+          "date_of_creation": "2014-08-08",
+          "description": "09167622 - Dissolved on 6 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09167622"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CONSULTANCY LONDON LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Ley Street",
+            "address_line_2": "The Ley Street Plaza, Unit 12",
+            "country": "United Kingdom",
+            "locality": "Ilford",
+            "postal_code": "IG1 4BL",
+            "premises": "153-155",
+            "region": "Essex"
+          },
+          "address_snippet": "153-155 Ley Street, The Ley Street Plaza, Unit 12, Ilford, Essex, United Kingdom, IG1 4BL",
+          "company_number": "13354552",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-09-06",
+          "date_of_creation": "2021-04-23",
+          "description": "13354552 - Dissolved on 6 September 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13354552"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE MASTERS CORP. LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "124"
+          },
+          "address_snippet": "124 City Road, London, England, EC1V 2NX",
+          "company_number": "10800472",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-06-02",
+          "description": "10800472 - Incorporated on 2 June 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10800472"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE MASTER",
+          "title": "SOB ELECTRONICS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Poulton Road",
+            "locality": "Wallasey",
+            "postal_code": "CH44 4BT",
+            "premises": "255",
+            "region": "Wirral"
+          },
+          "address_snippet": "255 Poulton Road, Wallasey, Wirral, CH44 4BT",
+          "company_number": "09048623",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-30",
+          "date_of_creation": "2014-05-20",
+          "description": "09048623 - Dissolved on 30 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09048623"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RECRUITMENT UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Wyndham Terrace",
+            "country": "United Kingdom",
+            "locality": "Cardiff",
+            "postal_code": "CF14 5NL",
+            "premises": "9"
+          },
+          "address_snippet": "9 Wyndham Terrace, Cardiff, United Kingdom, CF14 5NL",
+          "company_number": "12535572",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-30",
+          "date_of_creation": "2020-03-26",
+          "description": "12535572 - Dissolved on 30 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12535572"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE VEHICLE SALES (WALES) LTD"
+        },
+        {
+          "address": {
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E1W 1YL",
+            "premises": "Office Me-123, 1 St Katharine's Way"
+          },
+          "address_snippet": "Office Me-123, 1 St Katharine's Way London, England, E1W 1YL",
+          "company_number": "12020495",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-23",
+          "date_of_creation": "2019-05-28",
+          "description": "12020495 - Dissolved on 23 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12020495"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ACCESSORIES ORIGINAL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Crow Road",
+            "country": "Scotland",
+            "locality": "Glasgow",
+            "postal_code": "G11 7RT",
+            "premises": "23"
+          },
+          "address_snippet": "23 Crow Road, Glasgow, Scotland, G11 7RT",
+          "company_number": "SC499101",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-23",
+          "date_of_creation": "2015-02-27",
+          "description": "SC499101 - Dissolved on 23 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC499101"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HUTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Greek Street",
+            "locality": "Stockport",
+            "postal_code": "SK3 8AX",
+            "premises": "41"
+          },
+          "address_snippet": "41 Greek Street, Stockport, SK3 8AX",
+          "company_number": "10390034",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-16",
+          "date_of_creation": "2016-09-22",
+          "description": "10390034 - Dissolved on 16 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10390034"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE GRAPHICS UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Cranbrook Road",
+            "country": "England",
+            "locality": "Ilford",
+            "postal_code": "IG2 6HE",
+            "premises": "555-557"
+          },
+          "address_snippet": "555-557 Cranbrook Road, Ilford, England, IG2 6HE",
+          "company_number": "10953941",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-09",
+          "date_of_creation": "2017-09-08",
+          "description": "10953941 - Dissolved on 9 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10953941"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE GARTH LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bontoft Avenue",
+            "locality": "Hull",
+            "postal_code": "HU5 4HF",
+            "premises": "Unit 2"
+          },
+          "address_snippet": "Unit 2 Bontoft Avenue, Hull, HU5 4HF",
+          "company_number": "07470392",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-09",
+          "date_of_creation": "2010-12-15",
+          "description": "07470392 - Dissolved on 9 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07470392"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE INTERNATIONAL (SPARES) LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Lane",
+            "country": "United Kingdom",
+            "locality": "Hornchurch",
+            "postal_code": "RM11 1BH",
+            "premises": "87",
+            "region": "Essex"
+          },
+          "address_snippet": "87 Park Lane, Hornchurch, Essex, United Kingdom, RM11 1BH",
+          "company_number": "13233014",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-09",
+          "date_of_creation": "2021-02-27",
+          "description": "13233014 - Dissolved on 9 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13233014"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY MAINTENACE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Pightle",
+            "address_line_2": "Oving",
+            "locality": "Aylesbury",
+            "postal_code": "HP22 4HS",
+            "premises": "12",
+            "region": "Bucks"
+          },
+          "address_snippet": "12 The Pightle, Oving, Aylesbury, Bucks, HP22 4HS",
+          "company_number": "06601704",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-02",
+          "date_of_creation": "2008-05-23",
+          "description": "06601704 - Dissolved on 2 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06601704"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES FOR APPLES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Colden Common",
+            "country": "United Kingdom",
+            "locality": "Winchester",
+            "postal_code": "SO21 1TH",
+            "premises": "Hillview House Leylands Farm Business Park",
+            "region": "Hampshire"
+          },
+          "address_snippet": "Hillview House Leylands Farm Business Park, Colden Common, Winchester, Hampshire, United Kingdom, SO21 1TH",
+          "company_number": "10564191",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-08-02",
+          "date_of_creation": "2017-01-16",
+          "description": "10564191 - Dissolved on 2 August 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10564191"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "209 King Street",
+            "address_line_2": "Fenton",
+            "country": "England",
+            "locality": "Stoke On Trent",
+            "postal_code": "ST4 3ET",
+            "premises": "209"
+          },
+          "address_snippet": "209 209 King Street, Fenton, Stoke On Trent, England, ST4 3ET",
+          "company_number": "14092806",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-05-08",
+          "description": "14092806 - Incorporated on 8 May 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14092806"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE TECHNOLOGY",
+          "title": "RELIANCE TRADING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Dormans Park",
+            "locality": "East Grinstead",
+            "postal_code": "RH19 2LT",
+            "premises": "Cherries Eden Vale",
+            "region": "West Sussex"
+          },
+          "address_snippet": "Cherries Eden Vale, Dormans Park, East Grinstead, West Sussex, RH19 2LT",
+          "company_number": "09218132",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-07-26",
+          "date_of_creation": "2014-09-15",
+          "description": "09218132 - Dissolved on 26 July 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09218132"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PAY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Manford Court",
+            "address_line_2": "Manford Way",
+            "country": "United Kingdom",
+            "locality": "Chigwell",
+            "postal_code": "IG7 4DW",
+            "premises": "3"
+          },
+          "address_snippet": "3 Manford Court, Manford Way, Chigwell, United Kingdom, IG7 4DW",
+          "company_number": "10018485",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-07-26",
+          "date_of_creation": "2016-02-22",
+          "description": "10018485 - Dissolved on 26 July 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10018485"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE POWERPC PARTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Lower Clapton Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E5 0QR",
+            "premises": "120"
+          },
+          "address_snippet": "120 Lower Clapton Road, London, England, E5 0QR",
+          "company_number": "13233699",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-07-26",
+          "date_of_creation": "2021-02-27",
+          "description": "13233699 - Dissolved on 26 July 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13233699"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REPLACEMENT PARTS SUPPLIERS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Athol Close",
+            "country": "England",
+            "locality": "Halifax",
+            "postal_code": "HX3 5SB",
+            "premises": "7"
+          },
+          "address_snippet": "7 Athol Close, Halifax, England, HX3 5SB",
+          "company_number": "13190991",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-07-19",
+          "date_of_creation": "2021-02-09",
+          "description": "13190991 - Dissolved on 19 July 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13190991"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE GIVEAWAYS UK LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Dove House Lane",
+            "country": "England",
+            "locality": "Solihull",
+            "postal_code": "B91 2HA",
+            "premises": "7"
+          },
+          "address_snippet": "7 Dove House Lane, Solihull, England, B91 2HA",
+          "company_number": "06136817",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-07-19",
+          "date_of_creation": "2007-03-05",
+          "description": "06136817 - Dissolved on 19 July 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06136817"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE TECHNOLOGIES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Turnpike Lane",
+            "address_line_2": "Hornsey",
+            "locality": "London",
+            "postal_code": "N8 0PT",
+            "premises": "6"
+          },
+          "address_snippet": "6 Turnpike Lane, Hornsey, London, N8 0PT",
+          "company_number": "08855899",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-06-28",
+          "date_of_creation": "2014-01-22",
+          "description": "08855899 - Dissolved on 28 June 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08855899"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE DAY NURSERY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "88 Magdalens Road",
+            "locality": "Ripon",
+            "postal_code": "HG4 1HT",
+            "premises": "Bumble Bee Cottage",
+            "region": "North Yorkshire"
+          },
+          "address_snippet": "Bumble Bee Cottage, 88 Magdalens Road, Ripon, North Yorkshire, HG4 1HT",
+          "company_number": "13023139",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-06-28",
+          "date_of_creation": "2020-11-16",
+          "description": "13023139 - Dissolved on 28 June 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13023139"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE DOG GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Tarrant Street",
+            "country": "England",
+            "locality": "Arundel",
+            "postal_code": "BN19 9JF",
+            "premises": "Old Printing House Square Unit 16",
+            "region": "West Sussex"
+          },
+          "address_snippet": "Old Printing House Square Unit 16 Tarrant Street, Arundel, West Sussex, England, BN19 9JF",
+          "company_number": "11136243",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-06-14",
+          "date_of_creation": "2018-01-08",
+          "description": "11136243 - Dissolved on 14 June 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11136243"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE ACCOUNTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Newent Road",
+            "address_line_2": "Highnam",
+            "country": "England",
+            "locality": "Gloucester",
+            "postal_code": "GL2 8DN",
+            "premises": "Unit 13"
+          },
+          "address_snippet": "Unit 13 Newent Road, Highnam, Gloucester, England, GL2 8DN",
+          "company_number": "12202444",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-06-07",
+          "date_of_creation": "2019-09-12",
+          "description": "12202444 - Dissolved on 7 June 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12202444"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIP CONSULTANCY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street Cheshunt",
+            "address_line_2": "Waltham Cross",
+            "country": "United Kingdom",
+            "locality": "Broxbourne",
+            "postal_code": "EN8 7ED",
+            "premises": "Flat 27",
+            "region": "Hertfordshire"
+          },
+          "address_snippet": "Flat 27 High Street Cheshunt, Waltham Cross, Broxbourne, Hertfordshire, United Kingdom, EN8 7ED",
+          "company_number": "12701212",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-06-07",
+          "date_of_creation": "2020-06-29",
+          "description": "12701212 - Dissolved on 7 June 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12701212"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES OF GOLD EVENTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Adeline Street",
+            "country": "Wales",
+            "locality": "Newport",
+            "postal_code": "NP20 2HD",
+            "premises": "56"
+          },
+          "address_snippet": "56 Adeline Street, Newport, Wales, NP20 2HD",
+          "company_number": "13479671",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-31",
+          "date_of_creation": "2021-06-28",
+          "description": "13479671 - Dissolved on 31 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13479671"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLOSSOM IN MAY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Stafford Street",
+            "country": "England",
+            "locality": "Walsall",
+            "postal_code": "WS2 8ED",
+            "premises": "192-194"
+          },
+          "address_snippet": "192-194 Stafford Street, Walsall, England, WS2 8ED",
+          "company_number": "13099097",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-31",
+          "date_of_creation": "2020-12-24",
+          "description": "13099097 - Dissolved on 31 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13099097"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY MANAGEMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Howell Drive Sapley",
+            "country": "England",
+            "locality": "Huntingdon",
+            "postal_code": "PE28 2GD",
+            "premises": "46"
+          },
+          "address_snippet": "46 Howell Drive Sapley, Huntingdon, England, PE28 2GD",
+          "company_number": "12229360",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-24",
+          "date_of_creation": "2019-09-26",
+          "description": "12229360 - Dissolved on 24 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12229360"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CONSTRUCT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Borrowdale Drive",
+            "country": "England",
+            "locality": "Worcester",
+            "postal_code": "WR4 9HE",
+            "premises": "105"
+          },
+          "address_snippet": "105 Borrowdale Drive, Worcester, England, WR4 9HE",
+          "company_number": "12545677",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-24",
+          "date_of_creation": "2020-04-03",
+          "description": "12545677 - Dissolved on 24 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12545677"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE OPERATIVE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, London, England, WC2H 9JQ",
+          "company_number": "06433074",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2007-11-21",
+          "description": "06433074 - Incorporated on 21 November 2007",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06433074"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE FACILITIES MANAGEMENT \u00b7 APPLE FINANCIAL MARKETING",
+          "title": "RIXOS HOLDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Coronation Drive",
+            "address_line_2": "Leysdown-On-Sea",
+            "locality": "Sheerness",
+            "postal_code": "ME12 4AW",
+            "premises": "5",
+            "region": "Kent"
+          },
+          "address_snippet": "5 Coronation Drive, Leysdown-On-Sea, Sheerness, Kent, ME12 4AW",
+          "company_number": "02418658",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-17",
+          "date_of_creation": "1989-08-31",
+          "description": "02418658 - Dissolved on 17 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/02418658"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLINDS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bridge Street",
+            "country": "England",
+            "locality": "Keighley",
+            "postal_code": "BD21 1AA",
+            "premises": "25",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "25 Bridge Street, Keighley, West Yorkshire, England, BD21 1AA",
+          "company_number": "12358303",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-17",
+          "date_of_creation": "2019-12-11",
+          "description": "12358303 - Dissolved on 17 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12358303"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE CARS PRIVATE HIRE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "160 City Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "Kemp House"
+          },
+          "address_snippet": "Kemp House, 160 City Road, London, United Kingdom, EC1V 2NX",
+          "company_number": "13460472",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-05-03",
+          "date_of_creation": "2021-06-16",
+          "description": "13460472 - Dissolved on 3 May 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13460472"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ABODE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "George Street",
+            "country": "England",
+            "locality": "Elland",
+            "postal_code": "HX5 0NE",
+            "premises": "St. Keverne"
+          },
+          "address_snippet": "St. Keverne, George Street, Elland, England, HX5 0NE",
+          "company_number": "13720447",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-26",
+          "date_of_creation": "2021-11-03",
+          "description": "13720447 - Dissolved on 26 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13720447"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HOMECARE SERVICES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "65 Cleveland Road",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M8 4GT",
+            "premises": "Flat 1,"
+          },
+          "address_snippet": "Flat 1, 65 Cleveland Road, Manchester, England, M8 4GT",
+          "company_number": "11679814",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-26",
+          "date_of_creation": "2018-11-15",
+          "description": "11679814 - Dissolved on 26 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11679814"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & SQUATS PERSONAL TRAINING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hatford Close",
+            "address_line_2": "Tyldesley",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M29 8WX",
+            "premises": "9"
+          },
+          "address_snippet": "9 Hatford Close, Tyldesley, Manchester, England, M29 8WX",
+          "company_number": "08625280",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-26",
+          "date_of_creation": "2013-07-25",
+          "description": "08625280 - Dissolved on 26 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08625280"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE WANTAGE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Llangaten,",
+            "country": "Wales",
+            "locality": "Builth Wells",
+            "postal_code": "LD2 3NR",
+            "premises": "Apple Blossom Care Farm Garth Road,",
+            "region": "Powys"
+          },
+          "address_snippet": "Apple Blossom Care Farm Garth Road,, Llangaten,, Builth Wells, Powys, Wales, LD2 3NR",
+          "company_number": "OC423616",
+          "company_status": "dissolved",
+          "company_type": "llp",
+          "date_of_cessation": "2022-04-19",
+          "date_of_creation": "2018-08-02",
+          "description": "OC423616 - Dissolved on 19 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/OC423616"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLOSSOM CARE FARM LLP"
+        },
+        {
+          "address": {
+            "address_line_1": "Wishaw",
+            "country": "United Kingdom",
+            "locality": "Birmingham",
+            "postal_code": "B76 9PL",
+            "premises": "Noel Grange Lichfield Road"
+          },
+          "address_snippet": "Noel Grange Lichfield Road, Wishaw, Birmingham, United Kingdom, B76 9PL",
+          "company_number": "13011279",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-19",
+          "date_of_creation": "2020-11-11",
+          "description": "13011279 - Dissolved on 19 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13011279"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES AND POTATOES (FARM) LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Walk House Farm",
+            "country": "United Kingdom",
+            "locality": "Barrow Upon Humber",
+            "postal_code": "DN19 7DZ",
+            "premises": "Stable Yard"
+          },
+          "address_snippet": "Stable Yard, Walk House Farm, Barrow Upon Humber, United Kingdom, DN19 7DZ",
+          "company_number": "04158985",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-19",
+          "date_of_creation": "2001-02-13",
+          "description": "04158985 - Dissolved on 19 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04158985"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE SECURITY",
+          "title": "APPLE SECURITY SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Greenways Drive",
+            "country": "United Kingdom",
+            "locality": "Hounslow",
+            "postal_code": "TW4 5DD",
+            "premises": "11"
+          },
+          "address_snippet": "11 Greenways Drive, Hounslow, United Kingdom, TW4 5DD",
+          "company_number": "10653980",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-12",
+          "date_of_creation": "2017-03-06",
+          "description": "10653980 - Dissolved on 12 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10653980"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TOUR & TRAVEL UK LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "St Johns Street",
+            "locality": "Salisbury",
+            "postal_code": "SP1 2SB",
+            "premises": "Alexandra House",
+            "region": "Wiltshire"
+          },
+          "address_snippet": "Alexandra House, St Johns Street, Salisbury, Wiltshire, SP1 2SB",
+          "company_number": "04734487",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-05",
+          "date_of_creation": "2003-04-15",
+          "description": "04734487 - Dissolved on 5 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04734487"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE BLOSSOM PROPERTY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "182-184 High Street North",
+            "country": "United Kingdom",
+            "locality": "East Ham",
+            "postal_code": "E6 2JA",
+            "premises": "Office 538",
+            "region": "London"
+          },
+          "address_snippet": "Office 538 182-184 High Street North, East Ham, London, United Kingdom, E6 2JA",
+          "company_number": "13132341",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-05",
+          "date_of_creation": "2021-01-13",
+          "description": "13132341 - Dissolved on 5 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13132341"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE GRAIN LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Judson Avenue",
+            "address_line_2": "Stapleford",
+            "country": "England",
+            "locality": "Nottingham",
+            "postal_code": "NG9 7FH",
+            "premises": "3"
+          },
+          "address_snippet": "3 Judson Avenue, Stapleford, Nottingham, England, NG9 7FH",
+          "company_number": "13231136",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-05",
+          "date_of_creation": "2021-02-27",
+          "description": "13231136 - Dissolved on 5 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13231136"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ORCHARD PRODUCTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Square",
+            "address_line_2": "Stockley Park",
+            "country": "England",
+            "locality": "Heathrow",
+            "postal_code": "UB11 1FW",
+            "premises": "6-9",
+            "region": "Hayes"
+          },
+          "address_snippet": "6-9 The Square, Stockley Park, Heathrow, Hayes, England, UB11 1FW",
+          "company_number": "09355177",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-04-05",
+          "date_of_creation": "2014-12-15",
+          "description": "09355177 - Dissolved on 5 April 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09355177"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE TREE CONSULTANTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bacup Road",
+            "country": "England",
+            "locality": "Rossendale",
+            "postal_code": "BB4 7JJ",
+            "premises": "709a"
+          },
+          "address_snippet": "709a Bacup Road, Rossendale, England, BB4 7JJ",
+          "company_number": "12462754",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-29",
+          "date_of_creation": "2020-02-14",
+          "description": "12462754 - Dissolved on 29 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12462754"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE CARS ROSSENDALE",
+          "title": "APPLE CAR HIRE ROSSENDALE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Barnet Road",
+            "country": "England",
+            "locality": "Potters Bar",
+            "postal_code": "EN6 2RN",
+            "premises": "109"
+          },
+          "address_snippet": "109 Barnet Road, Potters Bar, England, EN6 2RN",
+          "company_number": "12961808",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-29",
+          "date_of_creation": "2020-10-20",
+          "description": "12961808 - Dissolved on 29 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12961808"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HOME IMPROVEMENTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bank Chambers",
+            "address_line_2": "Tooting High Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW17 0SU",
+            "premises": "3"
+          },
+          "address_snippet": "3 Bank Chambers, Tooting High Street, London, England, SW17 0SU",
+          "company_number": "12959499",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-29",
+          "date_of_creation": "2020-10-19",
+          "description": "12959499 - Dissolved on 29 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12959499"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HUB ELECTRONICS TRADING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Cherwell Gardens",
+            "address_line_2": "Bingham",
+            "country": "England",
+            "locality": "Nottingham",
+            "postal_code": "NG13 8YW",
+            "premises": "15"
+          },
+          "address_snippet": "15 Cherwell Gardens, Bingham, Nottingham, England, NG13 8YW",
+          "company_number": "07979590",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-22",
+          "date_of_creation": "2012-03-07",
+          "description": "07979590 - Dissolved on 22 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07979590"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE AESTHETICS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": ": COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "12141237"
+          },
+          "address_snippet": "4385, 12141237 : COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "12141237",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-22",
+          "date_of_creation": "2019-08-06",
+          "description": "12141237 - Dissolved on 22 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12141237"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE GROVE BUILDING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Grovehill Crescent",
+            "country": "United Kingdom",
+            "locality": "Falmouth",
+            "postal_code": "TR11 3HR",
+            "premises": "19",
+            "region": "Cornwall"
+          },
+          "address_snippet": "19 Grovehill Crescent, Falmouth, Cornwall, United Kingdom, TR11 3HR",
+          "company_number": "13033643",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2023-01-24",
+          "date_of_creation": "2020-11-20",
+          "description": "13033643 - Dissolved on 24 January 2023",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13033643"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE MEDIA",
+          "title": "RIGHTS MANAGER LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Race",
+            "address_line_2": "Handforth",
+            "country": "England",
+            "locality": "Wilmslow",
+            "postal_code": "SK9 3BT",
+            "premises": "21"
+          },
+          "address_snippet": "21 The Race, Handforth, Wilmslow, England, SK9 3BT",
+          "company_number": "12917108",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-08",
+          "date_of_creation": "2020-09-30",
+          "description": "12917108 - Dissolved on 8 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12917108"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE HEAD PRODUCTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "St. Johns Street",
+            "address_line_2": "13-14",
+            "country": "England",
+            "locality": "Devizes",
+            "postal_code": "SN10 1BD",
+            "premises": "Flat 1"
+          },
+          "address_snippet": "Flat 1 St. Johns Street, 13-14, Devizes, England, SN10 1BD",
+          "company_number": "12412143",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2022-03-08",
+          "date_of_creation": "2020-01-20",
+          "description": "12412143 - Dissolved on 8 March 2022",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12412143"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES CATERING LTD"
+        }
+      ],
+      "items_per_page": 100,
+      "kind": "search#companies",
+      "page_number": 9,
+      "start_index": 800,
+      "total_results": 6579
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:40:41 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=A5BF66BA76C66E6FC5F0CCF4473CD8C0; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "586",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/search/companies?q=Apple&start_index=800&items_per_page=200"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/search/companies?q=Apple&start_index=800&items_per_page=200"
+}

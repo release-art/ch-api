@@ -1,0 +1,359 @@
+{
+  "content": {
+    "json": {
+      "etag": "7545160cb26ba2a39761ad53c62730e28bb3a2c5",
+      "hits": 49,
+      "items": [
+        {
+          "company_name": "WALROW ENGINEERS LIMITED",
+          "company_number": "01384024",
+          "company_status": "dissolved",
+          "date_of_cessation": "1992-04-13",
+          "date_of_creation": "1978-08-15",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1987-04-24",
+            "company_number": "01384024",
+            "effective_from": "1978-08-15",
+            "name": "BOB CHANNON LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1987-04-24",
+              "company_number": "01384024",
+              "effective_from": "1978-08-15",
+              "name": "BOB CHANNON LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "GRAY YOUNG LIMITED",
+          "company_number": "SC090218",
+          "company_status": "dissolved",
+          "date_of_cessation": "2005-02-25",
+          "date_of_creation": "1984-10-26",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1987-08-17",
+            "company_number": "SC090218",
+            "effective_from": "1985-05-14",
+            "name": "BOB HALL LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1987-08-17",
+              "company_number": "SC090218",
+              "effective_from": "1985-05-14",
+              "name": "BOB HALL LIMITED"
+            },
+            {
+              "ceased_on": "1985-05-14",
+              "company_number": "SC090218",
+              "effective_from": "1984-10-26",
+              "name": "COMLAW NO 84 LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "G. & H. MOTOR ENGINEERS LIMITED",
+          "company_number": "01093963",
+          "company_status": "dissolved",
+          "date_of_cessation": "2006-05-30",
+          "date_of_creation": "1973-02-02",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1984-05-29",
+            "company_number": "01093963",
+            "effective_from": "1973-02-02",
+            "name": "BOB GURNEY LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1984-05-29",
+              "company_number": "01093963",
+              "effective_from": "1973-02-02",
+              "name": "BOB GURNEY LIMITED"
+            }
+          ],
+          "registered_office_address": {
+            "address_line_1": "38 Bromborough Village Road",
+            "address_line_2": "Wirral",
+            "locality": "Merseyside",
+            "postal_code": "CH62 7ET"
+          }
+        },
+        {
+          "company_name": "BYKER BOTTLE GLASS COMPANY LTD",
+          "company_number": "05684451",
+          "company_status": "dissolved",
+          "date_of_cessation": "2009-05-05",
+          "date_of_creation": "2006-01-23",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "2007-01-24",
+            "company_number": "05684451",
+            "effective_from": "2006-01-23",
+            "name": "BOB RECYCLES LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "2007-01-24",
+              "company_number": "05684451",
+              "effective_from": "2006-01-23",
+              "name": "BOB RECYCLES LIMITED"
+            }
+          ],
+          "registered_office_address": {
+            "address_line_1": "2 Southfield Road, Benton",
+            "address_line_2": "Newcastle Upon Tyne",
+            "locality": "Tyne & Wear",
+            "postal_code": "NE12 8BJ"
+          }
+        },
+        {
+          "company_name": "A - Z RETAIL LIMITED",
+          "company_number": "01885948",
+          "company_status": "dissolved",
+          "date_of_cessation": "2002-09-12",
+          "date_of_creation": "1985-02-14",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1996-12-11",
+            "company_number": "01885948",
+            "effective_from": "1985-03-20",
+            "name": "BOB PHEASANT LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1996-12-11",
+              "company_number": "01885948",
+              "effective_from": "1985-03-20",
+              "name": "BOB PHEASANT LIMITED"
+            },
+            {
+              "ceased_on": "1985-03-20",
+              "company_number": "01885948",
+              "effective_from": "1985-02-14",
+              "name": "USEDALE LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "WB SECRETARIAL LIMITED",
+          "company_number": "03035193",
+          "company_status": "dissolved",
+          "date_of_cessation": "2003-07-22",
+          "date_of_creation": "1995-03-20",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1996-08-14",
+            "company_number": "03035193",
+            "effective_from": "1995-03-20",
+            "name": "BOB NICHOLS LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1996-08-14",
+              "company_number": "03035193",
+              "effective_from": "1995-03-20",
+              "name": "BOB NICHOLS LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "MARCONI MATERIALS TECHNOLOGY LIMITED",
+          "company_number": "00396960",
+          "company_status": "dissolved",
+          "date_of_cessation": "2003-12-01",
+          "date_of_creation": "1945-07-13",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1978-12-31",
+            "company_number": "00396960",
+            "effective_from": "1945-07-13",
+            "name": "B.O.B. (ARUNDEL) LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1998-11-11",
+              "company_number": "00396960",
+              "effective_from": "1991-03-20",
+              "name": "GEC-MARCONI MATERIALS TECHNOLOGY LIMITED"
+            },
+            {
+              "ceased_on": "1991-03-20",
+              "company_number": "00396960",
+              "effective_from": "1986-07-03",
+              "name": "PLESSEY RESEARCH CASWELL LIMITED"
+            },
+            {
+              "ceased_on": "1986-07-03",
+              "company_number": "00396960",
+              "effective_from": "1978-12-31",
+              "name": "PLESSEY RESEARCH (CASWELL) LIMITED"
+            },
+            {
+              "ceased_on": "1978-12-31",
+              "company_number": "00396960",
+              "effective_from": "1945-07-13",
+              "name": "B.O.B. (ARUNDEL) LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "CASTLE FAIRS LIMITED",
+          "company_number": "00861308",
+          "company_status": "dissolved",
+          "date_of_cessation": "1993-09-29",
+          "date_of_creation": "1965-10-12",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "1987-11-24",
+            "company_number": "00861308",
+            "effective_from": "1965-10-12",
+            "name": "BOB SOPER LIMITED"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "1987-11-24",
+              "company_number": "00861308",
+              "effective_from": "1965-10-12",
+              "name": "BOB SOPER LIMITED"
+            }
+          ]
+        },
+        {
+          "company_name": "BUGLASS ENGINEERING LTD",
+          "company_number": "04963055",
+          "company_status": "dissolved",
+          "date_of_cessation": "2009-08-25",
+          "date_of_creation": "2003-11-13",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "2007-09-19",
+            "company_number": "04963055",
+            "effective_from": "2005-11-16",
+            "name": "PLUM BOB LTD"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "2007-09-19",
+              "company_number": "04963055",
+              "effective_from": "2005-11-16",
+              "name": "PLUM BOB LTD"
+            },
+            {
+              "ceased_on": "2005-11-16",
+              "company_number": "04963055",
+              "effective_from": "2003-11-13",
+              "name": "NIGEL JAMES FURNITURE LIMITED"
+            }
+          ],
+          "registered_office_address": {
+            "address_line_1": "14 Cambridge Place",
+            "address_line_2": "Todmorden",
+            "locality": "Lancashire",
+            "postal_code": "OL14 5AZ"
+          }
+        },
+        {
+          "company_name": "MINA OIL LIMITED",
+          "company_number": "04345413",
+          "company_status": "dissolved",
+          "date_of_cessation": "2006-10-03",
+          "date_of_creation": "2001-12-24",
+          "kind": "searchresults#dissolved-company",
+          "matched_previous_company_name": {
+            "ceased_on": "2003-01-09",
+            "company_number": "04345413",
+            "effective_from": "2001-12-24",
+            "name": "HARDMAN BOB LTD"
+          },
+          "previous_company_names": [
+            {
+              "ceased_on": "2005-03-08",
+              "company_number": "04345413",
+              "effective_from": "2005-02-08",
+              "name": "LES MAZES AND ENSIGN INVESTMENTS LIMITED"
+            },
+            {
+              "ceased_on": "2005-02-08",
+              "company_number": "04345413",
+              "effective_from": "2003-01-09",
+              "name": "SMART TELECOMMUNICATIONS LIMITED"
+            },
+            {
+              "ceased_on": "2003-01-09",
+              "company_number": "04345413",
+              "effective_from": "2001-12-24",
+              "name": "HARDMAN BOB LTD"
+            }
+          ],
+          "registered_office_address": {
+            "address_line_1": "226 Seven Sisters Road",
+            "address_line_2": "Finsbury Park",
+            "locality": "North London",
+            "postal_code": "N4 3GG"
+          }
+        }
+      ],
+      "kind": "search#previous-name-dissolved",
+      "top_hit": {
+        "company_name": "WALROW ENGINEERS LIMITED",
+        "company_number": "01384024",
+        "company_status": "dissolved",
+        "date_of_cessation": "1992-04-13",
+        "date_of_creation": "1978-08-15",
+        "kind": "searchresults#dissolved-company",
+        "matched_previous_company_name": {
+          "ceased_on": "1987-04-24",
+          "company_number": "01384024",
+          "effective_from": "1978-08-15",
+          "name": "BOB CHANNON LIMITED"
+        },
+        "previous_company_names": [
+          {
+            "ceased_on": "1987-04-24",
+            "company_number": "01384024",
+            "effective_from": "1978-08-15",
+            "name": "BOB CHANNON LIMITED"
+          }
+        ]
+      }
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:41:38 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=3FB3115AF964C3E5F5A2B180BC87EBDA; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "513",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/dissolved-search/companies?q=bob&size=10&search_type=previous-name-dissolved"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/dissolved-search/companies?q=bob&size=10&search_type=previous-name-dissolved"
+}

@@ -1,0 +1,68 @@
+{
+  "content": {
+    "json": {
+      "address": {
+        "address_line_1": "City Road",
+        "country": "United Kingdom",
+        "locality": "London",
+        "postal_code": "EC1V 2NX",
+        "premises": "124"
+      },
+      "appointed_on": "2022-06-28",
+      "country_of_residence": "United Kingdom",
+      "date_of_birth": {
+        "month": 5,
+        "year": 1986
+      },
+      "etag": "b3a4fb824e5c44e7cd6501af9b7247935b82bdbf",
+      "identity_verification_details": {
+        "appointment_verification_statement_due_on": "2026-07-11"
+      },
+      "is_pre_1992_appointment": false,
+      "links": {
+        "officer": {
+          "appointments": "/officers/wi5m27Y3oS-t6WQsX5MHlLj6mpY/appointments"
+        },
+        "self": "/company/14200734/appointments/UndJhrGEDKSjtYtjKacokU1YApY"
+      },
+      "name": "ORLOVS, Ilja",
+      "nationality": "Latvian",
+      "officer_role": "director",
+      "person_number": "297395900001"
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:41:30 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=55F94137F0BF48C5B52CF2C8E4D644FE; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "577",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/14200734/appointments/UndJhrGEDKSjtYtjKacokU1YApY"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/14200734/appointments/UndJhrGEDKSjtYtjKacokU1YApY"
+}

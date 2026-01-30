@@ -1,0 +1,564 @@
+{
+  "content": {
+    "json": {
+      "etag": "ba7b551e2bc92560a83a9e419caac52fe7a2e26f",
+      "items": [
+        {
+          "charge_code": "097591610013",
+          "charge_number": 13,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2024-11-15",
+          "delivered_on": "2024-11-18",
+          "etag": "09cc67aa9e8e8278d8e85654d227995e015d97b7",
+          "links": {
+            "self": "/company/09759161/charges/R9L57rYDsFl1P4cNQd2bVVD180A"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc as Collateral Agent"
+            }
+          ],
+          "status": "outstanding",
+          "transactions": [
+            {
+              "delivered_on": "2024-11-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzQ0MzczMzIzNGFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610012",
+          "charge_number": 12,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2024-11-12",
+          "delivered_on": "2024-11-17",
+          "etag": "3324ad24b35d4182ef12e2c12adc4156556fd4fa",
+          "links": {
+            "self": "/company/09759161/charges/HVTZfIRVvr6JnB-wvL9VxKRuzLM"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc as Collateral Agent"
+            }
+          ],
+          "status": "outstanding",
+          "transactions": [
+            {
+              "delivered_on": "2024-11-17",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzQ0MzY1NTQxNGFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610011",
+          "charge_number": 11,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2022-01-07",
+          "delivered_on": "2022-01-18",
+          "etag": "a3dd19e74c2d15ce8bf7cfa950938aee83014955",
+          "links": {
+            "self": "/company/09759161/charges/6YN1QfqVXJ6xgcg--3ozGW-odl4"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc as Collateral Agent"
+            }
+          ],
+          "status": "outstanding",
+          "transactions": [
+            {
+              "delivered_on": "2022-01-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMyNjkyMzE4MGFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610010",
+          "charge_number": 10,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2022-01-07",
+          "delivered_on": "2022-01-10",
+          "etag": "771913424b4bbbed52c736288edfdc7590e84f2a",
+          "links": {
+            "self": "/company/09759161/charges/RtKZtAhw2M_9pRu4lxvp6HqPsHo"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc as Collateral Agent"
+            }
+          ],
+          "status": "outstanding",
+          "transactions": [
+            {
+              "delivered_on": "2022-01-10",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMyNjE2NDY3OWFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610009",
+          "charge_number": 9,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "6f373a4e4579a128bb3d60ea60a88b0caff0403c",
+          "links": {
+            "self": "/company/09759161/charges/bnjpA_XUl2fu5hERkI_GChbrm5Q"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Barclays Bank PLC"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyMzUzMGFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MjAwMmFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610008",
+          "charge_number": 8,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "df4a7d078176548aa797a0fdc99c4ef9eb42ff3b",
+          "links": {
+            "self": "/company/09759161/charges/doihFYOvcJI6DUY5FVsXM2D-oYs"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true,
+            "floating_charge_covers_all": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Barclays Bank PLC"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyMjM1OGFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MjAwMWFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610007",
+          "charge_number": 7,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "d40a8aa8ba1875f2ef7b4c35d18b844543b3ba67",
+          "links": {
+            "self": "/company/09759161/charges/OAfVmg3QeM_2XUnCQ52oyvgaKxE"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true,
+            "floating_charge_covers_all": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Barclays Bank PLC"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyMjY5MmFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MjAwMGFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610006",
+          "charge_number": 6,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "43159b53b975df6514a65f7e6f68cb457836279f",
+          "links": {
+            "self": "/company/09759161/charges/QuC7VjAM1kDtr5-RGBBNRY5vwj4"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true,
+            "floating_charge_covers_all": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Midcap Financial Trust"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyMzExN2FkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MTk5OWFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610005",
+          "charge_number": 5,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "20cfd00f0f62e8851a8f7ea92b0ea140ee57b641",
+          "links": {
+            "self": "/company/09759161/charges/x6OgnHodXGHdU-h6iTMNZAiXUgY"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Barclays Bank PLC"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyMzgyNmFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MTk5OGFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610004",
+          "charge_number": 4,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "5233254a5c7bd25214cc224f3c9e0b029abba9c0",
+          "links": {
+            "self": "/company/09759161/charges/cQSCLEEaBYuqADYjQWgah1KqC6Y"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyNDEwMWFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MTk1N2FkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610003",
+          "charge_number": 3,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-09-04",
+          "delivered_on": "2019-09-18",
+          "etag": "e85088a1c7eb2311efbd5bd38e5a5d170ef9be79",
+          "links": {
+            "self": "/company/09759161/charges/co-Wpd9oWUGAQZbsxNJEUzPry2I"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_negative_pledge": true
+          },
+          "persons_entitled": [
+            {
+              "name": "Midcap Financial Trust"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-09-18",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0NDUyNDQ2MWFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MTk3M2FkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610002",
+          "charge_number": 2,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-08-05",
+          "delivered_on": "2019-08-13",
+          "etag": "b580b38d36451a105f56c58eff2f5874d2833c1f",
+          "links": {
+            "self": "/company/09759161/charges/am96ysxWNw9Mh_O7Y77YnBry_V0"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true,
+            "description": "None at the date of the charge.",
+            "floating_charge_covers_all": true,
+            "type": "brief-description"
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-08-13",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzI0MTYxOTI3MWFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MTk3MmFkaXF6a2N4"
+              }
+            }
+          ]
+        },
+        {
+          "charge_code": "097591610001",
+          "charge_number": 1,
+          "classification": {
+            "description": "A registered charge",
+            "type": "charge-description"
+          },
+          "created_on": "2019-01-22",
+          "delivered_on": "2019-02-04",
+          "etag": "af76239a3615f2e037fca50dccf06221fac50fdf",
+          "links": {
+            "self": "/company/09759161/charges/UXoKTNf-G1XyMFlU5gou8FefvsM"
+          },
+          "particulars": {
+            "contains_fixed_charge": true,
+            "contains_floating_charge": true,
+            "contains_negative_pledge": true,
+            "description": "None at the date of charge.",
+            "floating_charge_covers_all": true,
+            "type": "brief-description"
+          },
+          "persons_entitled": [
+            {
+              "name": "Hps Investment Partners, Llc"
+            }
+          ],
+          "satisfied_on": "2021-10-21",
+          "status": "fully-satisfied",
+          "transactions": [
+            {
+              "delivered_on": "2019-02-04",
+              "filing_type": "create-charge-with-deed",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzIyNjE2NjQzOGFkaXF6a2N4"
+              }
+            },
+            {
+              "delivered_on": "2021-10-21",
+              "filing_type": "charge-satisfaction",
+              "links": {
+                "filing": "/company/09759161/filing-history/MzMxODI3MjAwM2FkaXF6a2N4"
+              }
+            }
+          ]
+        }
+      ],
+      "part_satisfied_count": 0,
+      "satisfied_count": 9,
+      "total_count": 13,
+      "unfiltered_count": 13
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 12:41:29 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=99F6F6EB1D474FC48070AEF110C8515D; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "582",
+    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/09759161/charges"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/09759161/charges"
+}
