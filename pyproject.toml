@@ -1,6 +1,6 @@
 [project]
 name = "ch-api"
-description = "Pythonic Company House API"
+description = "UK Companies House API"
 authors = [
     {name = "Ilja Orlovs", email = "VRGhost@users.noreply.github.com"},
 ]
@@ -45,6 +45,8 @@ dev = [
     "sphinx-design>=0.7.0",
     "pydata-sphinx-theme>=0.16.1",
     "autodoc-pydantic>=2.2.0",
+    "ty>=0.0.14",
+    "pytest-doctestplus>=1.7.1",
 ]
 
 [project.urls]
@@ -132,6 +134,11 @@ addopts = """\
     -ra \
     --tb=native \
     --verbosity=3 \
+    --doctest-plus \
+    --doctest-modules \
+    --doctest-rst \
+    --doctest-glob=*.md \
+    --doctest-glob=*.rst \
 """
 filterwarnings = [
     "ignore::DeprecationWarning"
@@ -141,7 +148,11 @@ python_classes = ["Test", "Acceptance",]
 python_functions = ["test"]
 testpaths = [
     "tests/",
+    "src/",
+    "docs/",
+    "README.md",
 ]
+doctest_optionflags = ["NORMALIZE_WHITESPACE", "ELLIPSIS"]
 markers = [
     # Test tags/labels/markers - not using any currently
 ]

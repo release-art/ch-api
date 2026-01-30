@@ -253,12 +253,16 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual MultipageList creation::
 
-                async def fetch_firms(page_idx: int):
-                    response = await raw_client.search_frn("test", page=page_idx)
-                    # Parse and return (info, items)
-
-                results = MultipageList(fetch_page=fetch_firms)
-                await results._async_init()  # Required!
+                >>> async def fetch_firms(page_idx: int):
+                ...     response = await raw_client.search_frn("test", page=page_idx)
+                ...     # Parse and return (info, items)
+                ...     return response
+                >>>
+                >>> # results = MultipageList(fetch_page=fetch_firms)
+                >>> # await results._async_init()  # Required!
+                >>>
+                >>> # results = MultipageList(fetch_page=fetch_firms)
+                >>> # await results._async_init()  # Required!
         """
         self._pages = []
         self._lock = asyncio.Lock()
@@ -292,9 +296,9 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual initialization::
 
-                results = MultipageList(fetch_page=my_fetch_function)
-                await results._async_init()  # Required before use
-                print(len(results))  # Now safe to call
+                >>> # results = MultipageList(fetch_page=my_fetch_function)
+                >>> # await results._async_init()  # Required before use
+                >>> # print(len(results))  # Now safe to call
         """
         # Fetch the first page to initialize the result info.
         await self._fetch_page_to_item_idx(0)
@@ -312,16 +316,12 @@ class MultipageList(typing.Generic[T]):
         Example:
             Bulk processing pattern::
 
-                results = await client.search_frn("test")
-
-                # Load all data once
-                await results.fetch_all_pages()
-
-                # Now process multiple times without API calls
-                authorised = [f for f in results.local_items() if f.status == "Authorised"]
-                unauthorised = [f for f in results.local_items() if f.status != "Authorised"]
-
-                print(f"Authorised: {len(authorised)}, Unauthorised: {len(unauthorised)}")
+                >>> async def bulk_processing_example(client):
+                ...     results = await client.search_companies("test")
+                ...     await results.fetch_all_pages()
+                ...     return results.is_fully_fetched()
+                >>>
+                >>> result = await run_async_func(bulk_processing_example)  # doctest: +SKIP
 
         Warning:
             This method can consume significant memory and time for large result
@@ -339,16 +339,18 @@ class MultipageList(typing.Generic[T]):
         """
         if self.local_len() > desired_item_idx or not self._has_next_page():
             return None
+
         new_page_info = None
         async with self._lock:
             # Double-check after acquiring the lock.
             while self.local_len() <= desired_item_idx and self._has_next_page():
-                if isinstance(self._result_info, SpecialResultInfoState):
-                    last_fetched_page = -1
-                else:
-                    last_fetched_page = self._result_info.page
+                last_fetched_page = (
+                    -1 if isinstance(self._result_info, SpecialResultInfoState) else self._result_info.page
+                )
 
-                first_known_item = last_known_item = None
+                first_known_item = None
+                last_known_item = None
+
                 if self._pages:
                     if first_items := self._pages[0].items:
                         first_known_item = first_items[0]
@@ -366,18 +368,22 @@ class MultipageList(typing.Generic[T]):
                     (new_page_info, new_items) = await self._fetch_page_cb(call_arg)
                 except (httpx.RequestError, exc.CompaniesHouseApiError) as e:
                     logger.exception(f"Failed to fetch page {last_fetched_page + 1}: {e}")
-                    if last_fetched_page == -1:
-                        self._result_info = SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
-                    else:
-                        self._result_info = SpecialResultInfoState.PAGE_FETCH_FAILED
+                    self._result_info = (
+                        SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+                        if last_fetched_page == -1
+                        else SpecialResultInfoState.PAGE_FETCH_FAILED
+                    )
                     return None
+
                 self._max_fetched_page = last_fetched_page + 1
                 self._pages.append(FetchedPageData(items=tuple(new_items), page_info=new_page_info))
+
                 if new_page_info is None:
-                    if last_fetched_page == -1:
-                        self._result_info = SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
-                    else:
-                        self._result_info = SpecialResultInfoState.ALL_PAGES_FETCHED
+                    self._result_info = (
+                        SpecialResultInfoState.FIRST_PAGE_FETCH_FAILED
+                        if last_fetched_page == -1
+                        else SpecialResultInfoState.ALL_PAGES_FETCHED
+                    )
                 else:
                     assert new_page_info.page == last_fetched_page + 1, (
                         new_page_info.page,
@@ -397,17 +403,19 @@ class MultipageList(typing.Generic[T]):
         return self.local_items()[index]
 
     async def __aiter__(self) -> typing.AsyncIterator[T]:
-        idx = 0
-        for idx in range(len(self)):
-            try:
-                yield await self[idx]
-            except IndexError:
-                # Double check that this is an actual IndexError, or the __len__
-                # has changed due to Companies House API inconsistencies.
-                if idx >= len(self):
-                    break
+        cur_page_idx = 0
+        while len(self._pages) > cur_page_idx:
+            page = self._pages[cur_page_idx]
+            for item in page.items:
+                yield item
+            cur_page_idx += 1
+            if len(self._pages) <= cur_page_idx:
+                # need to fetch next page
+                if self._has_next_page():
+                    await self._fetch_page_to_item_idx(self.local_len() + 1)
                 else:
-                    raise
+                    # no more pages
+                    break
 
     def local_items(self) -> typing.Tuple[T, ...]:
         """Return the items that have been locally cached without making API calls.
@@ -436,6 +444,26 @@ class MultipageList(typing.Generic[T]):
         """
         return tuple(tuple(page.items) for page in self._pages)
 
+    @property
+    def is_fully_fetched(self) -> bool:
+        """Check if all pages have been fetched from the API.
+
+        Returns:
+            True if all pages have been fetched and cached locally, False otherwise.
+
+        Example:
+            Check before performing operations that require all data::
+
+                >>> async def check_fetched_example(client):
+                ...     results = await client.search_companies("Apple")
+                ...     if not results.is_fully_fetched():
+                ...         await results.fetch_all_pages()
+                ...     return results.is_fully_fetched()
+                >>>
+                >>> result = await run_async_func(check_fetched_example)  # doctest: +SKIP
+        """
+        return not self._has_next_page()
+
     def __len__(self) -> int:
         """Return the total number of items reported by the API.
 
@@ -448,7 +476,12 @@ class MultipageList(typing.Generic[T]):
         if self._has_next_page():
             # while the list was not fully fetched,
             # return an estimate based on the total_count from result_info
-            out = self._result_info.total_count
+            if isinstance(self._result_info, types.PaginatedResultInfo):
+                if self._result_info.total_count is None:
+                    raise ValueError("Cannot determine length: total_count is not available in result_info.")
+                out = self._result_info.total_count
+            else:
+                raise ValueError("Cannot determine length: first page not yet fetched.")
         else:
             out = self.local_len()
         return out
@@ -499,7 +532,7 @@ class MultipageList(typing.Generic[T]):
             item_type = typing.Any
 
         # Get the schema for list[T] for serialization
-        list_schema = handler(list[item_type])
+        list_schema = handler(list[item_type])  # type: ignore[arg-type]
 
         # Return a schema that accepts MultipageList instances directly
         # and serializes them as lists
@@ -508,6 +541,6 @@ class MultipageList(typing.Generic[T]):
             serialization=pydantic_core.core_schema.plain_serializer_function_ser_schema(
                 lambda v: list(v.local_items()),
                 info_arg=False,
-                return_schema=list_schema,
+                return_schema=list_schema,  # type: ignore[arg-type]
             ),
         )

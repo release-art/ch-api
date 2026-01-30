@@ -64,7 +64,9 @@ class _PaginatedEntityInitCls(typing.Generic[CONTAINER_T, ITEM_T]):
         """Perform any async initialization if needed."""
         await my_list._async_init()
         assert self.last_fetched_container != "__uninitialised__", "No data fetched during initialization"
-        return self.convert_to_my_args(self.last_fetched_container)
+        return self.convert_to_my_args(
+            self.last_fetched_container  # type: ignore[arg-type]
+        )
 
 
 class PaginatedEntity(base.BaseModel, typing.Generic[CONTAINER_T, ITEM_T]):
@@ -80,7 +82,7 @@ class PaginatedEntity(base.BaseModel, typing.Generic[CONTAINER_T, ITEM_T]):
         ],
         convert_item_fn: typing.Callable[[CONTAINER_T], typing.Sequence[ITEM_T]],
         convert_to_my_args: typing.Optional[typing.Callable[[CONTAINER_T], dict]] = None,
-    ) -> "PaginatedEntity[ITEM_T]":
+    ) -> "PaginatedEntity":
         """Create a PaginatedEntity instance from a paginated list.
 
         Parameters
@@ -100,4 +102,4 @@ class PaginatedEntity(base.BaseModel, typing.Generic[CONTAINER_T, ITEM_T]):
         )
         my_list = main_pagination.paginated_list.MultipageList[ITEM_T](fetch_page=converter.multipage_list_cb)
         my_args = await converter.async_init(my_list)
-        return cls.model_validate(my_args | {"items": my_list})
+        return cls.model_validate(my_args | {"items": my_list})  # type: ignore[return-value]

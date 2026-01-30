@@ -9,7 +9,7 @@ Getting Started
 
 The client requires a Companies House API key for authentication. Here's a simple example:
 
-.. code:: python
+.. code-block:: python
 
    import asyncio
    from ch_api import Client, api_settings
@@ -27,6 +27,14 @@ The client requires a Companies House API key for authentication. Here's a simpl
 
    if __name__ == "__main__":
        asyncio.run(main())
+
+Or using the test client with run_async_func::
+
+    >>> async def get_company_demo(client):
+    ...     company = await client.get_company_profile("09370755")
+    ...     return company is not None
+    >>> run_async_func(get_company_demo)
+    True
 
 The client returns rich Pydantic models defined in :mod:`ch_api.types` and uses :class:`ch_api.types.pagination.paginated_list.MultipageList` for all paginated results. See :doc:`api-reference` for the full API surface.
 
@@ -58,54 +66,40 @@ Working with Company Data
 Company Profile
 ---------------
 
-The company profile contains core information about a company:
+The company profile contains core information about a company::
 
-.. code:: python
-
-   company = await client.get_company_profile("09370755")
-   
-   print(f"Company Name: {company.company_name}")
-   print(f"Company Number: {company.company_number}")
-   print(f"Company Status: {company.company_status}")
-   print(f"Company Type: {company.type}")
-   print(f"Incorporation Date: {company.date_of_creation}")
-   
-   # Registered office address
-   address = company.registered_office_address
-   print(f"Address: {address.address_line_1}, {address.locality}, {address.postal_code}")
+    >>> async def company_profile_example(client):
+    ...     company = await client.get_company_profile("09370755")
+    ...     return company.company_name is not None and company.company_number is not None
+    >>> run_async_func(company_profile_example)
+    True
 
 Officers
 --------
 
-Get information about company officers (directors, secretaries, etc.):
+Get information about company officers (directors, secretaries, etc.)::
 
-.. code:: python
-
-   # Get all officers for a company
-   officers = await client.get_company_officers("09370755")
-   
-   async for officer in officers:
-       print(f"Name: {officer.name}")
-       print(f"Role: {officer.officer_role}")
-       print(f"Appointed: {officer.appointed_on}")
-       if officer.resigned_on:
-           print(f"Resigned: {officer.resigned_on}")
+    >>> async def officers_example(client):
+    ...     officers = await client.get_officer_list("09370755")
+    ...     count = 0
+    ...     async for officer in officers:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count >= 1
+    >>> run_async_func(officers_example)
+    True
 
 Persons with Significant Control (PSC)
 ---------------------------------------
 
-Get information about persons with significant control:
+Get information about persons with significant control::
 
-.. code:: python
-
-   # Get all PSCs for a company
-   pscs = await client.get_company_pscs("09370755")
-   
-   async for psc in pscs:
-       print(f"Name: {psc.name}")
-       print(f"Kind: {psc.kind}")
-       print(f"Notified: {psc.notified_on}")
-       print(f"Nature of Control: {psc.natures_of_control}")
+    >>> async def psc_example(client):
+    ...     result = await client.get_company_psc_list("09370755")
+    ...     return result is not None
+    >>> run_async_func(psc_example)
+    True
 
 Filing History
 --------------
@@ -146,20 +140,18 @@ Searching
 Company Search
 --------------
 
-Search for companies by name:
+Search for companies by name::
 
-.. code:: python
-
-   # Simple search
-   results = await client.search_companies("Apple")
-   
-   print(f"Total results: {len(results)}")
-   
-   async for company in results:
-       print(f"Company: {company.title}")
-       print(f"Number: {company.company_number}")
-       print(f"Status: {company.company_status}")
-       print(f"Type: {company.company_type}")
+    >>> async def search_companies_example(client):
+    ...     results = await client.search_companies("Apple")
+    ...     count = 0
+    ...     async for company in results:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count >= 1
+    >>> run_async_func(search_companies_example)
+    True
 
 Advanced Company Search
 -----------------------
@@ -219,19 +211,18 @@ Many API endpoints return paginated results. This library handles pagination aut
 Lazy Loading
 ------------
 
-By default, pagination is lazy - pages are only fetched when you access them:
+By default, pagination is lazy - pages are only fetched when you access them::
 
-.. code:: python
-
-   # Only the first page is fetched initially
-   results = await client.search_companies("tech")
-   
-   # Total count is available from the first page
-   print(f"Total results: {len(results)}")
-   
-   # Iterate through all results - pages load on demand
-   async for company in results:
-       print(company.title)
+    >>> async def lazy_loading_example(client):
+    ...     results = await client.search_companies("tech")
+    ...     count = 0
+    ...     async for company in results:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count >= 1
+    >>> run_async_func(lazy_loading_example)
+    True
 
 Eager Loading
 -------------
@@ -298,29 +289,29 @@ The Companies House API has rate limits (600 requests per 5 minutes). You can in
 Error Handling
 ==============
 
-The library provides custom exceptions for common error scenarios:
+The library provides custom exceptions and uses httpx exceptions for HTTP errors:
 
 .. code:: python
 
-   from ch_api.exc import (
-       CompaniesHouseException,  # Base exception
-       NotFoundError,             # 404 errors
-       RateLimitError,            # 429 errors  
-       AuthenticationError,       # 401 errors
-       ValidationError,           # Invalid parameters
-   )
+   import httpx
+   from ch_api.exc import CompaniesHouseApiError, UnexpectedApiResponseError
    
-   try:
-       company = await client.get_company_profile("invalid-number")
-   except NotFoundError:
+   # get_company_profile returns None for not found (404)
+   company = await client.get_company_profile("00000000")
+   if company is None:
        print("Company not found")
-   except ValidationError as e:
-       print(f"Invalid company number format: {e}")
-   except RateLimitError:
-       print("Rate limit exceeded - wait before retrying")
-   except AuthenticationError:
-       print("Invalid API key")
-   except CompaniesHouseException as e:
+   
+   # Other operations may raise HTTPStatusError
+   try:
+       results = await client.search_companies("test")
+   except httpx.HTTPStatusError as e:
+       if e.response.status_code == 429:
+           print("Rate limit exceeded - wait before retrying")
+       elif e.response.status_code == 401:
+           print("Authentication error")
+   except UnexpectedApiResponseError as e:
+       print(f"Unexpected API response: {e}")
+   except CompaniesHouseApiError as e:
        print(f"API error: {e}")
 
 .. _usage.advanced:
@@ -451,7 +442,7 @@ Find Companies and Their Officers
            
            # Get officers for each company
            try:
-               officers = await client.get_company_officers(company.company_number)
+               officers = await client.get_officer_list(company.company_number)
                print("Officers:")
                async for officer in officers:
                    print(f"  - {officer.name} ({officer.officer_role})")
@@ -483,15 +474,15 @@ Export Company Data
        data['profile'] = (await client.get_company_profile(company_number)).model_dump()
        
        # Officers
-       officers = await client.get_company_officers(company_number)
+       officers = await client.get_officer_list(company_number)
        await officers.fetch_all_pages()
        data['officers'] = officers.model_dump()
        
        # PSCs
        try:
-           pscs = await client.get_company_pscs(company_number)
-           await pscs.fetch_all_pages()
-           data['pscs'] = pscs.model_dump()
+           psc_result = await client.get_company_psc_list(company_number)
+           await psc_result.items.fetch_all_pages()
+           data['pscs'] = psc_result.model_dump()
        except:
            data['pscs'] = []
        

@@ -1,0 +1,215 @@
+{
+  "content": {
+    "json": {
+      "filing_history_status": "filing-history-available",
+      "items": [
+        {
+          "associated_filings": [
+            {
+              "category": "change-of-name",
+              "date": "2026-01-27",
+              "description": "change-of-name-by-resolution",
+              "type": "NM01"
+            }
+          ],
+          "barcode": "XEULNB5S",
+          "category": "change-of-name",
+          "date": "2026-01-27",
+          "description": "certificate-change-of-name-company",
+          "description_values": {
+            "description": "Company name changed R5E art LIMITED\\certificate issued on 27/01/26"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/OLfiJjUjCtBNUg0K054nBEtJCtr5xz7694RVSmygTSA",
+            "self": "/company/14200734/filing-history/MzUwMTYxMjE4NGFkaXF6a2N4"
+          },
+          "pages": 3,
+          "resolutions": [
+            {
+              "category": "change-of-name",
+              "description": "resolution-change-of-name",
+              "description_values": {
+                "resolution_date": "2026-01-26"
+              },
+              "subcategory": "resolution",
+              "type": "RES15"
+            }
+          ],
+          "subcategory": "certificate",
+          "transaction_id": "MzUwMTYxMjE4NGFkaXF6a2N4",
+          "type": "CERTNM"
+        },
+        {
+          "action_date": "2025-06-30",
+          "barcode": "XEDDY9QJ",
+          "category": "accounts",
+          "date": "2025-10-17",
+          "description": "accounts-with-accounts-type-total-exemption-full",
+          "description_values": {
+            "made_up_date": "2025-06-30"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/yOOOu1QvFE3j9MvwJQSbLvbZQJT-IKsnmu-rt1Ss7V0",
+            "self": "/company/14200734/filing-history/MzQ4NTMzOTIzOGFkaXF6a2N4"
+          },
+          "pages": 9,
+          "transaction_id": "MzQ4NTMzOTIzOGFkaXF6a2N4",
+          "type": "AA"
+        },
+        {
+          "action_date": "2025-06-27",
+          "barcode": "XE5V0ABN",
+          "category": "confirmation-statement",
+          "date": "2025-07-01",
+          "description": "confirmation-statement-with-no-updates",
+          "description_values": {
+            "made_up_date": "2025-06-27"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/L_X0y9bwYnkyEMwLe3TNQUfmBpMG0FIj0tLzr5b5s2o",
+            "self": "/company/14200734/filing-history/MzQ3MjExNjA5N2FkaXF6a2N4"
+          },
+          "pages": 3,
+          "transaction_id": "MzQ3MjExNjA5N2FkaXF6a2N4",
+          "type": "CS01"
+        },
+        {
+          "action_date": "2024-06-30",
+          "barcode": "XD75JL8P",
+          "category": "accounts",
+          "date": "2024-07-11",
+          "description": "accounts-with-accounts-type-dormant",
+          "description_values": {
+            "made_up_date": "2024-06-30"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/DpSPGZtxJTDSABlgkOcmDPFGilfq-ZZsbpgMqxrYdNU",
+            "self": "/company/14200734/filing-history/MzQyODM3NDQ0NGFkaXF6a2N4"
+          },
+          "pages": 2,
+          "transaction_id": "MzQyODM3NDQ0NGFkaXF6a2N4",
+          "type": "AA"
+        },
+        {
+          "action_date": "2024-06-27",
+          "barcode": "XD75JJQH",
+          "category": "confirmation-statement",
+          "date": "2024-07-11",
+          "description": "confirmation-statement-with-no-updates",
+          "description_values": {
+            "made_up_date": "2024-06-27"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/h9_XTEMMvoQDOrpBwRP-ZNpaMFOPvsmWSnW4rPLHtsA",
+            "self": "/company/14200734/filing-history/MzQyODM3NDA5MmFkaXF6a2N4"
+          },
+          "pages": 3,
+          "transaction_id": "MzQyODM3NDA5MmFkaXF6a2N4",
+          "type": "CS01"
+        },
+        {
+          "action_date": "2023-06-30",
+          "barcode": "XC74CDOA",
+          "category": "accounts",
+          "date": "2023-07-05",
+          "description": "accounts-with-accounts-type-dormant",
+          "description_values": {
+            "made_up_date": "2023-06-30"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/feTaWrx9uzo4mBX92s8-hvbRRVTcTmrf2tmvxIdY3-s",
+            "self": "/company/14200734/filing-history/MzM4NTM0NTgyNmFkaXF6a2N4"
+          },
+          "pages": 3,
+          "transaction_id": "MzM4NTM0NTgyNmFkaXF6a2N4",
+          "type": "AA"
+        },
+        {
+          "action_date": "2023-06-27",
+          "barcode": "XC6YW1PK",
+          "category": "confirmation-statement",
+          "date": "2023-07-03",
+          "description": "confirmation-statement-with-no-updates",
+          "description_values": {
+            "made_up_date": "2023-06-27"
+          },
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/SroHLaRqjGakdbcED9CEFgt5LxIHX6P_FeUtB4XhPpQ",
+            "self": "/company/14200734/filing-history/MzM4NTAzODczOWFkaXF6a2N4"
+          },
+          "pages": 3,
+          "transaction_id": "MzM4NTAzODczOWFkaXF6a2N4",
+          "type": "CS01"
+        },
+        {
+          "associated_filings": [
+            {
+              "action_date": "2022-06-28",
+              "category": "capital",
+              "date": "2022-06-28",
+              "description": "statement-of-capital",
+              "description_values": {
+                "capital": [
+                  {
+                    "currency": "GBP",
+                    "figure": "1"
+                  }
+                ],
+                "date": "2022-06-28"
+              },
+              "type": "SH01"
+            }
+          ],
+          "barcode": "XB710ZLM",
+          "category": "incorporation",
+          "date": "2022-06-28",
+          "description": "incorporation-company",
+          "links": {
+            "document_metadata": "https://document-api.company-information.service.gov.uk/document/zpEQkOa6UpeSZyn4JHi2LbmOGrHOz9ayYh43PH6F1Bk",
+            "self": "/company/14200734/filing-history/MzM0MzgzNjMyM2FkaXF6a2N4"
+          },
+          "pages": 28,
+          "transaction_id": "MzM0MzgzNjMyM2FkaXF6a2N4",
+          "type": "NEWINC"
+        }
+      ],
+      "items_per_page": 25,
+      "start_index": 0,
+      "total_count": 8
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 13:14:16 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=2BB220BDC5AFE80F85C2E62084A5DD06; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "572",
+    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/company/14200734/filing-history?start_index=0&items_per_page=25"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/company/14200734/filing-history?start_index=0&items_per_page=25"
+}

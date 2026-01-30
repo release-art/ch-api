@@ -44,14 +44,15 @@ Example Usage
 -----
 Fetch officers for a company::
 
-    from ch_api import Client, api_settings
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    officers = await client.get_officer_list("09370755")
-    async for officer in officers:
-        print(f"{officer.name} - Appointed: {officer.appointed_on}")
+    >>> async def get_officers_example(client):
+    ...     officers = await client.get_officer_list("09370755")
+    ...     count = 0
+    ...     async for officer in officers:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count
+    >>> result = await run_async_func(get_officers_example)  # doctest: +SKIP
 
 Filter by Officer Type
 -----

@@ -61,18 +61,18 @@ Example Usage
 -----
 Access API response types::
 
-    from ch_api import types
-
-    # Company profile
-    profile: types.public_data.company_profile.CompanyProfile
-
-    # Officers
-    officers: types.public_data.company_officers.OfficerSummary
-
-    # Search results
-    results: types.pagination.paginated_list.MultipageList[
-        types.public_data.search.CompanySearchItem
-    ]
+    >>> from ch_api import types
+    ...
+    >>> # Company profile
+    >>> profile: types.public_data.company_profile.CompanyProfile
+    ...
+    >>> # Officers
+    >>> officers: types.public_data.company_officers.OfficerSummary
+    ...
+    >>> # Search results
+    >>> results: types.pagination.paginated_list.MultipageList[
+    ...     types.public_data.search.CompanySearchItem
+    ... ]
 
 See Also
 --------

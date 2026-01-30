@@ -114,8 +114,12 @@ class LinksSection(base.BaseModel):
         -------
         Get the self link::
 
-            if company.links and company.links.self:
-                print(f"Company resource: {company.links.self}")
+            >>> from ch_api.types.shared import LinksSection
+            >>> links = LinksSection(self="https://api.company-information.service.gov.uk/company/09370755")
+            >>> if links and links.self:
+            ...     url = links.self
+            ...     print(f"Resource: {url}")
+            Resource: https://api.company-information.service.gov.uk/company/09370755
         """
         return self.get_link("self")
 
@@ -159,4 +163,6 @@ class LinksSection(base.BaseModel):
         --------
         self : Property for getting the 'self' link
         """
+        if self.__pydantic_extra__ is None:
+            return None
         return self.__pydantic_extra__.get(name, None)

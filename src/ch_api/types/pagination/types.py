@@ -79,6 +79,8 @@ class PaginatedResultInfo(pydantic.BaseModel):
 
     page: int
     has_next: bool
+    per_page: typing.Optional[int] = None
+    total_count: typing.Optional[int] = None
 
 
 #: Type alias for the return type of page fetch functions.

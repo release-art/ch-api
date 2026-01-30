@@ -1,0 +1,2810 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "address": {
+            "address_line_1": "Triumph Way",
+            "address_line_2": "Speke Hall Road",
+            "country": "England",
+            "locality": "Liverpool",
+            "postal_code": "L24 9GQ",
+            "premises": "152"
+          },
+          "address_snippet": "152 Triumph Way, Speke Hall Road, Liverpool, England, L24 9GQ",
+          "company_number": "05866459",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2006-07-04",
+          "description": "05866459 - Incorporated on 4 July 2006",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05866459"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOLIEN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Golborne",
+            "country": "England",
+            "locality": "Warrington",
+            "postal_code": "WA3 3DA",
+            "premises": "82"
+          },
+          "address_snippet": "82 High Street, Golborne, Warrington, England, WA3 3DA",
+          "company_number": "15291828",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-07-29",
+          "date_of_creation": "2023-11-17",
+          "description": "15291828 - Dissolved on 29 July 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15291828"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOLIO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Castle Street",
+            "country": "Northern Ireland",
+            "locality": "Bangor",
+            "postal_code": "BT20 4ST",
+            "premises": "4"
+          },
+          "address_snippet": "4 Castle Street, Bangor, Northern Ireland, BT20 4ST",
+          "company_number": "NI684411",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-12-13",
+          "description": "NI684411 - Incorporated on 13 December 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/NI684411"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FONE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Trevor Foster Way",
+            "locality": "Bradford",
+            "postal_code": "BD5 8HB",
+            "premises": "Hope Park Business Centre",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "Hope Park Business Centre, Trevor Foster Way, Bradford, West Yorkshire, BD5 8HB",
+          "company_number": "11583156",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2018-09-21",
+          "description": "11583156 - Incorporated on 21 September 2018 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11583156"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOODS LEEDS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "450 Charter House, Charter Business Centre",
+            "address_line_2": "450 High Road",
+            "country": "United Kingdom",
+            "locality": "Ilford",
+            "postal_code": "IG1 1ZG",
+            "premises": "Unit 6,"
+          },
+          "address_snippet": "Unit 6, 450 Charter House, Charter Business Centre, 450 High Road, Ilford, United Kingdom, IG1 1ZG",
+          "company_number": "15829469",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-07-09",
+          "description": "15829469 - Incorporated on 9 July 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15829469"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORCE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "13653023",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-09-30",
+          "description": "13653023 - Incorporated on 30 September 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13653023"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR COMMUNITY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Broadfields Avenue",
+            "country": "England",
+            "locality": "Edgware",
+            "postal_code": "HA8 8TD",
+            "premises": "4a"
+          },
+          "address_snippet": "4a Broadfields Avenue, Edgware, England, HA8 8TD",
+          "company_number": "16860896",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-11-17",
+          "description": "16860896 - Incorporated on 17 November 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16860896"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORGED DIGITAL LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Pellew House, Somerford Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "E1 5DX",
+            "premises": "36"
+          },
+          "address_snippet": "36 Pellew House, Somerford Street, London, United Kingdom, E1 5DX",
+          "company_number": "16149055",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-12-23",
+          "description": "16149055 - Incorporated on 23 December 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16149055"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORGE DYNAMICS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "167 Station Road",
+            "country": "England",
+            "locality": "Edgware",
+            "postal_code": "HA8 7JU",
+            "premises": "Matrix Business Centre"
+          },
+          "address_snippet": "Matrix Business Centre, 167 Station Road, Edgware, England, HA8 7JU",
+          "company_number": "14782756",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-04-05",
+          "description": "14782756 - Incorporated on 5 April 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14782756"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TECH FORGE 360 LTD",
+          "title": "TECH FORGE GLOBAL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Telephone Avenue",
+            "country": "England",
+            "locality": "Bristol",
+            "postal_code": "BS1 4BQ",
+            "premises": "Armada House"
+          },
+          "address_snippet": "Armada House, Telephone Avenue, Bristol, England, BS1 4BQ",
+          "company_number": "09194965",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-08-29",
+          "description": "09194965 - Incorporated on 29 August 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09194965"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORGE MEDIA LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Leppoc Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW4 9LS",
+            "premises": "31"
+          },
+          "address_snippet": "31 Leppoc Road, London, England, SW4 9LS",
+          "company_number": "16131236",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-12-11",
+          "description": "16131236 - Incorporated on 11 December 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16131236"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR GOOD CONSULTING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Newby Drive",
+            "address_line_2": "Sale",
+            "country": "England",
+            "locality": "Cheshire",
+            "postal_code": "M33 2TW",
+            "premises": "6"
+          },
+          "address_snippet": "6 Newby Drive, Sale, Cheshire, England, M33 2TW",
+          "company_number": "12576209",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-04-28",
+          "description": "12576209 - Incorporated on 28 April 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12576209"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR GROWTH LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "128"
+          },
+          "address_snippet": "128 City Road, London, England, EC1V 2NX",
+          "company_number": "16678075",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-08-28",
+          "description": "16678075 - Incorporated on 28 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16678075"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR KIDS CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Team Valley",
+            "country": "United Kingdom",
+            "locality": "Gateshead",
+            "postal_code": "NE11 0NL",
+            "premises": "Coniston House Fifth Avenue",
+            "region": "Tyne & Wear"
+          },
+          "address_snippet": "Coniston House Fifth Avenue, Team Valley, Gateshead, Tyne & Wear, United Kingdom, NE11 0NL",
+          "company_number": "16046896",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-10-29",
+          "description": "16046896 - Incorporated on 29 October 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16046896"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR LEARNING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Telham Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E6 6BW",
+            "premises": "15"
+          },
+          "address_snippet": "15 Telham Road, London, England, E6 6BW",
+          "company_number": "16305318",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-07-08",
+          "date_of_creation": "2025-03-10",
+          "description": "16305318 - Dissolved on 8 July 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16305318"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR LESS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Roman Road",
+            "country": "England",
+            "locality": "Taunton",
+            "postal_code": "TA1 2BG",
+            "premises": "43"
+          },
+          "address_snippet": "43 Roman Road, Taunton, England, TA1 2BG",
+          "company_number": "15896450",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-11-11",
+          "date_of_creation": "2024-08-14",
+          "description": "15896450 - Dissolved on 11 November 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15896450"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORMATION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "85 Great Portland Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "W1W 7LT",
+            "premises": "First Floor"
+          },
+          "address_snippet": "First Floor, 85 Great Portland Street, London, United Kingdom, W1W 7LT",
+          "company_number": "12509206",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-03-10",
+          "description": "12509206 - Incorporated on 10 March 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12509206"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR NON-TECHIES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Minor Land Of Fadak",
+            "address_line_2": "Windmill Road",
+            "country": "United Kingdom",
+            "locality": "Fulmer",
+            "postal_code": "SL3 6HF",
+            "premises": "Unit 5"
+          },
+          "address_snippet": "Unit 5 The Minor Land Of Fadak, Windmill Road, Fulmer, United Kingdom, SL3 6HF",
+          "company_number": "16804488",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-10-23",
+          "description": "16804488 - Incorporated on 23 October 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16804488"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR PEACE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Chesterfield Road Market Street",
+            "country": "United Kingdom",
+            "locality": "Chesterfield",
+            "postal_code": "S43 3UT",
+            "premises": "36",
+            "region": "Derbyshire"
+          },
+          "address_snippet": "36 Chesterfield Road Market Street, Chesterfield, Derbyshire, United Kingdom, S43 3UT",
+          "company_number": "14208079",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-07-01",
+          "description": "14208079 - Incorporated on 1 July 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14208079"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR TECHS GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Paul Street 3rd Floor",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC2A 4NE",
+            "premises": "86-90"
+          },
+          "address_snippet": "86-90 Paul Street 3rd Floor, London, England, EC2A 4NE",
+          "company_number": "15097346",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-08-25",
+          "description": "15097346 - Incorporated on 25 August 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15097346"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR THE PEOPLE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Plas Taliesin",
+            "country": "Wales",
+            "locality": "Penarth",
+            "postal_code": "CF64 1TN",
+            "premises": "30",
+            "region": "South Glamorgan"
+          },
+          "address_snippet": "30 Plas Taliesin, Penarth, South Glamorgan, Wales, CF64 1TN",
+          "company_number": "13668459",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-10-08",
+          "description": "13668459 - Incorporated on 8 October 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13668459"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOR TOGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Dudley Road",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B18 4HL",
+            "premises": "302"
+          },
+          "address_snippet": "302 Dudley Road, Birmingham, England, B18 4HL",
+          "company_number": "16174243",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-01-09",
+          "description": "16174243 - Incorporated on 9 January 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16174243"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORTUNE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Road",
+            "address_line_2": "Hampton Wick",
+            "country": "United Kingdom",
+            "locality": "Kingston Upon Thames",
+            "postal_code": "KT1 4AS",
+            "premises": "1",
+            "region": "Surrey"
+          },
+          "address_snippet": "1 Park Road, Hampton Wick, Kingston Upon Thames, Surrey, United Kingdom, KT1 4AS",
+          "company_number": "11861848",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-03-05",
+          "description": "11861848 - Incorporated on 5 March 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11861848"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORTY TWO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "70 Grange Road East",
+            "country": "United Kingdom",
+            "locality": "Wirral",
+            "postal_code": "CH41 5FE",
+            "premises": "The Accountancy Partnership"
+          },
+          "address_snippet": "The Accountancy Partnership, 70 Grange Road East, Wirral, United Kingdom, CH41 5FE",
+          "company_number": "15117595",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-09-05",
+          "description": "15117595 - Incorporated on 5 September 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15117595"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORTY TWO HOLDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Chester Walk",
+            "country": "England",
+            "locality": "Cheltenham",
+            "postal_code": "GL50 3JZ",
+            "premises": "Hub8 Mx"
+          },
+          "address_snippet": "Hub8 Mx, Chester Walk, Cheltenham, England, GL50 3JZ",
+          "company_number": "14872648",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-06",
+          "date_of_creation": "2023-05-16",
+          "description": "14872648 - Dissolved on 6 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14872648"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FORWARD LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Palatine House",
+            "address_line_2": "Olsen Rise",
+            "country": "England",
+            "locality": "Lincoln",
+            "postal_code": "LN2 4ZE",
+            "premises": "111"
+          },
+          "address_snippet": "111 Palatine House, Olsen Rise, Lincoln, England, LN2 4ZE",
+          "company_number": "15316971",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-11-29",
+          "description": "15316971 - Incorporated on 29 November 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15316971"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOUNDER LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "The Grove",
+            "address_line_2": "Marton-In-Cleveland",
+            "country": "England",
+            "locality": "Middlesbrough",
+            "postal_code": "TS7 8AF",
+            "premises": "25c"
+          },
+          "address_snippet": "25c The Grove, Marton-In-Cleveland, Middlesbrough, England, TS7 8AF",
+          "company_number": "15887810",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-08-09",
+          "description": "15887810 - Incorporated on 9 August 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15887810"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOUNDERS GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "16243794",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-02-11",
+          "description": "16243794 - Incorporated on 11 February 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16243794"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOUNDRY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Wedgwood Court",
+            "address_line_2": "Wedgwood Way",
+            "country": "United Kingdom",
+            "locality": "Stevenage",
+            "postal_code": "SG1 4QR",
+            "premises": "10",
+            "region": "Hertfordshire"
+          },
+          "address_snippet": "10 Wedgwood Court, Wedgwood Way, Stevenage, Hertfordshire, United Kingdom, SG1 4QR",
+          "company_number": "14035709",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-04-08",
+          "description": "14035709 - Incorporated on 8 April 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14035709"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "L4L TECHAID LIMITED",
+          "title": "TECH 4 CHANGE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Fieldhouse Road",
+            "country": "England",
+            "locality": "Rochdale",
+            "postal_code": "OL12 0AA",
+            "premises": "Unit F3 Fieldhouse Industrial Estate"
+          },
+          "address_snippet": "Unit F3 Fieldhouse Industrial Estate, Fieldhouse Road, Rochdale, England, OL12 0AA",
+          "company_number": "14976353",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-07-03",
+          "description": "14976353 - Incorporated on 3 July 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14976353"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4EVERY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Holyhead Road",
+            "locality": "Wednesbury",
+            "postal_code": "WS10 7DQ",
+            "premises": "256",
+            "region": "West Midlands"
+          },
+          "address_snippet": "256 Holyhead Road, Wednesbury, West Midlands, WS10 7DQ",
+          "company_number": "09158116",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-08-01",
+          "description": "09158116 - Incorporated on 1 August 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09158116"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 49 LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ballycullen Road",
+            "country": "Northern Ireland",
+            "locality": "Dungannon",
+            "postal_code": "BT71 7HT",
+            "premises": "82"
+          },
+          "address_snippet": "82 Ballycullen Road, Dungannon, Northern Ireland, BT71 7HT",
+          "company_number": "NI672774",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-09-21",
+          "description": "NI672774 - Incorporated on 21 September 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/NI672774"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4.0 LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Carlisle Airport Business Park",
+            "country": "United Kingdom",
+            "locality": "Carlisle",
+            "postal_code": "CA6 4NW",
+            "premises": "Skiddaw Building"
+          },
+          "address_snippet": "Skiddaw Building, Carlisle Airport Business Park, Carlisle, United Kingdom, CA6 4NW",
+          "company_number": "07112355",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2009-12-23",
+          "description": "07112355 - Incorporated on 23 December 2009",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07112355"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 OFFICE EQUIPMENT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Telford House",
+            "address_line_2": "Riverside Warwick Road",
+            "locality": "Carlisle",
+            "postal_code": "CA1 2BT",
+            "premises": "Suite 1",
+            "region": "Cumbria"
+          },
+          "address_snippet": "Suite 1 Telford House, Riverside Warwick Road, Carlisle, Cumbria, CA1 2BT",
+          "company_number": "05594776",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2005-10-17",
+          "description": "05594776 - Incorporated on 17 October 2005 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05594776"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 OFFICE SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Myton Street",
+            "country": "United Kingdom",
+            "locality": "Hull",
+            "postal_code": "HU1 2PS",
+            "premises": "Kingston House",
+            "region": "East Yorkshire"
+          },
+          "address_snippet": "Kingston House, Myton Street, Hull, East Yorkshire, United Kingdom, HU1 2PS",
+          "company_number": "13721582",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-11-03",
+          "description": "13721582 - Incorporated on 3 November 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13721582"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4.0 HOLDINGS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Regency House 5 Vanguard Way",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E17 6DX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Regency House 5 Vanguard Way, London, England, E17 6DX",
+          "company_number": "15878627",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-06",
+          "date_of_creation": "2024-08-05",
+          "description": "15878627 - Dissolved on 6 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15878627"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 PARTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Albion Place",
+            "address_line_2": "Campbell Park",
+            "country": "England",
+            "locality": "Milton Keynes",
+            "postal_code": "MK9 4AB",
+            "premises": "82"
+          },
+          "address_snippet": "82 Albion Place, Campbell Park, Milton Keynes, England, MK9 4AB",
+          "company_number": "11967455",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-04-29",
+          "description": "11967455 - Incorporated on 29 April 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11967455"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 REPAIR LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "15193836"
+          },
+          "address_snippet": "4385, 15193836 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "15193836",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-11-25",
+          "date_of_creation": "2023-10-06",
+          "description": "15193836 - Dissolved on 25 November 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15193836"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 SALE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Byron Road",
+            "country": "United Kingdom",
+            "locality": "Sheffield",
+            "postal_code": "S7 1RY",
+            "premises": "36",
+            "region": "Choose County"
+          },
+          "address_snippet": "36 Byron Road, Sheffield, Choose County, United Kingdom, S7 1RY",
+          "company_number": "14757564",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-03-25",
+          "description": "14757564 - Incorporated on 25 March 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14757564"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 SOCIAL IMPACT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Cranworth Gardens",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW9 0NR",
+            "premises": "64"
+          },
+          "address_snippet": "64 Cranworth Gardens, London, England, SW9 0NR",
+          "company_number": "14905803",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-05-31",
+          "description": "14905803 - Incorporated on 31 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14905803"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 TITANS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Fore Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N18 2JB",
+            "premises": "186"
+          },
+          "address_snippet": "186 Fore Street, London, England, N18 2JB",
+          "company_number": "16124496",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-12-09",
+          "description": "16124496 - Incorporated on 9 December 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16124496"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 U EDMONTON LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Loch Park",
+            "country": "Scotland",
+            "locality": "Wishaw",
+            "postal_code": "ML2 7EB",
+            "premises": "23"
+          },
+          "address_snippet": "23 Loch Park, Wishaw, Scotland, ML2 7EB",
+          "company_number": "SC556403",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-02-02",
+          "description": "SC556403 - Incorporated on 2 February 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC556403"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 U  LANARK LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Green Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E13 9DB",
+            "premises": "448-450"
+          },
+          "address_snippet": "448-450 Green Street, London, England, E13 9DB",
+          "company_number": "10818401",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-06-14",
+          "description": "10818401 - Incorporated on 14 June 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10818401"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH 4 YOU LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, England, WC2H 9JQ",
+          "company_number": "13850987",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-01-15",
+          "description": "13850987 - Incorporated on 15 January 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13850987"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FOX LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shore Street",
+            "country": "Scotland",
+            "locality": "Inverness",
+            "postal_code": "IV1 1NF",
+            "premises": "Robertson House"
+          },
+          "address_snippet": "Robertson House, Shore Street, Inverness, Scotland, IV1 1NF",
+          "company_number": "SC567900",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-06-05",
+          "description": "SC567900 - Incorporated on 5 June 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC567900"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FRONTIER LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "16148639"
+          },
+          "address_snippet": "4385, 16148639 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "16148639",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-10-21",
+          "date_of_creation": "2024-12-23",
+          "description": "16148639 - Dissolved on 21 October 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16148639"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FRONTIER.IO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Floor, Silverstream House 45 Fitzroy Street",
+            "address_line_2": "Fitzrovia",
+            "country": "United Kingdom",
+            "locality": "London,",
+            "postal_code": "W1T 6EB",
+            "premises": "4th"
+          },
+          "address_snippet": "4th Floor, Silverstream House 45 Fitzroy Street, Fitzrovia, London,, United Kingdom, W1T 6EB",
+          "company_number": "15316023",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-05-06",
+          "date_of_creation": "2023-11-29",
+          "description": "15316023 - Dissolved on 6 May 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15316023"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FRONTIERS CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "England",
+            "locality": "Brentwood, Essex",
+            "postal_code": "CM14 4AB",
+            "premises": "6"
+          },
+          "address_snippet": "6 High Street, Brentwood, Essex, England, CM14 4AB",
+          "company_number": "11556279",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-09-06",
+          "description": "11556279 - Incorporated on 6 September 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11556279"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Regent Court Great Knolly Street",
+            "country": "United Kingdom",
+            "locality": "Reading",
+            "postal_code": "RG1 7HW",
+            "premises": "16"
+          },
+          "address_snippet": "16 Regent Court Great Knolly Street, Reading, United Kingdom, RG1 7HW",
+          "company_number": "15940290",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-09-06",
+          "description": "15940290 - Incorporated on 6 September 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15940290"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION AI LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Orion Building",
+            "address_line_2": "90 Navigation Street",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B5 4AA",
+            "premises": "Apartment 43"
+          },
+          "address_snippet": "Apartment 43 Orion Building, 90 Navigation Street, Birmingham, England, B5 4AA",
+          "company_number": "16309069",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-11",
+          "description": "16309069 - Incorporated on 11 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16309069"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION CLOUD LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Birches Barn Road",
+            "country": "England",
+            "locality": "Wolverhampton",
+            "postal_code": "WV3 7BN",
+            "premises": "54"
+          },
+          "address_snippet": "54 Birches Barn Road, Wolverhampton, England, WV3 7BN",
+          "company_number": "16308409",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-11",
+          "description": "16308409 - Incorporated on 11 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16308409"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION DEPOT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Park View Court",
+            "address_line_2": "St. Pauls Road",
+            "country": "United Kingdom",
+            "locality": "Shipley",
+            "postal_code": "BD18 3DZ",
+            "premises": "1"
+          },
+          "address_snippet": "1 Park View Court, St. Pauls Road, Shipley, United Kingdom, BD18 3DZ",
+          "company_number": "15162867",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-09-25",
+          "description": "15162867 - Incorporated on 25 September 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15162867"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION GLOBAL LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Jupiter Heights",
+            "country": "England",
+            "locality": "Uxbridge",
+            "postal_code": "UB10 0TA",
+            "premises": "3"
+          },
+          "address_snippet": "3 Jupiter Heights, Uxbridge, England, UB10 0TA",
+          "company_number": "16377518",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-04-09",
+          "description": "16377518 - Incorporated on 9 April 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16377518"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION HUB SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Tubbenden Lane",
+            "country": "England",
+            "locality": "Orpington",
+            "postal_code": "BR6 9NN",
+            "premises": "185"
+          },
+          "address_snippet": "185 Tubbenden Lane, Orpington, England, BR6 9NN",
+          "company_number": "16394864",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-04-17",
+          "description": "16394864 - Incorporated on 17 April 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16394864"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION PRIVATE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Unit 3a,34-35 Hatton Garden",
+            "address_line_2": "Holborn",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1N 8DX",
+            "premises": "Suite 4579"
+          },
+          "address_snippet": "Suite 4579 Unit 3a,34-35 Hatton Garden, Holborn, London, United Kingdom, EC1N 8DX",
+          "company_number": "15674088",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-04-23",
+          "description": "15674088 - Incorporated on 23 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15674088"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSION SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Somerby Road",
+            "country": "England",
+            "locality": "Barking",
+            "postal_code": "IG11 9XH",
+            "premises": "28"
+          },
+          "address_snippet": "28 Somerby Road, Barking, England, IG11 9XH",
+          "company_number": "15406223",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-01-11",
+          "description": "15406223 - Incorporated on 11 January 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15406223"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUSIONZ LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Cornwall Road",
+            "address_line_2": "Chandler's Ford",
+            "country": "England",
+            "locality": "Eastleigh",
+            "postal_code": "SO53 3GG",
+            "premises": "74"
+          },
+          "address_snippet": "74 Cornwall Road, Chandler's Ford, Eastleigh, England, SO53 3GG",
+          "company_number": "12820742",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-08-18",
+          "description": "12820742 - Incorporated on 18 August 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12820742"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUTURAE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "St. Nicolas Park Drive",
+            "country": "England",
+            "locality": "Nuneaton",
+            "postal_code": "CV11 6DJ",
+            "premises": "48"
+          },
+          "address_snippet": "48 St. Nicolas Park Drive, Nuneaton, England, CV11 6DJ",
+          "company_number": "15193857",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-09-09",
+          "date_of_creation": "2023-10-06",
+          "description": "15193857 - Dissolved on 9 September 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15193857"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUTURE PRIVATE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Brayford Square",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E1 0SG",
+            "premises": "5"
+          },
+          "address_snippet": "5 Brayford Square, London, England, E1 0SG",
+          "company_number": "16669292",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-08-24",
+          "description": "16669292 - Incorporated on 24 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16669292"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUTURE SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Road",
+            "address_line_2": "Office 8770",
+            "country": "England",
+            "locality": "Romford",
+            "postal_code": "RM6 6AX",
+            "premises": "321-323",
+            "region": "Essex"
+          },
+          "address_snippet": "321-323 High Road, Office 8770, Romford, Essex, England, RM6 6AX",
+          "company_number": "16777925",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-10-10",
+          "description": "16777925 - Incorporated on 10 October 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16777925"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH FUTURE STILL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "A Flat 574 A Bearwood Road",
+            "country": "England",
+            "locality": "Smethwick",
+            "postal_code": "B66 4BW",
+            "premises": "Flat 574"
+          },
+          "address_snippet": "Flat 574 A Flat 574 A Bearwood Road, Smethwick, England, B66 4BW",
+          "company_number": "11961347",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-04-24",
+          "description": "11961347 - Incorporated on 24 April 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11961347"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GADGETS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Kingsway",
+            "country": "England",
+            "locality": "Hayes",
+            "postal_code": "UB3 2TX",
+            "premises": "83"
+          },
+          "address_snippet": "83 Kingsway, Hayes, England, UB3 2TX",
+          "company_number": "09715778",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-08-03",
+          "description": "09715778 - Incorporated on 3 August 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09715778"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GAINT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, London, United Kingdom, WC2H 9JQ",
+          "company_number": "16053184",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-10-31",
+          "description": "16053184 - Incorporated on 31 October 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16053184"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GALAXY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Grosvenor Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW1V 3JY",
+            "premises": "137"
+          },
+          "address_snippet": "137 Grosvenor Road, London, England, SW1V 3JY",
+          "company_number": "16993942",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-01-28",
+          "description": "16993942 - Incorporated on 28 January 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16993942"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GALLERY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bell Yard",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "WC2A 2JR",
+            "premises": "7"
+          },
+          "address_snippet": "7 Bell Yard, London, England, WC2A 2JR",
+          "company_number": "16180086",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-01-13",
+          "description": "16180086 - Incorporated on 13 January 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16180086"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GAMES SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Pedders Lane",
+            "address_line_2": "Ashton-On-Ribble",
+            "country": "England",
+            "locality": "Preston",
+            "postal_code": "PR2 1AN",
+            "premises": "20"
+          },
+          "address_snippet": "20 Pedders Lane, Ashton-On-Ribble, Preston, England, PR2 1AN",
+          "company_number": "13913357",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-02-14",
+          "description": "13913357 - Incorporated on 14 February 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13913357"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GANG LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Slate Drive",
+            "country": "England",
+            "locality": "Burbage",
+            "postal_code": "LE10 2QP",
+            "premises": "65",
+            "region": "Leicestershire"
+          },
+          "address_snippet": "65 Slate Drive, Burbage, Leicestershire, England, LE10 2QP",
+          "company_number": "10749808",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-05-02",
+          "description": "10749808 - Incorporated on 2 May 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10749808"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GAS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Alps Accountancy",
+            "address_line_2": "Church Street",
+            "country": "United Kingdom",
+            "locality": "Blackpool",
+            "postal_code": "FY1 3PZ",
+            "premises": "280"
+          },
+          "address_snippet": "280 Alps Accountancy, Church Street, Blackpool, United Kingdom, FY1 3PZ",
+          "company_number": "10644311",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-02-28",
+          "description": "10644311 - Incorporated on 28 February 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10644311"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GAS SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street North",
+            "address_line_2": "Office 17",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "E12 6SJ",
+            "premises": "241e"
+          },
+          "address_snippet": "241e High Street North, Office 17, London, United Kingdom, E12 6SJ",
+          "company_number": "15873232",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-06",
+          "date_of_creation": "2024-08-02",
+          "description": "15873232 - Dissolved on 6 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15873232"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GB FUSION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Station Road",
+            "country": "England",
+            "locality": "Redhill",
+            "postal_code": "RH1 1PD",
+            "premises": "22c"
+          },
+          "address_snippet": "22c Station Road, Redhill, England, RH1 1PD",
+          "company_number": "16476941",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-05-27",
+          "description": "16476941 - Incorporated on 27 May 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16476941"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK & VAPE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Fairlawn Avenue",
+            "country": "England",
+            "locality": "Bexleyheath",
+            "postal_code": "DA7 4TQ",
+            "premises": "23"
+          },
+          "address_snippet": "23 Fairlawn Avenue, Bexleyheath, England, DA7 4TQ",
+          "company_number": "14085687",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-10-14",
+          "date_of_creation": "2022-05-04",
+          "description": "14085687 - Dissolved on 14 October 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14085687"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK CONSULTANCY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Guildford Avenue",
+            "country": "England",
+            "locality": "Feltham",
+            "postal_code": "TW13 4EW",
+            "premises": "36"
+          },
+          "address_snippet": "36 Guildford Avenue, Feltham, England, TW13 4EW",
+          "company_number": "10890460",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-07-31",
+          "description": "10890460 - Incorporated on 31 July 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10890460"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK FELTHAM LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "North End",
+            "country": "England",
+            "locality": "Croydon",
+            "postal_code": "CR0 1TN",
+            "premises": "141",
+            "region": "Surrey"
+          },
+          "address_snippet": "141 North End, Croydon, Surrey, England, CR0 1TN",
+          "company_number": "12069502",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-06-25",
+          "description": "12069502 - Incorporated on 25 June 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12069502"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK 19 LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Exchange Street",
+            "country": "England",
+            "locality": "Doncaster",
+            "postal_code": "DN1 3QW",
+            "premises": "43"
+          },
+          "address_snippet": "43 Exchange Street, Doncaster, England, DN1 3QW",
+          "company_number": "15379466",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-06-03",
+          "date_of_creation": "2024-01-01",
+          "description": "15379466 - Dissolved on 3 June 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15379466"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK 101 LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "2 Wintergreen Boulevard",
+            "country": "England",
+            "locality": "West Drayton",
+            "postal_code": "UB7 9GJ",
+            "premises": "Flat 65"
+          },
+          "address_snippet": "Flat 65 2 Wintergreen Boulevard, West Drayton, England, UB7 9GJ",
+          "company_number": "12797128",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-08-06",
+          "description": "12797128 - Incorporated on 6 August 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12797128"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Watermans Business Park",
+            "country": "England",
+            "locality": "Staines-Upon-Thames",
+            "postal_code": "TW18 3BA",
+            "premises": "Rourke House Kingsbury Crescent"
+          },
+          "address_snippet": "Rourke House Kingsbury Crescent, Watermans Business Park, Staines-Upon-Thames, England, TW18 3BA",
+          "company_number": "09834597",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-10-21",
+          "description": "09834597 - Incorporated on 21 October 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09834597"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK UK LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Holloway Head",
+            "country": "United Kingdom",
+            "locality": "Birmingham",
+            "postal_code": "B1 1QP",
+            "premises": "Unit 3"
+          },
+          "address_snippet": "Unit 3 Holloway Head, Birmingham, United Kingdom, B1 1QP",
+          "company_number": "15667082",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-02-03",
+          "date_of_creation": "2024-04-22",
+          "description": "15667082 - Dissolved on 3 February 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15667082"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEK WORLD LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Romford Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E12 5AF",
+            "premises": "560"
+          },
+          "address_snippet": "560 Romford Road, London, England, E12 5AF",
+          "company_number": "15031511",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-07-26",
+          "description": "15031511 - Incorporated on 26 July 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15031511"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEEKZ LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Garforth",
+            "country": "United Kingdom",
+            "locality": "Leeds",
+            "postal_code": "LS25 1NB",
+            "premises": "Brookfield Court Selby Road",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "Brookfield Court Selby Road, Garforth, Leeds, West Yorkshire, United Kingdom, LS25 1NB",
+          "company_number": "14670458",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-04-01",
+          "date_of_creation": "2023-02-17",
+          "description": "14670458 - Dissolved on 1 April 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14670458"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GEN CO. LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "60 Windsor Avenue",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW19 2RR",
+            "premises": "Dalton House"
+          },
+          "address_snippet": "Dalton House, 60 Windsor Avenue, London, England, SW19 2RR",
+          "company_number": "09248318",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-10-03",
+          "description": "09248318 - Incorporated on 3 October 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09248318"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENERATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Free Prae Road",
+            "address_line_2": "7 Free Prae Road",
+            "country": "England",
+            "locality": "Chertsey",
+            "postal_code": "KT16 8EG",
+            "premises": "7"
+          },
+          "address_snippet": "7 Free Prae Road, 7 Free Prae Road, Chertsey, England, KT16 8EG",
+          "company_number": "11265880",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-03-20",
+          "description": "11265880 - Incorporated on 20 March 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11265880"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENESIS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Commercial Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E1 1NL",
+            "premises": "150d"
+          },
+          "address_snippet": "150d Commercial Road, London, England, E1 1NL",
+          "company_number": "15820375",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-09",
+          "date_of_creation": "2024-07-04",
+          "description": "15820375 - Dissolved on 9 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15820375"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENESIS INNOVATORS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "51 South Street",
+            "country": "United Kingdom",
+            "locality": "Reading",
+            "postal_code": "RG1 4QT",
+            "premises": "Trinity Hall"
+          },
+          "address_snippet": "Trinity Hall, 51 South Street, Reading, United Kingdom, RG1 4QT",
+          "company_number": "15683613",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-04-26",
+          "description": "15683613 - Incorporated on 26 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15683613"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENESYS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Tulketh Road",
+            "address_line_2": "Ashton-On-Ribble",
+            "country": "England",
+            "locality": "Preston",
+            "postal_code": "PR2 1ES",
+            "premises": "209",
+            "region": "Lancashire"
+          },
+          "address_snippet": "209 Tulketh Road, Ashton-On-Ribble, Preston, Lancashire, England, PR2 1ES",
+          "company_number": "15663356",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-04-20",
+          "description": "15663356 - Incorporated on 20 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15663356"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "SMART TECHS IT SOLUTIONS LTD",
+          "title": "TECH GENI LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "country": "England",
+            "locality": "Lincoln",
+            "postal_code": "LN5 7PJ",
+            "premises": "129"
+          },
+          "address_snippet": "129 High Street, Lincoln, England, LN5 7PJ",
+          "company_number": "15583419",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-03-21",
+          "description": "15583419 - Incorporated on 21 March 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15583419"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Gloucester Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1N 3AX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Old Gloucester Street, London, United Kingdom, WC1N 3AX",
+          "company_number": "16239649",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-02-10",
+          "description": "16239649 - Incorporated on 10 February 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16239649"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIE LONDON LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bordesley Green",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B9 5RA",
+            "premises": "443"
+          },
+          "address_snippet": "443 Bordesley Green, Birmingham, England, B9 5RA",
+          "company_number": "16296340",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-05",
+          "description": "16296340 - Incorporated on 5 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16296340"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIE ONE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bordesley Green",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B9 5RA",
+            "premises": "443"
+          },
+          "address_snippet": "443 Bordesley Green, Birmingham, England, B9 5RA",
+          "company_number": "15191233",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-03-11",
+          "date_of_creation": "2023-10-05",
+          "description": "15191233 - Dissolved on 11 March 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15191233"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIE ONE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Purleigh Road",
+            "country": "England",
+            "locality": "Corsham",
+            "postal_code": "SN13 9LJ",
+            "premises": "34"
+          },
+          "address_snippet": "34 Purleigh Road, Corsham, England, SN13 9LJ",
+          "company_number": "10498117",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-11-25",
+          "description": "10498117 - Incorporated on 25 November 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10498117"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIUS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Stanton Court Stanton Street",
+            "address_line_2": "Stretford",
+            "country": "United Kingdom",
+            "locality": "Manchester",
+            "postal_code": "M32 0JS",
+            "premises": "Flat 8"
+          },
+          "address_snippet": "Flat 8 Stanton Court Stanton Street, Stretford, Manchester, United Kingdom, M32 0JS",
+          "company_number": "15911124",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-08-21",
+          "description": "15911124 - Incorporated on 21 August 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15911124"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIUSES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Albany Road",
+            "country": "United Kingdom",
+            "locality": "Weymouth",
+            "postal_code": "DT4 9TH",
+            "premises": "14a",
+            "region": "Dorset"
+          },
+          "address_snippet": "14a Albany Road, Weymouth, Dorset, United Kingdom, DT4 9TH",
+          "company_number": "11072660",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-11-20",
+          "description": "11072660 - Incorporated on 20 November 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11072660"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIUS IT SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shelton Street",
+            "address_line_2": "Covent Garden",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2H 9JQ",
+            "premises": "71-75"
+          },
+          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "company_number": "15486670",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-02-13",
+          "description": "15486670 - Incorporated on 13 February 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15486670"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GENIUS PRO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Osprey Avenue",
+            "country": "England",
+            "locality": "Bracknell",
+            "postal_code": "RG12 8AT",
+            "premises": "41"
+          },
+          "address_snippet": "41 Osprey Avenue, Bracknell, England, RG12 8AT",
+          "company_number": "15960065",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-09-17",
+          "description": "15960065 - Incorporated on 17 September 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15960065"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH G GLOBAL LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Mauldeth Road West",
+            "address_line_2": "Withington",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M20 1BJ",
+            "premises": "175"
+          },
+          "address_snippet": "175 Mauldeth Road West, Withington, Manchester, England, M20 1BJ",
+          "company_number": "13602750",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-09-04",
+          "description": "13602750 - Incorporated on 4 September 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13602750"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIANT NW LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Buxton Road",
+            "address_line_2": "Stockport",
+            "country": "United Kingdom",
+            "locality": "Cheshire",
+            "postal_code": "SK2 6LS",
+            "premises": "35-51"
+          },
+          "address_snippet": "35-51 Buxton Road, Stockport, Cheshire, United Kingdom, SK2 6LS",
+          "company_number": "13196257",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-02-11",
+          "description": "13196257 - Incorporated on 11 February 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13196257"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIANTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Hampshire Avenue",
+            "country": "England",
+            "locality": "Slough",
+            "postal_code": "SL1 3AQ",
+            "premises": "34"
+          },
+          "address_snippet": "34 Hampshire Avenue, Slough, England, SL1 3AQ",
+          "company_number": "16296469",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-05",
+          "description": "16296469 - Incorporated on 5 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16296469"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIFT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "3 42-44 Gorton Road",
+            "country": "England",
+            "locality": "Stockport",
+            "postal_code": "SK5 6AE",
+            "premises": "Flat 1-"
+          },
+          "address_snippet": "Flat 1- 3 42-44 Gorton Road, Stockport, England, SK5 6AE",
+          "company_number": "15497143",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-04-01",
+          "date_of_creation": "2024-02-17",
+          "description": "15497143 - Dissolved on 1 April 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15497143"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIG ACCESSORIES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "124"
+          },
+          "address_snippet": "124 City Road, London, England, EC1V 2NX",
+          "company_number": "12737740",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-07-13",
+          "description": "12737740 - Incorporated on 13 July 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12737740"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIMMICKS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "4 Beacon Road",
+            "country": "United Kingdom",
+            "locality": "Herne Bay",
+            "postal_code": "CT6 6DH",
+            "premises": "Flat 3",
+            "region": "Kent"
+          },
+          "address_snippet": "Flat 3 4 Beacon Road, Herne Bay, Kent, United Kingdom, CT6 6DH",
+          "company_number": "16612292",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-07-29",
+          "description": "16612292 - Incorporated on 29 July 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16612292"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIRL TRAINING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "St. Andrew's Grove",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N16 5NE",
+            "premises": "24"
+          },
+          "address_snippet": "24 St. Andrew's Grove, London, England, N16 5NE",
+          "company_number": "14351128",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-27",
+          "date_of_creation": "2022-09-12",
+          "description": "14351128 - Dissolved on 27 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14351128"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TECH GIVING LIMITED"
+        }
+      ],
+      "items_per_page": 100,
+      "kind": "search#companies",
+      "page_number": 7,
+      "start_index": 600,
+      "total_results": 10000
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 13:14:24 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=3BD940D0BAB1F345E9AEBBBFACA0A362; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "492",
+    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/search/companies?q=tech&start_index=600&items_per_page=200"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/search/companies?q=tech&start_index=600&items_per_page=200"
+}

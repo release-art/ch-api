@@ -1,0 +1,2795 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "address": {
+            "address_line_1": "Hamlet Court Road",
+            "country": "United Kingdom",
+            "locality": "Westcliff On Sea",
+            "postal_code": "SS0 7LP",
+            "premises": "114"
+          },
+          "address_snippet": "114 Hamlet Court Road, Westcliff On Sea, United Kingdom, SS0 7LP",
+          "company_number": "15254720",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-11-02",
+          "description": "15254720 - Incorporated on 2 November 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15254720"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PARADE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Masefield Crescent",
+            "country": "England",
+            "locality": "Waterlooville",
+            "postal_code": "PO8 8JT",
+            "premises": "21"
+          },
+          "address_snippet": "21 Masefield Crescent, Waterlooville, England, PO8 8JT",
+          "company_number": "08526268",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-05-13",
+          "description": "08526268 - Incorporated on 13 May 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08526268"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PARK FILMS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Alexandra Avenue",
+            "country": "England",
+            "locality": "Harrow",
+            "postal_code": "HA2 9TL",
+            "premises": "458"
+          },
+          "address_snippet": "458 Alexandra Avenue, Harrow, England, HA2 9TL",
+          "company_number": "14872294",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-05-16",
+          "description": "14872294 - Incorporated on 16 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14872294"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PARKING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hill Street",
+            "country": "England",
+            "locality": "Lydney",
+            "postal_code": "GL15 5HE",
+            "premises": "Wildin & Co Kings Buildings",
+            "region": "Gloucestershire"
+          },
+          "address_snippet": "Wildin & Co Kings Buildings, Hill Street, Lydney, Gloucestershire, England, GL15 5HE",
+          "company_number": "11064629",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-11-15",
+          "description": "11064629 - Incorporated on 15 November 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11064629"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PARK PROPERTIES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bishopsgate",
+            "locality": "London",
+            "postal_code": "EC2M 4AG",
+            "premises": "280"
+          },
+          "address_snippet": "280 Bishopsgate, London, EC2M 4AG",
+          "company_number": "09873335",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-11-16",
+          "description": "09873335 - Incorporated on 16 November 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09873335"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PAYMENTS SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Adlington House High Street",
+            "country": "United Kingdom",
+            "locality": "Newcastle",
+            "postal_code": "ST5 0HZ",
+            "premises": "327"
+          },
+          "address_snippet": "327 Adlington House High Street, Newcastle, United Kingdom, ST5 0HZ",
+          "company_number": "15101525",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-08-29",
+          "description": "15101525 - Incorporated on 29 August 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15101525"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PEAR LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Speedfields Park",
+            "address_line_2": "Newgate Lane",
+            "country": "England",
+            "locality": "Fareham",
+            "postal_code": "PO14 1TL",
+            "premises": "Unit 6"
+          },
+          "address_snippet": "Unit 6 Speedfields Park, Newgate Lane, Fareham, England, PO14 1TL",
+          "company_number": "08171611",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-08-08",
+          "description": "08171611 - Incorporated on 8 August 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08171611"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PEEL PRODUCTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Gloucester Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1N 3AX",
+            "premises": "27"
+          },
+          "address_snippet": "27 Old Gloucester Street, London, United Kingdom, WC1N 3AX",
+          "company_number": "14057382",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-04-20",
+          "description": "14057382 - Incorporated on 20 April 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14057382"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PHOTO BOOTH UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "27 Byrom Street",
+            "locality": "Manchester",
+            "postal_code": "M3 4PF",
+            "premises": "C/O CG & CO"
+          },
+          "address_snippet": "C/O CG & CO, 27 Byrom Street, Manchester, M3 4PF",
+          "company_number": "05025172",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-05-20",
+          "date_of_creation": "2004-01-26",
+          "description": "05025172 - Dissolved on 20 May 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05025172"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PHYSIOTHERAPY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Dauntsey Lock",
+            "locality": "Chippenham",
+            "postal_code": "SN15 4TL",
+            "premises": "Sherston House 4 Beeches Lane",
+            "region": "Wiltshire"
+          },
+          "address_snippet": "Sherston House 4 Beeches Lane Dauntsey Lock, Chippenham, Wiltshire, SN15 4TL",
+          "company_number": "03287465",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1996-12-04",
+          "description": "03287465 - Incorporated on 4 December 1996",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03287465"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Dodson Way",
+            "address_line_2": "Fengate",
+            "country": "United Kingdom",
+            "locality": "Peterborough",
+            "postal_code": "PE1 5XJ",
+            "premises": "16",
+            "region": "Cambridgeshire"
+          },
+          "address_snippet": "16 Dodson Way, Fengate, Peterborough, Cambridgeshire, United Kingdom, PE1 5XJ",
+          "company_number": "15558174",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-03-12",
+          "description": "15558174 - Incorporated on 12 March 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15558174"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE AI LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "4th Floor 12 King Street",
+            "locality": "Leeds",
+            "postal_code": "LS1 2HL",
+            "premises": "C/O PKF LITTLEJOHN ADVISORY LIMITED"
+          },
+          "address_snippet": "C/O PKF LITTLEJOHN ADVISORY LIMITED, 4th Floor 12 King Street, Leeds, LS1 2HL",
+          "company_number": "07756168",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2011-08-30",
+          "description": "07756168 - Incorporated on 30 August 2011 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07756168"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Mucklow Hill",
+            "country": "United Kingdom",
+            "locality": "Halesowen",
+            "postal_code": "B62 8DY",
+            "premises": "West Point, Second Floor Mucklow Office Park",
+            "region": "West Midlands"
+          },
+          "address_snippet": "West Point, Second Floor Mucklow Office Park, Mucklow Hill, Halesowen, West Midlands, United Kingdom, B62 8DY",
+          "company_number": "08502660",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-04-24",
+          "description": "08502660 - Incorporated on 24 April 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08502660"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE DEVELOPMENTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Rydal Road",
+            "locality": "Ambleside",
+            "postal_code": "LA22 9AN",
+            "premises": "Apple Pie Eating House",
+            "region": "Cumbria"
+          },
+          "address_snippet": "Apple Pie Eating House, Rydal Road, Ambleside, Cumbria, LA22 9AN",
+          "company_number": "04001827",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2000-05-25",
+          "description": "04001827 - Incorporated on 25 May 2000",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04001827"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE EATING HOUSE & BAKERY LTD."
+        },
+        {
+          "address": {
+            "address_line_1": "Broadway",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E15 4BQ",
+            "premises": "39a"
+          },
+          "address_snippet": "39a Broadway, London, England, E15 4BQ",
+          "company_number": "05020144",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2004-01-20",
+          "description": "05020144 - Incorporated on 20 January 2004",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05020144"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE ENTERPRISES LTD."
+        },
+        {
+          "address": {
+            "address_line_1": "Glenwood",
+            "country": "England",
+            "locality": "Bracknell",
+            "postal_code": "RG12 9QB",
+            "premises": "15"
+          },
+          "address_snippet": "15 Glenwood, Bracknell, England, RG12 9QB",
+          "company_number": "15335369",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-12-08",
+          "description": "15335369 - Incorporated on 8 December 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15335369"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE NETWORKS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Steel Park Road",
+            "locality": "Halesowen",
+            "postal_code": "B62 8BF",
+            "premises": "Grove House Coombs Wood Court",
+            "region": "West Midlands"
+          },
+          "address_snippet": "Grove House Coombs Wood Court, Steel Park Road, Halesowen, West Midlands, B62 8BF",
+          "company_number": "08111558",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-06-19",
+          "description": "08111558 - Incorporated on 19 June 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08111558"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE PROPERTIES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Eton",
+            "country": "England",
+            "locality": "Windsor",
+            "postal_code": "SL4 6AA",
+            "premises": "62a"
+          },
+          "address_snippet": "62a High Street, Eton, Windsor, England, SL4 6AA",
+          "company_number": "15505492",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-02-20",
+          "description": "15505492 - Incorporated on 20 February 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15505492"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE PROPERTY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Eton",
+            "country": "England",
+            "locality": "Windsor",
+            "postal_code": "SL4 6AA",
+            "premises": "62a"
+          },
+          "address_snippet": "62a High Street, Eton, Windsor, England, SL4 6AA",
+          "company_number": "13855214",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-20",
+          "date_of_creation": "2022-01-18",
+          "description": "13855214 - Dissolved on 20 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13855214"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIE PROPERTY GROUP LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Keyhaven",
+            "country": "England",
+            "locality": "Lymington",
+            "postal_code": "SO41 0TJ",
+            "premises": "See Needles Keyhaven Road"
+          },
+          "address_snippet": "See Needles Keyhaven Road, Keyhaven, Lymington, England, SO41 0TJ",
+          "company_number": "14724126",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-09-23",
+          "date_of_creation": "2023-03-13",
+          "description": "14724126 - Dissolved on 23 September 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14724126"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PINE PRESS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ponteland",
+            "country": "United Kingdom",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE19 2LF",
+            "premises": "West Bingfield Bingfield"
+          },
+          "address_snippet": "West Bingfield Bingfield, Ponteland, Newcastle Upon Tyne, United Kingdom, NE19 2LF",
+          "company_number": "15049232",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-08-04",
+          "description": "15049232 - Incorporated on 4 August 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15049232"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIP PROPERTIES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Upton Road",
+            "locality": "London",
+            "postal_code": "N18 2LJ",
+            "premises": "12"
+          },
+          "address_snippet": "12 Upton Road, London, N18 2LJ",
+          "company_number": "08102557",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-06-12",
+          "description": "08102557 - Incorporated on 12 June 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08102557"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIZZA LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Church Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N17 8AQ",
+            "premises": "34"
+          },
+          "address_snippet": "34 Church Road, London, England, N17 8AQ",
+          "company_number": "15699956",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-27",
+          "date_of_creation": "2024-05-01",
+          "description": "15699956 - Dissolved on 27 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15699956"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PIZZERIA LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Vine Mews Vine Street",
+            "country": "England",
+            "locality": "Evesham",
+            "postal_code": "WR11 4RE",
+            "premises": "19",
+            "region": "Worcestershire"
+          },
+          "address_snippet": "19 Vine Mews Vine Street, Evesham, Worcestershire, England, WR11 4RE",
+          "company_number": "13770783",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-11-29",
+          "description": "13770783 - Incorporated on 29 November 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13770783"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PLANNING AND DESIGN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hyde Road",
+            "country": "England",
+            "locality": "Paignton",
+            "postal_code": "TQ4 5BY",
+            "premises": "46",
+            "region": "Devon"
+          },
+          "address_snippet": "46 Hyde Road, Paignton, Devon, England, TQ4 5BY",
+          "company_number": "10034502",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-03-01",
+          "description": "10034502 - Incorporated on 1 March 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10034502"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PLANT SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Powell Court",
+            "address_line_2": "Prospect Hill",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E17 3EN",
+            "premises": "Flat 28"
+          },
+          "address_snippet": "Flat 28 Powell Court, Prospect Hill, London, England, E17 3EN",
+          "company_number": "14825418",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-04-25",
+          "description": "14825418 - Incorporated on 25 April 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14825418"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PLUM NURSERY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "High Road",
+            "country": "England",
+            "locality": "Ilford",
+            "postal_code": "IG3 8TG",
+            "premises": "851"
+          },
+          "address_snippet": "851 High Road, Ilford, England, IG3 8TG",
+          "company_number": "13774670",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-11-30",
+          "description": "13774670 - Incorporated on 30 November 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13774670"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PLUS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Platform",
+            "address_line_2": "Hemingway Road",
+            "country": "Wales",
+            "locality": "Cardiff",
+            "postal_code": "CF10 5LS",
+            "premises": "Suite 8"
+          },
+          "address_snippet": "Suite 8 Platform, Hemingway Road, Cardiff, Wales, CF10 5LS",
+          "company_number": "16703395",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-09-08",
+          "description": "16703395 - Incorporated on 8 September 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16703395"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PM LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bury New Road",
+            "locality": "Whitefield",
+            "postal_code": "M45 7TA",
+            "premises": "Leonard Curtis House Elms Square",
+            "region": "Greater  Manchester"
+          },
+          "address_snippet": "Leonard Curtis House Elms Square, Bury New Road, Whitefield, Greater  Manchester, M45 7TA",
+          "company_number": "05662054",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2005-12-23",
+          "description": "05662054 - Incorporated on 23 December 2005 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05662054"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE POLYURETHANE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Ash Lane",
+            "country": "England",
+            "locality": "Widnes",
+            "postal_code": "WA8 8JQ",
+            "premises": "26"
+          },
+          "address_snippet": "26 Ash Lane, Widnes, England, WA8 8JQ",
+          "company_number": "05901292",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2006-08-09",
+          "description": "05901292 - Incorporated on 9 August 2006",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05901292"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE P.P.E. LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Basset Court Loake Close",
+            "address_line_2": "Grange Park",
+            "country": "England",
+            "locality": "Northampton",
+            "postal_code": "NN4 5EZ",
+            "premises": "15"
+          },
+          "address_snippet": "15 Basset Court Loake Close, Grange Park, Northampton, England, NN4 5EZ",
+          "company_number": "07312029",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2010-07-12",
+          "description": "07312029 - Incorporated on 12 July 2010",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07312029"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRACTICE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Esme Road",
+            "country": "United Kingdom",
+            "locality": "Birmingham",
+            "postal_code": "B11 4NJ",
+            "premises": "115"
+          },
+          "address_snippet": "115 Esme Road, Birmingham, United Kingdom, B11 4NJ",
+          "company_number": "15171067",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-03-04",
+          "date_of_creation": "2023-09-28",
+          "description": "15171067 - Dissolved on 4 March 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15171067"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRESALE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Triptych Place",
+            "address_line_2": "Second Floor",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "SE1 9SH",
+            "premises": "1"
+          },
+          "address_snippet": "1 Triptych Place, Second Floor, London, United Kingdom, SE1 9SH",
+          "company_number": "01822089",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1984-06-05",
+          "description": "01822089 - Incorporated on 5 June 1984",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/01822089"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRESS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Abex Road",
+            "locality": "Newbury",
+            "postal_code": "RG14 5EY",
+            "premises": "The Orchard",
+            "region": "Berkshire"
+          },
+          "address_snippet": "The Orchard, Abex Road, Newbury, Berkshire, RG14 5EY",
+          "company_number": "02001899",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1986-03-19",
+          "description": "02001899 - Incorporated on 19 March 1986",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/02001899"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRINT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Abex Road",
+            "country": "England",
+            "locality": "Newbury",
+            "postal_code": "RG14 5EY",
+            "premises": "The Orchard",
+            "region": "Berkshire"
+          },
+          "address_snippet": "The Orchard, Abex Road, Newbury, Berkshire, England, RG14 5EY",
+          "company_number": "08397105",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-02-11",
+          "description": "08397105 - Incorporated on 11 February 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08397105"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRINT AND CREATIVE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Abex Road",
+            "locality": "Newbury",
+            "postal_code": "RG14 5EY",
+            "premises": "The Orchard",
+            "region": "Berkshire"
+          },
+          "address_snippet": "The Orchard, Abex Road, Newbury, Berkshire, RG14 5EY",
+          "company_number": "09103910",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-06-26",
+          "description": "09103910 - Incorporated on 26 June 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09103910"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRINT & CREATIVE HOLDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Abex Road",
+            "country": "England",
+            "locality": "Newbury",
+            "postal_code": "RG14 5EY",
+            "premises": "The Orchard",
+            "region": "Berkshire"
+          },
+          "address_snippet": "The Orchard, Abex Road, Newbury, Berkshire, England, RG14 5EY",
+          "company_number": "06596756",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2008-05-19",
+          "description": "06596756 - Incorporated on 19 May 2008",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06596756"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE PRINT HOLDING",
+          "title": "APPLE PRINT HOLDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Silhill Hall Road",
+            "country": "England",
+            "locality": "Solihull",
+            "postal_code": "B91 1JS",
+            "premises": "106"
+          },
+          "address_snippet": "106 Silhill Hall Road, Solihull, England, B91 1JS",
+          "company_number": "13213547",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-02-19",
+          "description": "13213547 - Incorporated on 19 February 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13213547"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRIVATE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Sun Street",
+            "country": "England",
+            "locality": "Waltham Abbey",
+            "postal_code": "EN9 1EE",
+            "premises": "12b",
+            "region": "Essex"
+          },
+          "address_snippet": "12b Sun Street, Waltham Abbey, Essex, England, EN9 1EE",
+          "company_number": "OC447978",
+          "company_status": "active",
+          "company_type": "llp",
+          "date_of_creation": "2023-06-28",
+          "description": "OC447978 - Incorporated on 28 June 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/OC447978"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROBATE AND ESTATE SERVICES LLP"
+        },
+        {
+          "address": {
+            "address_line_1": "Woodhatch Road",
+            "country": "England",
+            "locality": "Reigate",
+            "postal_code": "RH2 7LJ",
+            "premises": "1"
+          },
+          "address_snippet": "1 Woodhatch Road, Reigate, England, RH2 7LJ",
+          "company_number": "09313566",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-11-17",
+          "description": "09313566 - Incorporated on 17 November 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09313566"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROCUREMENT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Roxborough Avenue",
+            "country": "England",
+            "locality": "Harrow",
+            "postal_code": "HA1 3BT",
+            "premises": "19"
+          },
+          "address_snippet": "19 Roxborough Avenue, Harrow, England, HA1 3BT",
+          "company_number": "15332732",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-12-06",
+          "description": "15332732 - Incorporated on 6 December 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15332732"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRODUCTION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ashworth Terrace",
+            "locality": "Bolton",
+            "postal_code": "BL2 3JP",
+            "premises": "13"
+          },
+          "address_snippet": "13 Ashworth Terrace, Bolton, BL2 3JP",
+          "company_number": "01701374",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-10-21",
+          "date_of_creation": "1983-02-22",
+          "description": "01701374 - Dissolved on 21 October 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/01701374"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROJECTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Maclaren Drive",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M8 4HB",
+            "premises": "18"
+          },
+          "address_snippet": "18 Maclaren Drive, Manchester, England, M8 4HB",
+          "company_number": "15886570",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2026-01-13",
+          "date_of_creation": "2024-08-08",
+          "description": "15886570 - Dissolved on 13 January 2026",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15886570"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PRO MAXX LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Athol Street",
+            "country": "Isle Of Man",
+            "locality": "Douglas",
+            "postal_code": "IM1 1JA",
+            "premises": "24"
+          },
+          "address_snippet": "24 Athol Street, Douglas, Isle Of Man, IM1 1JA",
+          "company_number": "OE031000",
+          "company_status": "registered",
+          "company_type": "registered-overseas-entity",
+          "date_of_creation": "2023-09-15",
+          "description": "OE031000 - Registered on 15 September 2023",
+          "description_identifier": [
+            null,
+            "registered"
+          ],
+          "external_registration_number": "074824C",
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/OE031000"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ormonde Avenue",
+            "country": "England",
+            "locality": "Salford",
+            "postal_code": "M6 8LP",
+            "premises": "27"
+          },
+          "address_snippet": "27 Ormonde Avenue, Salford, England, M6 8LP",
+          "company_number": "12896332",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-09-22",
+          "description": "12896332 - Incorporated on 22 September 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12896332"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Merton Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "SW18 5JW",
+            "premises": "294"
+          },
+          "address_snippet": "294 Merton Road, London, United Kingdom, SW18 5JW",
+          "company_number": "14816906",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-04-20",
+          "description": "14816906 - Incorporated on 20 April 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14816906"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES AGENCY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Redriff Road",
+            "country": "England",
+            "locality": "Romford",
+            "postal_code": "RM7 8HD",
+            "premises": "45"
+          },
+          "address_snippet": "45 Redriff Road, Romford, England, RM7 8HD",
+          "company_number": "11312986",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-04-17",
+          "description": "11312986 - Incorporated on 17 April 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11312986"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES INVESTMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "110 Fitzjohns Avenue",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "NW3 6NT",
+            "premises": "Flat A"
+          },
+          "address_snippet": "Flat A, 110 Fitzjohns Avenue, London, England, NW3 6NT",
+          "company_number": "10519291",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-06-03",
+          "date_of_creation": "2016-12-09",
+          "description": "10519291 - Dissolved on 3 June 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10519291"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES MANAGEMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "152 - 160 City Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "Kemp House"
+          },
+          "address_snippet": "Kemp House, 152 - 160 City Road, London, England, EC1V 2NX",
+          "company_number": "10764120",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-05-10",
+          "description": "10764120 - Incorporated on 10 May 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10764120"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTIES US LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Lane",
+            "country": "United Kingdom",
+            "locality": "Hornchurch",
+            "postal_code": "RM11 1BH",
+            "premises": "87",
+            "region": "Essex"
+          },
+          "address_snippet": "87 Park Lane, Hornchurch, Essex, United Kingdom, RM11 1BH",
+          "company_number": "15528586",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-02-28",
+          "description": "15528586 - Incorporated on 28 February 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15528586"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY BLOCK MANAGEMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Warwick Road",
+            "address_line_2": "Knowle",
+            "locality": "Solihull",
+            "postal_code": "B93 9LF",
+            "premises": "1623",
+            "region": "West Midlands"
+          },
+          "address_snippet": "1623 Warwick Road, Knowle, Solihull, West Midlands, B93 9LF",
+          "company_number": "08421006",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-02-26",
+          "description": "08421006 - Incorporated on 26 February 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08421006"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE SALES & LETTINGS (WEST MIDLANDS) LIMITED",
+          "title": "APPLE PROPERTY CONSULTANCY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Leeds Road",
+            "country": "England",
+            "locality": "Nelson",
+            "postal_code": "BB9 9UA",
+            "premises": "99"
+          },
+          "address_snippet": "99 Leeds Road, Nelson, England, BB9 9UA",
+          "company_number": "10253327",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-06-27",
+          "description": "10253327 - Incorporated on 27 June 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10253327"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY DEVELOPMENTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Station Road",
+            "country": "England",
+            "locality": "Edgware",
+            "postal_code": "HA8 7AB",
+            "premises": "42-46"
+          },
+          "address_snippet": "42-46 Station Road, Edgware, England, HA8 7AB",
+          "company_number": "11282633",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-03-29",
+          "description": "11282633 - Incorporated on 29 March 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11282633"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Haslucks Green Road",
+            "address_line_2": "Shirley",
+            "country": "England",
+            "locality": "Solihull",
+            "postal_code": "B90 2ED",
+            "premises": "63"
+          },
+          "address_snippet": "63 Haslucks Green Road, Shirley, Solihull, England, B90 2ED",
+          "company_number": "09862673",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-11-09",
+          "description": "09862673 - Incorporated on 9 November 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09862673"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY INVESTMENTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Roman Square",
+            "country": "England",
+            "locality": "Sittingbourne",
+            "postal_code": "ME10 4BJ",
+            "premises": "Thames House"
+          },
+          "address_snippet": "Thames House, Roman Square, Sittingbourne, England, ME10 4BJ",
+          "company_number": "10990569",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-10-02",
+          "description": "10990569 - Incorporated on 2 October 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10990569"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY MAINTENANCE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "James Carter Road",
+            "address_line_2": "Mildenhall",
+            "country": "England",
+            "locality": "Bury St. Edmunds",
+            "postal_code": "IP28 7DE",
+            "premises": "Unit 82a"
+          },
+          "address_snippet": "Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE",
+          "company_number": "15552082",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-03-10",
+          "description": "15552082 - Incorporated on 10 March 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15552082"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY MANAGEMENT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Watchet Lane",
+            "address_line_2": "Holmer Green",
+            "country": "England",
+            "locality": "High Wycombe",
+            "postal_code": "HP15 6UF",
+            "premises": "25",
+            "region": "Buckinghamshire"
+          },
+          "address_snippet": "25 Watchet Lane, Holmer Green, High Wycombe, Buckinghamshire, England, HP15 6UF",
+          "company_number": "10229457",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-06-13",
+          "description": "10229457 - Incorporated on 13 June 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10229457"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY PARTNERS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Lane",
+            "country": "England",
+            "locality": "Hornchurch",
+            "postal_code": "RM11 1BH",
+            "premises": "87"
+          },
+          "address_snippet": "87 Park Lane, Hornchurch, England, RM11 1BH",
+          "company_number": "09982434",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-02-02",
+          "description": "09982434 - Incorporated on 2 February 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09982434"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Lane",
+            "country": "United Kingdom",
+            "locality": "Hornchurch",
+            "postal_code": "RM11 1BH",
+            "premises": "87",
+            "region": "Essex"
+          },
+          "address_snippet": "87 Park Lane, Hornchurch, Essex, United Kingdom, RM11 1BH",
+          "company_number": "13233190",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-02-27",
+          "description": "13233190 - Incorporated on 27 February 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13233190"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PROPERTY SERVICES SALES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ovington Square",
+            "address_line_2": "London",
+            "postal_code": "SW3 1LJ",
+            "premises": "27"
+          },
+          "address_snippet": "27 Ovington Square, London, SW3 1LJ",
+          "company_number": "00916422",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1967-09-27",
+          "description": "00916422 - Incorporated on 27 September 1967",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/00916422"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUBLISHING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Honeypot Lane",
+            "locality": "Stanmore",
+            "postal_code": "HA7 1JS",
+            "premises": "582"
+          },
+          "address_snippet": "582 Honeypot Lane, Stanmore, HA7 1JS",
+          "company_number": "BR015377",
+          "company_status": "open",
+          "company_type": "uk-establishment",
+          "date_of_creation": "2011-08-10",
+          "description": "BR015377 - Opened on 10 August 2011",
+          "description_identifier": [
+            "opened-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/BR015377"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUBLISHING INTERNATIONAL PRIVATE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Nelson Manickam Road Aminjikarai",
+            "address_line_2": "Chennai",
+            "country": "India",
+            "locality": "Tamilnadu 600029",
+            "premises": "130"
+          },
+          "address_snippet": "130 Nelson Manickam Road Aminjikarai, Chennai, Tamilnadu 600029, India",
+          "company_number": "FC030382",
+          "company_status": "active",
+          "company_type": "oversea-company",
+          "date_of_creation": "2011-08-10",
+          "description": "FC030382 - First UK establishment opened on 10 August 2011",
+          "description_identifier": [
+            "first-uk-establishment-opened-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/FC030382"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUBLISHING INTERNATIONAL PRIVATE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Oak Hill",
+            "country": "United Kingdom",
+            "locality": "Shepton Mallet",
+            "postal_code": "BA3 4UU",
+            "premises": "The Mendip Inn",
+            "region": "Somerset"
+          },
+          "address_snippet": "The Mendip Inn, Oak Hill, Shepton Mallet, Somerset, United Kingdom, BA3 4UU",
+          "company_number": "14417043",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-10-13",
+          "description": "14417043 - Incorporated on 13 October 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14417043"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUBS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Old School",
+            "address_line_2": "Clyst Honiton",
+            "country": "England",
+            "locality": "Exeter",
+            "postal_code": "EX5 2LZ",
+            "premises": "Suite 1,",
+            "region": "Devon"
+          },
+          "address_snippet": "Suite 1, The Old School, Clyst Honiton, Exeter, Devon, England, EX5 2LZ",
+          "company_number": "13699484",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-10-22",
+          "description": "13699484 - Incorporated on 22 October 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13699484"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUREE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Palace",
+            "locality": "Woodstock",
+            "postal_code": "OX20 1PP",
+            "premises": "The Estate Office Blenheim",
+            "region": "Oxon"
+          },
+          "address_snippet": "The Estate Office Blenheim, Palace, Woodstock, Oxon, OX20 1PP",
+          "company_number": "11718217",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-12-07",
+          "description": "11718217 - Incorporated on 7 December 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11718217"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PYE HOLDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Whateleys Drive",
+            "locality": "Kenilworth",
+            "postal_code": "CV8 2GY",
+            "premises": "53",
+            "region": "Warwickshire"
+          },
+          "address_snippet": "53 Whateleys Drive, Kenilworth, Warwickshire, CV8 2GY",
+          "company_number": "12658040",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-06-09",
+          "description": "12658040 - Incorporated on 9 June 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12658040"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RABBIT (UK) CO., LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Oakleigh Road South",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "N11 1HJ",
+            "premises": "87",
+            "region": "London"
+          },
+          "address_snippet": "87 Oakleigh Road South, London, London, United Kingdom, N11 1HJ",
+          "company_number": "13404786",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-05-17",
+          "description": "13404786 - Incorporated on 17 May 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13404786"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RACING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Leyswood Drive",
+            "address_line_2": "Newbury Park",
+            "country": "England",
+            "locality": "Ilford",
+            "postal_code": "IG2 7JH",
+            "premises": "84",
+            "region": "Essex"
+          },
+          "address_snippet": "84 Leyswood Drive, Newbury Park, Ilford, Essex, England, IG2 7JH",
+          "company_number": "10209601",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-06-01",
+          "description": "10209601 - Incorporated on 1 June 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10209601"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REAL ESTATE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Great Portland Street",
+            "address_line_2": "5th Floor",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1W 5PF",
+            "premises": "167-169"
+          },
+          "address_snippet": "167-169 Great Portland Street, 5th Floor, London, England, W1W 5PF",
+          "company_number": "10953436",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-09-08",
+          "description": "10953436 - Incorporated on 8 September 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10953436"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RECORDS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "9 James Street South",
+            "country": "Northern Ireland",
+            "locality": "Belfast",
+            "postal_code": "BT2 8DN",
+            "premises": "Causeway Tower"
+          },
+          "address_snippet": "Causeway Tower, 9 James Street South, Belfast, Northern Ireland, BT2 8DN",
+          "company_number": "NI626244",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-08-19",
+          "description": "NI626244 - Incorporated on 19 August 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/NI626244"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RECRUITMENT BELFAST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "15679465"
+          },
+          "address_snippet": "4385, 15679465 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "15679465",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-11-04",
+          "date_of_creation": "2024-04-25",
+          "description": "15679465 - Dissolved on 4 November 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15679465"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RED LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Larchwood Avenue",
+            "country": "England",
+            "locality": "Romford",
+            "postal_code": "RM5 2QL",
+            "premises": "1"
+          },
+          "address_snippet": "1 Larchwood Avenue, Romford, England, RM5 2QL",
+          "company_number": "16637321",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2025-08-08",
+          "description": "16637321 - Incorporated on 8 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16637321"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REFURB LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Main Street, Fridaythorpe",
+            "country": "United Kingdom",
+            "locality": "Driffield",
+            "postal_code": "YO25 9RS",
+            "premises": "Forge Cottage"
+          },
+          "address_snippet": "Forge Cottage, Main Street, Fridaythorpe, Driffield, United Kingdom, YO25 9RS",
+          "company_number": "16510257",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-06-11",
+          "description": "16510257 - Incorporated on 11 June 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16510257"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REMOVALS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "South Street",
+            "country": "England",
+            "locality": "Leominster",
+            "postal_code": "HR6 8JB",
+            "premises": "6a"
+          },
+          "address_snippet": "6a South Street, Leominster, England, HR6 8JB",
+          "company_number": "09710104",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-07-30",
+          "description": "09710104 - Incorporated on 30 July 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09710104"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REPAIR CENTRE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Park Lane",
+            "address_line_2": "Clacton On Sea",
+            "country": "United Kingdom",
+            "locality": "Essex",
+            "postal_code": "CO15 1HQ",
+            "premises": "50"
+          },
+          "address_snippet": "50 Park Lane, Clacton On Sea, Essex, United Kingdom, CO15 1HQ",
+          "company_number": "15808253",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-02",
+          "date_of_creation": "2024-06-28",
+          "description": "15808253 - Dissolved on 2 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15808253"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REPAIRS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Clayton Street",
+            "country": "United Kingdom",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE1 5PY",
+            "premises": "71",
+            "region": "Tyne And Wear"
+          },
+          "address_snippet": "71 Clayton Street, Newcastle Upon Tyne, Tyne And Wear, United Kingdom, NE1 5PY",
+          "company_number": "15430228",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-01-22",
+          "description": "15430228 - Incorporated on 22 January 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15430228"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE REPAIRS NEWCASTLE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Church Road",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M22 4NN",
+            "premises": "31"
+          },
+          "address_snippet": "31 Church Road, Manchester, England, M22 4NN",
+          "company_number": "04049386",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2000-08-08",
+          "description": "04049386 - Incorporated on 8 August 2000",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04049386"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RESIDENTIAL LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "27 Bush Lane",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC4R 0AA",
+            "premises": "C/O React Business Services City Pavilion,Cannon Green"
+          },
+          "address_snippet": "C/O React Business Services City Pavilion,Cannon Green, 27 Bush Lane, London, England, EC4R 0AA",
+          "company_number": "08283615",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-11-06",
+          "description": "08283615 - Incorporated on 6 November 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08283615"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RESOURCING UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": ", 8 Leven Street",
+            "country": "United Kingdom",
+            "locality": "Glasgow",
+            "postal_code": "G41 2JQ",
+            "premises": "0/1"
+          },
+          "address_snippet": "0/1 , 8 Leven Street, Glasgow, United Kingdom, G41 2JQ",
+          "company_number": "SC768947",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-06-24",
+          "date_of_creation": "2023-05-11",
+          "description": "SC768947 - Dissolved on 24 June 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC768947"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RESTORE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "One Angel Court",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC2R 7HJ",
+            "premises": "C/O Tmf Group 13th Floor"
+          },
+          "address_snippet": "C/O Tmf Group 13th Floor One Angel Court, London, United Kingdom, EC2R 7HJ",
+          "company_number": "04996702",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2003-12-16",
+          "description": "04996702 - Incorporated on 16 December 2003",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04996702"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE COMPUTER SALES UK",
+          "title": "APPLE RETAIL UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Oakfield Road",
+            "country": "England",
+            "locality": "Aylesbury",
+            "postal_code": "HP20 1LL",
+            "premises": "C/O Fitch Taylor Johnson Ltd Adams Corner"
+          },
+          "address_snippet": "C/O Fitch Taylor Johnson Ltd Adams Corner, Oakfield Road, Aylesbury, England, HP20 1LL",
+          "company_number": "13057055",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-12-02",
+          "description": "13057055 - Incorporated on 2 December 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13057055"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RIDGE GARDENS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Innovation House, Innovation Way",
+            "address_line_2": "Discovery Park",
+            "country": "United Kingdom",
+            "locality": "Sandwich",
+            "postal_code": "CT13 9FF",
+            "premises": "Office 17",
+            "region": "United Kingdom"
+          },
+          "address_snippet": "Office 17 Innovation House, Innovation Way, Discovery Park, Sandwich, United Kingdom, United Kingdom, CT13 9FF",
+          "company_number": "10814710",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-06-12",
+          "description": "10814710 - Incorporated on 12 June 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10814710"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RISK MANAGEMENT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Cokes Lane",
+            "locality": "Chalfont St Giles",
+            "postal_code": "HP8 4TA",
+            "premises": "Playford",
+            "region": "Bucks"
+          },
+          "address_snippet": "Playford, Cokes Lane, Chalfont St Giles, Bucks, HP8 4TA",
+          "company_number": "07593705",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2011-04-06",
+          "description": "07593705 - Incorporated on 6 April 2011",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07593705"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RIVER CONSULTING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "St. Lawrence Avenue",
+            "country": "England",
+            "locality": "Worthing",
+            "postal_code": "BN14 7JF",
+            "premises": "3"
+          },
+          "address_snippet": "3 St. Lawrence Avenue, Worthing, England, BN14 7JF",
+          "company_number": "14216890",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-07-05",
+          "description": "14216890 - Incorporated on 5 July 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14216890"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE RN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Bridle Close",
+            "address_line_2": "Wellingborough",
+            "locality": "Northamptonshire",
+            "postal_code": "NN8 4RN",
+            "premises": "4"
+          },
+          "address_snippet": "4 Bridle Close, Wellingborough, Northamptonshire, NN8 4RN",
+          "company_number": "01867914",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1984-11-30",
+          "description": "01867914 - Incorporated on 30 November 1984",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/01867914"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE GEARS (NORTHANTS) LIMITED ",
+          "title": "APPLE ROCHESTER GEARS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Erdington",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B24 9QR",
+            "premises": "Park Business Centre Hastingwood Industrial Park, Wood Lane",
+            "region": "West Midlands"
+          },
+          "address_snippet": "Park Business Centre Hastingwood Industrial Park, Wood Lane, Erdington, Birmingham, West Midlands, England, B24 9QR",
+          "company_number": "09973578",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-01-27",
+          "description": "09973578 - Incorporated on 27 January 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09973578"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE ROX LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Howard Drive",
+            "country": "England",
+            "locality": "Leiston",
+            "postal_code": "IP16 4WR",
+            "premises": "6"
+          },
+          "address_snippet": "6 Howard Drive, Leiston, England, IP16 4WR",
+          "company_number": "16450004",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-05-14",
+          "description": "16450004 - Incorporated on 14 May 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16450004"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE SAFETY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Over Road",
+            "country": "England",
+            "locality": "Church Minshull",
+            "postal_code": "CW5 6EA",
+            "premises": "Weaver Cottage 1 West View",
+            "region": "Cheshire"
+          },
+          "address_snippet": "Weaver Cottage 1 West View, Over Road, Church Minshull, Cheshire, England, CW5 6EA",
+          "company_number": "11148374",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-01-15",
+          "description": "11148374 - Incorporated on 15 January 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11148374"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE SAFETY SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Alston Close",
+            "country": "England",
+            "locality": "Doncaster",
+            "postal_code": "DN4 7HD",
+            "premises": "6"
+          },
+          "address_snippet": "6 Alston Close, Doncaster, England, DN4 7HD",
+          "company_number": "14568791",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-01-03",
+          "description": "14568791 - Incorporated on 3 January 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14568791"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE SAFETY TRAINING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Bury New Road",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M8 8FX",
+            "premises": "77"
+          },
+          "address_snippet": "77 Bury New Road, Manchester, England, M8 8FX",
+          "company_number": "16246669",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-02-12",
+          "description": "16246669 - Incorporated on 12 February 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16246669"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE SAMSUNG LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hunter House Road",
+            "country": "England",
+            "locality": "Sheffield",
+            "postal_code": "S11 8TW",
+            "premises": "48"
+          },
+          "address_snippet": "48 Hunter House Road, Sheffield, England, S11 8TW",
+          "company_number": "14684743",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-23",
+          "description": "14684743 - Incorporated on 23 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14684743"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES AND BEARS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wivenhoe",
+            "country": "United Kingdom",
+            "locality": "Colchester",
+            "postal_code": "CO7 9AF",
+            "premises": "Wivenhoe Hall Folly High Street"
+          },
+          "address_snippet": "Wivenhoe Hall Folly High Street, Wivenhoe, Colchester, United Kingdom, CO7 9AF",
+          "company_number": "11002076",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-10-09",
+          "description": "11002076 - Incorporated on 9 October 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11002076"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES AND CHAIRS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Denton",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M34 2GP",
+            "premises": "Ridgway House Progress Way"
+          },
+          "address_snippet": "Ridgway House Progress Way, Denton, Manchester, England, M34 2GP",
+          "company_number": "10531594",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-12-19",
+          "description": "10531594 - Incorporated on 19 December 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10531594"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & CHERRIES DAY NURSERY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Watlington Business Centre",
+            "address_line_2": "1 High Street",
+            "country": "United Kingdom",
+            "locality": "Watlington",
+            "postal_code": "OX49 5PH",
+            "premises": "1",
+            "region": "Oxon"
+          },
+          "address_snippet": "1 Watlington Business Centre, 1 High Street, Watlington, Oxon, United Kingdom, OX49 5PH",
+          "company_number": "14811746",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-04-18",
+          "description": "14811746 - Incorporated on 18 April 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14811746"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & CUSTARD LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wandsworth",
+            "locality": "London",
+            "postal_code": "SW12 8NB",
+            "premises": "Nightingale House 105 Nightingale Lane"
+          },
+          "address_snippet": "Nightingale House 105 Nightingale Lane Wandsworth, London, SW12 8NB",
+          "company_number": "10998793",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2017-10-05",
+          "description": "10998793 - Incorporated on 5 October 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10998793"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES AND HONEY NIGHTINGALE CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Firecrest Court Centre Park",
+            "country": "England",
+            "locality": "Warrington",
+            "postal_code": "WA1 1RG",
+            "premises": "320"
+          },
+          "address_snippet": "320 Firecrest Court Centre Park, Warrington, England, WA1 1RG",
+          "company_number": "08427052",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-03-04",
+          "description": "08427052 - Incorporated on 4 March 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08427052"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & ORANGES DATA SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Francis Street",
+            "country": "Northern Ireland",
+            "locality": "Newry",
+            "postal_code": "BT35 8BQ",
+            "premises": "14-18",
+            "region": "County Down"
+          },
+          "address_snippet": "14-18 Francis Street, Newry, County Down, Northern Ireland, BT35 8BQ",
+          "company_number": "NI656329",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-10-12",
+          "description": "NI656329 - Incorporated on 12 October 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/NI656329"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES AND ORANGES TAVERNS NI LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Palace Avenue",
+            "country": "England",
+            "locality": "Paignton",
+            "postal_code": "TQ3 3EQ",
+            "premises": "33"
+          },
+          "address_snippet": "33 Palace Avenue, Paignton, England, TQ3 3EQ",
+          "company_number": "16610688",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-07-28",
+          "description": "16610688 - Incorporated on 28 July 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16610688"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & PEARS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Clifton Drive South",
+            "locality": "Lytham St Annes",
+            "postal_code": "FY8 1LH",
+            "premises": "284",
+            "region": "Lancashire"
+          },
+          "address_snippet": "284 Clifton Drive South, Lytham St Annes, Lancashire, FY8 1LH",
+          "company_number": "04824767",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-03-11",
+          "date_of_creation": "2003-07-08",
+          "description": "04824767 - Dissolved on 11 March 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04824767"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLES & PEARS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Watling Street Road",
+            "address_line_2": "Fulwood",
+            "locality": "Preston",
+            "postal_code": "PR2 8EA",
+            "premises": "35"
+          },
+          "address_snippet": "35 Watling Street Road, Fulwood, Preston, PR2 8EA",
+          "company_number": "08378481",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-07-08",
+          "date_of_creation": "2013-01-28",
+          "description": "08378481 - Dissolved on 8 July 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08378481"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "APPLE & PEARS DESIGN",
+          "title": "APPLES & PEARS DESIGN LTD"
+        }
+      ],
+      "items_per_page": 100,
+      "kind": "search#companies",
+      "page_number": 5,
+      "start_index": 400,
+      "total_results": 6580
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 13:14:23 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=A3BAFD9F31EC83B64725157548E60529; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "508",
+    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/search/companies?q=Apple&start_index=400&items_per_page=200"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/search/companies?q=Apple&start_index=400&items_per_page=200"
+}

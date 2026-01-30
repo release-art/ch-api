@@ -40,18 +40,17 @@ Example Usage
 -----
 Fetch disqualification information for a natural person::
 
-    from ch_api import Client, api_settings
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    disqualification = await client.get_natural_officer_disqualification("officer_id")
-    print(f"Disqualified: {disqualification.disqualified_from}")
-    print(f"Until: {disqualification.disqualified_until}")
+    >>> async def get_disqualification_example(client):
+    ...     disq = await client.get_natural_officer_disqualification("T5dV8O4LN0Z3M2K1")
+    ...     return disq.disqualified_from is not None
+    >>> result = await run_async_func(get_disqualification_example)  # doctest: +SKIP
 
 Get corporate officer disqualification::
 
-    disqualification = await client.get_corporate_officer_disqualification("officer_id")
+    >>> async def get_corporate_disqualification_example(client):
+    ...     disq = await client.get_corporate_officer_disqualification("NI000000")
+    ...     return disq is not None
+    >>> result = await run_async_func(get_corporate_disqualification_example)  # doctest: +SKIP
 
 See Also
 --------

@@ -39,6 +39,28 @@ class TestClientInitialization:
         assert client._api_session == mock_client
         assert client._api_limiter == api._noop_limiter
 
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("owns_session", [True, False])
+    async def test_init_with_httpx_client_and_owns_session(self, mocker, owns_session):
+        mock_client = MagicMock(spec=httpx.AsyncClient)
+        if owns_session:
+            auth = api_settings.AuthSettings(api_key="test-key-456")
+        else:
+            auth = mock_client
+
+        mocker.patch.object(httpx.AsyncClient, "__init__", return_value=None)
+        mock_aclose = mocker.patch.object(httpx.AsyncClient, "aclose", new_callable=AsyncMock)
+
+        async with api.Client(auth):
+            pass
+
+        if owns_session:
+            # owns session => create the AsyncClient by itself
+            mock_aclose.assert_called_once()
+        else:
+            mock_client.aclose.assert_not_called()
+            mock_aclose.assert_not_called()
+
     def test_init_with_custom_api_limiter(self):
         """Test initialization with custom API limiter."""
         auth = api_settings.AuthSettings(api_key="test-key")
@@ -56,7 +78,7 @@ class TestClientInitialization:
             api.Client(credentials="invalid-string")
 
         assert "credentials must be either" in str(exc_info.value)
-        assert "Got <class 'str'> instead" in str(exc_info.value)
+        assert "got str instead" in str(exc_info.value)
 
     def test_init_with_invalid_credentials_tuple(self):
         """Test initialization fails when credentials are a tuple."""
@@ -186,14 +208,15 @@ class TestExecuteRequestMethod:
 
     @pytest.mark.asyncio
     async def test_execute_request_with_http_error(self):
-        """Test _execute_request propagates HTTP errors."""
+        """Test _execute_request propagates HTTP errors (non-404)."""
         auth = api_settings.AuthSettings(api_key="test-key")
         client = api.Client(credentials=auth)
 
-        # Create mock response that raises on raise_for_status
+        # Create mock response that raises on raise_for_status (500 error)
         mock_response = MagicMock(spec=httpx.Response)
+        mock_response.status_code = 500
         mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(
-            "404 Not Found", request=MagicMock(), response=mock_response
+            "500 Internal Server Error", request=MagicMock(), response=mock_response
         )
 
         # Create mock request
@@ -204,6 +227,26 @@ class TestExecuteRequestMethod:
 
         with pytest.raises(httpx.HTTPStatusError):
             await client._execute_request(mock_request, None)
+
+    @pytest.mark.asyncio
+    async def test_execute_request_with_404_returns_none(self):
+        """Test _execute_request returns None for 404 status."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create mock response with 404 status
+        mock_response = MagicMock(spec=httpx.Response)
+        mock_response.status_code = 404
+
+        # Create mock request
+        mock_request = MagicMock(spec=httpx.Request)
+
+        # Mock the session
+        client._api_session.send = AsyncMock(return_value=mock_response)
+
+        result = await client._execute_request(mock_request, None)
+
+        assert result is None
 
 
 class TestNoopLimiter:

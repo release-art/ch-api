@@ -1,13 +1,9 @@
 """Base Pydantic model for Companies House API types.
 
-This module provides the foundation for all data models used to represent
-Companies House API responses. It extends Pydantic's BaseModel with custom
-validation logic to handle field name normalization and compatibility with
-various API response formats.
+Extends Pydantic's BaseModel with field name normalization for API responses.
 
 See Also:
-    - :mod:`ch_api.types`: Other type definitions
-    - https://docs.pydantic.dev/latest/ : Pydantic documentation
+    https://docs.pydantic.dev/latest/
 """
 
 import typing
@@ -18,57 +14,10 @@ from . import settings
 
 
 class BaseModel(pydantic.BaseModel):
-    """Base Pydantic model for all Companies House API response types.
+    """Base Pydantic model for Companies House API responses.
 
-    This class extends Pydantic's BaseModel with custom validation to normalize
-    field names and handle API-specific response patterns. All data models
-    representing Companies House API responses should inherit from this class.
-
-    Configuration
-    ---------------
-    - **Extra fields**: Handling is controlled by :data:`settings.model_validate_extra`
-    - **Field validation**: Automatic normalization of field names to lowercase
-
-    Features
-    --------
-    - Automatic field name normalization (lowercase)
-    - Filtering of deprecated/unused fields marked with ``[notinuse]``
-    - Flexible handling of extra fields not defined in the model
-    - Full Pydantic validation and serialization support
-
-    Example
-    -------
-    Creating a custom model for API responses::
-
-        from ch_api.types.base import BaseModel
-        import pydantic
-
-        class CompanyInfo(BaseModel):
-            company_number: str
-            company_name: str
-            status: str = pydantic.Field(..., description="Company status")
-
-    The model will automatically normalize field names from API responses::
-
-        # API returns mixed case field names
-        data = {
-            "CompanyNumber": "09370755",
-            "CompanyName": "Example Corp",
-            "Status": "active"
-        }
-
-        company = CompanyInfo.model_validate(data)
-        # Field names are automatically normalized to lowercase
-
-    Note
-    ----
-    This base model handles common API response patterns but all field names
-    should be defined using lowercase with underscores in your model definitions.
-
-    See Also
-    --------
-    pydantic.BaseModel : The parent Pydantic BaseModel
-    settings.model_validate_extra : Configuration for extra field handling
+    Automatically normalizes field names to lowercase for consistency.
+    Inherits from this class for all API response models.
     """
 
     model_config = pydantic.ConfigDict(
@@ -76,7 +25,9 @@ class BaseModel(pydantic.BaseModel):
     )
 
     @classmethod
-    def model_validate(cls, data: typing.Any) -> "BaseModel":
+    def model_validate(  # type: ignore[override]
+        cls, data: typing.Any, **kwargs: typing.Any
+    ) -> "BaseModel":
         """Validate and create model instance from API response data.
 
         This method extends Pydantic's validation to handle Companies House API
@@ -108,17 +59,13 @@ class BaseModel(pydantic.BaseModel):
         -------
         Validate API response with mixed-case field names::
 
-            from ch_api.types.company_profile import CompanyProfile
-
-            api_response = {
-                "CompanyNumber": "09370755",
-                "CompanyName": "Example Company",
-                "CompanyStatus": "active",
-                "OldField[notinuse]": "deprecated value"
-            }
-
-            company = CompanyProfile.model_validate(api_response)
-            # Field names normalized, unused fields filtered
+            >>> from ch_api.types.base import BaseModel
+            >>> # The BaseModel normalizes field names automatically
+            >>> # Example: API returns {"CompanyNumber": "..."} but model expects company_number
+            >>> # This is handled transparently by model_validate()
+            >>> #
+            >>> # Deprecated fields marked with [notinuse] are automatically filtered:
+            >>> # Example: {"OldField[notinuse]": "value"} -> automatically excluded
 
         Note
         ----
