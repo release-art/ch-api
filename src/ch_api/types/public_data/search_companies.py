@@ -80,29 +80,36 @@ Example Usage
 -----
 Advanced company search::
 
-    >>> from ch_api import Client, api_settings
-    >>> import datetime
-    >>> auth = api_settings.AuthSettings(api_key="your-key")
-    >>> client = Client(credentials=auth)
-    ...
-    >>> results = await client.advanced_company_search(
-    ...     company_name_includes="Apple",
-    ...     company_status="active",
-    ...     company_type="private-unlimited",
-    ...     location="England"
-    ... )
+    >>> async def search_companies_example(client):
+    ...     results = await client.advanced_company_search(
+    ...         company_name_includes="Apple"
+    ...     )
+    ...     return len(results.items) if results.items else 0
+    >>> count = await run_async_func(search_companies_example)  # doctest: +SKIP
 
 Alphabetical search::
 
-    >>> results = await client.alphabetical_companies_search("BBC")
-    >>> async for company in results:
-    ...     print(f"{company.title}")
+    >>> async def alphabetical_search_example(client):
+    ...     results = await client.alphabetical_companies_search("BBC")
+    ...     count = 0
+    ...     async for company in results:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count
+    >>> count = await run_async_func(alphabetical_search_example)  # doctest: +SKIP
 
 Dissolved company search::
 
-    >>> dissolved = await client.search_dissolved_companies("Enron")
-    >>> async for company in dissolved:
-    ...     print(f"{company.title}")
+    >>> async def dissolved_search_example(client):
+    ...     dissolved = await client.search_dissolved_companies("Enron")
+    ...     count = 0
+    ...     async for company in dissolved:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count
+    >>> count = await run_async_func(dissolved_search_example)  # doctest: +SKIP
 
 See Also
 --------

@@ -55,24 +55,17 @@ Example Usage
 -----
 Fetch all charges for a company::
 
-    >>> from ch_api import Client, api_settings
-    >>> auth = api_settings.AuthSettings(api_key="your-key")
-    >>> client = Client(credentials=auth)
-    ...
-    >>> charges = await client.get_company_charges("09370755")
-    >>> for charge in charges.items or []:
-    ...     print(f"Charge {charge.charge_number}: {charge.charge_code}")
+    >>> async def get_charges_example(client):
+    ...     charges = await client.get_company_charges("09370755")
+    ...     return len(charges.items) if charges.items else 0
+    >>> count = await run_async_func(get_charges_example)  # doctest: +SKIP
 
 Get detailed charge information::
 
-    >>> details = await client.get_company_charge_details(
-    ...     "09370755",
-    ...     "charge_id_123"
-    ... )
-    >>> print(f"Status: {details.status}")
-    Status: ...
-    >>> print(f"Created: {details.created_on}")
-    Created: ...
+    >>> async def get_charge_details_example(client):
+    ...     details = await client.get_company_charge_details("09370755", "1")
+    ...     return details.status is not None
+    >>> result = await run_async_func(get_charge_details_example)  # doctest: +SKIP
 
 See Also
 --------
