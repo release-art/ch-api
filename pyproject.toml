@@ -134,6 +134,11 @@ addopts = """\
     -ra \
     --tb=native \
     --verbosity=3 \
+    --doctest-plus \
+    --doctest-modules \
+    --doctest-rst \
+    --doctest-glob=*.md \
+    --doctest-glob=*.rst \
 """
 filterwarnings = [
     "ignore::DeprecationWarning"
@@ -143,7 +148,11 @@ python_classes = ["Test", "Acceptance",]
 python_functions = ["test"]
 testpaths = [
     "tests/",
+    "src/",
+    "docs/",
+    "README.md",
 ]
+doctest_optionflags = ["NORMALIZE_WHITESPACE", "ELLIPSIS"]
 markers = [
     # Test tags/labels/markers - not using any currently
 ]
