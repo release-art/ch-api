@@ -1,0 +1,2808 @@
+{
+  "content": {
+    "json": {
+      "items": [
+        {
+          "address": {
+            "address_line_1": "Garstang",
+            "locality": "Preston",
+            "postal_code": "PR3 1YB",
+            "premises": "The Resource Centre Bridge Street",
+            "region": "Lancashire"
+          },
+          "address_snippet": "The Resource Centre Bridge Street, Garstang, Preston, Lancashire, PR3 1YB",
+          "company_number": "04301762",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2014-03-25",
+          "date_of_creation": "2001-10-09",
+          "description": "04301762 - Dissolved on 25 March 2014",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04301762"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Leamington Crescent",
+            "country": "England",
+            "locality": "Harrow",
+            "postal_code": "HA2 9HH",
+            "premises": "71"
+          },
+          "address_snippet": "71 Leamington Crescent, Harrow, England, HA2 9HH",
+          "company_number": "16783020",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-10-14",
+          "description": "16783020 - Incorporated on 14 October 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16783020"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TEST OF HOME",
+          "title": "JIYA FOOD HUB LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Westgate",
+            "country": "United Kingdom",
+            "locality": "Huddersfield",
+            "postal_code": "HD1 1PA",
+            "premises": "35",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "35 Westgate, Huddersfield, West Yorkshire, United Kingdom, HD1 1PA",
+          "company_number": "14686409",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-24",
+          "description": "14686409 - Incorporated on 24 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14686409"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TEST BAR",
+          "title": "PEELSON LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Farringdon Road",
+            "address_line_2": "Winwick",
+            "country": "United Kingdom",
+            "locality": "Warrington",
+            "postal_code": "WA2 8NE",
+            "premises": "36"
+          },
+          "address_snippet": "36 Farringdon Road, Winwick, Warrington, United Kingdom, WA2 8NE",
+          "company_number": "10650768",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-03-03",
+          "description": "10650768 - Incorporated on 3 March 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10650768"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TEST NORTH WEST ELECTRICAL",
+          "title": "PLUMBING AND POWER 24HR LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Riverhead Close",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E17 5PY",
+            "premises": "30"
+          },
+          "address_snippet": "30 Riverhead Close, London, England, E17 5PY",
+          "company_number": "15311398",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-04-29",
+          "date_of_creation": "2023-11-27",
+          "description": "15311398 - Dissolved on 29 April 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15311398"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ADDICT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Terrace",
+            "address_line_2": "Codrington Hill",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SE23 1LP",
+            "premises": "1"
+          },
+          "address_snippet": "1 The Terrace, Codrington Hill, London, England, SE23 1LP",
+          "company_number": "06650586",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2008-07-18",
+          "description": "06650586 - Incorporated on 18 July 2008",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06650586"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AIR SERVICES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Market Street",
+            "locality": "Hyde",
+            "postal_code": "SK14 1HF",
+            "premises": "225",
+            "region": "Cheshire"
+          },
+          "address_snippet": "225 Market Street, Hyde, Cheshire, SK14 1HF",
+          "company_number": "05661420",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2005-12-22",
+          "description": "05661420 - Incorporated on 22 December 2005",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05661420"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AIR SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Block 8 Old Mill Lane Industrial Estate",
+            "address_line_2": "Mansfield Woodhouse",
+            "country": "England",
+            "locality": "Mansfield",
+            "postal_code": "NG19 9BG",
+            "premises": "Unit 64"
+          },
+          "address_snippet": "Unit 64 Block 8 Old Mill Lane Industrial Estate, Mansfield Woodhouse, Mansfield, England, NG19 9BG",
+          "company_number": "11661135",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-11-06",
+          "description": "11661135 - Incorporated on 6 November 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11661135"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ALL COLOUR LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Block 8 Old Mill Lane Industrial Estate",
+            "address_line_2": "Mansfield Woodhouse",
+            "country": "England",
+            "locality": "Mansfield",
+            "postal_code": "NG19 9BG",
+            "premises": "Unit 64"
+          },
+          "address_snippet": "Unit 64 Block 8 Old Mill Lane Industrial Estate, Mansfield Woodhouse, Mansfield, England, NG19 9BG",
+          "company_number": "16958689",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-01-13",
+          "description": "16958689 - Incorporated on 13 January 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16958689"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ALL GROUP LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Block 8 Old Mill Lane Industrial Estate",
+            "address_line_2": "Mansfield Woodhouse",
+            "country": "England",
+            "locality": "Mansfield",
+            "postal_code": "NG19 9BG",
+            "premises": "Unit 64"
+          },
+          "address_snippet": "Unit 64 Block 8 Old Mill Lane Industrial Estate, Mansfield Woodhouse, Mansfield, England, NG19 9BG",
+          "company_number": "10046828",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-03-07",
+          "description": "10046828 - Incorporated on 7 March 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10046828"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ALL WATER LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Mount Park Avenue",
+            "country": "England",
+            "locality": "South Croydon",
+            "postal_code": "CR2 6DG",
+            "premises": "30",
+            "region": "Croydon"
+          },
+          "address_snippet": "30 Mount Park Avenue, South Croydon, Croydon, England, CR2 6DG",
+          "company_number": "16333870",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-21",
+          "description": "16333870 - Incorporated on 21 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16333870"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ALONG LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Blackmore End",
+            "country": "England",
+            "locality": "Braintree",
+            "postal_code": "CM7 4DL",
+            "premises": "Sasham House"
+          },
+          "address_snippet": "Sasham House, Blackmore End, Braintree, England, CM7 4DL",
+          "company_number": "16811806",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-10-27",
+          "description": "16811806 - Incorporated on 27 October 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16811806"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND CONNECT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Crossley Stone",
+            "locality": "Rugeley",
+            "postal_code": "WS15 2DQ",
+            "premises": "Crossley Stone House",
+            "region": "Staffordshire"
+          },
+          "address_snippet": "Crossley Stone House, Crossley Stone, Rugeley, Staffordshire, WS15 2DQ",
+          "company_number": "06768813",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2008-12-09",
+          "description": "06768813 - Incorporated on 9 December 2008 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06768813"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & COOL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Fairlea",
+            "address_line_2": "Denton",
+            "country": "England",
+            "locality": "Manchester",
+            "postal_code": "M34 6EH",
+            "premises": "24"
+          },
+          "address_snippet": "24 Fairlea, Denton, Manchester, England, M34 6EH",
+          "company_number": "13923838",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-02-17",
+          "description": "13923838 - Incorporated on 17 February 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13923838"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND DELIVERY SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Seymour Close",
+            "country": "England",
+            "locality": "Newmarket",
+            "postal_code": "CB8 8EL",
+            "premises": "1",
+            "region": "Suffolk"
+          },
+          "address_snippet": "1 Seymour Close, Newmarket, Suffolk, England, CB8 8EL",
+          "company_number": "10739798",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-04-25",
+          "description": "10739798 - Incorporated on 25 April 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10739798"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND EVALUATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Mount Pleasant",
+            "address_line_2": "Kidsgrove",
+            "country": "England",
+            "locality": "Stoke-On-Trent",
+            "postal_code": "ST7 4EX",
+            "premises": "9"
+          },
+          "address_snippet": "9 Mount Pleasant, Kidsgrove, Stoke-On-Trent, England, ST7 4EX",
+          "company_number": "14634131",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-02-02",
+          "description": "14634131 - Incorporated on 2 February 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14634131"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND FIX ELECTRICAL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "8-10 Market Street",
+            "country": "United Kingdom",
+            "locality": "Wirral",
+            "postal_code": "CH41 5ER",
+            "premises": "Gallagher House"
+          },
+          "address_snippet": "Gallagher House, 8-10 Market Street, Wirral, United Kingdom, CH41 5ER",
+          "company_number": "10329306",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-08-15",
+          "description": "10329306 - Incorporated on 15 August 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10329306"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & GO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Mill Terrace",
+            "address_line_2": "Rainton Bridge",
+            "locality": "Houghton-Le-Spring",
+            "postal_code": "DH5 9NR",
+            "premises": "16",
+            "region": "Tyne And Wear"
+          },
+          "address_snippet": "16 Mill Terrace, Rainton Bridge, Houghton-Le-Spring, Tyne And Wear, DH5 9NR",
+          "company_number": "07295887",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2010-06-25",
+          "description": "07295887 - Incorporated on 25 June 2010",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07295887"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND INSPECTION SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Wormsley Crescent",
+            "country": "United Kingdom",
+            "locality": "Stokenchurch",
+            "postal_code": "HP14 3TS",
+            "premises": "2"
+          },
+          "address_snippet": "2 Wormsley Crescent, Stokenchurch, United Kingdom, HP14 3TS",
+          "company_number": "14856189",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-05-09",
+          "description": "14856189 - Incorporated on 9 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14856189"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND INSPECT SAFETY SERVICES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Manor Way",
+            "address_line_2": "Drayton",
+            "country": "England",
+            "locality": "Portsmouth",
+            "postal_code": "PO6 2NN",
+            "premises": "56"
+          },
+          "address_snippet": "56 Old Manor Way, Drayton, Portsmouth, England, PO6 2NN",
+          "company_number": "07352990",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2010-08-23",
+          "description": "07352990 - Incorporated on 23 August 2010",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07352990"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND INTEGRATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Hadrian Road",
+            "country": "England",
+            "locality": "Wallsend",
+            "postal_code": "NE28 6HF",
+            "premises": "Carville Works",
+            "region": "Newcastle Upon Tyne"
+          },
+          "address_snippet": "Carville Works, Hadrian Road, Wallsend, Newcastle Upon Tyne, England, NE28 6HF",
+          "company_number": "13292566",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-03-25",
+          "description": "13292566 - Incorporated on 25 March 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13292566"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND LIFT ENGINEERING SERVICES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Market Industrial Estate",
+            "address_line_2": "North End Road",
+            "country": "United Kingdom",
+            "locality": "Yatton",
+            "postal_code": "BS49 4RF",
+            "premises": "Unit 7",
+            "region": "North Somerset"
+          },
+          "address_snippet": "Unit 7 Market Industrial Estate, North End Road, Yatton, North Somerset, United Kingdom, BS49 4RF",
+          "company_number": "06091467",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2007-02-08",
+          "description": "06091467 - Incorporated on 8 February 2007",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06091467"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & MAINTAIN LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Erwood Close",
+            "country": "England",
+            "locality": "Redditch",
+            "postal_code": "B97 5XD",
+            "premises": "8"
+          },
+          "address_snippet": "8 Erwood Close, Redditch, England, B97 5XD",
+          "company_number": "13557766",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-08-10",
+          "description": "13557766 - Incorporated on 10 August 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13557766"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND MAINTENANCE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "28 Huddersfield Road",
+            "country": "United Kingdom",
+            "locality": "Milnrow",
+            "postal_code": "OL16 3QF",
+            "premises": "Corner House",
+            "region": "Lancashire"
+          },
+          "address_snippet": "Corner House, 28 Huddersfield Road, Milnrow, Lancashire, United Kingdom, OL16 3QF",
+          "company_number": "05929935",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2006-09-08",
+          "description": "05929935 - Incorporated on 8 September 2006",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05929935"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & MAINTENANCE SERVICES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Solent Road",
+            "locality": "Havant",
+            "postal_code": "PO9 1TR",
+            "premises": "Langstone Gate",
+            "region": "Hampshire"
+          },
+          "address_snippet": "Langstone Gate, Solent Road, Havant, Hampshire, PO9 1TR",
+          "company_number": "09056519",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-05-27",
+          "description": "09056519 - Incorporated on 27 May 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09056519"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND MEASURE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Otley Road",
+            "country": "England",
+            "locality": "Harrogate",
+            "postal_code": "HG3 1UD",
+            "premises": "Central House Beckwith Knowle",
+            "region": "North Yorkshire"
+          },
+          "address_snippet": "Central House Beckwith Knowle, Otley Road, Harrogate, North Yorkshire, England, HG3 1UD",
+          "company_number": "05508572",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2005-07-14",
+          "description": "05508572 - Incorporated on 14 July 2005",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05508572"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TEST & MEASUREMENT (HOLDINGS) LIMITED",
+          "title": "TEST & MEASUREMENT HIRE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Otley Road",
+            "country": "England",
+            "locality": "Harrogate",
+            "postal_code": "HG3 1UD",
+            "premises": "Central House Beckwith Knowle",
+            "region": "North Yorkshire"
+          },
+          "address_snippet": "Central House Beckwith Knowle, Otley Road, Harrogate, North Yorkshire, England, HG3 1UD",
+          "company_number": "08627189",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-07-29",
+          "description": "08627189 - Incorporated on 29 July 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08627189"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TEST & MEASUREMENT HIRE (HOLDINGS) LIMITED",
+          "title": "TEST & MEASUREMENT HIRE GROUP LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Falkners Close",
+            "country": "England",
+            "locality": "Fleet",
+            "postal_code": "GU51 2XF",
+            "premises": "10"
+          },
+          "address_snippet": "10 Falkners Close, Fleet, England, GU51 2XF",
+          "company_number": "12019122",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-12-02",
+          "date_of_creation": "2019-05-28",
+          "description": "12019122 - Dissolved on 2 December 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12019122"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & MEASUREMENT SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ingleton Avenue",
+            "country": "England",
+            "locality": "Welling",
+            "postal_code": "DA16 2JY",
+            "premises": "57"
+          },
+          "address_snippet": "57 Ingleton Avenue, Welling, England, DA16 2JY",
+          "company_number": "14137314",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-05-27",
+          "description": "14137314 - Incorporated on 27 May 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14137314"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND QA CONSULTANTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Regal Drive",
+            "address_line_2": "Soham",
+            "country": "England",
+            "locality": "Ely",
+            "postal_code": "CB7 5BE",
+            "premises": "34"
+          },
+          "address_snippet": "34 Regal Drive, Soham, Ely, England, CB7 5BE",
+          "company_number": "11736670",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2018-12-20",
+          "description": "11736670 - Incorporated on 20 December 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11736670"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & RESEARCH CENTRE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Regal Drive",
+            "address_line_2": "Soham",
+            "country": "England",
+            "locality": "Ely",
+            "postal_code": "CB7 5BE",
+            "premises": "34"
+          },
+          "address_snippet": "34 Regal Drive, Soham, Ely, England, CB7 5BE",
+          "company_number": "11736725",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2018-12-20",
+          "description": "11736725 - Incorporated on 20 December 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11736725"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & RESEARCH CENTRE HOLDINGS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Soham",
+            "country": "England",
+            "locality": "Ely",
+            "postal_code": "CB7 5BE",
+            "premises": "Test & Research Centre, 34 Regal Drive"
+          },
+          "address_snippet": "Test & Research Centre, 34 Regal Drive, Soham, Ely, England, CB7 5BE",
+          "company_number": "16156946",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-12-31",
+          "description": "16156946 - Incorporated on 31 December 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16156946"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & RESEARCH GROUP LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "8 Moore Road",
+            "address_line_2": "South Leicester Industrial Estate",
+            "locality": "Leicester",
+            "postal_code": "LE67 1EU",
+            "premises": "Unit 7 &",
+            "region": "Leicestershire"
+          },
+          "address_snippet": "Unit 7 & 8 Moore Road, South Leicester Industrial Estate, Leicester, Leicestershire, LE67 1EU",
+          "company_number": "07906911",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-01-12",
+          "description": "07906911 - Incorporated on 12 January 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07906911"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & TACHO LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Waterbrook Estate",
+            "country": "England",
+            "locality": "Alton",
+            "postal_code": "GU34 2UD",
+            "premises": "Unit 4",
+            "region": "Hampshire"
+          },
+          "address_snippet": "Unit 4 Waterbrook Estate, Alton, Hampshire, England, GU34 2UD",
+          "company_number": "09140150",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-07-21",
+          "description": "09140150 - Incorporated on 21 July 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09140150"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & TAG LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Aspinall Close",
+            "address_line_2": "Bekesbourne",
+            "country": "United Kingdom",
+            "locality": "Canterbury, Kent",
+            "postal_code": "CT4 5DN",
+            "premises": "8"
+          },
+          "address_snippet": "8 Aspinall Close, Bekesbourne, Canterbury, Kent, United Kingdom, CT4 5DN",
+          "company_number": "13523779",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-07-22",
+          "description": "13523779 - Incorporated on 22 July 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13523779"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AND TRACK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Cammachmore",
+            "country": "United Kingdom",
+            "locality": "Stonehaven",
+            "postal_code": "AB39 3NR",
+            "premises": "The Heathers"
+          },
+          "address_snippet": "The Heathers, Cammachmore, Stonehaven, United Kingdom, AB39 3NR",
+          "company_number": "SC573488",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-08-11",
+          "description": "SC573488 - Incorporated on 11 August 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC573488"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST & VERIFICATION ENGINEERING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Eversley Road",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B9 5DE",
+            "premises": "60"
+          },
+          "address_snippet": "60 Eversley Road, Birmingham, England, B9 5DE",
+          "company_number": "16639958",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-08-10",
+          "description": "16639958 - Incorporated on 10 August 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16639958"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ASSIST LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Black Lion Street",
+            "country": "England",
+            "locality": "Brighton",
+            "postal_code": "BN1 1JE",
+            "premises": "Freedom Works Barts House"
+          },
+          "address_snippet": "Freedom Works Barts House, Black Lion Street, Brighton, England, BN1 1JE",
+          "company_number": "09679598",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-07-09",
+          "description": "09679598 - Incorporated on 9 July 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09679598"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ASSOCIATES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Great Portland Street",
+            "address_line_2": "5th Floor",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1W 5PF",
+            "premises": "167-169"
+          },
+          "address_snippet": "167-169 Great Portland Street, 5th Floor, London, England, W1W 5PF",
+          "company_number": "08779256",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-11-18",
+          "description": "08779256 - Incorporated on 18 November 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08779256"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ASSURANCE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Artemis Grove",
+            "address_line_2": "Brooklands",
+            "country": "England",
+            "locality": "Milton Keynes",
+            "postal_code": "MK10 7LR",
+            "premises": "23"
+          },
+          "address_snippet": "23 Artemis Grove, Brooklands, Milton Keynes, England, MK10 7LR",
+          "company_number": "15803498",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-06-26",
+          "description": "15803498 - Incorporated on 26 June 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15803498"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AUTOMATION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Stadium Court",
+            "address_line_2": "Bromborough",
+            "country": "England",
+            "locality": "Wirral",
+            "postal_code": "CH62 3RP",
+            "premises": "Unit 10"
+          },
+          "address_snippet": "Unit 10 Stadium Court, Bromborough, Wirral, England, CH62 3RP",
+          "company_number": "11904942",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-03-26",
+          "description": "11904942 - Incorporated on 26 March 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11904942"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AUTOMATION GEEK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Firecrest Court Centre Park",
+            "country": "United Kingdom",
+            "locality": "Warrington",
+            "postal_code": "WA1 1RG",
+            "premises": "320"
+          },
+          "address_snippet": "320 Firecrest Court Centre Park, Warrington, United Kingdom, WA1 1RG",
+          "company_number": "10609787",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-02-09",
+          "description": "10609787 - Incorporated on 9 February 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10609787"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AUTOMATION LABS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "175 West George Street",
+            "locality": "Glasgow",
+            "postal_code": "G2 2LB",
+            "premises": "Third Floor Turnberry House"
+          },
+          "address_snippet": "Third Floor Turnberry House, 175 West George Street, Glasgow, G2 2LB",
+          "company_number": "SC449227",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2013-05-03",
+          "description": "SC449227 - Incorporated on 3 May 2013 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC449227"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST AUTOMATION SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Birmingham Road",
+            "country": "United Kingdom",
+            "locality": "Coventry",
+            "postal_code": "CV5 9AB",
+            "premises": "First Floor, Unit 3 Rye Hill Office Park"
+          },
+          "address_snippet": "First Floor, Unit 3 Rye Hill Office Park Birmingham Road, Coventry, United Kingdom, CV5 9AB",
+          "company_number": "11241021",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-03-07",
+          "description": "11241021 - Incorporated on 7 March 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11241021"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST BASE SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Harwood Road",
+            "country": "England",
+            "locality": "Norwich",
+            "postal_code": "NR1 2NG",
+            "premises": "27"
+          },
+          "address_snippet": "27 Harwood Road, Norwich, England, NR1 2NG",
+          "company_number": "10248575",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-06-23",
+          "description": "10248575 - Incorporated on 23 June 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10248575"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST BIT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Ennerdale Road",
+            "country": "England",
+            "locality": "Corby",
+            "postal_code": "NN17 2EA",
+            "premises": "24"
+          },
+          "address_snippet": "24 Ennerdale Road, Corby, England, NN17 2EA",
+          "company_number": "11928767",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-04-05",
+          "description": "11928767 - Incorporated on 5 April 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11928767"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST BOOKING SERVICES ONLINE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Wood Street",
+            "country": "England",
+            "locality": "Lytham St. Annes",
+            "postal_code": "FY8 1QG",
+            "premises": "54"
+          },
+          "address_snippet": "54 Wood Street, Lytham St. Annes, England, FY8 1QG",
+          "company_number": "15792303",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-06-21",
+          "description": "15792303 - Incorporated on 21 June 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15792303"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST BOT AI LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Southall",
+            "locality": "Middlesex",
+            "postal_code": "UB1 1SQ",
+            "premises": "Heasleigh House, 79a South Road"
+          },
+          "address_snippet": "Heasleigh House, 79a South Road, Southall, Middlesex, UB1 1SQ",
+          "company_number": "05401347",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2005-03-22",
+          "description": "05401347 - Incorporated on 22 March 2005",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05401347"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST BUSTERS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Hendham Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SW17 7DH",
+            "premises": "33"
+          },
+          "address_snippet": "33 Hendham Road, London, England, SW17 7DH",
+          "company_number": "08406126",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-02-18",
+          "description": "08406126 - Incorporated on 18 February 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08406126"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CARD RECORDINGS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Marion Close",
+            "address_line_2": "Walderslade",
+            "country": "United Kingdom",
+            "locality": "Chatham",
+            "postal_code": "ME5 9QA",
+            "premises": "8",
+            "region": "Kent"
+          },
+          "address_snippet": "8 Marion Close, Walderslade, Chatham, Kent, United Kingdom, ME5 9QA",
+          "company_number": "07225513",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2010-04-16",
+          "description": "07225513 - Incorporated on 16 April 2010",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07225513"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CARPENTRY CONTRACTORS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Shenley Road",
+            "country": "England",
+            "locality": "Borehamwood",
+            "postal_code": "WD6 1EF",
+            "premises": "134",
+            "region": "Hertfordshire"
+          },
+          "address_snippet": "134 Shenley Road, Borehamwood, Hertfordshire, England, WD6 1EF",
+          "company_number": "15170724",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-11-11",
+          "date_of_creation": "2023-09-28",
+          "description": "15170724 - Dissolved on 11 November 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15170724"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CATERING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Paul Street",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC2A 4NE",
+            "premises": "86-90",
+            "region": "England"
+          },
+          "address_snippet": "86-90 Paul Street, London, England, United Kingdom, EC2A 4NE",
+          "company_number": "15135769",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-02-18",
+          "date_of_creation": "2023-09-13",
+          "description": "15135769 - Dissolved on 18 February 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15135769"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CENTER LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Harlaw Centre Howe Moss Crescent",
+            "address_line_2": "Dyce",
+            "country": "Scotland",
+            "locality": "Aberdeen",
+            "postal_code": "AB21 0GN",
+            "premises": "Unit 2"
+          },
+          "address_snippet": "Unit 2 Harlaw Centre Howe Moss Crescent, Dyce, Aberdeen, Scotland, AB21 0GN",
+          "company_number": "SC552485",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2016-12-13",
+          "description": "SC552485 - Incorporated on 13 December 2016",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/SC552485"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CENTRE ABERDEEN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Circle",
+            "address_line_2": "Queen Elizabeth Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SE1 2JE",
+            "premises": "19"
+          },
+          "address_snippet": "19 The Circle, Queen Elizabeth Street, London, England, SE1 2JE",
+          "company_number": "11305405",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-04-11",
+          "description": "11305405 - Incorporated on 11 April 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11305405"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CLOUD UK LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "19-21 Chapel St",
+            "country": "England",
+            "locality": "Marlow",
+            "postal_code": "SL7 3HN",
+            "premises": "Mercury House",
+            "region": "Buckinghamshire"
+          },
+          "address_snippet": "Mercury House, 19-21 Chapel St, Marlow, Buckinghamshire, England, SL7 3HN",
+          "company_number": "11558375",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-09-07",
+          "description": "11558375 - Incorporated on 7 September 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11558375"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CONCEPTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "The Arches",
+            "address_line_2": "Alma Road",
+            "country": "England",
+            "locality": "Windsor",
+            "postal_code": "SL4 1QZ",
+            "premises": "46"
+          },
+          "address_snippet": "46 The Arches, Alma Road, Windsor, England, SL4 1QZ",
+          "company_number": "13714355",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-11-01",
+          "description": "13714355 - Incorporated on 1 November 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13714355"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CONCRETE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Fenland Road",
+            "country": "United Kingdom",
+            "locality": "King's Lynn",
+            "postal_code": "PE30 3ES",
+            "premises": "114"
+          },
+          "address_snippet": "114 Fenland Road, King's Lynn, United Kingdom, PE30 3ES",
+          "company_number": "12074169",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-06-28",
+          "description": "12074169 - Incorporated on 28 June 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12074169"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "T.E.S.T CONSTRUCTION LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "2 Kelso Road",
+            "country": "England",
+            "locality": "Leeds",
+            "postal_code": "LS2 9PW",
+            "premises": "Aquilifer House"
+          },
+          "address_snippet": "Aquilifer House, 2 Kelso Road, Leeds, England, LS2 9PW",
+          "company_number": "07056284",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2009-10-24",
+          "description": "07056284 - Incorporated on 24 October 2009",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07056284"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CONSULTING LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "111 New Union Street",
+            "country": "United Kingdom",
+            "locality": "Coventry",
+            "postal_code": "CV1 2NT",
+            "premises": "Union House",
+            "region": "West Midlands"
+          },
+          "address_snippet": "Union House, 111 New Union Street, Coventry, West Midlands, United Kingdom, CV1 2NT",
+          "company_number": "15642840",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-04-13",
+          "description": "15642840 - Incorporated on 13 April 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15642840"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CONTACT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Rectory Close",
+            "country": "United Kingdom",
+            "locality": "Wombwell, Barnsley",
+            "postal_code": "S73 8EY",
+            "premises": "54"
+          },
+          "address_snippet": "54 Rectory Close, Wombwell, Barnsley, United Kingdom, S73 8EY",
+          "company_number": "15741139",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-05-25",
+          "description": "15741139 - Incorporated on 25 May 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15741139"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CORE SOLUTIONS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "1 George Street",
+            "locality": "Wolverhampton",
+            "postal_code": "WV2 4DG",
+            "premises": "Daw White Murrall",
+            "region": "West Midlands"
+          },
+          "address_snippet": "Daw White Murrall, 1 George Street, Wolverhampton, West Midlands, WV2 4DG",
+          "company_number": "04051019",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2000-08-10",
+          "description": "04051019 - Incorporated on 10 August 2000",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04051019"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST COVERAGE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "124"
+          },
+          "address_snippet": "124 City Road, London, England, EC1V 2NX",
+          "company_number": "06621154",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2008-06-16",
+          "description": "06621154 - Incorporated on 16 June 2008",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06621154"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CRADLE SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "1 Ecclesall Road South",
+            "locality": "Sheffield",
+            "postal_code": "S11 9PA",
+            "premises": "The Old Workshop"
+          },
+          "address_snippet": "The Old Workshop, 1 Ecclesall Road South, Sheffield, S11 9PA",
+          "company_number": "07721317",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2011-07-28",
+          "description": "07721317 - Incorporated on 28 July 2011",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07721317"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CREATIVE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Garforth",
+            "country": "United Kingdom",
+            "locality": "Leeds",
+            "postal_code": "LS25 1NB",
+            "premises": "Brookfield Court Selby Road",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "Brookfield Court Selby Road, Garforth, Leeds, West Yorkshire, United Kingdom, LS25 1NB",
+          "company_number": "16804817",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-10-23",
+          "description": "16804817 - Incorporated on 23 October 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16804817"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CREW LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Pinfold Road",
+            "country": "United Kingdom",
+            "locality": "Bourne",
+            "postal_code": "PE10 9HT",
+            "premises": "Bcs House",
+            "region": "Lincs"
+          },
+          "address_snippet": "Bcs House, Pinfold Road, Bourne, Lincs, United Kingdom, PE10 9HT",
+          "company_number": "08613186",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2013-07-17",
+          "description": "08613186 - Incorporated on 17 July 2013",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/08613186"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CUBE CABINS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "11589160"
+          },
+          "address_snippet": "4385, 11589160 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "company_number": "11589160",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-09-26",
+          "description": "11589160 - Incorporated on 26 September 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11589160"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST CYBER SECURITY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Middleton",
+            "locality": "Longparish",
+            "postal_code": "SP11 6PL",
+            "premises": "The Estate Office",
+            "region": "Hants"
+          },
+          "address_snippet": "The Estate Office, Middleton, Longparish, Hants, SP11 6PL",
+          "company_number": "00735626",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1962-09-17",
+          "description": "00735626 - Incorporated on 17 September 1962",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/00735626"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DEVELOPMENT COMPANY LIMITED(THE)"
+        },
+        {
+          "address": {
+            "address_line_1": "Seymour Drive",
+            "address_line_2": "Bradshaw",
+            "locality": "Bolton",
+            "postal_code": "BL2 3HB",
+            "premises": "26",
+            "region": "Lancs"
+          },
+          "address_snippet": "26 Seymour Drive, Bradshaw, Bolton, Lancs, BL2 3HB",
+          "company_number": "06579143",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2008-04-29",
+          "description": "06579143 - Incorporated on 29 April 2008",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06579143"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DEVELOPMENTS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Station Road",
+            "country": "England",
+            "locality": "St. Ives",
+            "postal_code": "PE27 5BH",
+            "premises": "15"
+          },
+          "address_snippet": "15 Station Road, St. Ives, England, PE27 5BH",
+          "company_number": "06630594",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-09-16",
+          "date_of_creation": "2008-06-26",
+          "description": "06630594 - Dissolved on 16 September 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06630594"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DEVELOPMENT TRAINING & ANALYSIS LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Quay Street",
+            "country": "England",
+            "locality": "Woodbridge",
+            "postal_code": "IP12 1BX",
+            "premises": "10a",
+            "region": "Suffolk"
+          },
+          "address_snippet": "10a Quay Street, Woodbridge, Suffolk, England, IP12 1BX",
+          "company_number": "12178717",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-08-28",
+          "description": "12178717 - Incorporated on 28 August 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12178717"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DIGITAL LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Olaf Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W11 4BE",
+            "premises": "13"
+          },
+          "address_snippet": "13 Olaf Street, London, England, W11 4BE",
+          "company_number": "16687915",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-09-02",
+          "description": "16687915 - Incorporated on 2 September 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16687915"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DIRECT LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Manor Gardens",
+            "address_line_2": "Thorner",
+            "country": "England",
+            "locality": "Leeds",
+            "postal_code": "LS14 3EQ",
+            "premises": "9"
+          },
+          "address_snippet": "9 Manor Gardens, Thorner, Leeds, England, LS14 3EQ",
+          "company_number": "07527007",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2011-02-11",
+          "description": "07527007 - Incorporated on 11 February 2011",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07527007"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DIRECTOR LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Mount Olive Court",
+            "address_line_2": "22 Green Lane",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W7 2PT",
+            "premises": "11"
+          },
+          "address_snippet": "11 Mount Olive Court, 22 Green Lane, London, England, W7 2PT",
+          "company_number": "11598239",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-10-01",
+          "description": "11598239 - Incorporated on 1 October 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11598239"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DRIVE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Shaftesbury Street South",
+            "country": "England",
+            "locality": "Derby",
+            "postal_code": "DE23 8YH",
+            "premises": "Unit 13"
+          },
+          "address_snippet": "Unit 13 Shaftesbury Street South, Derby, England, DE23 8YH",
+          "company_number": "15728138",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-05-18",
+          "description": "15728138 - Incorporated on 18 May 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15728138"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DRIVE MOTORS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "New Union Street",
+            "address_line_2": "Union House",
+            "country": "United Kingdom",
+            "locality": "Coventry",
+            "postal_code": "CV1 2NT",
+            "premises": "111"
+          },
+          "address_snippet": "111 New Union Street, Union House, Coventry, United Kingdom, CV1 2NT",
+          "company_number": "14438027",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-10-24",
+          "description": "14438027 - Incorporated on 24 October 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14438027"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DRIVEN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Pilgrim Street",
+            "country": "England",
+            "locality": "Newcastle Upon Tyne",
+            "postal_code": "NE1 2DS",
+            "premises": "The Spire Suite 14, 2nd Floor"
+          },
+          "address_snippet": "The Spire Suite 14, 2nd Floor, Pilgrim Street, Newcastle Upon Tyne, England, NE1 2DS",
+          "company_number": "12552433",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-04-08",
+          "description": "12552433 - Incorporated on 8 April 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12552433"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DRIVEN SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "30 Romford Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "E15 4BZ",
+            "premises": "International House"
+          },
+          "address_snippet": "International House, 30 Romford Road, London, United Kingdom, E15 4BZ",
+          "company_number": "15026838",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-07-25",
+          "description": "15026838 - Incorporated on 25 July 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15026838"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DRIVE PASS LIMITED"
+        },
+        {
+          "address": {
+            "country": "England",
+            "locality": "Barnard Castle",
+            "postal_code": "DL12 8DA",
+            "premises": "Newsham House 13 Cambridge Terrace"
+          },
+          "address_snippet": "Newsham House 13 Cambridge Terrace, Barnard Castle, England, DL12 8DA",
+          "company_number": "15340066",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-12-09",
+          "description": "15340066 - Incorporated on 9 December 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15340066"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DUMMY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "New North Road",
+            "country": "United Kingdom",
+            "locality": "Ilford",
+            "postal_code": "IG6 2UA",
+            "premises": "7a"
+          },
+          "address_snippet": "7a New North Road, Ilford, United Kingdom, IG6 2UA",
+          "company_number": "12309100",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-11-11",
+          "description": "12309100 - Incorporated on 11 November 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12309100"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST DYNAMIX LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Crow Lane",
+            "country": "United Kingdom",
+            "locality": "Romford",
+            "postal_code": "RM7 0HA",
+            "premises": "221",
+            "region": "Essex"
+          },
+          "address_snippet": "221 Crow Lane, Romford, Essex, United Kingdom, RM7 0HA",
+          "company_number": "10968201",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-09-18",
+          "description": "10968201 - Incorporated on 18 September 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/10968201"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EASILY LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Manwood Close",
+            "country": "England",
+            "locality": "Sittingbourne",
+            "postal_code": "ME10 4QL",
+            "premises": "14"
+          },
+          "address_snippet": "14 Manwood Close, Sittingbourne, England, ME10 4QL",
+          "company_number": "13444358",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-06-08",
+          "description": "13444358 - Incorporated on 8 June 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13444358"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EDUCATION CENTRE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Redleaf Close",
+            "country": "United Kingdom",
+            "locality": "Tunbridge Wells",
+            "postal_code": "TN2 3UD",
+            "premises": "33",
+            "region": "Kent"
+          },
+          "address_snippet": "33 Redleaf Close, Tunbridge Wells, Kent, United Kingdom, TN2 3UD",
+          "company_number": "11078226",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2017-11-23",
+          "description": "11078226 - Incorporated on 23 November 2017",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11078226"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EFFICIENCY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Greenside",
+            "country": "United Kingdom",
+            "locality": "Bradford",
+            "postal_code": "BD12 7DW",
+            "premises": "25",
+            "region": "Ysw"
+          },
+          "address_snippet": "25 Greenside, Bradford, Ysw, United Kingdom, BD12 7DW",
+          "company_number": "15274242",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-04-15",
+          "date_of_creation": "2023-11-10",
+          "description": "15274242 - Dissolved on 15 April 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15274242"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELEC LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Tower Hill",
+            "country": "England",
+            "locality": "Ormskirk",
+            "postal_code": "L39 2EE",
+            "premises": "15"
+          },
+          "address_snippet": "15 Tower Hill, Ormskirk, England, L39 2EE",
+          "company_number": "15993220",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-10-02",
+          "description": "15993220 - Incorporated on 2 October 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15993220"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELECTRICAL & MECHANICAL SERVICES LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Greengate Street",
+            "address_line_2": "13 Wenlock Place",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "E13 0BP",
+            "premises": "35"
+          },
+          "address_snippet": "35 Greengate Street, 13 Wenlock Place, London, United Kingdom, E13 0BP",
+          "company_number": "15892524",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-10-28",
+          "date_of_creation": "2024-08-12",
+          "description": "15892524 - Dissolved on 28 October 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15892524"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELECTRICAL MKD LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "6 South Bar",
+            "locality": "Banbury",
+            "postal_code": "OX16 9AA",
+            "premises": "Jeffersons Business Centre",
+            "region": "Oxfordshire"
+          },
+          "address_snippet": "Jeffersons Business Centre, 6 South Bar, Banbury, Oxfordshire, OX16 9AA",
+          "company_number": "05963837",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2006-10-11",
+          "description": "05963837 - Incorporated on 11 October 2006",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05963837"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELECTRIC (BANBURY) LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Mortimer Terrace",
+            "country": "England",
+            "locality": "Batley",
+            "postal_code": "WF17 8BY",
+            "premises": "11"
+          },
+          "address_snippet": "11 Mortimer Terrace, Batley, England, WF17 8BY",
+          "company_number": "14287991",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-08-10",
+          "description": "14287991 - Incorporated on 10 August 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14287991"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELECTRICS WEST YORKSHIRE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Old Farm Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N2 9RF",
+            "premises": "69"
+          },
+          "address_snippet": "69 Old Farm Road, London, England, N2 9RF",
+          "company_number": "13134923",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-01-14",
+          "description": "13134923 - Incorporated on 14 January 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13134923"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELECTRIX LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Floor Radius House",
+            "address_line_2": "51 Clarendon Road",
+            "country": "England",
+            "locality": "Watford",
+            "postal_code": "WD17 1HP",
+            "premises": "4th",
+            "region": "Hertfordshire"
+          },
+          "address_snippet": "4th Floor Radius House, 51 Clarendon Road, Watford, Hertfordshire, England, WD17 1HP",
+          "company_number": "13356093",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2021-04-26",
+          "description": "13356093 - Incorporated on 26 April 2021",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/13356093"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ELITE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Selwyn Crescent",
+            "locality": "Hatfield",
+            "postal_code": "AL10 9NN",
+            "premises": "36",
+            "region": "Hertfordshire"
+          },
+          "address_snippet": "36 Selwyn Crescent, Hatfield, Hertfordshire, AL10 9NN",
+          "company_number": "03327170",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1997-03-04",
+          "description": "03327170 - Incorporated on 4 March 1997",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03327170"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ENGINE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Higher Fence Road",
+            "country": "England",
+            "locality": "Macclesfield",
+            "postal_code": "SK10 1QF",
+            "premises": "35"
+          },
+          "address_snippet": "35 Higher Fence Road, Macclesfield, England, SK10 1QF",
+          "company_number": "14893464",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2023-05-25",
+          "description": "14893464 - Incorporated on 25 May 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14893464"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ENGINEERING SOCIETY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Cobham Road",
+            "country": "United Kingdom",
+            "locality": "Wimborne",
+            "postal_code": "BH21 7SB",
+            "premises": "C/O Sg Accounting 1 Cedar Office Park"
+          },
+          "address_snippet": "C/O Sg Accounting 1 Cedar Office Park Cobham Road, Wimborne, United Kingdom, BH21 7SB",
+          "company_number": "16293571",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2025-03-05",
+          "description": "16293571 - Incorporated on 5 March 2025",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/16293571"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ENGINEERING SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Riverhead Close",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E17 5PY",
+            "premises": "30"
+          },
+          "address_snippet": "30 Riverhead Close, London, England, E17 5PY",
+          "company_number": "15314912",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-05-06",
+          "date_of_creation": "2023-11-28",
+          "description": "15314912 - Dissolved on 6 May 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15314912"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ENGRO LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Burley Lane",
+            "address_line_2": "Quarndon",
+            "country": "England",
+            "locality": "Derby",
+            "postal_code": "DE22 5JR",
+            "premises": "65"
+          },
+          "address_snippet": "65 Burley Lane, Quarndon, Derby, England, DE22 5JR",
+          "company_number": "14583100",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2023-01-10",
+          "description": "14583100 - Incorporated on 10 January 2023",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14583100"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST ENTERPRISE LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Waverley Industrial Estate",
+            "address_line_2": "Hailsham Drive",
+            "locality": "Harrow",
+            "postal_code": "HA1 4TR",
+            "premises": "Unit 1",
+            "region": "Middlesex"
+          },
+          "address_snippet": "Unit 1 Waverley Industrial Estate, Hailsham Drive, Harrow, Middlesex, HA1 4TR",
+          "company_number": "05760974",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2006-03-29",
+          "description": "05760974 - Incorporated on 29 March 2006",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05760974"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EQUIPMENT ASSET MANAGEMENT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Highfield Court",
+            "address_line_2": "Highfield Road",
+            "country": "United Kingdom",
+            "locality": "Oakley",
+            "postal_code": "MK43 7TA",
+            "premises": "Unit 3",
+            "region": "Bedfordshire"
+          },
+          "address_snippet": "Unit 3 Highfield Court, Highfield Road, Oakley, Bedfordshire, United Kingdom, MK43 7TA",
+          "company_number": "03708609",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1999-02-04",
+          "description": "03708609 - Incorporated on 4 February 1999",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03708609"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EQUIPMENT SOLUTIONS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Highfield Court",
+            "address_line_2": "Highfield Road",
+            "country": "United Kingdom",
+            "locality": "Oakley",
+            "postal_code": "MK43 7TA",
+            "premises": "Unit 3",
+            "region": "Bedfordshire"
+          },
+          "address_snippet": "Unit 3 Highfield Court, Highfield Road, Oakley, Bedfordshire, United Kingdom, MK43 7TA",
+          "company_number": "04801443",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2003-06-17",
+          "description": "04801443 - Incorporated on 17 June 2003",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/04801443"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EQUIPMENT SOLUTIONS EUROPE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Europa Link, Sheffield Business Park",
+            "locality": "Sheffield",
+            "postal_code": "S9 1XU",
+            "premises": "The Hart Shaw Building",
+            "region": "South Yorkshire"
+          },
+          "address_snippet": "The Hart Shaw Building, Europa Link, Sheffield Business Park, Sheffield, South Yorkshire, S9 1XU",
+          "company_number": "06381151",
+          "company_status": "liquidation",
+          "company_type": "ltd",
+          "date_of_creation": "2007-09-25",
+          "description": "06381151 - Incorporated on 25 September 2007 - Liquidation",
+          "description_identifier": [
+            "incorporated-on",
+            "liquidation"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06381151"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EQUIPMENT TECHNOLOGY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Grammar School Street",
+            "locality": "Bradford",
+            "postal_code": "BD1 4NS",
+            "premises": "Carlton House"
+          },
+          "address_snippet": "Carlton House, Grammar School Street, Bradford, BD1 4NS",
+          "company_number": "05113903",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2004-04-27",
+          "description": "05113903 - Incorporated on 27 April 2004",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/05113903"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EVOLUTION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Lower Coombe Street",
+            "country": "England",
+            "locality": "Croydon",
+            "postal_code": "CR0 1AA",
+            "premises": "Kings Parade"
+          },
+          "address_snippet": "Kings Parade, Lower Coombe Street, Croydon, England, CR0 1AA",
+          "company_number": "11346418",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-05-04",
+          "description": "11346418 - Incorporated on 4 May 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11346418"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "TEST EVOLVE LIMITED"
+        }
+      ],
+      "items_per_page": 100,
+      "kind": "search#companies",
+      "page_number": 1,
+      "start_index": 0,
+      "total_results": 9262
+    }
+  },
+  "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "X-RateLimit-Query, origin, content-type, content-length, user-agent, host, accept, authorization",
+    "access-control-expose-headers": "X-RateLimit-Window, X-RateLimit-Limit, X-RateLimit-Remain, X-RateLimit-Reset, Location, www-authenticate, cache-control, pragma, content-type, expires, last-modified",
+    "access-control-max-age": "3600",
+    "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-type": "application/json",
+    "date": "Fri, 30 Jan 2026 13:11:52 GMT",
+    "expires": "0",
+    "pragma": "no-cache",
+    "set-cookie": "JSESSIONID=7595DF88C8D95E3E2B581F78E0AEE3FB; Path=/; HttpOnly",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-ratelimit-limit": "600",
+    "x-ratelimit-remain": "587",
+    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-window": "5m",
+    "x-xss-protection": "0"
+  },
+  "request": {
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "gzip, deflate",
+      "authorization": "Basic aGVsbG86d29ybGQ=",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1"
+    },
+    "params": null,
+    "url": "https://api.company-information.service.gov.uk/search/companies?q=test&start_index=0&items_per_page=200"
+  },
+  "status_code": 200,
+  "url": "https://api.company-information.service.gov.uk/search/companies?q=test&start_index=0&items_per_page=200"
+}

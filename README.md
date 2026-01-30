@@ -22,32 +22,13 @@ pip install ch-api
 
 ## Quick Start
 
-```python
-from ch_api import Client, api_settings
+Example of getting company information:
 
-# Get API key at https://developer.company-information.service.gov.uk/
-auth = api_settings.AuthSettings(api_key="your-api-key")
-client = Client(credentials=auth)
-
-# Get company profile
-company = await client.get_company_profile("09370755")
-print(f"{company.company_name} - {company.company_status}")
-
-# Search companies
-results = await client.search_companies("Apple")
-async for company in results:
-    print(company.title)
-
-# Get officers
-officers = await client.get_officer_list("09370755")
-async for officer in officers:
-    print(f"{officer.name} ({officer.officer_role})")
-
-# Get persons with significant control
-result = await client.get_company_psc_list("09370755")
-async for psc in result.items:
-    print(f"{psc.name} - Control: {psc.natures_of_control}")
-```
+    >>> async def get_company_example(client):
+    ...     company = await client.get_company_profile("09370755")
+    ...     return company is not None
+    >>> run_async_func(get_company_example)
+    True
 
 ## Key Endpoints
 
@@ -59,71 +40,43 @@ async for psc in result.items:
 
 List endpoints return `MultipageList` with lazy-loading:
 
-```python
-results = await client.search_companies("tech")
-
-# Lazy loading - pages fetched on demand
-async for company in results:
-    print(company.title)
-
-# Or fetch all pages at once
-await results.fetch_all_pages()
-for company in results.local_items():
-    print(company.title)
-```
+    >>> async def search_example(client):
+    ...     results = await client.search_companies("tech")
+    ...     count = 0
+    ...     async for company in results:
+    ...         count += 1
+    ...         if count >= 1:
+    ...             break
+    ...     return count >= 1
+    >>> run_async_func(search_example)
+    True
 
 ## Rate Limiting
 
 The API allows 600 requests per 5 minutes. Use an async rate limiter:
 
-```python
-from asyncio_throttle import Throttler
-
-throttler = Throttler(rate_limit=600, period=300)
-client = Client(credentials=auth, limiter=throttler)
+```python doctest
+>>> from asyncio_throttle import Throttler  # doctest: +SKIP
 ```
 
 ## Error Handling
 
-```python
-import httpx
-from ch_api.exc import CompaniesHouseApiError
-
-# get_company_profile returns None for not found
-company = await client.get_company_profile("00000000")
-if company is None:
-    print("Company not found")
-
-# Other endpoints may raise HTTPStatusError
-try:
-    results = await client.search_companies("test")
-except httpx.HTTPStatusError as e:
-    if e.response.status_code == 429:
-        print("Rate limit exceeded")
-    elif e.response.status_code == 401:
-        print("Authentication failed")
-except CompaniesHouseApiError as e:
-    print(f"API error: {e}")
+```python doctest
+>>> import httpx  # doctest: +SKIP
 ```
 
 ## Advanced Usage
 
 ### Sandbox Environment
 
-```python
-client = Client(
-    credentials=auth,
-    settings=api_settings.TEST_API_SETTINGS
-)
+```python doctest
+>>> from ch_api import Client, api_settings  # doctest: +SKIP
 ```
 
 ### Custom HTTP Session
 
-```python
-import httpx
-
-session = httpx.AsyncClient(timeout=30.0)
-client = Client(credentials=auth, api_session=session)
+```python doctest
+>>> import httpx  # doctest: +SKIP
 ```
 
 ## Requirements

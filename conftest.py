@@ -58,29 +58,34 @@ async def live_env_test_client(test_api_key, test_resources_path, caching_sessio
 
 @pytest.fixture(autouse=True)
 def add_np(doctest_namespace, request):
+    # Create a single event loop for all doctests in this namespace
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
     async def run_async_func_impl(func, kwargs):
-        # raise Exception(kwargs)
         return await func(**kwargs)
-    
+
     def run_async_func(func):
         """Run async function with pytest fixtures auto-injected based on parameters."""
         sig = inspect.signature(func)
         kwargs = {}
         for param_name in sig.parameters:
             actual_fixture_name = {
-                # Substitute long fixture names with shorter param names
-                # for doctests
-                'client': 'live_env_test_client',
+                "client": "live_env_test_client",
             }.get(param_name, param_name)
-            kwargs[param_name] = request.getfixturevalue(actual_fixture_name)
+            fixture_value = request.getfixturevalue(actual_fixture_name)
+            kwargs[param_name] = fixture_value
 
         coro = run_async_func_impl(func, kwargs)
-        try:
-            # Reuse the current event loop if available
-            loop = asyncio.get_running_loop()
-            return loop.run_until_complete(coro)
-        except RuntimeError:
-            # No running loop, create a new one
-            return asyncio.run(coro, debug=True)
-    
+        return loop.run_until_complete(coro)
+
     doctest_namespace["run_async_func"] = run_async_func
+
+    # Yield to allow the test to run
+    yield
+
+    # Clean up: close the loop after all doctests in this test session
+    try:
+        loop.close()
+    except:  # noqa: E722
+        pass
