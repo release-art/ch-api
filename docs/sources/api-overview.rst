@@ -55,9 +55,9 @@ Key Endpoints
    * - ``/company/{company_number}``
      - ``get_company_profile(company_number)``
    * - ``/company/{company_number}/officers``
-     - ``get_company_officers(company_number)``
+     - ``get_officer_list(company_number)``
    * - ``/company/{company_number}/persons-with-significant-control``
-     - ``get_company_pscs(company_number)``
+     - ``get_company_psc_list(company_number)``
    * - ``/company/{company_number}/filing-history``
      - ``get_company_filing_history(company_number)``
    * - ``/company/{company_number}/charges``
@@ -95,14 +95,24 @@ Error Handling
 
 .. code:: python
 
-   from ch_api.exc import NotFoundError, RateLimitError
+   import httpx
+   from ch_api.exc import CompaniesHouseApiError
 
-   try:
-       company = await client.get_company_profile("invalid")
-   except NotFoundError:
+   # get_company_profile returns None for not found
+   company = await client.get_company_profile("00000000")
+   if company is None:
        print("Company not found")
-   except RateLimitError:
-       print("Rate limit exceeded")
+   
+   # Other operations may raise HTTPStatusError
+   try:
+       results = await client.search_companies("test")
+   except httpx.HTTPStatusError as e:
+       if e.response.status_code == 429:
+           print("Rate limit exceeded")
+       elif e.response.status_code == 401:
+           print("Authentication failed")
+   except CompaniesHouseApiError as e:
+       print(f"API error: {e}")
 
 Async Usage
 ===========

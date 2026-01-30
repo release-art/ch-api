@@ -82,7 +82,7 @@ Get information about company officers (directors, secretaries, etc.):
 .. code:: python
 
    # Get all officers for a company
-   officers = await client.get_company_officers("09370755")
+   officers = await client.get_officer_list("09370755")
    
    async for officer in officers:
        print(f"Name: {officer.name}")
@@ -99,9 +99,9 @@ Get information about persons with significant control:
 .. code:: python
 
    # Get all PSCs for a company
-   pscs = await client.get_company_pscs("09370755")
+   result = await client.get_company_psc_list("09370755")
    
-   async for psc in pscs:
+   async for psc in result.items:
        print(f"Name: {psc.name}")
        print(f"Kind: {psc.kind}")
        print(f"Notified: {psc.notified_on}")
@@ -298,29 +298,29 @@ The Companies House API has rate limits (600 requests per 5 minutes). You can in
 Error Handling
 ==============
 
-The library provides custom exceptions for common error scenarios:
+The library provides custom exceptions and uses httpx exceptions for HTTP errors:
 
 .. code:: python
 
-   from ch_api.exc import (
-       CompaniesHouseException,  # Base exception
-       NotFoundError,             # 404 errors
-       RateLimitError,            # 429 errors  
-       AuthenticationError,       # 401 errors
-       ValidationError,           # Invalid parameters
-   )
+   import httpx
+   from ch_api.exc import CompaniesHouseApiError, UnexpectedApiResponseError
    
-   try:
-       company = await client.get_company_profile("invalid-number")
-   except NotFoundError:
+   # get_company_profile returns None for not found (404)
+   company = await client.get_company_profile("00000000")
+   if company is None:
        print("Company not found")
-   except ValidationError as e:
-       print(f"Invalid company number format: {e}")
-   except RateLimitError:
-       print("Rate limit exceeded - wait before retrying")
-   except AuthenticationError:
-       print("Invalid API key")
-   except CompaniesHouseException as e:
+   
+   # Other operations may raise HTTPStatusError
+   try:
+       results = await client.search_companies("test")
+   except httpx.HTTPStatusError as e:
+       if e.response.status_code == 429:
+           print("Rate limit exceeded - wait before retrying")
+       elif e.response.status_code == 401:
+           print("Authentication error")
+   except UnexpectedApiResponseError as e:
+       print(f"Unexpected API response: {e}")
+   except CompaniesHouseApiError as e:
        print(f"API error: {e}")
 
 .. _usage.advanced:
@@ -451,7 +451,7 @@ Find Companies and Their Officers
            
            # Get officers for each company
            try:
-               officers = await client.get_company_officers(company.company_number)
+               officers = await client.get_officer_list(company.company_number)
                print("Officers:")
                async for officer in officers:
                    print(f"  - {officer.name} ({officer.officer_role})")
@@ -483,15 +483,15 @@ Export Company Data
        data['profile'] = (await client.get_company_profile(company_number)).model_dump()
        
        # Officers
-       officers = await client.get_company_officers(company_number)
+       officers = await client.get_officer_list(company_number)
        await officers.fetch_all_pages()
        data['officers'] = officers.model_dump()
        
        # PSCs
        try:
-           pscs = await client.get_company_pscs(company_number)
-           await pscs.fetch_all_pages()
-           data['pscs'] = pscs.model_dump()
+           psc_result = await client.get_company_psc_list(company_number)
+           await psc_result.items.fetch_all_pages()
+           data['pscs'] = psc_result.model_dump()
        except:
            data['pscs'] = []
        

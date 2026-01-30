@@ -39,19 +39,19 @@ async for company in results:
     print(company.title)
 
 # Get officers
-officers = await client.get_company_officers("09370755")
+officers = await client.get_officer_list("09370755")
 async for officer in officers:
     print(f"{officer.name} ({officer.officer_role})")
 
 # Get persons with significant control
-pscs = await client.get_company_pscs("09370755")
-async for psc in pscs:
+result = await client.get_company_psc_list("09370755")
+async for psc in result.items:
     print(f"{psc.name} - Control: {psc.natures_of_control}")
 ```
 
 ## Key Endpoints
 
-- **Company**: `get_company_profile()`, `get_company_officers()`, `get_company_pscs()`, `get_company_charges()`, `get_company_filing_history()`
+- **Company**: `get_company_profile()`, `get_officer_list()`, `get_company_psc_list()`, `get_company_charges()`, `get_company_filing_history()`
 - **Search**: `search_companies()`, `search_officers()`, `search_disqualified_officers()`
 - **Sandbox**: `create_test_company()` (TEST_API_SETTINGS only)
 
@@ -86,14 +86,24 @@ client = Client(credentials=auth, limiter=throttler)
 ## Error Handling
 
 ```python
-from ch_api.exc import NotFoundError, RateLimitError
+import httpx
+from ch_api.exc import CompaniesHouseApiError
 
-try:
-    company = await client.get_company_profile("invalid")
-except NotFoundError:
+# get_company_profile returns None for not found
+company = await client.get_company_profile("00000000")
+if company is None:
     print("Company not found")
-except RateLimitError:
-    print("Rate limit exceeded")
+
+# Other endpoints may raise HTTPStatusError
+try:
+    results = await client.search_companies("test")
+except httpx.HTTPStatusError as e:
+    if e.response.status_code == 429:
+        print("Rate limit exceeded")
+    elif e.response.status_code == 401:
+        print("Authentication failed")
+except CompaniesHouseApiError as e:
+    print(f"API error: {e}")
 ```
 
 ## Advanced Usage
