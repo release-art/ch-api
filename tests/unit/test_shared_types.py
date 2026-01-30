@@ -90,3 +90,50 @@ class TestLinksSection:
         # Should not raise and should have the extra fields
         assert links.get_link("custom_link") == "https://api.example.com/custom"
         assert links.get_link("another_field") == "value"
+
+    def test_links_section_get_link_from_pydantic_extra(self):
+        """Test get_link accesses __pydantic_extra__ directly (line 163)."""
+        # Create a LinksSection with extra fields that are stored in __pydantic_extra__
+        data = {
+            "dynamic_link": "https://api.example.com/dynamic",
+            "resource_url": "https://api.example.com/resource",
+        }
+
+        links = shared.LinksSection.model_validate(data)
+
+        # Both extra fields should be retrievable via get_link
+        assert links.get_link("dynamic_link") == "https://api.example.com/dynamic"
+        assert links.get_link("resource_url") == "https://api.example.com/resource"
+        
+        # Verify that __pydantic_extra__ is being used (line 163 uses it)
+        assert links.__pydantic_extra__ is not None
+        assert "dynamic_link" in links.__pydantic_extra__
+
+    def test_links_section_get_link_returns_from_pydantic_extra(self):
+        """Test that get_link correctly returns values from __pydantic_extra__ (line 163)."""
+        # Create a LinksSection with only extra fields (no declared fields)
+        data = {
+            "undeclared_link": "https://api.example.com/undeclared",
+            "another_custom": "https://api.example.com/custom",
+        }
+
+        links = shared.LinksSection.model_validate(data)
+
+        # Get a link from __pydantic_extra__
+        result = links.get_link("undeclared_link")
+
+        # This should execute line 163: return self.__pydantic_extra__.get(name, None)
+        assert result == "https://api.example.com/undeclared"
+        assert links.get_link("another_custom") == "https://api.example.com/custom"
+
+    def test_links_section_get_link_with_extra_none(self):
+        """Test get_link when __pydantic_extra__ is explicitly None (line 162-163)."""
+        # Create a LinksSection and manually set __pydantic_extra__ to None
+        links = shared.LinksSection.model_validate({})
+        
+        # Manually set __pydantic_extra__ to None to test the None check
+        links.__pydantic_extra__ = None
+        
+        # This should return None due to the check on line 162
+        result = links.get_link("any_link")
+        assert result is None
