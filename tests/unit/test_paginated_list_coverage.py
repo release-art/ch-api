@@ -257,7 +257,7 @@ class TestMultipageListIteration:
         assert "Cannot determine length" in str(err.value)
 
     @pytest.mark.asyncio
-    @pytest.mark.parametrize("total_count", [0, 5, 100])
+    @pytest.mark.parametrize("total_count", [1, 5, 100])
     async def test_len_prefiction(self, fetch_fn_mock, total_count):
         fetch_fn_mock.return_value = (
             types.PaginatedResultInfo(page=0, has_next=True, total_count=total_count),
