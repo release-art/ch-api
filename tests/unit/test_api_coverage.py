@@ -225,6 +225,29 @@ class TestPaginatedSearchResultErrors:
         assert page_info.has_next is False  # No items, so no next page
 
 
+class TestCompanyOfficersMethod:
+    """Test get_officer_list method."""
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("only_type", ["secretaries", "directors", "llp-members"])
+    async def test_get_officer_list_with_only_type_parameter(self, only_type):
+        """Test get_officer_list method with only_type parameter (line 475)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Mock the _get_paginated_search_result method
+        client._get_paginated_search_result = AsyncMock(return_value=(None, []))
+
+        result = await client.get_officer_list(
+            company_number="12345678",
+            only_type=only_type,
+            order_by="surname",
+        )
+
+        # Verify the result is a MultipageList
+        assert hasattr(result, "_fetch_page_cb")
+
+
 class TestGetCompanyRegistersNotFound:
     """Test get_company_registers with NOT_FOUND status."""
 
