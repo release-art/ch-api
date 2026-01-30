@@ -5,6 +5,7 @@ from unittest.mock import AsyncMock, MagicMock
 import httpx
 import pytest
 
+import ch_api
 from ch_api import api, api_settings
 from ch_api.types import test_data_generator
 
@@ -258,9 +259,11 @@ class TestAdvancedCompanySearch:
             {"company_status": "active"},
             {"company_type": "test-type"},
             {"company_subtype": "test-subtype"},
+            {"dissolved_to": "2023-12-31"},
+            {"location": "london"},
         ],
     )
-    async def test_advanced_company_search_with_string_company_status(self, filter_args):
+    async def test_advanced_company_search_with_string_company_status(self, mocker, filter_args):
         """Test advanced_company_search with company_status as string (line 591)."""
         import datetime
 
@@ -272,11 +275,6 @@ class TestAdvancedCompanySearch:
 
         # Create a mock result that will be returned by from_api_paginated_list
         mock_result = MagicMock()
-
-        # Mock the AdvancedSearchResult.from_api_paginated_list to avoid full initialization
-        from ch_api.types.compound_api_types.public_data import search_companies
-
-        original_method = search_companies.AdvancedSearchResult.from_api_paginated_list
 
         async def mock_from_api_paginated_list(fetch_page_fn, convert_item_fn):
             # Call the fetch_page_fn to ensure the code path is executed
@@ -291,15 +289,15 @@ class TestAdvancedCompanySearch:
             await fetch_page_fn(target)
             return mock_result
 
-        search_companies.AdvancedSearchResult.from_api_paginated_list = staticmethod(mock_from_api_paginated_list)
+        mock_fn = mocker.patch.object(
+            ch_api.types.compound_api_types.public_data.search_companies.AdvancedSearchResult,
+            "from_api_paginated_list",
+            side_effect=mock_from_api_paginated_list,
+        )
 
-        try:
-            result = await client.advanced_company_search(
-                company_name_includes="Test", dissolved_from=datetime.date(2020, 1, 1), **filter_args
-            )
+        result = await client.advanced_company_search(
+            company_name_includes="Test", dissolved_from=datetime.date(2020, 1, 1), **filter_args
+        )
 
-            # Verify result is returned
-            assert result is mock_result
-        finally:
-            # Restore the original method
-            search_companies.AdvancedSearchResult.from_api_paginated_list = original_method
+        # Verify result is returned
+        assert result is mock_result
