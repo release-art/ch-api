@@ -1653,6 +1653,32 @@
         },
         {
           "address": {
+            "address_line_1": "Honeypot Lane",
+            "locality": "Stanmore",
+            "postal_code": "HA7 1JS",
+            "premises": "582"
+          },
+          "address_snippet": "582 Honeypot Lane, Stanmore, HA7 1JS",
+          "company_number": "BR015377",
+          "company_status": "open",
+          "company_type": "uk-establishment",
+          "date_of_creation": "2011-08-10",
+          "description": "BR015377 - Opened on 10 August 2011",
+          "description_identifier": [
+            "opened-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/BR015377"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "APPLE PUBLISHING INTERNATIONAL PRIVATE LIMITED"
+        },
+        {
+          "address": {
             "address_line_1": "Nelson Manickam Road Aminjikarai",
             "address_line_2": "Chennai",
             "country": "India",
@@ -1671,32 +1697,6 @@
           "kind": "searchresults#company",
           "links": {
             "self": "/company/FC030382"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "APPLE PUBLISHING INTERNATIONAL PRIVATE LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Honeypot Lane",
-            "locality": "Stanmore",
-            "postal_code": "HA7 1JS",
-            "premises": "582"
-          },
-          "address_snippet": "582 Honeypot Lane, Stanmore, HA7 1JS",
-          "company_number": "BR015377",
-          "company_status": "open",
-          "company_type": "uk-establishment",
-          "date_of_creation": "2011-08-10",
-          "description": "BR015377 - Opened on 10 August 2011",
-          "description_identifier": [
-            "opened-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/BR015377"
           },
           "matches": {
             "snippet": []
@@ -2755,7 +2755,7 @@
       "kind": "search#companies",
       "page_number": 5,
       "start_index": 400,
-      "total_results": 6579
+      "total_results": 6580
     }
   },
   "headers": {
@@ -2766,16 +2766,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:36:15 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:23 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=80F06CD3135DB5803E4007347F43220F; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=A3BAFD9F31EC83B64725157548E60529; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "594",
-    "x-ratelimit-reset": "1769776798",
+    "x-ratelimit-remain": "508",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

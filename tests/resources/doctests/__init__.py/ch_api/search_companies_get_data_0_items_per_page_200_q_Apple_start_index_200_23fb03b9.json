@@ -2764,7 +2764,7 @@
       "kind": "search#companies",
       "page_number": 3,
       "start_index": 200,
-      "total_results": 6579
+      "total_results": 6580
     }
   },
   "headers": {
@@ -2775,16 +2775,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:36:14 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:23 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=3B63E1FD311726614659E671074A8658; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=E26FCC87C7717D98B1783DDF4A2AE9D7; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "596",
-    "x-ratelimit-reset": "1769776798",
+    "x-ratelimit-remain": "510",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

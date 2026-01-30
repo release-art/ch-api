@@ -4,6 +4,78 @@
       "items": [
         {
           "address": {
+            "address_line_1": "Park Avenue South",
+            "country": "United States",
+            "locality": "New York",
+            "postal_code": "10016",
+            "premises": "400, 36b"
+          },
+          "address_snippet": "400, 36b, Park Avenue South, New York, United States, 10016",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/V1MdnoJ7T7U9Zn4cxXZXPh8b550/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTEMIS DISTRIBUTION INTERNATIONAL INC"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/V2RZzN9EVclyF41QqssRLAl3yY4/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/NlebtX1xVOMpEOEOLS44hwY4WoQ/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
             "address_line_1": "Pontefract Road",
             "address_line_2": "Cudworth",
             "care_of": "Stephen Sutton",
@@ -103,97 +175,27 @@
         },
         {
           "address": {
-            "address_line_1": "10th Floor",
-            "address_line_2": "50th Street",
-            "country": "Republic Of Panama",
-            "locality": "Panama",
-            "premises": "Plaza 2000"
+            "address_line_1": "25 Walbrook",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "EC4N 8AW",
+            "premises": "The Walbrook Building"
           },
-          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Republic Of Panama",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
+          "address_snippet": "The Walbrook Building, 25 Walbrook, London, England, EC4N 8AW",
+          "appointment_count": 11,
+          "description": "Total number of appointments 11",
           "description_identifiers": [
             "appointment-count"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/qw44qhC0Nesyb0mLf67_CXtiWrA/appointments"
+            "self": "/officers/aPl6vnFflkylqSmvLpcplGn_3eU/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTONA HOLDING S.A."
-        },
-        {
-          "address": {
-            "country": "United Kingdom",
-            "locality": "Leicester",
-            "postal_code": "LE3 5GF",
-            "premises": "50 Woodgate",
-            "region": "Leicestershire"
-          },
-          "address_snippet": "50 Woodgate, Leicester, Leicestershire, United Kingdom, LE3 5GF",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/qwSWzA7iBnuyQCty9_IAy-V-8ys/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ART ASSETS LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "New Brunswick Street",
-            "locality": "Wakefield",
-            "postal_code": "WF1 5QW",
-            "premises": "Waterfront House",
-            "region": "West Yorkshire"
-          },
-          "address_snippet": "Waterfront House, New Brunswick Street, Wakefield, West Yorkshire, WF1 5QW",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/rxJRQUZnzPohyxfaHClFTDuM0C8/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "A.R.T. BUSINESS CONSULTING LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Plaza 2000, 10th Floor, 50th Street",
-            "country": "Republic Of Panama",
-            "locality": "Panama"
-          },
-          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Republic Of Panama",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/sH3SkYn4hfvJARYiheU9jNkf45c/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTONA HOLDING S.A."
+          "title": "ARTHUR J. GALLAGHER (UK) LIMITED"
         },
         {
           "address": {
@@ -2441,16 +2443,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:41:33 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:18 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=D6DDCC82E848AA6F24DC2F8819AB7CC9; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=64BC78AEB4859376E181927A0D3A4C62; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "549",
-    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-remain": "550",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

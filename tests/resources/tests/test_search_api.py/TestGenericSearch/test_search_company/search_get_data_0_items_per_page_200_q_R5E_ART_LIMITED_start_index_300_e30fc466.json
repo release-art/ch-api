@@ -4,15 +4,14 @@
       "items": [
         {
           "address": {
-            "address_line_1": "Strathearn Avenue",
-            "address_line_2": "Whitton",
-            "country": "United Kingdom",
-            "locality": "Twickenham",
-            "postal_code": "TW2 6JT",
-            "premises": "29",
-            "region": "Middlesex"
+            "address_line_1": "Old Steine",
+            "country": "England",
+            "locality": "Brighton",
+            "postal_code": "BN1 1EJ",
+            "premises": "11",
+            "region": "East Sussex"
           },
-          "address_snippet": "29 Strathearn Avenue, Whitton, Twickenham, Middlesex, United Kingdom, TW2 6JT",
+          "address_snippet": "11 Old Steine, Brighton, East Sussex, England, BN1 1EJ",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -20,23 +19,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/sKMVUQ6hJTmRBpN1_9rhz9VbT9Y/appointments"
+            "self": "/officers/KBozw1xe7ojI3k9m4BDiYlW2ZMA/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "EDGAR & ARTHUR LTD"
+          "title": "ARTIFICIAL STUDIOS LTD"
         },
         {
           "address": {
-            "address_line_1": "Kings Avenue",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "N21 3NA",
-            "premises": "1"
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
           },
-          "address_snippet": "1 Kings Avenue, London, United Kingdom, N21 3NA",
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -44,24 +43,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/NIHEZyDyvmJm3kQoZ1gt4Y9ehEE/appointments"
+            "self": "/officers/cJrAjUDXWav18Lb9gyJSSIwnXSM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTURO MANAGEMENT LTD"
+          "title": "ARTA CONSULTING LTD"
         },
         {
           "address": {
-            "address_line_1": "Ground Floor",
-            "address_line_2": "Blake Building",
-            "country": "Belize",
-            "locality": "Corner Eyre & Hutson Streets",
-            "premises": "Suite 102",
-            "region": "Belize City"
+            "address_line_1": "Furst Franz Josef Strausse",
+            "country": "Liechtenstein",
+            "locality": "9490",
+            "premises": "73",
+            "region": "Vaduz"
           },
-          "address_snippet": "Suite 102, Ground Floor, Blake Building, Corner Eyre & Hutson Streets, Belize City, Belize",
+          "address_snippet": "73 Furst Franz Josef Strausse, 9490, Vaduz, Liechtenstein",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -69,13 +67,13 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/qDa3Q5ukoV8B-_AxvdsNXF3TRnM/appointments"
+            "self": "/officers/cYK3pIk6OP0VI1i0xi94SddxOYI/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTAMAX TRADING LTD"
+          "title": "SUSANA & RICARDO STEINBRUCH ART FOUNDATION"
         },
         {
           "address": {
@@ -94,78 +92,6 @@
           "kind": "searchresults#officer",
           "links": {
             "self": "/officers/VWaar_N8DwoSd9L5Fqxnsw4HX60/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Regent Street",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "W1B 3HH",
-            "premises": "207"
-          },
-          "address_snippet": "207 Regent Street, London, England, W1B 3HH",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/bcJVw6H-f3oTMSNUNDAMxo4CNr8/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "SINO-UK ART ORGANISATION FOR SUSTAINABLE DEVELOPMENT CIC"
-        },
-        {
-          "address": {
-            "address_line_1": "28 Commercial Street",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "E1 6AB",
-            "premises": "Toynbee Studios"
-          },
-          "address_snippet": "Toynbee Studios, 28 Commercial Street, London, United Kingdom, E1 6AB",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/qO3NiwJJQffofJg-XEIgrk0GZGI/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTSADMIN"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/yHjP47f9aJc7w1RqzsG8QtQzmCg/appointments"
           },
           "matches": {
             "snippet": []
@@ -201,13 +127,13 @@
         },
         {
           "address": {
-            "address_line_1": "Pasea Estate",
-            "country": "British Virgin Islands",
-            "locality": "Road Town",
-            "premises": "Morgan & Morgan Building",
-            "region": "Tortola"
+            "address_line_1": "Kings Avenue",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "N21 3NA",
+            "premises": "1"
           },
-          "address_snippet": "Morgan & Morgan Building, Pasea Estate, Road Town, Tortola, British Virgin Islands",
+          "address_snippet": "1 Kings Avenue, London, United Kingdom, N21 3NA",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -215,24 +141,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/pNIHx0hKSsG034rLrGlFAo3w8Co/appointments"
+            "self": "/officers/NIHEZyDyvmJm3kQoZ1gt4Y9ehEE/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "JAMM - ART LIMITED"
+          "title": "ARTURO MANAGEMENT LTD"
         },
         {
           "address": {
-            "address_line_1": "New Brunswick Street",
+            "address_line_1": "Hawkshead Street",
             "country": "England",
-            "locality": "Wakefield",
-            "postal_code": "WF1 5QW",
-            "premises": "Waterfront House",
-            "region": "West Yorkshire"
+            "locality": "Southport",
+            "postal_code": "PR9 9HF",
+            "premises": "4"
           },
-          "address_snippet": "Waterfront House, New Brunswick Street, Wakefield, West Yorkshire, England, WF1 5QW",
+          "address_snippet": "4 Hawkshead Street, Southport, England, PR9 9HF",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -240,25 +165,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/pfz3zb6cvP55XMJAY1Lr3jRmcio/appointments"
+            "self": "/officers/7jEMVR5DcakBiHPS_e3yG8g4GfM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "A.R.T. BUSINESS CONSULTING LIMITED"
+          "title": "SOUTHPORT CONTEMPORARY ARTS"
         },
         {
           "address": {
-            "address_line_1": "Great North Road",
-            "address_line_2": "Wyboston",
-            "country": "England",
-            "locality": "Bedford",
-            "postal_code": "MK44 3BY",
-            "premises": "The Knowledge Centre, Wyboston Lakes",
-            "region": "Bedfordshire"
+            "address_line_1": "Moorland Road",
+            "locality": "Stoke-On-Trent",
+            "postal_code": "ST6 1DY",
+            "premises": "74",
+            "region": "Staffordshire"
           },
-          "address_snippet": "The Knowledge Centre, Wyboston Lakes, Great North Road, Wyboston, Bedford, Bedfordshire, England, MK44 3BY",
+          "address_snippet": "74 Moorland Road, Stoke-On-Trent, Staffordshire, ST6 1DY",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -266,25 +189,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/pvBMEeJBZgJQ19XVJxAsH6JwDkM/appointments"
+            "self": "/officers/8ORvW0ZL8OMa7AbOxHQr6sCqY68/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ASHTON ARTISTS LIMITED"
+          "title": "ARTHUR G EDWARDS & CO LIMITED"
         },
         {
           "address": {
-            "address_line_1": "London Road",
-            "address_line_2": "Blewbury",
-            "country": "England",
-            "locality": "Didcot",
-            "postal_code": "OX11 9PD",
-            "premises": "Little Triton",
-            "region": "Oxfordshire"
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
           },
-          "address_snippet": "Little Triton, London Road, Blewbury, Didcot, Oxfordshire, England, OX11 9PD",
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -292,13 +213,61 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/pzyDTIXw1Xt0JdqBIv2VDchgoKI/appointments"
+            "self": "/officers/9-Uh5vukPNxm2oyKntcaFm1cleg/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTELNA LIMITED"
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "premises": "Trust Company Complex",
+            "region": "Mh96960"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Mh96960, Marshall Islands",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/9RwpGTX5Xjq7zZ4xDWJG1mBC3cM/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Blackfriars Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "SE1 8NW",
+            "premises": "10th Floor, 240"
+          },
+          "address_snippet": "10th Floor, 240, Blackfriars Road, London, England, SE1 8NW",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/9dWPLj-oeNdH8exwAIaOW0G3Nng/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "BOODLE HATFIELD ARTS LIMITED"
         },
         {
           "address": {
@@ -398,76 +367,6 @@
         },
         {
           "address": {
-            "address_line_1": "10th Floor, 50th Street",
-            "country": "Panama",
-            "locality": "Panama",
-            "premises": "Plaza 2000"
-          },
-          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Panama",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/G0gGmyH-6AXLa7mP5K-0btm2tNg/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTONA HOLDING S.A."
-        },
-        {
-          "address": {
-            "address_line_1": "New Cavendish Street",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "W1G 8AU",
-            "premises": "72"
-          },
-          "address_snippet": "72 New Cavendish Street, London, United Kingdom, W1G 8AU",
-          "appointment_count": 6,
-          "description": "Total number of appointments 6",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/GCwVPDMd_WeJLxc9rWE4HMkyb2A/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "UNITED ARTISTS CORPORATION LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "10th Floor, 50th Street",
-            "country": "Panama",
-            "locality": "Panama",
-            "premises": "Plaza 2000"
-          },
-          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Panama",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/GfTQYsDKQOb7-af-dD979cG93gg/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTONA HOLDING S.A."
-        },
-        {
-          "address": {
             "address_line_1": "Ajeltake Road, Ajeltake Island",
             "country": "Marshall Islands",
             "locality": "Majuro",
@@ -482,7 +381,7 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/H8W89VHXboQs7qfvTuW3gvih_QU/appointments"
+            "self": "/officers/NdjxAM_9jEup3EzcKPaDhN0Ux_E/appointments"
           },
           "matches": {
             "snippet": []
@@ -492,37 +391,37 @@
         },
         {
           "address": {
-            "address_line_1": "303-306 High Holborn",
+            "address_line_1": "160 City Road",
             "country": "United Kingdom",
             "locality": "London",
-            "postal_code": "WC1V 7JZ",
-            "premises": "2nd Floor, Northumberland House"
+            "postal_code": "EC1V 2NX",
+            "premises": "Kemp House"
           },
-          "address_snippet": "2nd Floor, Northumberland House, 303-306 High Holborn, London, United Kingdom, WC1V 7JZ",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
+          "address_snippet": "Kemp House, 160 City Road, London, United Kingdom, EC1V 2NX",
+          "appointment_count": 2,
+          "description": "Total number of appointments 2",
           "description_identifiers": [
             "appointment-count"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/HKCZvlOz2OMt0rIgmOAyv_b7iaU/appointments"
+            "self": "/officers/Oc_u5IKGMfGYDHMTiN_EJwyAESM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "CLOSER ARTISTS LIMITED"
+          "title": "ARTE STUDIO LTD"
         },
         {
           "address": {
-            "address_line_1": "The Century Tower, Floor No 4",
-            "country": "Panama",
-            "locality": "Suite No 401",
-            "postal_code": "PANAMA CITY",
-            "premises": "Ricardo J. Alfaro Avenue,"
+            "address_line_1": "Polsted Road",
+            "address_line_2": "Catford",
+            "locality": "London",
+            "postal_code": "SE6 4YQ",
+            "premises": "38"
           },
-          "address_snippet": "Ricardo J. Alfaro Avenue,, The Century Tower, Floor No 4, Suite No 401, Panama, PANAMA CITY",
+          "address_snippet": "38 Polsted Road, Catford, London, SE6 4YQ",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -530,13 +429,84 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/HaXutkDkjAECPd4VjQdoQ0ojIoQ/appointments"
+            "self": "/officers/OjiQRzL3b9NvmrIFeNN_LoVhz3I/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTONA GROUP S.A."
+          "title": "MARIEFODAY ART DESIGNS"
+        },
+        {
+          "address": {
+            "address_line_1": "Baker Street",
+            "locality": "London",
+            "postal_code": "W1U 6TQ",
+            "premises": "88-90"
+          },
+          "address_snippet": "88-90, Baker Street, London, W1U 6TQ",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/R_XakJ8sxs0dkKGOZY75-S54gQI/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "THE FAMILY ARTIST MANAGEMENT LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "New Brunswick Street",
+            "country": "United Kingdom",
+            "locality": "Wakefield",
+            "postal_code": "WF1 5QW",
+            "premises": "Waterfront House",
+            "region": "West Yorkshire"
+          },
+          "address_snippet": "Waterfront House, New Brunswick Street, Wakefield, West Yorkshire, United Kingdom, WF1 5QW",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/S-jPQ9a3Q8Dj7QFTkI5O7e6Ty0c/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "A.R.T. BUSINESS CONSULTING LIMITED"
+        },
+        {
+          "address": {
+            "country": "Germany",
+            "locality": "Cologne",
+            "postal_code": "50667",
+            "premises": "Tunisstrasse 29"
+          },
+          "address_snippet": "Tunisstrasse 29, Cologne, Germany, 50667",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/TmxaXLu8gmDTXd4rW8FAlZaQosg/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ART-INVEST REAL ESTATE INVESTMENT GMBH & CO. KG"
         },
         {
           "address": {
@@ -901,6 +871,31 @@
         },
         {
           "address": {
+            "address_line_1": "Newhey Road",
+            "address_line_2": "Milnrow",
+            "country": "England",
+            "locality": "Rochdale",
+            "postal_code": "OL16 3PS",
+            "premises": "The Old County Police Station"
+          },
+          "address_snippet": "The Old County Police Station, Newhey Road, Milnrow, Rochdale, England, OL16 3PS",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/sb5qW8cD6w_alcZ0XLpSr-_3gqo/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "INTERNATIONAL ARTISTS (2013) LIMITED"
+        },
+        {
+          "address": {
             "address_line_1": "Ajeltake Road, Ajeltake Island",
             "country": "Marshall Islands",
             "locality": "Majuro",
@@ -915,7 +910,7 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/cJrAjUDXWav18Lb9gyJSSIwnXSM/appointments"
+            "self": "/officers/tHYnznW5KDAVXwUCDpWjaAkKQ_U/appointments"
           },
           "matches": {
             "snippet": []
@@ -925,13 +920,38 @@
         },
         {
           "address": {
-            "address_line_1": "Furst Franz Josef Strausse",
-            "country": "Liechtenstein",
-            "locality": "9490",
-            "premises": "73",
-            "region": "Vaduz"
+            "address_line_1": "Bell Yard",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "WC2A 2JR",
+            "premises": "7"
           },
-          "address_snippet": "73 Furst Franz Josef Strausse, 9490, Vaduz, Liechtenstein",
+          "address_snippet": "7 Bell Yard, London, England, WC2A 2JR",
+          "appointment_count": 2,
+          "description": "Total number of appointments 2",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/tbWA9VGxE4HiHziBDPbHDB3Odko/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTS & CULTURE FINANCE"
+        },
+        {
+          "address": {
+            "address_line_1": "45-51 Newhall Street",
+            "address_line_2": "Office 330",
+            "country": "United Kingdom",
+            "locality": "Birmingham",
+            "postal_code": "B3 3QR",
+            "premises": "Cornwall Buildings"
+          },
+          "address_snippet": "Cornwall Buildings, 45-51 Newhall Street, Office 330, Birmingham, United Kingdom, B3 3QR",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -939,13 +959,280 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/cYK3pIk6OP0VI1i0xi94SddxOYI/appointments"
+            "self": "/officers/td_ti2s2HqHx7Taftlq5MZsRqbM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "SUSANA & RICARDO STEINBRUCH ART FOUNDATION"
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/u-YHrIWK0wjVv0Z-cdchc5ZOSx0/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/uNFbWDow00lRd9NSu81evfn8s-I/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "premises": "Trust Company Complex",
+            "region": "Mh96960"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Mh96960, Marshall Islands",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/uoVD7BmYVWB6fcVk1r5pTUZBdd8/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Plaza 2000 10th Floor",
+            "address_line_2": "50th Street",
+            "country": "Panama",
+            "locality": "Panama"
+          },
+          "address_snippet": "Plaza 2000 10th Floor, 50th Street, Panama, Panama",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/upert3vkJ1zAjgXjrhR9AHmVwL4/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTONA HOLDING S.A."
+        },
+        {
+          "address": {
+            "address_line_1": "205 Kings Road",
+            "address_line_2": "Tyseley",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B11 2AA",
+            "premises": "Suite B, Fairgate House"
+          },
+          "address_snippet": "Suite B, Fairgate House, 205 Kings Road, Tyseley, Birmingham, England, B11 2AA",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/vct4VFtH_DDOmC4DovYI9BpWZ3g/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTIS CONSTRUCTION LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "375 Street 1704 New-Deido",
+            "country": "Cameroon",
+            "locality": "Douala",
+            "postal_code": "P.O. BOX 2943",
+            "premises": "Dongmo Nguapgue Epse Djoumessi Claire Laure",
+            "region": "Cameroon"
+          },
+          "address_snippet": "Dongmo Nguapgue Epse Djoumessi Claire Laure, 375 Street 1704 New-Deido, Douala, Cameroon, Cameroon, P.O. BOX 2943",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/w19HDORRO_fmUI4EZiHUJMjcvhM/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTS ET DESIGN"
+        },
+        {
+          "address": {
+            "address_line_1": "6th Floor, Aviation House",
+            "address_line_2": "125 Kingsway",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC2B 6NH",
+            "premises": "C/O Gbp Associates Llp"
+          },
+          "address_snippet": "C/O Gbp Associates Llp, 6th Floor, Aviation House, 125 Kingsway, London, United Kingdom, WC2B 6NH",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/wehtqFB0vV3wbnINCLti-Jm3vNA/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "SAVILLE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "36 Springvale Industrial Estate",
+            "country": "Wales",
+            "locality": "Cwmbran",
+            "postal_code": "NP44 5BD",
+            "premises": "Springvale Industrial Estate",
+            "region": "Gwent"
+          },
+          "address_snippet": "Springvale Industrial Estate, 36 Springvale Industrial Estate, Cwmbran, Gwent, Wales, NP44 5BD",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/xRBhe5zpvLjyb2bRjVw5gE-bA0Y/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "MICHAEL HARDING ART FORMULAS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Edifici Cornella 2,",
+            "address_line_2": "2n Pis, 1a Porta",
+            "country": "Andorra",
+            "locality": "Andorra",
+            "premises": "Carrer Pau Casals, N\u00fam. 8"
+          },
+          "address_snippet": "Carrer Pau Casals, N\u00fam. 8, Edifici Cornella 2,, 2n Pis, 1a Porta, Andorra, Andorra",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/xbicgbaSDtIFI0Ik7hyrkogpr1c/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTIS, SLU"
+        },
+        {
+          "address": {
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
+          },
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/yHjP47f9aJc7w1RqzsG8QtQzmCg/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Boulevard Emmanuel Servais",
+            "country": "Luxembourg",
+            "locality": "Luxembourg",
+            "postal_code": "L-2535",
+            "premises": "20"
+          },
+          "address_snippet": "20 Boulevard Emmanuel Servais, Luxembourg, Luxembourg, L-2535",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/ybX1uf9hWi76pRXLBvEB-XTU_Gc/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "THE FINE ART FUND S.C.A., SICAV-SIF"
         },
         {
           "address": {
@@ -1431,182 +1718,12 @@
         },
         {
           "address": {
-            "address_line_1": "Newhey Road",
-            "address_line_2": "Milnrow",
-            "country": "England",
-            "locality": "Rochdale",
-            "postal_code": "OL16 3PS",
-            "premises": "The Old County Police Station"
-          },
-          "address_snippet": "The Old County Police Station, Newhey Road, Milnrow, Rochdale, England, OL16 3PS",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/sb5qW8cD6w_alcZ0XLpSr-_3gqo/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "INTERNATIONAL ARTISTS (2013) LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/tHYnznW5KDAVXwUCDpWjaAkKQ_U/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Bell Yard",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "WC2A 2JR",
-            "premises": "7"
-          },
-          "address_snippet": "7 Bell Yard, London, England, WC2A 2JR",
-          "appointment_count": 2,
-          "description": "Total number of appointments 2",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/tbWA9VGxE4HiHziBDPbHDB3Odko/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTS & CULTURE FINANCE"
-        },
-        {
-          "address": {
-            "address_line_1": "45-51 Newhall Street",
-            "address_line_2": "Office 330",
-            "country": "United Kingdom",
-            "locality": "Birmingham",
-            "postal_code": "B3 3QR",
-            "premises": "Cornwall Buildings"
-          },
-          "address_snippet": "Cornwall Buildings, 45-51 Newhall Street, Office 330, Birmingham, United Kingdom, B3 3QR",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/td_ti2s2HqHx7Taftlq5MZsRqbM/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/u-YHrIWK0wjVv0Z-cdchc5ZOSx0/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/uNFbWDow00lRd9NSu81evfn8s-I/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "premises": "Trust Company Complex",
-            "region": "Mh96960"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Mh96960, Marshall Islands",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/uoVD7BmYVWB6fcVk1r5pTUZBdd8/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Plaza 2000 10th Floor",
-            "address_line_2": "50th Street",
+            "address_line_1": "10th Floor, 50th Street",
             "country": "Panama",
-            "locality": "Panama"
+            "locality": "Panama",
+            "premises": "Plaza 2000"
           },
-          "address_snippet": "Plaza 2000 10th Floor, 50th Street, Panama, Panama",
+          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Panama",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -1614,7 +1731,7 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/upert3vkJ1zAjgXjrhR9AHmVwL4/appointments"
+            "self": "/officers/G0gGmyH-6AXLa7mP5K-0btm2tNg/appointments"
           },
           "matches": {
             "snippet": []
@@ -1624,89 +1741,36 @@
         },
         {
           "address": {
-            "address_line_1": "205 Kings Road",
-            "address_line_2": "Tyseley",
-            "country": "England",
-            "locality": "Birmingham",
-            "postal_code": "B11 2AA",
-            "premises": "Suite B, Fairgate House"
-          },
-          "address_snippet": "Suite B, Fairgate House, 205 Kings Road, Tyseley, Birmingham, England, B11 2AA",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/vct4VFtH_DDOmC4DovYI9BpWZ3g/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTIS CONSTRUCTION LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "375 Street 1704 New-Deido",
-            "country": "Cameroon",
-            "locality": "Douala",
-            "postal_code": "P.O. BOX 2943",
-            "premises": "Dongmo Nguapgue Epse Djoumessi Claire Laure",
-            "region": "Cameroon"
-          },
-          "address_snippet": "Dongmo Nguapgue Epse Djoumessi Claire Laure, 375 Street 1704 New-Deido, Douala, Cameroon, Cameroon, P.O. BOX 2943",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/w19HDORRO_fmUI4EZiHUJMjcvhM/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTS ET DESIGN"
-        },
-        {
-          "address": {
-            "address_line_1": "6th Floor, Aviation House",
-            "address_line_2": "125 Kingsway",
+            "address_line_1": "New Cavendish Street",
             "country": "United Kingdom",
             "locality": "London",
-            "postal_code": "WC2B 6NH",
-            "premises": "C/O Gbp Associates Llp"
+            "postal_code": "W1G 8AU",
+            "premises": "72"
           },
-          "address_snippet": "C/O Gbp Associates Llp, 6th Floor, Aviation House, 125 Kingsway, London, United Kingdom, WC2B 6NH",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
+          "address_snippet": "72 New Cavendish Street, London, United Kingdom, W1G 8AU",
+          "appointment_count": 6,
+          "description": "Total number of appointments 6",
           "description_identifiers": [
             "appointment-count"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/wehtqFB0vV3wbnINCLti-Jm3vNA/appointments"
+            "self": "/officers/GCwVPDMd_WeJLxc9rWE4HMkyb2A/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "SAVILLE ART LIMITED"
+          "title": "UNITED ARTISTS CORPORATION LIMITED"
         },
         {
           "address": {
-            "address_line_1": "36 Springvale Industrial Estate",
-            "country": "Wales",
-            "locality": "Cwmbran",
-            "postal_code": "NP44 5BD",
-            "premises": "Springvale Industrial Estate",
-            "region": "Gwent"
+            "address_line_1": "10th Floor, 50th Street",
+            "country": "Panama",
+            "locality": "Panama",
+            "premises": "Plaza 2000"
           },
-          "address_snippet": "Springvale Industrial Estate, 36 Springvale Industrial Estate, Cwmbran, Gwent, Wales, NP44 5BD",
+          "address_snippet": "Plaza 2000, 10th Floor, 50th Street, Panama, Panama",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -1714,23 +1778,23 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/xRBhe5zpvLjyb2bRjVw5gE-bA0Y/appointments"
+            "self": "/officers/GfTQYsDKQOb7-af-dD979cG93gg/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "MICHAEL HARDING ART FORMULAS LIMITED"
+          "title": "ARTONA HOLDING S.A."
         },
         {
           "address": {
-            "address_line_1": "Edifici Cornella 2,",
-            "address_line_2": "2n Pis, 1a Porta",
-            "country": "Andorra",
-            "locality": "Andorra",
-            "premises": "Carrer Pau Casals, N\u00fam. 8"
+            "address_line_1": "Ajeltake Road, Ajeltake Island",
+            "country": "Marshall Islands",
+            "locality": "Majuro",
+            "postal_code": "MH96960",
+            "premises": "Trust Company Complex"
           },
-          "address_snippet": "Carrer Pau Casals, N\u00fam. 8, Edifici Cornella 2,, 2n Pis, 1a Porta, Andorra, Andorra",
+          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -1738,13 +1802,61 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/xbicgbaSDtIFI0Ik7hyrkogpr1c/appointments"
+            "self": "/officers/H8W89VHXboQs7qfvTuW3gvih_QU/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTIS, SLU"
+          "title": "ARTA CONSULTING LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "303-306 High Holborn",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "WC1V 7JZ",
+            "premises": "2nd Floor, Northumberland House"
+          },
+          "address_snippet": "2nd Floor, Northumberland House, 303-306 High Holborn, London, United Kingdom, WC1V 7JZ",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/HKCZvlOz2OMt0rIgmOAyv_b7iaU/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "CLOSER ARTISTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "The Century Tower, Floor No 4",
+            "country": "Panama",
+            "locality": "Suite No 401",
+            "postal_code": "PANAMA CITY",
+            "premises": "Ricardo J. Alfaro Avenue,"
+          },
+          "address_snippet": "Ricardo J. Alfaro Avenue,, The Century Tower, Floor No 4, Suite No 401, Panama, PANAMA CITY",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/HaXutkDkjAECPd4VjQdoQ0ojIoQ/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ARTONA GROUP S.A."
         },
         {
           "address": {
@@ -2037,77 +2149,6 @@
         },
         {
           "address": {
-            "address_line_1": "Baker Street",
-            "locality": "London",
-            "postal_code": "W1U 6TQ",
-            "premises": "88-90"
-          },
-          "address_snippet": "88-90, Baker Street, London, W1U 6TQ",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/R_XakJ8sxs0dkKGOZY75-S54gQI/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "THE FAMILY ARTIST MANAGEMENT LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "New Brunswick Street",
-            "country": "United Kingdom",
-            "locality": "Wakefield",
-            "postal_code": "WF1 5QW",
-            "premises": "Waterfront House",
-            "region": "West Yorkshire"
-          },
-          "address_snippet": "Waterfront House, New Brunswick Street, Wakefield, West Yorkshire, United Kingdom, WF1 5QW",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/S-jPQ9a3Q8Dj7QFTkI5O7e6Ty0c/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "A.R.T. BUSINESS CONSULTING LIMITED"
-        },
-        {
-          "address": {
-            "country": "Germany",
-            "locality": "Cologne",
-            "postal_code": "50667",
-            "premises": "Tunisstrasse 29"
-          },
-          "address_snippet": "Tunisstrasse 29, Cologne, Germany, 50667",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/TmxaXLu8gmDTXd4rW8FAlZaQosg/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ART-INVEST REAL ESTATE INVESTMENT GMBH & CO. KG"
-        },
-        {
-          "address": {
             "address_line_1": "45 Newhall Street",
             "address_line_2": "Suite 211",
             "country": "United Kingdom",
@@ -2252,13 +2293,38 @@
         },
         {
           "address": {
-            "address_line_1": "Hawkshead Street",
+            "address_line_1": "Pasea Estate",
+            "country": "British Virgin Islands",
+            "locality": "Road Town",
+            "premises": "Morgan & Morgan Building",
+            "region": "Tortola"
+          },
+          "address_snippet": "Morgan & Morgan Building, Pasea Estate, Road Town, Tortola, British Virgin Islands",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/pNIHx0hKSsG034rLrGlFAo3w8Co/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "JAMM - ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "New Brunswick Street",
             "country": "England",
-            "locality": "Southport",
-            "postal_code": "PR9 9HF",
-            "premises": "4"
+            "locality": "Wakefield",
+            "postal_code": "WF1 5QW",
+            "premises": "Waterfront House",
+            "region": "West Yorkshire"
           },
-          "address_snippet": "4 Hawkshead Street, Southport, England, PR9 9HF",
+          "address_snippet": "Waterfront House, New Brunswick Street, Wakefield, West Yorkshire, England, WF1 5QW",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -2266,95 +2332,25 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/7jEMVR5DcakBiHPS_e3yG8g4GfM/appointments"
+            "self": "/officers/pfz3zb6cvP55XMJAY1Lr3jRmcio/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "SOUTHPORT CONTEMPORARY ARTS"
+          "title": "A.R.T. BUSINESS CONSULTING LIMITED"
         },
         {
           "address": {
-            "address_line_1": "Moorland Road",
-            "locality": "Stoke-On-Trent",
-            "postal_code": "ST6 1DY",
-            "premises": "74",
-            "region": "Staffordshire"
-          },
-          "address_snippet": "74 Moorland Road, Stoke-On-Trent, Staffordshire, ST6 1DY",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/8ORvW0ZL8OMa7AbOxHQr6sCqY68/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTHUR G EDWARDS & CO LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/9-Uh5vukPNxm2oyKntcaFm1cleg/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "premises": "Trust Company Complex",
-            "region": "Mh96960"
-          },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Mh96960, Marshall Islands",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/9RwpGTX5Xjq7zZ4xDWJG1mBC3cM/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTA CONSULTING LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Blackfriars Road",
+            "address_line_1": "Great North Road",
+            "address_line_2": "Wyboston",
             "country": "England",
-            "locality": "London",
-            "postal_code": "SE1 8NW",
-            "premises": "10th Floor, 240"
+            "locality": "Bedford",
+            "postal_code": "MK44 3BY",
+            "premises": "The Knowledge Centre, Wyboston Lakes",
+            "region": "Bedfordshire"
           },
-          "address_snippet": "10th Floor, 240, Blackfriars Road, London, England, SE1 8NW",
+          "address_snippet": "The Knowledge Centre, Wyboston Lakes, Great North Road, Wyboston, Bedford, Bedfordshire, England, MK44 3BY",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -2362,23 +2358,25 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/9dWPLj-oeNdH8exwAIaOW0G3Nng/appointments"
+            "self": "/officers/pvBMEeJBZgJQ19XVJxAsH6JwDkM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "BOODLE HATFIELD ARTS LIMITED"
+          "title": "ASHTON ARTISTS LIMITED"
         },
         {
           "address": {
-            "address_line_1": "Ajeltake Road, Ajeltake Island",
-            "country": "Marshall Islands",
-            "locality": "Majuro",
-            "postal_code": "MH96960",
-            "premises": "Trust Company Complex"
+            "address_line_1": "London Road",
+            "address_line_2": "Blewbury",
+            "country": "England",
+            "locality": "Didcot",
+            "postal_code": "OX11 9PD",
+            "premises": "Little Triton",
+            "region": "Oxfordshire"
           },
-          "address_snippet": "Trust Company Complex, Ajeltake Road, Ajeltake Island, Majuro, Marshall Islands, MH96960",
+          "address_snippet": "Little Triton, London Road, Blewbury, Didcot, Oxfordshire, England, OX11 9PD",
           "appointment_count": 1,
           "description": "Total number of appointments 1",
           "description_identifiers": [
@@ -2386,37 +2384,38 @@
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/NdjxAM_9jEup3EzcKPaDhN0Ux_E/appointments"
+            "self": "/officers/pzyDTIXw1Xt0JdqBIv2VDchgoKI/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTA CONSULTING LTD"
+          "title": "ARTELNA LIMITED"
         },
         {
           "address": {
-            "address_line_1": "160 City Road",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "EC1V 2NX",
-            "premises": "Kemp House"
+            "address_line_1": "Ground Floor",
+            "address_line_2": "Blake Building",
+            "country": "Belize",
+            "locality": "Corner Eyre & Hutson Streets",
+            "premises": "Suite 102",
+            "region": "Belize City"
           },
-          "address_snippet": "Kemp House, 160 City Road, London, United Kingdom, EC1V 2NX",
-          "appointment_count": 2,
-          "description": "Total number of appointments 2",
+          "address_snippet": "Suite 102, Ground Floor, Blake Building, Corner Eyre & Hutson Streets, Belize City, Belize",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
           "description_identifiers": [
             "appointment-count"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/Oc_u5IKGMfGYDHMTiN_EJwyAESM/appointments"
+            "self": "/officers/qDa3Q5ukoV8B-_AxvdsNXF3TRnM/appointments"
           },
           "matches": {
             "snippet": []
           },
           "snippet": "",
-          "title": "ARTE STUDIO LTD"
+          "title": "ARTAMAX TRADING LTD"
         }
       ],
       "items_per_page": 100,
@@ -2434,16 +2433,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:41:33 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:18 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=316706EBEB9C1793A6B16C453B7861BE; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=BF1088CC2312C23FF9AEC80192B96E04; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "547",
-    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-remain": "548",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

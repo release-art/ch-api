@@ -2,8 +2,8 @@
   "content": {
     "json": {
       "message": "404 NOT_FOUND \"Resource not found for company profile 00000000\"",
-      "request_id": "A-pWIYgP9DqQe11URR4fZ7kN6k20",
-      "timestamp": "2026-01-30T13:11:52.724680845"
+      "request_id": "msx5jGSxxp2e640LpcXztlNWJOr0",
+      "timestamp": "2026-01-30T13:14:24.607342395"
     }
   },
   "headers": {
@@ -14,15 +14,15 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:11:52 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:24 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=37B356FCEB70F25E53640D4704EB6E88; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=34CE5BEEA023F4F57D3C047A34352618; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "588",
+    "x-ratelimit-remain": "488",
     "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"

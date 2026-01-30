@@ -520,35 +520,6 @@
         },
         {
           "address": {
-            "address_line_1": "38 Balmoral Terrace",
-            "country": "United Kingdom",
-            "locality": "Dundee",
-            "postal_code": "DD4 8SJ",
-            "premises": "2/2"
-          },
-          "address_snippet": "2/2, 38 Balmoral Terrace, Dundee, United Kingdom, DD4 8SJ",
-          "appointment_count": 1,
-          "date_of_birth": {
-            "month": 8,
-            "year": 1984
-          },
-          "description": "Total number of appointments 1 - Born August 1984",
-          "description_identifiers": [
-            "appointment-count",
-            "born-on"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/DMf_HudrfB5GkKPd-b6r_AEiSoM/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "Olegs ORLOVS"
-        },
-        {
-          "address": {
             "address_line_1": "Heacham Drive",
             "country": "United Kingdom",
             "locality": "Leicester",
@@ -569,6 +540,35 @@
           "kind": "searchresults#officer",
           "links": {
             "self": "/officers/5yTEe-D2Tk-7n2PN4_MiNqOxRWU/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "Olegs ORLOVS"
+        },
+        {
+          "address": {
+            "address_line_1": "38 Balmoral Terrace",
+            "country": "United Kingdom",
+            "locality": "Dundee",
+            "postal_code": "DD4 8SJ",
+            "premises": "2/2"
+          },
+          "address_snippet": "2/2, 38 Balmoral Terrace, Dundee, United Kingdom, DD4 8SJ",
+          "appointment_count": 1,
+          "date_of_birth": {
+            "month": 8,
+            "year": 1984
+          },
+          "description": "Total number of appointments 1 - Born August 1984",
+          "description_identifiers": [
+            "appointment-count",
+            "born-on"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/DMf_HudrfB5GkKPd-b6r_AEiSoM/appointments"
           },
           "matches": {
             "snippet": []
@@ -1227,27 +1227,6 @@
         },
         {
           "address": {
-            "address_line_1": "King Street",
-            "country": "England",
-            "locality": "King's Lynn",
-            "postal_code": "PE30 1HJ",
-            "premises": "22-26",
-            "region": "Norfolk"
-          },
-          "address_snippet": "22-26, King Street, King's Lynn, Norfolk, England, PE30 1HJ",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/EwejanKOvnXbVDeoMEWX_QpIoHo/appointments"
-          },
-          "title": "Kristina ORLOVSKA"
-        },
-        {
-          "address": {
             "country": "England",
             "locality": "King's Lynn",
             "postal_code": "PE30 1HJ",
@@ -1268,6 +1247,27 @@
           "kind": "searchresults#officer",
           "links": {
             "self": "/officers/y9TdkQn9m0qYzEjoK2UITcj9700/appointments"
+          },
+          "title": "Kristina ORLOVSKA"
+        },
+        {
+          "address": {
+            "address_line_1": "King Street",
+            "country": "England",
+            "locality": "King's Lynn",
+            "postal_code": "PE30 1HJ",
+            "premises": "22-26",
+            "region": "Norfolk"
+          },
+          "address_snippet": "22-26, King Street, King's Lynn, Norfolk, England, PE30 1HJ",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/EwejanKOvnXbVDeoMEWX_QpIoHo/appointments"
           },
           "title": "Kristina ORLOVSKA"
         },
@@ -2163,16 +2163,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:41:33 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:19 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=2A0D41582D2E1CA00A95EA6238E9A9B4; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=18FCCE3694248874F956CDDF56399A1B; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "540",
-    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-remain": "541",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

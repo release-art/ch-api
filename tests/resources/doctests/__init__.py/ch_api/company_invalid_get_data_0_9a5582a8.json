@@ -2,8 +2,8 @@
   "content": {
     "json": {
       "message": "404 NOT_FOUND \"Resource not found for company profile invalid\"",
-      "request_id": "jp84if3ZQf4cjyw-3kgOyJUBrNfR",
-      "timestamp": "2026-01-30T12:40:35.952768217"
+      "request_id": "0hPN29pgwroPPxh2gnkkNHk6fhAJ",
+      "timestamp": "2026-01-30T13:14:23.637563028"
     }
   },
   "headers": {
@@ -14,16 +14,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:40:35 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:23 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=BABE1F3B6804AD9393A80FBF41F1A6D5; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=A84D62C51B2368002C59CF8AA59905DF; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "598",
-    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-remain": "501",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

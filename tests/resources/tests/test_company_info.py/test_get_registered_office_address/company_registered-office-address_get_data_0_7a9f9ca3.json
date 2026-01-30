@@ -20,10 +20,10 @@
     "connection": "keep-alive",
     "content-length": "254",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 12:41:29 GMT",
+    "date": "Fri, 30 Jan 2026 13:14:16 GMT",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "579",
-    "x-ratelimit-reset": "1769777119",
+    "x-ratelimit-remain": "580",
+    "x-ratelimit-reset": "1769779001",
     "x-ratelimit-window": "5m"
   },
   "request": {
