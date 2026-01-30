@@ -114,7 +114,7 @@ class LinksSection(base.BaseModel):
         -------
         Get the self link::
 
-            >>> if company.links and company.links.self:  # doctest: +SKIP
+            >>> if company.links and company.links.self:
             ...     print(f"Company resource: {company.links.self}")
             Company resource: https://api.company-information.service.gov.uk/...
         """

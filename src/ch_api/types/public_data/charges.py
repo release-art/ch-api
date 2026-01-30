@@ -57,21 +57,21 @@ Fetch all charges for a company::
 
     >>> from ch_api import Client, api_settings
     >>> auth = api_settings.AuthSettings(api_key="your-key")
-    >>> client = Client(credentials=auth)  # doctest: +SKIP
+    >>> client = Client(credentials=auth)
     ...
-    >>> charges = await client.get_company_charges("09370755")  # doctest: +SKIP
-    >>> for charge in charges.items or []:  # doctest: +SKIP
+    >>> charges = await client.get_company_charges("09370755")
+    >>> for charge in charges.items or []:
     ...     print(f"Charge {charge.charge_number}: {charge.charge_code}")
 
 Get detailed charge information::
 
-    >>> details = await client.get_company_charge_details(  # doctest: +SKIP
+    >>> details = await client.get_company_charge_details(
     ...     "09370755",
     ...     "charge_id_123"
     ... )
-    >>> print(f"Status: {details.status}")  # doctest: +SKIP
+    >>> print(f"Status: {details.status}")
     Status: ...
-    >>> print(f"Created: {details.created_on}")  # doctest: +SKIP
+    >>> print(f"Created: {details.created_on}")
     Created: ...
 
 See Also

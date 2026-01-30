@@ -85,7 +85,7 @@ def RelaxedLiteral(*expected_values: str):
         >>> import pydantic
         >>> import typing
         ...
-        >>> class CompanyProfile(BaseModel):  # doctest: +SKIP
+        >>> class CompanyProfile(BaseModel):
         ...     # Strict company statuses (for example purposes)
         ...     company_status: typing.Annotated[
         ...         str,
@@ -108,19 +108,19 @@ def RelaxedLiteral(*expected_values: str):
         ...     ] = pydantic.Field(default=None, description="Company type")
         ...
         >>> # Accepts known values without warning
-        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        >>> profile = CompanyProfile.model_validate({
         ...     "company_status": "active",
         ...     "company_type": "ltd"
         ... })
         ...
         >>> # Accepts new values from API update, logs warning
-        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        >>> profile = CompanyProfile.model_validate({
         ...     "company_status": "administration",  # Known
         ...     "company_type": "new-type-added-by-api"  # Unknown - logs warning
         ... })
         ...
         >>> # Works with None values
-        >>> profile = CompanyProfile.model_validate({  # doctest: +SKIP
+        >>> profile = CompanyProfile.model_validate({
         ...     "company_status": "active",
         ...     "company_type": None  # OK - field is optional
         ... })

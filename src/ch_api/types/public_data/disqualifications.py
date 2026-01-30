@@ -42,17 +42,17 @@ Fetch disqualification information for a natural person::
 
     >>> from ch_api import Client, api_settings
     >>> auth = api_settings.AuthSettings(api_key="your-key")
-    >>> client = Client(credentials=auth)  # doctest: +SKIP
+    >>> client = Client(credentials=auth)
     ...
-    >>> disqualification = await client.get_natural_officer_disqualification("officer_id")  # doctest: +SKIP
-    >>> print(f"Disqualified: {disqualification.disqualified_from}")  # doctest: +SKIP
+    >>> disqualification = await client.get_natural_officer_disqualification("officer_id")
+    >>> print(f"Disqualified: {disqualification.disqualified_from}")
     Disqualified: ...
-    >>> print(f"Until: {disqualification.disqualified_until}")  # doctest: +SKIP
+    >>> print(f"Until: {disqualification.disqualified_until}")
     Until: ...
 
 Get corporate officer disqualification::
 
-    >>> disqualification = await client.get_corporate_officer_disqualification("officer_id")  # doctest: +SKIP
+    >>> disqualification = await client.get_corporate_officer_disqualification("officer_id")
 
 See Also
 --------

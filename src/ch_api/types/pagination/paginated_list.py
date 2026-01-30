@@ -253,11 +253,11 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual MultipageList creation::
 
-                >>> async def fetch_firms(page_idx: int):  # doctest: +SKIP
+                >>> async def fetch_firms(page_idx: int):
                 ...     response = await raw_client.search_frn("test", page=page_idx)
                 ...     # Parse and return (info, items)
                 ...
-                >>> results = MultipageList(fetch_page=fetch_firms)  # doctest: +SKIP
+                >>> results = MultipageList(fetch_page=fetch_firms)
                 >>> await results._async_init()  # Required!
         """
         self._pages = []
@@ -292,7 +292,7 @@ class MultipageList(typing.Generic[T]):
         Example:
             Manual initialization::
 
-                >>> results = MultipageList(fetch_page=my_fetch_function)  # doctest: +SKIP
+                >>> results = MultipageList(fetch_page=my_fetch_function)
                 >>> await results._async_init()  # Required before use
                 >>> print(len(results))  # Now safe to call
                 ...
@@ -313,16 +313,16 @@ class MultipageList(typing.Generic[T]):
         Example:
             Bulk processing pattern::
 
-                >>> results = await client.search_frn("test")  # doctest: +SKIP
+                >>> results = await client.search_frn("test")
                 ...
                 >>> # Load all data once
-                >>> await results.fetch_all_pages()  # doctest: +SKIP
+                >>> await results.fetch_all_pages()
                 ...
                 >>> # Now process multiple times without API calls
-                >>> authorised = [f for f in results.local_items() if f.status == "Authorised"]  # doctest: +SKIP
-                >>> unauthorised = [f for f in results.local_items() if f.status != "Authorised"]  # doctest: +SKIP
+                >>> authorised = [f for f in results.local_items() if f.status == "Authorised"]
+                >>> unauthorised = [f for f in results.local_items() if f.status != "Authorised"]
                 ...
-                >>> print(f"Authorised: {len(authorised)}, Unauthorised: {len(unauthorised)}")  # doctest: +SKIP
+                >>> print(f"Authorised: {len(authorised)}, Unauthorised: {len(unauthorised)}")
                 Authorised: ..., Unauthorised: ...
 
         Warning:
@@ -456,12 +456,12 @@ class MultipageList(typing.Generic[T]):
         Example:
             Check before performing operations that require all data::
 
-                >>> results = await client.search_companies("Apple")  # doctest: +SKIP
+                >>> results = await client.search_companies("Apple")
                 >>> if not results.is_fully_fetched:
                 ...     await results.fetch_all_pages()
                 ...
                 >>> # Now safe to perform bulk operations
-                >>> for company in results.local_items():  # doctest: +SKIP
+                >>> for company in results.local_items():
                 ...     process(company)
         """
         return not self._has_next_page()

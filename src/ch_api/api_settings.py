@@ -23,7 +23,7 @@ Example:
 
         >>> from ch_api import api_settings
         >>> auth = api_settings.AuthSettings(api_key="your-test-key")
-        >>> client = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)  # doctest: +SKIP
+        >>> client = Client(credentials=auth, settings=api_settings.TEST_API_SETTINGS)
 
 See Also:
     - https://developer-specs.company-information.service.gov.uk/guides/authorisation

@@ -9,7 +9,7 @@ Example:
         >>> from ch_api import Client, api_settings
         >>> auth = api_settings.AuthSettings(api_key="your-api-key")
         >>> client = Client(credentials=auth)
-        >>> company = await client.get_company_profile("09370755")  # doctest: +SKIP
+        >>> company = await client.get_company_profile("09370755")
 
 See Also:
     https://developer-specs.company-information.service.gov.uk/guides/gettingStarted
@@ -76,20 +76,20 @@ class Client:
 
             >>> from ch_api import Client, api_settings
             >>> auth = api_settings.AuthSettings(api_key="your-api-key")
-            >>> client = Client(credentials=auth)  # doctest: +SKIP
+            >>> client = Client(credentials=auth)
             ...
             >>> # Fetch a company's profile
-            >>> profile = await client.get_company_profile("09370755")  # doctest: +SKIP
-            >>> print(f"{profile.company_name} - Status: {profile.company_status}")  # doctest: +SKIP
+            >>> profile = await client.get_company_profile("09370755")
+            >>> print(f"{profile.company_name} - Status: {profile.company_status}")
             ...
             >>> # Fetch company officers
-            >>> officers = await client.get_officer_list("09370755")  # doctest: +SKIP
-            >>> async for officer in officers:  # doctest: +SKIP
+            >>> officers = await client.get_officer_list("09370755")
+            >>> async for officer in officers:
             ...     print(f"Officer: {officer.name}")
             ...
             >>> # Search for companies
-            >>> results = await client.search_companies("Apple")  # doctest: +SKIP
-            >>> async for result in results:  # doctest: +SKIP
+            >>> results = await client.search_companies("Apple")
+            >>> async for result in results:
             ...     print(f"Found: {result.title} ({result.company_number})")
 
     Note:
@@ -236,7 +236,7 @@ class Client:
         -------
         Manual cleanup::
 
-            >>> client = Client(credentials=auth)  # doctest: +SKIP
+            >>> client = Client(credentials=auth)
             >>> try:
             ...     company = await client.get_company_profile("09370755")
             ... finally:
@@ -244,7 +244,7 @@ class Client:
 
         Or use as context manager for automatic cleanup::
 
-            >>> async with Client(credentials=auth) as client:  # doctest: +SKIP
+            >>> async with Client(credentials=auth) as client:
             ...     company = await client.get_company_profile("09370755")
         """
         if self._owns_session:

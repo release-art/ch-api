@@ -59,7 +59,7 @@ class BaseModel(pydantic.BaseModel):
         -------
         Validate API response with mixed-case field names::
 
-            >>> from ch_api.types.company_profile import CompanyProfile  # doctest: +SKIP
+            >>> from ch_api.types.company_profile import CompanyProfile
             ...
             >>> api_response = {
             ...     "CompanyNumber": "09370755",
