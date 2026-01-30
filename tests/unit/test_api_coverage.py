@@ -141,6 +141,89 @@ class TestPaginatedSearchResultErrors:
 
         assert exc_info.value.response.status_code == 500
 
+    @pytest.mark.asyncio
+    async def test_get_paginated_search_result_successful_with_items(self):
+        """Test successful _get_paginated_search_result with items (line 431)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock successful result with items
+        from ch_api.types.public_data import search_companies
+
+        mock_result = MagicMock(spec=search_companies.GenericSearchResult)
+        mock_result.items = ["item1", "item2", "item3"]
+        mock_result.start_index = 0
+        mock_result.items_per_page = 20
+        mock_result.total_results = 100
+
+        # Mock the _get_resource method to return the result
+        client._get_resource = AsyncMock(return_value=mock_result)
+
+        # Create a target for pagination
+        from ch_api.types.pagination import types as pagination_types
+
+        target = pagination_types.FetchPageCallArg(
+            first_known_item=None,
+            last_known_item=None,
+            last_fetched_page=-1,
+            current_total_list_len=0,
+        )
+
+        result = await client._get_paginated_search_result(
+            output_t=str,
+            base_url="https://api.example.com/search",
+            query_params={"query": "test"},
+            target=target,
+        )
+
+        # Verify the result structure
+        page_info, items = result
+        assert page_info is not None
+        assert items == ["item1", "item2", "item3"]
+        assert page_info.page == 0  # last_fetched_page + 1 = -1 + 1
+        assert page_info.per_page == 20
+        assert page_info.has_next is True  # 3 items < 100 total
+
+    @pytest.mark.asyncio
+    async def test_get_paginated_search_result_with_none_items(self):
+        """Test _get_paginated_search_result when items is None (line 431)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth)
+
+        # Create a mock result with items=None
+        from ch_api.types.public_data import search_companies
+
+        mock_result = MagicMock(spec=search_companies.GenericSearchResult)
+        mock_result.items = None
+        mock_result.start_index = 0
+        mock_result.items_per_page = 20
+        mock_result.total_results = 50
+
+        # Mock the _get_resource method to return the result
+        client._get_resource = AsyncMock(return_value=mock_result)
+
+        # Create a target for pagination
+        from ch_api.types.pagination import types as pagination_types
+
+        target = pagination_types.FetchPageCallArg(
+            first_known_item=None,
+            last_known_item=None,
+            last_fetched_page=0,
+            current_total_list_len=0,
+        )
+
+        result = await client._get_paginated_search_result(
+            output_t=str,
+            base_url="https://api.example.com/search",
+            query_params={"query": "test"},
+            target=target,
+        )
+
+        # When items is None, items should be [] (line 431: items = result.items or [])
+        page_info, items = result
+        assert items == []
+        assert page_info.has_next is False  # No items, so no next page
+
 
 class TestGetCompanyRegistersNotFound:
     """Test get_company_registers with NOT_FOUND status."""
