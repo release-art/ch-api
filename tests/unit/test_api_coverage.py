@@ -39,6 +39,25 @@ class TestCreateTestCompany:
         assert request.method == "POST"
         assert "test-companies" in request.url.path
 
+    @pytest.mark.asyncio
+    async def test_create_test_company_no_url_raises_error(self):
+        """Test that create_test_company raises RuntimeError when URL not configured (line 352)."""
+        auth = api_settings.AuthSettings(api_key="test-key")
+        # Use LIVE_API_SETTINGS which doesn't have test_data_generator_url
+        client = api.Client(credentials=auth, settings=api_settings.LIVE_API_SETTINGS)
+
+        # Create a mock company object
+        company = test_data_generator.CreateTestCompanyRequest(
+            company_name="Test Company Ltd",
+            company_number="12345678",
+        )
+
+        # Should raise RuntimeError when test_data_generator_url is None
+        with pytest.raises(RuntimeError) as exc_info:
+            await client.create_test_company(company)
+
+        assert "Test Data Generator URL is not configured" in str(exc_info.value)
+
 
 class TestGetCompanyRegistersNotFound:
     """Test get_company_registers with NOT_FOUND status."""

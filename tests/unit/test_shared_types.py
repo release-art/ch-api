@@ -104,7 +104,7 @@ class TestLinksSection:
         # Both extra fields should be retrievable via get_link
         assert links.get_link("dynamic_link") == "https://api.example.com/dynamic"
         assert links.get_link("resource_url") == "https://api.example.com/resource"
-        
+
         # Verify that __pydantic_extra__ is being used (line 163 uses it)
         assert links.__pydantic_extra__ is not None
         assert "dynamic_link" in links.__pydantic_extra__
@@ -130,10 +130,10 @@ class TestLinksSection:
         """Test get_link when __pydantic_extra__ is explicitly None (line 162-163)."""
         # Create a LinksSection and manually set __pydantic_extra__ to None
         links = shared.LinksSection.model_validate({})
-        
+
         # Manually set __pydantic_extra__ to None to test the None check
         links.__pydantic_extra__ = None
-        
+
         # This should return None due to the check on line 162
         result = links.get_link("any_link")
         assert result is None
