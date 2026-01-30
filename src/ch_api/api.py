@@ -67,7 +67,7 @@ from . import api_settings, exc, types
 logger = logging.getLogger(__name__)
 
 LimiterContextT = typing.Callable[[], typing.AsyncContextManager[None]]
-ModelT = typing.TypeVar("T", bound=types.base.BaseModel)
+ModelT = typing.TypeVar("ModelT", bound=types.base.BaseModel)
 
 CompanyNumberStrT = typing.Annotated[
     str,
@@ -305,14 +305,13 @@ class Client:
                 )
             elif not response.content:
                 raise exc.UnexpectedApiResponseError("Expected response body but got empty content.")
-            return expected_out.model_validate(response.json())
-        return None
+            return expected_out.model_validate(response.json())  # type: ignore[return-value]
 
     async def _get_resource(
         self,
         url: str,
         result_type: typing.Type[ModelT],
-    ) -> ModelT:
+    ) -> typing.Optional[ModelT]:  # noqa: C901
         """Helper method for simple GET requests.
 
         Reduces duplication for endpoints that just need to fetch a resource.
@@ -372,7 +371,7 @@ class Client:
     @pydantic.validate_call
     async def create_test_company(
         self, company: types.test_data_generator.CreateTestCompanyRequest
-    ) -> types.test_data_generator.CreateTestCompanyResponse:
+    ) -> typing.Optional[types.test_data_generator.CreateTestCompanyResponse]:
         """Create a test company using the Test Data Generator API.
 
         Parameters
@@ -399,7 +398,7 @@ class Client:
     @pydantic.validate_call
     async def get_company_profile(
         self, company_number: CompanyNumberStrT
-    ) -> types.public_data.company_profile.CompanyProfile:
+    ) -> typing.Optional[types.public_data.company_profile.CompanyProfile]:
         """Fetch the company profile for a given company.
 
         Parameters
@@ -420,7 +419,7 @@ class Client:
     @pydantic.validate_call
     async def registered_office_address(
         self, company_number: CompanyNumberStrT
-    ) -> types.public_data.registered_office.RegisteredOfficeAddress:
+    ) -> types.public_data.registered_office.RegisteredOfficeAddress | None:
         """Fetch the registered office address for a given company.
 
         Parameters
@@ -454,7 +453,8 @@ class Client:
         this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
         try:
             result = await self._get_resource(
-                this_url, types.public_data.search_companies.GenericSearchResult[output_t]
+                this_url,
+                types.public_data.search_companies.GenericSearchResult[output_t],  # type: ignore[arg-type]
             )
         except httpx.HTTPStatusError as e:
             if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
@@ -505,7 +505,7 @@ class Client:
             types.pagination.async_list.MultipageList[types.public_data.company_officers.OfficerSummary]
                 The list of company officers.
         """
-        query_params: dict[str, str] = {
+        query_params: dict[str, typing.Union[str, list[str]]] = {
             "order_by": order_by,
         }
         if only_type is not None:
@@ -530,7 +530,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         appointment_id: str,
-    ) -> types.public_data.company_officers.OfficerSummary:
+    ) -> types.public_data.company_officers.OfficerSummary | None:
         url = f"{self._settings.api_url}/company/{company_number}/appointments/{appointment_id}"
         return await self._get_resource(url, types.public_data.company_officers.OfficerSummary)
 
@@ -562,7 +562,7 @@ class Client:
         """
         out = types.pagination.paginated_list.MultipageList(
             fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.search.AnySearchResultT,
+                output_t=types.public_data.search.AnySearchResultT,  # type: ignore[arg-type]
                 base_url=f"{self._settings.api_url}/search",
                 query_params={"q": query},
                 target=target,
@@ -580,7 +580,7 @@ class Client:
         target: types.pagination.types.FetchPageCallArg[ModelT],
     ) -> tuple[
         typing.Optional[types.pagination.types.PaginatedResultInfo],
-        types.public_data.search_companies.AdvancedSearchResult[ModelT],
+        typing.Optional[types.public_data.search_companies.AdvancedSearchResult[ModelT]],
     ]:
         my_query_params = query_params.copy() | {
             "start_index": target.current_total_list_len,
@@ -594,7 +594,7 @@ class Client:
 
         return await self._fetch_paginated_container(
             request=request,
-            output_t=types.public_data.search_companies.AdvancedSearchResult[output_t],
+            output_t=types.public_data.search_companies.AdvancedSearchResult[output_t],  # type: ignore[arg-type]
             to_pagination_info_args=lambda result: {
                 "has_next": (target.current_total_list_len + len(result.items or [])) < result.hits,
                 "page": target.last_fetched_page + 1,
@@ -661,9 +661,9 @@ class Client:
                 base_url=f"{self._settings.api_url}/advanced-search/companies",
                 query_params=query_params,
                 target=target,
-            )
+            )  # type: ignore[arg-type]
 
-        return await types.compound_api_types.public_data.search_companies.AdvancedSearchResult.from_api_paginated_list(
+        return await types.compound_api_types.public_data.search_companies.AdvancedSearchResult.from_api_paginated_list(  # type: ignore[return-value]
             fetch_page_fn=_fetch_page,
             convert_item_fn=lambda fetched_list: fetched_list.items or [],
         )
@@ -684,8 +684,16 @@ class Client:
         if target.last_fetched_page > 0:
             return (None, None)
 
-        search_below = target.last_known_item.ordered_alpha_key_with_id if target.last_known_item else None
-        search_above = target.first_known_item.ordered_alpha_key_with_id if target.first_known_item else None
+        search_below = (
+            target.last_known_item.ordered_alpha_key_with_id  # type: ignore[union-attr]
+            if target.last_known_item
+            else None
+        )
+        search_above = (
+            target.first_known_item.ordered_alpha_key_with_id  # type: ignore[union-attr]
+            if target.first_known_item
+            else None
+        )
 
         if (None in (search_above, search_below)) and target.last_fetched_page > 0:
             # search_below = None indicates start of list, so if we have already fetched at least one page
@@ -706,7 +714,7 @@ class Client:
 
         return await self._fetch_paginated_container(
             request=request,
-            output_t=types.public_data.search_companies.AlphabeticalCompanySearchResult[output_t],
+            output_t=types.public_data.search_companies.AlphabeticalCompanySearchResult[output_t],  # type: ignore[arg-type]
             to_pagination_info_args=lambda result: {
                 "page": target.last_fetched_page + 1,
                 "has_next": (len(result.items or []) > 0),
@@ -733,7 +741,7 @@ class Client:
                 target=target,
             )
 
-        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(
+        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(  # type: ignore[return-value]
             fetch_page_fn=_fetch_page,
             convert_item_fn=lambda fetched_list: fetched_list.items or [],
         )
@@ -770,7 +778,7 @@ class Client:
                 target=target,
             )
 
-        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(
+        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(  # type: ignore[return-value]
             fetch_page_fn=_fetch_page,
             convert_item_fn=lambda fetched_list: fetched_list.items or [],
         )
@@ -830,7 +838,7 @@ class Client:
     async def get_company_charges(
         self,
         company_number: CompanyNumberStrT,
-    ) -> types.public_data.charges.ChargeList:
+    ) -> types.public_data.charges.ChargeList | None:
         """Fetch all charges for a given company.
 
         Parameters
@@ -853,7 +861,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         charge_id: str,
-    ) -> types.public_data.charges.ChargeDetails:
+    ) -> types.public_data.charges.ChargeDetails | None:
         """Fetch all charges for a given company.
 
         Parameters
@@ -966,7 +974,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         filing_history_id: str,
-    ) -> types.public_data.filing_history.FilingHistoryItem:
+    ) -> types.public_data.filing_history.FilingHistoryItem | None:
         """Fetch a specific filing history item for a given company.
 
         Parameters
@@ -990,7 +998,7 @@ class Client:
     async def get_company_insolvency(
         self,
         company_number: CompanyNumberStrT,
-    ) -> types.public_data.insolvency.CompanyInsolvency:
+    ) -> types.public_data.insolvency.CompanyInsolvency | None:
         """Fetch insolvency information for a given company.
 
         Parameters
@@ -1012,7 +1020,7 @@ class Client:
     async def get_company_exemptions(
         self,
         company_number: CompanyNumberStrT,
-    ) -> types.public_data.exemptions.CompanyExemptions:
+    ) -> types.public_data.exemptions.CompanyExemptions | None:
         """Fetch exemptions information for a given company.
 
         Parameters
@@ -1033,7 +1041,7 @@ class Client:
     @pydantic.validate_call
     async def get_corporate_officer_disqualification(
         self, officer_id: OfficerIdStrT
-    ) -> types.public_data.disqualifications.CorporateDisqualification:
+    ) -> types.public_data.disqualifications.CorporateDisqualification | None:
         """Fetch the corporate officer disqualification for a given officer.
 
         Parameters
@@ -1054,7 +1062,7 @@ class Client:
     @pydantic.validate_call
     async def get_natural_officer_disqualification(
         self, officer_id: OfficerIdStrT
-    ) -> types.public_data.disqualifications.NaturalDisqualification:
+    ) -> types.public_data.disqualifications.NaturalDisqualification | None:
         """Fetch the natural officer disqualification for a given officer.
 
         Parameters
@@ -1117,7 +1125,7 @@ class Client:
             )
 
         return (
-            await types.compound_api_types.public_data.officer_appointments.OfficerAppointments.from_api_paginated_list(
+            await types.compound_api_types.public_data.officer_appointments.OfficerAppointments.from_api_paginated_list(  # type: ignore[return-value]
                 fetch_page_fn=_get_page,
                 convert_item_fn=lambda item: item.items or (),
             )
@@ -1127,7 +1135,7 @@ class Client:
     async def get_company_uk_establishments(
         self,
         company_number: CompanyNumberStrT,
-    ) -> types.public_data.uk_establishments.CompanyUKEstablishments:
+    ) -> types.public_data.uk_establishments.CompanyUKEstablishments | None:
         """Fetch the UK establishments for a given company.
 
         Parameters
@@ -1215,7 +1223,7 @@ class Client:
                 },
             )
 
-        return await types.compound_api_types.public_data.psc.OfficerAppointments.from_api_paginated_list(
+        return await types.compound_api_types.public_data.psc.OfficerAppointments.from_api_paginated_list(  # type: ignore[return-value]
             fetch_page_fn=fetch_page,
             convert_item_fn=lambda fetched_list: fetched_list.items or (),
         )
@@ -1262,7 +1270,7 @@ class Client:
                 },
             )
 
-        return await types.compound_api_types.public_data.psc.StatementList.from_api_paginated_list(
+        return await types.compound_api_types.public_data.psc.StatementList.from_api_paginated_list(  # type: ignore[return-value]
             fetch_page_fn=fetch_page,
             convert_item_fn=lambda fetched_list: fetched_list.items or (),
         )
@@ -1273,7 +1281,7 @@ class Client:
         psc_id: str,
         psc_type: str,
         result_type: typing.Type[ModelT],
-    ) -> ModelT:
+    ) -> ModelT | None:
         """Helper method to fetch PSC records by type.
 
         This reduces code duplication across the multiple PSC endpoint methods.
@@ -1291,8 +1299,8 @@ class Client:
 
         Returns
         -------
-        ModelT
-            The validated PSC record
+        ModelT | None
+            The validated PSC record, or None if not found
         """
         return await self._get_resource(
             f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control/{psc_type}/{psc_id}",
@@ -1304,7 +1312,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.CorporateEntity:
+    ) -> types.public_data.psc.CorporateEntity | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1317,7 +1325,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.CorporateEntityBeneficialOwner:
+    ) -> types.public_data.psc.CorporateEntityBeneficialOwner | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1330,7 +1338,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.IndividualBeneficialOwner:
+    ) -> types.public_data.psc.IndividualBeneficialOwner | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1343,7 +1351,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.Individual:
+    ) -> types.public_data.psc.Individual | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1356,7 +1364,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.LegalPersonBeneficialOwner:
+    ) -> types.public_data.psc.LegalPersonBeneficialOwner | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1369,7 +1377,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.LegalPerson:
+    ) -> types.public_data.psc.LegalPerson | None:
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1382,7 +1390,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.SuperSecure:  # pragma: no cover - can't test
+    ) -> types.public_data.psc.SuperSecure | None:  # pragma: no cover - can't test
         return await self._get_psc_by_type(
             company_number,
             psc_id,
@@ -1395,7 +1403,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         psc_id: PscIdStrT,
-    ) -> types.public_data.psc.SuperSecureBeneficialOwner:  # pragma: no cover - can't test
+    ) -> types.public_data.psc.SuperSecureBeneficialOwner | None:  # pragma: no cover - can't test
         return await self._get_psc_by_type(
             company_number,
             psc_id,

@@ -159,4 +159,6 @@ class LinksSection(base.BaseModel):
         --------
         self : Property for getting the 'self' link
         """
+        if self.__pydantic_extra__ is None:
+            return None
         return self.__pydantic_extra__.get(name, None)

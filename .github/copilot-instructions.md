@@ -102,6 +102,10 @@ All development utilities are in `bin/` directory:
 - Config in `pyproject.toml`: target-version=py313, 120-char lines
 - Always run before committing to ensure code quality
 
+**bin/ty.sh** - Type checker
+- Runs `pdm run ty` (Pyright) on src/
+- Pass args to check specific files: `bin/ty.sh src/ch_api/api.py`
+
 ### Testing
 ```bash
 # Run all tests with coverage (recommended)

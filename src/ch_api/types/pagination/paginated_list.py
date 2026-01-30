@@ -532,7 +532,7 @@ class MultipageList(typing.Generic[T]):
             item_type = typing.Any
 
         # Get the schema for list[T] for serialization
-        list_schema = handler(list[item_type])
+        list_schema = handler(list[item_type])  # type: ignore[arg-type]
 
         # Return a schema that accepts MultipageList instances directly
         # and serializes them as lists
@@ -541,6 +541,6 @@ class MultipageList(typing.Generic[T]):
             serialization=pydantic_core.core_schema.plain_serializer_function_ser_schema(
                 lambda v: list(v.local_items()),
                 info_arg=False,
-                return_schema=list_schema,
+                return_schema=list_schema,  # type: ignore[arg-type]
             ),
         )

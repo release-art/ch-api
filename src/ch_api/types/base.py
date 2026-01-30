@@ -76,7 +76,9 @@ class BaseModel(pydantic.BaseModel):
     )
 
     @classmethod
-    def model_validate(cls, data: typing.Any) -> "BaseModel":
+    def model_validate(  # type: ignore[override]
+        cls, data: typing.Any, **kwargs: typing.Any
+    ) -> "BaseModel":
         """Validate and create model instance from API response data.
 
         This method extends Pydantic's validation to handle Companies House API
