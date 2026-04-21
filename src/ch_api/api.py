@@ -306,18 +306,14 @@ class Client:
     # Token encode / decode helpers
     # ------------------------------------------------------------------
 
-    def _encode_next_page(
-        self, state: types.pagination.types._PageState
-    ) -> types.pagination.types.NextPageToken:
+    def _encode_next_page(self, state: types.pagination.types._PageState) -> types.pagination.types.NextPageToken:
         """Encode a page state into an externally-safe NextPageToken."""
         raw = state.encode()
         if self._page_token_serializer is not None:
             return self._page_token_serializer.serialize(raw)
         return raw
 
-    def _decode_next_page(
-        self, token: types.pagination.types.NextPageToken
-    ) -> types.pagination.types._PageState:
+    def _decode_next_page(self, token: types.pagination.types.NextPageToken) -> types.pagination.types._PageState:
         """Decode a caller-provided NextPageToken into internal page state."""
         raw = token
         if self._page_token_serializer is not None:
@@ -330,9 +326,7 @@ class Client:
 
     async def _fetch_paginated(
         self,
-        fetch_page_fn: typing.Callable[
-            [int], typing.Awaitable[tuple[list, typing.Optional[int]]]
-        ],
+        fetch_page_fn: typing.Callable[[int], typing.Awaitable[tuple[list, typing.Optional[int]]]],
         next_page: typing.Optional[types.pagination.types.NextPageToken],
         result_count: int,
     ) -> types.pagination.types.MultipageList:
@@ -350,9 +344,7 @@ class Client:
             A MultipageList with the collected items and pagination metadata.
         """
         page_state = (
-            self._decode_next_page(next_page)
-            if next_page is not None
-            else types.pagination.types._PageState.first()
+            self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
         current_start = page_state.start_index
         items: list = []
@@ -367,11 +359,7 @@ class Client:
                 total_count = page_total
             items.extend(page_items)
 
-            has_next = bool(
-                total_count is not None
-                and page_items
-                and (current_start + last_page_len) < total_count
-            )
+            has_next = bool(total_count is not None and page_items and (current_start + last_page_len) < total_count)
 
             if not has_next or len(items) >= result_count:
                 break
@@ -380,9 +368,7 @@ class Client:
 
         next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
         if has_next:
-            next_state = types.pagination.types._PageState(
-                start_index=current_start + last_page_len
-            )
+            next_state = types.pagination.types._PageState(start_index=current_start + last_page_len)
             next_page_out = self._encode_next_page(next_state)
 
         return types.pagination.types.MultipageList(
@@ -396,9 +382,7 @@ class Client:
 
     async def _fetch_paginated_cursor(
         self,
-        fetch_page_fn: typing.Callable[
-            [typing.Optional[str]], typing.Awaitable[tuple[list, typing.Optional[str]]]
-        ],
+        fetch_page_fn: typing.Callable[[typing.Optional[str]], typing.Awaitable[tuple[list, typing.Optional[str]]]],
         next_page: typing.Optional[types.pagination.types.NextPageToken],
         result_count: int,
     ) -> types.pagination.types.MultipageList:
@@ -420,9 +404,7 @@ class Client:
             ``pagination.size`` is always None for cursor-based endpoints.
         """
         page_state = (
-            self._decode_next_page(next_page)
-            if next_page is not None
-            else types.pagination.types._PageState.first()
+            self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
         cursor = page_state.search_below
         items: list = []
@@ -522,7 +504,6 @@ class Client:
             types.public_data.registered_office.RegisteredOfficeAddress,
         )
 
-
     @pydantic.validate_call
     async def get_officer_list(
         self,
@@ -616,7 +597,9 @@ class Client:
         base_url = f"{self._settings.api_url}/search"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            url = (
+                f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            )
             try:
                 result = await self._get_resource(
                     url,
@@ -816,7 +799,9 @@ class Client:
         base_url = f"{self._settings.api_url}/search/companies"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            url = (
+                f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            )
             try:
                 result = await self._get_resource(
                     url,
@@ -855,7 +840,9 @@ class Client:
         base_url = f"{self._settings.api_url}/search/officers"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            url = (
+                f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            )
             try:
                 result = await self._get_resource(
                     url,
@@ -894,7 +881,9 @@ class Client:
         base_url = f"{self._settings.api_url}/search/disqualified-officers"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            url = (
+                f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            )
             try:
                 result = await self._get_resource(
                     url,
@@ -1223,7 +1212,11 @@ class Client:
         register_view_str = "true" if register_view else "false"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = {"items_per_page": str(page_size), "start_index": str(start_index), "register_view": register_view_str}
+            params = {
+                "items_per_page": str(page_size),
+                "start_index": str(start_index),
+                "register_view": register_view_str,
+            }
             url = f"{base_url}?{urllib.parse.urlencode(params)}"
             try:
                 result = await self._get_resource(url, types.public_data.psc.PSCList)
@@ -1265,7 +1258,11 @@ class Client:
         register_view_str = "true" if register_view else "false"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = {"items_per_page": str(page_size), "start_index": str(start_index), "register_view": register_view_str}
+            params = {
+                "items_per_page": str(page_size),
+                "start_index": str(start_index),
+                "register_view": register_view_str,
+            }
             url = f"{base_url}?{urllib.parse.urlencode(params)}"
             try:
                 result = await self._get_resource(url, types.public_data.psc.StatementList)

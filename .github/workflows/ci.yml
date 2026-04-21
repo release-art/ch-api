@@ -83,6 +83,7 @@ jobs:
         pdm use -f .venv
         pdm install -v
         pdm run -v lint
+        pdm run -v typecheck
         pdm run -v pytest
 
     - name: Upload coverage reports to Codecov

@@ -47,6 +47,7 @@ dev = [
     "autodoc-pydantic>=2.2.0",
     "ty>=0.0.14",
     "pytest-doctestplus>=1.7.1",
+    "pyright>=1.1.408",
 ]
 
 [project.urls]
@@ -117,6 +118,7 @@ path = "src/ch_api/__version__.py"
 [tool.pdm.scripts]
 doc = {shell = "sphinx-build -b html -W -T -E ./docs ./dist/docs/html", help="Build sphynx docs"}
 lint = {shell = "./bin/autoformat.sh", help = "Lint source with Ruff"}
+typecheck = {cmd = "pyright", help = "Type-check source with Pyright"}
 
 
 
@@ -156,3 +158,8 @@ doctest_optionflags = ["NORMALIZE_WHITESPACE", "ELLIPSIS"]
 markers = [
     # Test tags/labels/markers - not using any currently
 ]
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"

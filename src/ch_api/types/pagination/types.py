@@ -16,7 +16,7 @@ import typing
 
 import pydantic
 
-_ItemT = typing.TypeVar("_ItemT")
+_ItemT = typing.TypeVar("_ItemT", bound=pydantic.BaseModel)
 
 
 # ---------------------------------------------------------------------------
