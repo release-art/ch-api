@@ -10,15 +10,15 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-length": "0",
-    "date": "Fri, 30 Jan 2026 13:14:21 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:42 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=BB1421A1095343B44B6D1112C91AE5C5; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=DBB4AE22B716D187FCB2A1A05CE98958; Path=/; HttpOnly",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "524",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "559",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
@@ -31,8 +31,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/search/companies?q=R5E+ART+LIMITED&start_index=900&items_per_page=200"
+    "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=Nonexistent+Company+123456789&start_index=0"
   },
-  "status_code": 416,
-  "url": "https://api.company-information.service.gov.uk/search/companies?q=R5E+ART+LIMITED&start_index=900&items_per_page=200"
+  "status_code": 404,
+  "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=Nonexistent+Company+123456789&start_index=0"
 }

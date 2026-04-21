@@ -2382,30 +2382,6 @@
         },
         {
           "address": {
-            "address_line_1": "St James's Street",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "SW1A 1LD",
-            "premises": "Cassini House 57-59"
-          },
-          "address_snippet": "Cassini House 57-59, St James's Street, London, England, SW1A 1LD",
-          "appointment_count": 1,
-          "description": "Total number of appointments 1",
-          "description_identifiers": [
-            "appointment-count"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/8OpsmBEJ8-pWWGJEA-tidj6tEQw/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ARTEMIS FUND MANAGERS LIMITED"
-        },
-        {
-          "address": {
             "address_line_1": "Trafalgar Court",
             "address_line_2": "Admiral Park",
             "country": "Guernsey",
@@ -2428,6 +2404,31 @@
           },
           "snippet": "",
           "title": "ARTEMIS SECRETARY LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Queen Street",
+            "country": "England",
+            "locality": "Maidenhead",
+            "postal_code": "SL6 1LT",
+            "premises": "61",
+            "region": "Berkshire"
+          },
+          "address_snippet": "61 Queen Street, Maidenhead, Berkshire, England, SL6 1LT",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/8mbFAFkH_QvC_WZCi_BcAQsIY2U/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "JOHN ARTHUR RADLEY"
         }
       ],
       "items_per_page": 100,
@@ -2445,16 +2446,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:18 GMT",
+    "date": "Tue, 21 Apr 2026 11:06:16 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=70F5FC86BE347F1E8F7267C77F0B22F8; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=20F5DDBC3B82A5B11E6ECCDE886D8834; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "551",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "564",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

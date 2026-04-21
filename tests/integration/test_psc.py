@@ -5,45 +5,34 @@ import ch_api
 
 @pytest.mark.asyncio
 async def test_get_psc_list(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    result = await live_env_test_client.get_company_psc_list(r5e_company_number)
+    result = await live_env_test_client.get_company_psc_list(r5e_company_number, result_count=100)
     assert result
-    assert result.active_count == 1
-    assert result.ceased_count == 0
-    all_data = await result.items.get_all()
-    assert len(all_data) == 1
-    assert all_data[0].name == "Mr Ilja Orlovs"
+    assert len(result.data) == 1
+    assert result.data[0].name == "Mr Ilja Orlovs"
 
 
 @pytest.mark.asyncio
 async def test_get_lloyds_psc_list(live_env_test_client: ch_api.api.Client, lloyds_company_number):
-    result = await live_env_test_client.get_company_psc_list(lloyds_company_number)
+    result = await live_env_test_client.get_company_psc_list(lloyds_company_number, result_count=100)
     assert result
-    assert result.active_count == 1
-    pscs = await result.items.get_all()
-    assert len(pscs) == 1
-    assert pscs[0].name == "Lloyds Banking Group Plc"
+    assert len(result.data) == 1
+    assert result.data[0].name == "Lloyds Banking Group Plc"
 
 
 @pytest.mark.asyncio
 async def test_get_r5e_statements(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    result = await live_env_test_client.get_company_psc_statements(r5e_company_number)
+    result = await live_env_test_client.get_company_psc_statements(r5e_company_number, result_count=100)
     assert result
-    assert result.active_count == 0
-    assert result.ceased_count == 0
-    all_data = await result.items.get_all()
     # no statements for R5E
-    assert len(all_data) == 0
+    assert len(result.data) == 0
 
 
 @pytest.mark.asyncio
 async def test_someones_psc_statements(live_env_test_client: ch_api.api.Client):
-    result = await live_env_test_client.get_company_psc_statements("SC549056")
+    result = await live_env_test_client.get_company_psc_statements("SC549056", result_count=100)
     assert result
-    assert result.active_count > 0
-    assert result.ceased_count == 0
-    all_data = await result.items.get_all()
-    assert len(all_data) == 1
-    assert all_data[0].statement == "no-individual-or-entity-with-signficant-control"
+    assert len(result.data) == 1
+    assert result.data[0].statement == "no-individual-or-entity-with-signficant-control"
 
 
 @pytest.mark.asyncio

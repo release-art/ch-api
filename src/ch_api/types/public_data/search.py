@@ -70,8 +70,7 @@ Search for companies::
 
 Pagination
 -----
-Search results are automatically paginated. The client handles pagination
-transparently through the :class:`ch_api.types.pagination.paginated_list.MultipageList` interface.
+Search results are returned as :class:`ch_api.types.pagination.types.MultipageList`.
 
 See Also
 --------
@@ -79,7 +78,7 @@ ch_api.Client.search : Generic search
 ch_api.Client.search_companies : Company search
 ch_api.Client.search_officers : Officer search
 ch_api.Client.search_disqualified_officers : Disqualified officer search
-ch_api.types.pagination.paginated_list.MultipageList : Paginated results container
+ch_api.types.pagination.types.MultipageList : Paginated results container
 
 References
 ----------

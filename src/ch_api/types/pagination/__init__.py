@@ -1,59 +1,22 @@
 """Pagination support for Companies House API list endpoints.
 
-This package provides utilities and types for handling paginated API responses,
-including the main ``MultipageList`` container and related type definitions.
+All paginated endpoints on ``Client`` accept ``next_page`` and ``result_count``
+and return ``MultipageList[T]``::
 
-Modules
--------
-- :mod:`paginated_list` - MultipageList container for paginated results
-- :mod:`types` - Type definitions for pagination
+    page = await client.search_companies("Apple")
+    while page.pagination.has_next:
+        page = await client.search_companies(
+            "Apple",
+            next_page=page.pagination.next_page,
+            result_count=25,
+        )
 
 Key Classes
 -----------
-- :class:`paginated_list.MultipageList` - Main paginated list container
-- :class:`types.PaginatedResultInfo` - Pagination metadata
-- :class:`types.FetchPageCallArg` - Arguments for page fetch callbacks
-
-Usage
------
-Paginated results are returned automatically by search and list methods::
-
-    from ch_api import Client, api_settings
-
-    auth = api_settings.AuthSettings(api_key="your-key")
-    client = Client(credentials=auth)
-
-    # Returns MultipageList
-    results = await client.search_companies("Apple")
-
-    # Check total count
-    print(f"Total: {len(results)}")
-
-    # Iterate through all results
-    async for company in results:
-        print(f"Company: {company.title}")
-
-    # Access by index
-    if len(results) > 10:
-        eleventh = results[10]
-
-    # Fetch all pages
-    await results.fetch_all_pages()
-    for company in results.local_items():
-        process(company)
-
-Features
---------
-- **Lazy loading**: Pages fetched only when accessed
-- **Async iteration**: ``async for`` support
-- **List-like interface**: ``len()``, indexing, slicing
-- **Caching**: Fetched pages are cached in memory
-- **Non-blocking**: Fully asynchronous operations
-
-See Also
---------
-paginated_list.MultipageList : Main container class
-types.PaginatedResultInfo : Pagination metadata
+- :class:`types.MultipageList` - Simple paginated result container
+- :class:`types.PaginationInfo` - Pagination metadata
+- :class:`types.NextPageToken` - Opaque cursor type
+- :class:`types.PageTokenSerializer` - Optional token encryption protocol
 """
 
-from . import paginated_list, types
+from . import types

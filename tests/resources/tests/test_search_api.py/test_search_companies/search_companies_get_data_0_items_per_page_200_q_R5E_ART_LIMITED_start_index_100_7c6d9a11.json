@@ -4,34 +4,6 @@
       "items": [
         {
           "address": {
-            "address_line_1": "Lodge Avenue",
-            "country": "England",
-            "locality": "Romford",
-            "postal_code": "RM2 5AL",
-            "premises": "20"
-          },
-          "address_snippet": "20 Lodge Avenue, Romford, England, RM2 5AL",
-          "company_number": "12046368",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-11-18",
-          "date_of_creation": "2019-06-12",
-          "description": "12046368 - Dissolved on 18 November 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/12046368"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ACA PERFORMING ARTS LTD"
-        },
-        {
-          "address": {
             "address_line_1": "Ritz Parade",
             "address_line_2": "Western Avenue",
             "locality": "London",
@@ -487,7 +459,7 @@
           "matches": {
             "snippet": []
           },
-          "snippet": "ARTCOMPART",
+          "snippet": "ARTCOMPART LTD",
           "title": "ACCIDENTAL FOUNDER LTD."
         },
         {
@@ -767,31 +739,32 @@
         },
         {
           "address": {
-            "address_line_1": "Bute Street",
-            "country": "United Kingdom",
-            "locality": "Cardiff",
-            "postal_code": "CF10 5LF",
-            "premises": "142"
+            "address_line_1": "Caernarvon Road",
+            "address_line_2": "Eynesbury",
+            "country": "England",
+            "locality": "St. Neots",
+            "postal_code": "PE19 2RN",
+            "premises": "78",
+            "region": "Cambridgeshire"
           },
-          "address_snippet": "142 Bute Street, Cardiff, United Kingdom, CF10 5LF",
-          "company_number": "15096257",
-          "company_status": "dissolved",
+          "address_snippet": "78 Caernarvon Road, Eynesbury, St. Neots, Cambridgeshire, England, PE19 2RN",
+          "company_number": "09249523",
+          "company_status": "active",
           "company_type": "ltd",
-          "date_of_cessation": "2025-01-28",
-          "date_of_creation": "2023-08-25",
-          "description": "15096257 - Dissolved on 28 January 2025",
+          "date_of_creation": "2014-10-06",
+          "description": "09249523 - Incorporated on 6 October 2014",
           "description_identifier": [
-            "dissolved-on"
+            "incorporated-on"
           ],
           "kind": "searchresults#company",
           "links": {
-            "self": "/company/15096257"
+            "self": "/company/09249523"
           },
           "matches": {
             "snippet": []
           },
-          "snippet": "",
-          "title": "THE ACE COMPANY: A+ FOR ART COMMERCE AND EDUCATION LTD"
+          "snippet": "GECKO ARTS LIMITED",
+          "title": "ACE AUTO WORKS LTD"
         },
         {
           "address": {
@@ -847,33 +820,6 @@
           },
           "snippet": "",
           "title": "ACE MARTIAL ARTS LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Priorslee",
-            "locality": "Telford",
-            "postal_code": "TF2 9FT",
-            "premises": "C/O West Advisory E Innovation Centre"
-          },
-          "address_snippet": "C/O West Advisory E Innovation Centre, Priorslee, Telford, TF2 9FT",
-          "company_number": "05589234",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-02-08",
-          "date_of_creation": "2005-10-11",
-          "description": "05589234 - Dissolved on 8 February 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/05589234"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ACE MARTIAL ARTS ACADEMY LIMITED"
         },
         {
           "address": {
@@ -1147,12 +1093,13 @@
           },
           "address_snippet": "29 Throgmorton Street, London, United Kingdom, EC2N 2AT",
           "company_number": "09843855",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "private-limited-guarant-nsc-limited-exemption",
+          "date_of_cessation": "2026-04-07",
           "date_of_creation": "2015-10-27",
-          "description": "09843855 - Incorporated on 27 October 2015",
+          "description": "09843855 - Dissolved on 7 April 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1276,6 +1223,34 @@
         },
         {
           "address": {
+            "address_line_1": "Glebe Road",
+            "address_line_2": "Crondall",
+            "country": "England",
+            "locality": "Farnham",
+            "postal_code": "GU10 5PJ",
+            "premises": "4"
+          },
+          "address_snippet": "4 Glebe Road, Crondall, Farnham, England, GU10 5PJ",
+          "company_number": "17108143",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-03-23",
+          "description": "17108143 - Incorporated on 23 March 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17108143"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACT 5 ARTS LTD"
+        },
+        {
+          "address": {
             "address_line_1": "Darkes Lane",
             "country": "United Kingdom",
             "locality": "Potters Bar",
@@ -1285,12 +1260,13 @@
           },
           "address_snippet": "C/O Georghiades & Associates, 130a, Darkes Lane, Potters Bar, Hertfordshire, United Kingdom, EN6 1AF",
           "company_number": "14373288",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-02-24",
           "date_of_creation": "2022-09-23",
-          "description": "14373288 - Incorporated on 23 September 2022",
+          "description": "14373288 - Dissolved on 24 February 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1331,12 +1307,14 @@
         },
         {
           "address": {
-            "address_line_1": "Business Innovation Centre Harry Weston Road",
+            "address_line_1": "The Priory Priory Road",
+            "address_line_2": "Wolston",
             "locality": "Coventry",
-            "postal_code": "CV3 2TX",
-            "premises": "ACTION ARTIFICIAL INTELLIGENCE LIMITED"
+            "postal_code": "CV8 3FX",
+            "premises": "Unit 8,",
+            "region": "West Midlands"
           },
-          "address_snippet": "ACTION ARTIFICIAL INTELLIGENCE LIMITED, Business Innovation Centre Harry Weston Road, Coventry, CV3 2TX",
+          "address_snippet": "Unit 8,The Priory Priory Road, Wolston, Coventry, West Midlands, CV8 3FX",
           "company_number": "09929210",
           "company_status": "administration",
           "company_type": "ltd",
@@ -1468,34 +1446,6 @@
         },
         {
           "address": {
-            "address_line_1": "Graham Road",
-            "locality": "Worthing",
-            "postal_code": "BN11 1TL",
-            "premises": "7",
-            "region": "West Sussex"
-          },
-          "address_snippet": "7 Graham Road, Worthing, West Sussex, BN11 1TL",
-          "company_number": "11674615",
-          "company_status": "dissolved",
-          "company_type": "private-limited-guarant-nsc",
-          "date_of_cessation": "2025-03-18",
-          "date_of_creation": "2018-11-13",
-          "description": "11674615 - Dissolved on 18 March 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/11674615"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ACTION PAINTING WORKSHOPS ART HOUSE CIC"
-        },
-        {
-          "address": {
             "address_line_1": "The Little Keep",
             "address_line_2": "Barrack Road",
             "country": "England",
@@ -1588,12 +1538,13 @@
           },
           "address_snippet": "51 South Street, Isleworth, England, TW7 7AA",
           "company_number": "08782183",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-02-17",
           "date_of_creation": "2013-11-19",
-          "description": "08782183 - Incorporated on 19 November 2013",
+          "description": "08782183 - Dissolved on 17 February 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1857,6 +1808,33 @@
         },
         {
           "address": {
+            "address_line_1": "Bridge Street",
+            "country": "United Kingdom",
+            "locality": "Kington",
+            "postal_code": "HR5 3DJ",
+            "premises": "61"
+          },
+          "address_snippet": "61 Bridge Street, Kington, United Kingdom, HR5 3DJ",
+          "company_number": "17145498",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-04-09",
+          "description": "17145498 - Incorporated on 9 April 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17145498"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACTUAL ARTICLE LTD"
+        },
+        {
+          "address": {
             "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
             "locality": "Cardiff",
             "po_box": "4385",
@@ -1891,7 +1869,7 @@
             "postal_code": "EC1V 9DD",
             "premises": "C/O Sedulo London Office 605, Albert House"
           },
-          "address_snippet": "C/O Sedulo London Office 605, Albert House 256-260 Old Street, London, United Kingdom, EC1V 9DD",
+          "address_snippet": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street, London, United Kingdom, EC1V 9DD",
           "company_number": "14921449",
           "company_status": "active",
           "company_type": "ltd",
@@ -1940,13 +1918,14 @@
         },
         {
           "address": {
-            "address_line_1": "Horsforth",
-            "locality": "Leeds",
-            "postal_code": "LS18 5NT",
-            "premises": "Buckle Barton Sanderson House Station Road",
-            "region": "West Yorkshire"
+            "address_line_1": "Station Road",
+            "country": "United Kingdom",
+            "locality": "Horsforth",
+            "postal_code": "LS18 5BJ",
+            "premises": "Ground Floor, Techno Centre",
+            "region": "Leeds"
           },
-          "address_snippet": "Buckle Barton Sanderson House Station Road, Horsforth, Leeds, West Yorkshire, LS18 5NT",
+          "address_snippet": "Ground Floor, Techno Centre, Station Road, Horsforth, Leeds, United Kingdom, LS18 5BJ",
           "company_number": "10384640",
           "company_status": "active",
           "company_type": "ltd",
@@ -2004,12 +1983,13 @@
           },
           "address_snippet": "238 Latimer Road, London, United Kingdom, W10 6QY",
           "company_number": "OC459398",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "llp",
+          "date_of_cessation": "2026-04-14",
           "date_of_creation": "2026-01-14",
-          "description": "OC459398 - Incorporated on 14 January 2026",
+          "description": "OC459398 - Dissolved on 14 April 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -2030,7 +2010,7 @@
             "postal_code": "CH1 6HE",
             "premises": "Unit 8-"
           },
-          "address_snippet": "Unit 8- 9 Capenhurst Lane, Capenhurst, Chester, England, CH1 6HE",
+          "address_snippet": "Unit 8-9 Capenhurst Lane, Capenhurst, Chester, England, CH1 6HE",
           "company_number": "12048411",
           "company_status": "active",
           "company_type": "ltd",
@@ -2261,14 +2241,13 @@
         },
         {
           "address": {
-            "address_line_1": "Shelton Street",
-            "address_line_2": "Covent Garden",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "WC2H 9JQ",
-            "premises": "71-75"
+            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
+            "locality": "Cardiff",
+            "po_box": "4385",
+            "postal_code": "CF14 8LH",
+            "premises": "16126009"
           },
-          "address_snippet": "71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ",
+          "address_snippet": "4385, 16126009 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
           "company_number": "16126009",
           "company_status": "active",
           "company_type": "ltd",
@@ -2727,6 +2706,34 @@
           },
           "snippet": "",
           "title": "ADEJOJU ADEYEMI FOUNDATION - CARING ART"
+        },
+        {
+          "address": {
+            "address_line_1": "Felpham",
+            "country": "England",
+            "locality": "Bognor Regis",
+            "postal_code": "PO22 7LQ",
+            "premises": "Gloucester Lodge 2 West Close",
+            "region": "West Sussex"
+          },
+          "address_snippet": "Gloucester Lodge 2 West Close Felpham, Bognor Regis, West Sussex, England, PO22 7LQ",
+          "company_number": "09509556",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-03-25",
+          "description": "09509556 - Incorporated on 25 March 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09509556"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADELE PETERS PERFORMING ARTS SCHOOL LIMITED"
         }
       ],
       "items_per_page": 100,
@@ -2744,16 +2751,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:20 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=C16AB1FAA94D18B260A87EA20EED4FCD; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=4EE9B2B7464E4E1B1FDE2426FC7AF31D; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "532",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "553",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

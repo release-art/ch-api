@@ -4,34 +4,6 @@
       "items": [
         {
           "address": {
-            "address_line_1": "Felpham",
-            "country": "England",
-            "locality": "Bognor Regis",
-            "postal_code": "PO22 7LQ",
-            "premises": "Gloucester Lodge 2 West Close",
-            "region": "West Sussex"
-          },
-          "address_snippet": "Gloucester Lodge 2 West Close Felpham, Bognor Regis, West Sussex, England, PO22 7LQ",
-          "company_number": "09509556",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2015-03-25",
-          "description": "09509556 - Incorporated on 25 March 2015",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/09509556"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADELE PETERS PERFORMING ARTS SCHOOL LIMITED"
-        },
-        {
-          "address": {
             "address_line_1": "High Street",
             "address_line_2": "Wavertree",
             "country": "England",
@@ -333,6 +305,33 @@
         },
         {
           "address": {
+            "address_line_1": "Leander Road",
+            "country": "England",
+            "locality": "Thornton Heath",
+            "postal_code": "CR7 6JZ",
+            "premises": "99"
+          },
+          "address_snippet": "99 Leander Road, Thornton Heath, England, CR7 6JZ",
+          "company_number": "07957193",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2012-02-21",
+          "description": "07957193 - Incorporated on 21 February 2012",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/07957193"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "ARTHUR GEORGE PROPERTY CONSULTANTS LTD",
+          "title": "ADMPROP.CO.UK LTD"
+        },
+        {
+          "address": {
             "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
             "locality": "Cardiff",
             "po_box": "4385",
@@ -341,12 +340,13 @@
           },
           "address_snippet": "4385, 16028284 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
           "company_number": "16028284",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-03-31",
           "date_of_creation": "2024-10-18",
-          "description": "16028284 - Incorporated on 18 October 2024",
+          "description": "16028284 - Dissolved on 31 March 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -385,6 +385,33 @@
           },
           "snippet": "",
           "title": "ADORA ARTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Linden Road",
+            "country": "England",
+            "locality": "Birmingham",
+            "postal_code": "B30 1JU",
+            "premises": "50"
+          },
+          "address_snippet": "50 Linden Road, Birmingham, England, B30 1JU",
+          "company_number": "12744560",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2020-07-15",
+          "description": "12744560 - Incorporated on 15 July 2020",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12744560"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADORE ARTS LTD"
         },
         {
           "address": {
@@ -446,13 +473,13 @@
         },
         {
           "address": {
-            "address_line_1": "Bagshot Road",
+            "address_line_1": "St. Marks Road",
             "country": "England",
             "locality": "Enfield",
-            "postal_code": "EN1 2RE",
-            "premises": "31"
+            "postal_code": "EN1 1BJ",
+            "premises": "77b"
           },
-          "address_snippet": "31 Bagshot Road, Enfield, England, EN1 2RE",
+          "address_snippet": "77b St. Marks Road, Enfield, England, EN1 1BJ",
           "company_number": "13629229",
           "company_status": "active",
           "company_type": "ltd",
@@ -651,12 +678,13 @@
           },
           "address_snippet": "Studio 2 12 Bourchier Street, London, United Kingdom, W1D 4HZ",
           "company_number": "13148828",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-04-07",
           "date_of_creation": "2021-01-21",
-          "description": "13148828 - Incorporated on 21 January 2021",
+          "description": "13148828 - Dissolved on 7 April 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -972,14 +1000,13 @@
         },
         {
           "address": {
-            "address_line_1": "Dunraven Close",
-            "address_line_2": "Philadelphia",
-            "country": "England",
-            "locality": "Houghton Le Spring",
-            "postal_code": "DH4 4XQ",
-            "premises": "10"
+            "address_line_1": "Kingsdale Avenue",
+            "country": "United Kingdom",
+            "locality": "Washington",
+            "postal_code": "NE37 2JW",
+            "premises": "12"
           },
-          "address_snippet": "10 Dunraven Close, Philadelphia, Houghton Le Spring, England, DH4 4XQ",
+          "address_snippet": "12 Kingsdale Avenue, Washington, United Kingdom, NE37 2JW",
           "company_number": "13738338",
           "company_status": "active",
           "company_type": "private-limited-guarant-nsc",
@@ -1120,12 +1147,13 @@
           },
           "address_snippet": "Flat 1 13 Givendale Road, Scarborough, England, YO12 6LE",
           "company_number": "13889807",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-03-10",
           "date_of_creation": "2022-02-02",
-          "description": "13889807 - Incorporated on 2 February 2022",
+          "description": "13889807 - Dissolved on 10 March 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1201,7 +1229,7 @@
             "premises": "Bidwell Accountancy Suite 103 Milton Keynes Business Centre",
             "region": "Buckinghamshire"
           },
-          "address_snippet": "Bidwell Accountancy Suite 103 Milton Keynes Business Centre Linford Wood East, Milton Keynes, Buckinghamshire, England, MK14 6GD",
+          "address_snippet": "Bidwell Accountancy Suite 103 Milton Keynes Business Centre, Linford Wood East, Milton Keynes, Buckinghamshire, England, MK14 6GD",
           "company_number": "15949574",
           "company_status": "active",
           "company_type": "ltd",
@@ -1441,12 +1469,13 @@
           },
           "address_snippet": "12 Kendricks Fold Rainhill, Prescot, England, L35 9LX",
           "company_number": "15436447",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-02-24",
           "date_of_creation": "2024-01-23",
-          "description": "15436447 - Incorporated on 23 January 2024",
+          "description": "15436447 - Dissolved on 24 February 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1571,35 +1600,6 @@
         },
         {
           "address": {
-            "address_line_1": "Compstall Road",
-            "address_line_2": "Romiley",
-            "country": "United Kingdom",
-            "locality": "Stockport",
-            "postal_code": "SK6 4JF",
-            "premises": "198"
-          },
-          "address_snippet": "198 Compstall Road, Romiley, Stockport, United Kingdom, SK6 4JF",
-          "company_number": "14385023",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-03-04",
-          "date_of_creation": "2022-09-29",
-          "description": "14385023 - Dissolved on 4 March 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/14385023"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AESTHETIC ART MAN AND WOMAN LTD"
-        },
-        {
-          "address": {
             "address_line_1": "Salisbury Road",
             "country": "England",
             "locality": "Tunbridge Wells",
@@ -1710,13 +1710,13 @@
         },
         {
           "address": {
-            "address_line_1": "- COMPANIES HOUSE DEFAULT ADDRESS",
-            "locality": "Cardiff",
-            "po_box": "4385",
-            "postal_code": "CF14 8LH",
-            "premises": "16157253"
+            "address_line_1": "Bridge Street",
+            "locality": "Kington",
+            "postal_code": "HR5 3DJ",
+            "premises": "61",
+            "region": "Herefordshire"
           },
-          "address_snippet": "4385, 16157253 - COMPANIES HOUSE DEFAULT ADDRESS, Cardiff, CF14 8LH",
+          "address_snippet": "61 Bridge Street, Kington, Herefordshire, HR5 3DJ",
           "company_number": "16157253",
           "company_status": "active",
           "company_type": "ltd",
@@ -1868,31 +1868,31 @@
         },
         {
           "address": {
-            "address_line_1": "Hallmark Trading Centre",
-            "address_line_2": "Fourth Way",
-            "locality": "Wembley",
-            "postal_code": "HA9 0LB",
-            "premises": "11/12",
-            "region": "Middlesex"
+            "address_line_1": "Shirebourn Vale",
+            "address_line_2": "South Woodham Ferrers",
+            "country": "England",
+            "locality": "Chelmsford",
+            "postal_code": "CM3 5ZX",
+            "premises": "58"
           },
-          "address_snippet": "11/12 Hallmark Trading Centre, Fourth Way, Wembley, Middlesex, HA9 0LB",
-          "company_number": "07094547",
+          "address_snippet": "58 Shirebourn Vale, South Woodham Ferrers, Chelmsford, England, CM3 5ZX",
+          "company_number": "17111565",
           "company_status": "active",
           "company_type": "ltd",
-          "date_of_creation": "2009-12-03",
-          "description": "07094547 - Incorporated on 3 December 2009",
+          "date_of_creation": "2026-03-23",
+          "description": "17111565 - Incorporated on 23 March 2026",
           "description_identifier": [
             "incorporated-on"
           ],
           "kind": "searchresults#company",
           "links": {
-            "self": "/company/07094547"
+            "self": "/company/17111565"
           },
           "matches": {
             "snippet": []
           },
-          "snippet": "ARTISAN AFFINITY \u00b7 ARTISAN ACCOUNTS",
-          "title": "AFFINITY ASSOCIATES (RICHMOND) LTD"
+          "snippet": "",
+          "title": "AFFINITY MARTIAL ARTS LTD"
         },
         {
           "address": {
@@ -1921,35 +1921,6 @@
           },
           "snippet": "",
           "title": "AFFIRM ARTS CIC"
-        },
-        {
-          "address": {
-            "address_line_1": "14 Chester House Kennington Park",
-            "address_line_2": "1-3 Brixton Road",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "SW9 6DE",
-            "premises": "Unit 2."
-          },
-          "address_snippet": "Unit 2. 14 Chester House Kennington Park, 1-3 Brixton Road, London, England, SW9 6DE",
-          "company_number": "10081430",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-04-01",
-          "date_of_creation": "2016-03-23",
-          "description": "10081430 - Dissolved on 1 April 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/10081430"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFFORDABLE ART LIMITED"
         },
         {
           "address": {
@@ -2065,6 +2036,34 @@
         },
         {
           "address": {
+            "address_line_1": "Pop In Business Commercial Centre",
+            "address_line_2": "South Way",
+            "country": "England",
+            "locality": "Wembley",
+            "postal_code": "HA9 0HF",
+            "premises": "Unit 17"
+          },
+          "address_snippet": "Unit 17 Pop In Business Commercial Centre, South Way, Wembley, England, HA9 0HF",
+          "company_number": "17069623",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-03-04",
+          "description": "17069623 - Incorporated on 4 March 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17069623"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFGHAN ARTISAN BAKERY LIMITED"
+        },
+        {
+          "address": {
             "address_line_1": "Granard Business Centre Bunns Lane",
             "address_line_2": "Mill Hill",
             "country": "United Kingdom",
@@ -2090,35 +2089,6 @@
           },
           "snippet": "",
           "title": "AFONSO SCHOOL OF PERFORMING ARTS LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Dimmingsdale Bank",
-            "address_line_2": "Quinton",
-            "country": "England",
-            "locality": "Birmingham",
-            "postal_code": "B32 1ST",
-            "premises": "92"
-          },
-          "address_snippet": "92 Dimmingsdale Bank, Quinton, Birmingham, England, B32 1ST",
-          "company_number": "14709156",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-02-18",
-          "date_of_creation": "2023-03-06",
-          "description": "14709156 - Dissolved on 18 February 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/14709156"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "A FOR ART LIMITED"
         },
         {
           "address": {
@@ -2347,7 +2317,7 @@
             "postal_code": "TA6 5JT",
             "premises": "Small Business Accountancy Ltd Unit 16, Wills Business Park"
           },
-          "address_snippet": "Small Business Accountancy Ltd Unit 16, Wills Business Park Salmon Parade, Bridgwater, England, TA6 5JT",
+          "address_snippet": "Small Business Accountancy Ltd Unit 16, Wills Business Park, Salmon Parade, Bridgwater, England, TA6 5JT",
           "company_number": "05763975",
           "company_status": "active",
           "company_type": "ltd",
@@ -2720,30 +2690,57 @@
         },
         {
           "address": {
-            "address_line_1": "City Road",
+            "address_line_1": "Queen Isabels Avenue",
             "country": "England",
-            "locality": "London",
-            "postal_code": "EC1V 2NX",
-            "premises": "128"
+            "locality": "Coventry",
+            "postal_code": "CV3 5GE",
+            "premises": "61"
           },
-          "address_snippet": "128 City Road, London, England, EC1V 2NX",
-          "company_number": "13568715",
+          "address_snippet": "61 Queen Isabels Avenue, Coventry, England, CV3 5GE",
+          "company_number": "12059533",
           "company_status": "active",
           "company_type": "ltd",
-          "date_of_creation": "2021-08-16",
-          "description": "13568715 - Incorporated on 16 August 2021",
+          "date_of_creation": "2019-06-19",
+          "description": "12059533 - Incorporated on 19 June 2019",
           "description_identifier": [
             "incorporated-on"
           ],
           "kind": "searchresults#company",
           "links": {
-            "self": "/company/13568715"
+            "self": "/company/12059533"
           },
           "matches": {
             "snippet": []
           },
-          "snippet": "ARTYSHOPPY",
-          "title": "AFRICANVAS LTD"
+          "snippet": "",
+          "title": "AFRICA PERFORMING ARTS THEATRE LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Purves Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "NW10 5TG",
+            "premises": "152"
+          },
+          "address_snippet": "152 Purves Road, London, United Kingdom, NW10 5TG",
+          "company_number": "11850405",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2019-02-27",
+          "description": "11850405 - Incorporated on 27 February 2019",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11850405"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "AFRICA'S BEST ARTISANS LIMITED"
         }
       ],
       "items_per_page": 100,
@@ -2761,16 +2758,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:21 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=1A8A51BFBE16ED4677C84CC86F8036AC; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=8766228CC1D33679882F56434C8C048C; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "531",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "552",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

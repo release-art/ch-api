@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "63ee77735182c2850499787606d488f9d921b595",
+      "etag": "5db85658fd375deb650b7b9fb8d211ea72b15463",
       "hits": 456,
       "items": [
         {
@@ -139,16 +139,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:22 GMT",
+    "date": "Tue, 21 Apr 2026 11:08:03 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=C5877CC23FDEB38979F666D7DFDA544F; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=0E13518617F4BCD3DFC1B507871F8CD8; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "516",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "548",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

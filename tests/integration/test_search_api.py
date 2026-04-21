@@ -8,12 +8,11 @@ import ch_api
 class TestGenericSearch:
     @pytest.mark.asyncio
     async def test_search_company(self, live_env_test_client: ch_api.api.Client, r5e_company_number):
-        search_response = await live_env_test_client.search("R5E ART LIMITED")
-        all_data = await search_response.get_all()
-        assert len(all_data) > 300
+        search_response = await live_env_test_client.search("R5E ART LIMITED", result_count=300)
+        assert len(search_response.data) >= 300
 
         one_found = False
-        for el in all_data:
+        for el in search_response.data:
             if el.company_number == r5e_company_number:
                 one_found = True
                 break
@@ -21,12 +20,11 @@ class TestGenericSearch:
 
     @pytest.mark.asyncio
     async def test_search_director(self, live_env_test_client: ch_api.api.Client):
-        search_response = await live_env_test_client.search("Orlovs")
-        all_data = await search_response.get_all()
-        assert len(all_data) > 50
+        search_response = await live_env_test_client.search("Orlovs", result_count=50)
+        assert len(search_response.data) > 50
 
         one_found = False
-        for el in all_data:
+        for el in search_response.data:
             if not isinstance(el, ch_api.types.public_data.search.OfficerSearchItem):
                 continue
             if el.title == "Ilja ORLOVS":
@@ -67,33 +65,25 @@ class TestAdvancedSearch:
         ],
     )
     async def test_simple(self, live_env_test_client: ch_api.api.Client, query, expected_count):
-        search_response = await live_env_test_client.advanced_company_search(**query)
-        if expected_count == 0:
-            assert search_response.top_hit is None
-        else:
-            assert search_response.top_hit is not None
-        all_data = await search_response.items.get_all()
-        assert len(all_data) == expected_count
+        search_response = await live_env_test_client.advanced_company_search(**query, result_count=100)
+        assert len(search_response.data) == expected_count
 
 
 @pytest.mark.asyncio
 async def test_alphabetical_companies_search(live_env_test_client: ch_api.api.Client):
-    result = await live_env_test_client.alphabetical_companies_search("Barclays", page_size=100)
-    assert result.top_hit is not None
-    all_data = await result.items.get_all()
-    assert len(all_data) >= 100
-    all_names = [el.company_name for el in all_data]
+    result = await live_env_test_client.alphabetical_companies_search("Barclays", page_size=100, result_count=100)
+    assert len(result.data) >= 100
+    all_names = [el.company_name for el in result.data]
     assert all("BARCLAY" in name.upper() for name in all_names)
 
 
 @pytest.mark.asyncio
 async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    search_response = await live_env_test_client.search_companies("R5E ART LIMITED")
-    all_data = await search_response.get_all()
-    assert len(all_data) > 300
+    search_response = await live_env_test_client.search_companies("R5E ART LIMITED", result_count=300)
+    assert len(search_response.data) >= 300
 
     one_found = False
-    for el in all_data:
+    for el in search_response.data:
         assert isinstance(el, ch_api.types.public_data.search.CompanySearchItem)
         if el.company_number == r5e_company_number:
             one_found = True
@@ -103,12 +93,11 @@ async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_com
 
 @pytest.mark.asyncio
 async def test_search_officers(live_env_test_client: ch_api.api.Client):
-    search_response = await live_env_test_client.search_officers("Ilja Orlovs")
-    all_data = await search_response.get_all()
-    assert len(all_data) > 10
+    search_response = await live_env_test_client.search_officers("Ilja Orlovs", result_count=10)
+    assert len(search_response.data) > 10
 
     one_found = False
-    for el in all_data:
+    for el in search_response.data:
         assert isinstance(el, ch_api.types.public_data.search.OfficerSearchItem)
         if el.title == "Ilja ORLOVS":
             one_found = True
@@ -118,12 +107,11 @@ async def test_search_officers(live_env_test_client: ch_api.api.Client):
 
 @pytest.mark.asyncio
 async def test_search_disqualified_officers(live_env_test_client: ch_api.api.Client):
-    search_response = await live_env_test_client.search_disqualified_officers("bob")
-    all_data = await search_response.get_all()
-    assert len(all_data) > 0
+    search_response = await live_env_test_client.search_disqualified_officers("bob", result_count=10)
+    assert len(search_response.data) > 0
 
     one_found = False
-    for el in all_data:
+    for el in search_response.data:
         assert isinstance(el, ch_api.types.public_data.search.DisqualifiedOfficerSearchItem)
         if el.title == "Bobby KALIA":
             one_found = True
@@ -141,7 +129,5 @@ async def test_search_disqualified_officers(live_env_test_client: ch_api.api.Cli
     ],
 )
 async def test_search_dissolved_companies(live_env_test_client: ch_api.api.Client, query_type, exp_company_name):
-    search_response = await live_env_test_client.search_dissolved_companies("bob", type=query_type)
-    assert search_response.top_hit is not None
-    all_data = await search_response.items.get_all()
-    assert len(all_data) >= 10
+    search_response = await live_env_test_client.search_dissolved_companies("bob", type=query_type, result_count=10)
+    assert len(search_response.data) >= 10

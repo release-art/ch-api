@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "c0da88f4161a1fecc4116b62117120f83741b78e",
+      "etag": "038366fff483f2c2e305171b7315c79a8cf87a56",
       "items": [
         {
           "company_name": "BOAZ JACHIN LIMITED",
@@ -136,16 +136,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:22 GMT",
+    "date": "Tue, 21 Apr 2026 11:08:03 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=5792D255CC08949D7A2364F192BF264F; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=1B2B77CE35E0C918DB7B783F7AAE8FE4; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "518",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "549",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

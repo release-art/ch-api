@@ -38,16 +38,11 @@ Example of getting company information:
 
 ## Pagination
 
-List endpoints return `MultipageList` with lazy-loading:
+List endpoints return `MultipageList[T]` with `.data` (list) and `.pagination` metadata:
 
     >>> async def search_example(client):
-    ...     results = await client.search_companies("tech")
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count >= 1
+    ...     results = await client.search_companies("tech", result_count=1)
+    ...     return len(results.data) >= 1
     >>> run_async_func(search_example)
     True
 

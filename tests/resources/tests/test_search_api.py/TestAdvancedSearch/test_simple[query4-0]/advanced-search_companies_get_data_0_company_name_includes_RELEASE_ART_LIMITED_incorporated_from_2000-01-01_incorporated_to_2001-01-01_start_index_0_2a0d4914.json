@@ -10,15 +10,15 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-length": "0",
-    "date": "Fri, 30 Jan 2026 13:14:19 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:42 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=552B778010A388A7149F12218102DD8A; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=426734E3BE6BD1D2D0364F44FBE4382A; Path=/; HttpOnly",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "536",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "556",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
@@ -31,8 +31,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/advanced-search/companies?size=100&company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&incorporated_to=2001-01-01&start_index=0"
+    "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&incorporated_to=2001-01-01&start_index=0"
   },
   "status_code": 404,
-  "url": "https://api.company-information.service.gov.uk/advanced-search/companies?size=100&company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&incorporated_to=2001-01-01&start_index=0"
+  "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&incorporated_to=2001-01-01&start_index=0"
 }

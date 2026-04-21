@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "e01e5fbe74f0ccf33699b1e0655d9924573291bf",
+      "etag": "52b5ef457c71674251db3c6d7316c21dbc45ee39",
       "hits": 1,
       "items": [
         {
@@ -56,16 +56,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:19 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:42 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=6F68AD0A4C7DEE6DA3D5C2965ACB85A8; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=7530B682B5E72E55B97E87D1A9C3FC0E; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "537",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "560",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
@@ -78,8 +78,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/advanced-search/companies?size=100&company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&start_index=0"
+    "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=RELEASE.ART+LIMITED&start_index=0"
   },
   "status_code": 200,
-  "url": "https://api.company-information.service.gov.uk/advanced-search/companies?size=100&company_name_includes=RELEASE.ART+LIMITED&incorporated_from=2000-01-01&start_index=0"
+  "url": "https://api.company-information.service.gov.uk/advanced-search/companies?company_name_includes=RELEASE.ART+LIMITED&start_index=0"
 }

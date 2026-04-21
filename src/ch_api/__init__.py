@@ -21,8 +21,8 @@ Get started with just a few lines of code::
     >>> # Search for companies
     >>> @run_async_func
     ... async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple")
-    ...     async for company in results:
+    ...     results = await client.search_companies("Apple", result_count=25)
+    ...     for company in results.data:
     ...         print(f"Found: {company.title}")
     ...
     Found: ...
@@ -30,8 +30,8 @@ Get started with just a few lines of code::
     >>> # Get officers
     >>> @run_async_func
     ... async def get_officers_example(client):
-    ...     officers = await client.get_officer_list("09370755")
-    ...     async for officer in officers:
+    ...     officers = await client.get_officer_list("09370755", result_count=100)
+    ...     for officer in officers.data:
     ...         print(f"Officer: {officer.name}")
     Officer: ...
 
@@ -142,21 +142,22 @@ All API calls are asynchronous and must be called with ``await``::
 
 Pagination
 ----------
-Search and list endpoints return paginated results automatically handled
-via the ``MultipageList`` interface::
+Search and list endpoints return ``MultipageList[T]`` with a ``data`` list
+and ``pagination`` metadata. Pass ``result_count`` to fetch more items in one
+call, and ``next_page`` to continue from a previous response::
 
     >>> @run_async_func
     ... async def pagination_example(client):
-    ...     results = await client.search_companies("Apple")
-    ...     # Check total without loading all pages
-    ...     print(f"Total: {len(results)}")
-    ...     # Iterate (loads pages as needed)
-    ...     async for company in results:
-    ...         print(company.title)
-    ...     # Access by index (loads page if needed)
-    ...     if len(results) > 0:
-    ...         first = await results[0]
-    Total: ...
+    ...     page = await client.search_companies("Apple", result_count=25)
+    ...     # page.data is a plain list — iterate with a regular for loop
+    ...     assert len(page.data) >= 1
+    ...     # Fetch next page using the cursor
+    ...     if page.pagination.has_next:
+    ...         page2 = await client.search_companies(
+    ...             "Apple",
+    ...             next_page=page.pagination.next_page,
+    ...             result_count=25,
+    ...         )
     ...
 
 Exception Handling

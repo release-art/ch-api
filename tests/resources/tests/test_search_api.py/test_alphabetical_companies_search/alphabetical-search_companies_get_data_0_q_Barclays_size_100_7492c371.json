@@ -3,17 +3,6 @@
     "json": {
       "items": [
         {
-          "company_name": "BARCLAY PLANT HIRE LLP",
-          "company_number": "OC400392",
-          "company_status": "active",
-          "company_type": "llp",
-          "kind": "searchresults#alphabetical-search",
-          "links": {
-            "company_profile": "/company/OC400392"
-          },
-          "ordered_alpha_key_with_id": "BARCLAYPLANTHIRE:OC400392"
-        },
-        {
           "company_name": "BARCLAY PLUMBING & HEATING LTD",
           "company_number": "04949336",
           "company_status": "dissolved",
@@ -331,6 +320,17 @@
             "company_profile": "/company/15482026"
           },
           "ordered_alpha_key_with_id": "BARCLAYRESIDENTIAL:15482026"
+        },
+        {
+          "company_name": "BARCLAY RESIDENTIAL LIMITED",
+          "company_number": "17050044",
+          "company_status": "active",
+          "company_type": "ltd",
+          "kind": "searchresults#alphabetical-search",
+          "links": {
+            "company_profile": "/company/17050044"
+          },
+          "ordered_alpha_key_with_id": "BARCLAYRESIDENTIAL:17050044"
         },
         {
           "company_name": "BARCLAY RESIDENTIAL INVESTMENTS LIMITED",
@@ -852,7 +852,7 @@
         {
           "company_name": "BARCLAYS BUILDING SERVICES LTD",
           "company_number": "15858682",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
           "kind": "searchresults#alphabetical-search",
           "links": {
@@ -1125,16 +1125,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:20 GMT",
+    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=44EA28C0A03DDB8CA0235ED76BF14D35; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=F6A19FE87EB7D41E594C8B33FAB8DD41; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "535",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "555",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

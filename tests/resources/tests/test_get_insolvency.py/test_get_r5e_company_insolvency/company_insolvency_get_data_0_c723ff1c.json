@@ -4,7 +4,7 @@
       "error": "Not Found",
       "path": "/company/14200734/insolvency",
       "status": 404,
-      "timestamp": "2026-01-30"
+      "timestamp": "2026-04-21"
     }
   },
   "headers": {
@@ -15,16 +15,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:17 GMT",
+    "date": "Tue, 21 Apr 2026 11:06:14 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=57F3B9732E90880C26EAACB88DC86610; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=874FBB1EF0FFF03EBDD1F46724D69036; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "564",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "577",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

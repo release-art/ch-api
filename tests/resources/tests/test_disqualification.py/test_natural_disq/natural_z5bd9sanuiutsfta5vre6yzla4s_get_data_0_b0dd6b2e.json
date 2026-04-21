@@ -14,7 +14,7 @@
           },
           "case_identifier": "INV7307917",
           "company_names": [
-            "ORANGE GENIE PAY LIMITED"
+            "CJS ENGAGEMENT 2 LTD"
           ],
           "disqualification_type": "undertaking",
           "disqualified_from": "2026-01-27",
@@ -27,7 +27,7 @@
           "undertaken_on": "2026-01-06"
         }
       ],
-      "etag": "1636c763cd4292690fd02c32ffe757a0699eb27b",
+      "etag": "5877d257817d0427d344fc016c5c120990642eeb",
       "forename": "Paul",
       "kind": "natural-disqualification",
       "links": {
@@ -48,16 +48,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Fri, 30 Jan 2026 13:14:16 GMT",
+    "date": "Tue, 21 Apr 2026 11:06:13 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=07E12F895D6749D9FF4E74A9AAFA1936; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=ADA73D19DD50AAC544D02E0EC548BC11; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "575",
-    "x-ratelimit-reset": "1769779001",
+    "x-ratelimit-remain": "588",
+    "x-ratelimit-reset": "1776769792",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
