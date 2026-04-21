@@ -106,6 +106,7 @@ class Client:
     _api_limiter: LimiterContextT
     _settings: api_settings.ApiSettings
     _owns_session: bool  # Track if we created the session (for cleanup)
+    _page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer]
 
     def __init__(
         self,
@@ -115,6 +116,7 @@ class Client:
         ],
         settings: api_settings.ApiSettings = api_settings.LIVE_API_SETTINGS,
         api_limiter: typing.Optional[LimiterContextT] = None,
+        page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer] = None,
     ) -> None:
         """Initialize the Companies House API client.
 
@@ -209,6 +211,7 @@ class Client:
             self._api_limiter = _noop_limiter
         else:
             self._api_limiter = api_limiter
+        self._page_token_serializer = page_token_serializer
 
     async def __aenter__(self) -> "Client":
         """Enter async context manager."""
@@ -299,42 +302,156 @@ class Client:
         request = self._api_session.build_request(method="GET", url=url)
         return await self._execute_request(request, result_type)
 
-    async def _create_paginated_list(
+    # ------------------------------------------------------------------
+    # Token encode / decode helpers
+    # ------------------------------------------------------------------
+
+    def _encode_next_page(
+        self, state: types.pagination.types._PageState
+    ) -> types.pagination.types.NextPageToken:
+        """Encode a page state into an externally-safe NextPageToken."""
+        raw = state.encode()
+        if self._page_token_serializer is not None:
+            return self._page_token_serializer.serialize(raw)
+        return raw
+
+    def _decode_next_page(
+        self, token: types.pagination.types.NextPageToken
+    ) -> types.pagination.types._PageState:
+        """Decode a caller-provided NextPageToken into internal page state."""
+        raw = token
+        if self._page_token_serializer is not None:
+            raw = self._page_token_serializer.deserialize(token)
+        return types.pagination.types._PageState.decode(raw)
+
+    # ------------------------------------------------------------------
+    # Core pagination helpers
+    # ------------------------------------------------------------------
+
+    async def _fetch_paginated(
         self,
-        output_t: typing.Type[ModelT],
-        base_url: str,
-        query_params: dict[str, typing.Union[str, list[str]]],
-        items_per_page: int = 200,
-    ) -> types.pagination.paginated_list.MultipageList[ModelT]:
-        """Helper to create and initialize a paginated list for search endpoints.
+        fetch_page_fn: typing.Callable[
+            [int], typing.Awaitable[tuple[list, typing.Optional[int]]]
+        ],
+        next_page: typing.Optional[types.pagination.types.NextPageToken],
+        result_count: int,
+    ) -> types.pagination.types.MultipageList:
+        """Fetch one or more offset-based API pages and return a MultipageList.
 
-        Parameters
-        ----------
-        output_t : Type[ModelT]
-            The type of items in the list
-        base_url : str
-            The base API endpoint URL
-        query_params : dict
-            Query parameters for the search
-        items_per_page : int
-            Number of items per page (default: 200)
+        Args:
+            fetch_page_fn: Callable taking ``start_index`` (int), returning a
+                tuple of ``(items, total_count)``. ``total_count`` may be None
+                if unknown; in that case no further pages will be fetched.
+            next_page: Cursor from a previous call, or None to start from offset 0.
+            result_count: Minimum number of items to collect. The method fetches
+                at least one page regardless of this value.
 
-        Returns
-        -------
-        MultipageList[ModelT]
-            Initialized paginated list ready for iteration
+        Returns:
+            A MultipageList with the collected items and pagination metadata.
         """
-        result = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=output_t,
-                base_url=base_url,
-                query_params=query_params,
-                target=target,
-                items_per_page=items_per_page,
+        page_state = (
+            self._decode_next_page(next_page)
+            if next_page is not None
+            else types.pagination.types._PageState.first()
+        )
+        current_start = page_state.start_index
+        items: list = []
+        total_count: typing.Optional[int] = None
+        has_next = False
+        last_page_len = 0
+
+        while True:
+            page_items, page_total = await fetch_page_fn(current_start)
+            last_page_len = len(page_items)
+            if page_total is not None:
+                total_count = page_total
+            items.extend(page_items)
+
+            has_next = bool(
+                total_count is not None
+                and page_items
+                and (current_start + last_page_len) < total_count
+            )
+
+            if not has_next or len(items) >= result_count:
+                break
+
+            current_start += last_page_len
+
+        next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
+        if has_next:
+            next_state = types.pagination.types._PageState(
+                start_index=current_start + last_page_len
+            )
+            next_page_out = self._encode_next_page(next_state)
+
+        return types.pagination.types.MultipageList(
+            data=items,
+            pagination=types.pagination.types.PaginationInfo(
+                has_next=has_next,
+                next_page=next_page_out,
+                size=total_count,
             ),
         )
-        await result._async_init()
-        return result
+
+    async def _fetch_paginated_cursor(
+        self,
+        fetch_page_fn: typing.Callable[
+            [typing.Optional[str]], typing.Awaitable[tuple[list, typing.Optional[str]]]
+        ],
+        next_page: typing.Optional[types.pagination.types.NextPageToken],
+        result_count: int,
+    ) -> types.pagination.types.MultipageList:
+        """Fetch one or more cursor-based API pages and return a MultipageList.
+
+        Used for endpoints that paginate via ``search_below`` / ``search_above``
+        cursors (e.g. alphabetical company search) rather than ``start_index``.
+
+        Args:
+            fetch_page_fn: Callable taking the current ``search_below`` cursor
+                (None for the first page), returning ``(items, next_cursor)``.
+                ``next_cursor`` is None when no further pages exist.
+            next_page: Cursor from a previous call, or None to start from the
+                beginning.
+            result_count: Minimum number of items to collect.
+
+        Returns:
+            A MultipageList with the collected items and pagination metadata.
+            ``pagination.size`` is always None for cursor-based endpoints.
+        """
+        page_state = (
+            self._decode_next_page(next_page)
+            if next_page is not None
+            else types.pagination.types._PageState.first()
+        )
+        cursor = page_state.search_below
+        items: list = []
+        has_next = False
+        next_cursor: typing.Optional[str] = None
+
+        while True:
+            page_items, next_cursor = await fetch_page_fn(cursor)
+            items.extend(page_items)
+            has_next = next_cursor is not None
+
+            if not has_next or len(items) >= result_count:
+                break
+
+            cursor = next_cursor
+
+        next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
+        if has_next and next_cursor is not None:
+            next_state = types.pagination.types._PageState(search_below=next_cursor)
+            next_page_out = self._encode_next_page(next_state)
+
+        return types.pagination.types.MultipageList(
+            data=items,
+            pagination=types.pagination.types.PaginationInfo(
+                has_next=has_next,
+                next_page=next_page_out,
+                size=None,
+            ),
+        )
 
     @pydantic.validate_call
     async def create_test_company(
@@ -405,48 +522,6 @@ class Client:
             types.public_data.registered_office.RegisteredOfficeAddress,
         )
 
-    async def _get_paginated_search_result(
-        self,
-        output_t: typing.Type[ModelT],
-        base_url: str,
-        query_params: dict[str, typing.Union[str, list[str]]],
-        target: types.pagination.types.FetchPageCallArg,
-        items_per_page: int = 20,
-    ) -> types.pagination.types.FetchPageRvT[ModelT]:
-        my_query_params = query_params.copy() | {
-            "start_index": target.current_total_list_len,
-            "items_per_page": items_per_page,
-        }
-        assert my_query_params
-        this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        try:
-            result = await self._get_resource(
-                this_url,
-                types.public_data.search_companies.GenericSearchResult[output_t],  # type: ignore[arg-type]
-            )
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                # No results
-                return (None, [])
-            else:
-                raise
-        assert result is not None
-        items = result.items or []
-        if not items:
-            has_next = False
-        else:
-            has_next = (result.start_index + len(items)) < result.total_results
-        return (
-            types.pagination.types.PaginatedResultInfo.model_validate(
-                {
-                    "page": target.last_fetched_page + 1,
-                    "per_page": result.items_per_page,
-                    "total_count": result.total_results,
-                    "has_next": has_next,
-                }
-            ),
-            items,
-        )
 
     @pydantic.validate_call
     async def get_officer_list(
@@ -460,38 +535,48 @@ class Client:
             ]
         ] = None,
         order_by: typing.Literal["appointed_on", "resigned_on", "surname"] = "appointed_on",
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.company_officers.OfficerSummary]:
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.company_officers.OfficerSummary]:
         """Fetch the list of company officers for a given company.
 
         Parameters
         ----------
             company_number: str
                 The company number to fetch the officers for.
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
 
         Returns
         -------
-            types.pagination.async_list.MultipageList[types.public_data.company_officers.OfficerSummary]
-                The list of company officers.
+            types.pagination.types.MultipageList[OfficerSummary]
+                One page of company officers with pagination metadata.
         """
-        query_params: dict[str, typing.Union[str, list[str]]] = {
-            "order_by": order_by,
-        }
+        query_params: dict[str, typing.Union[str, list[str]]] = {"order_by": order_by}
         if only_type is not None:
-            query_params |= {
-                "register_type": only_type,
-                "register_view": "true",
-            }
+            query_params |= {"register_type": only_type, "register_view": "true"}
+        base_url = f"{self._settings.api_url}/company/{company_number}/officers"
 
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.company_officers.OfficerSummary,
-                base_url=f"{self._settings.api_url}/company/{company_number}/officers",
-                query_params=query_params,
-                target=target,
-            ),
-        )
-        await out._async_init()
-        return out
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            url = f"{base_url}?{urllib.parse.urlencode(query_params | {'start_index': start_index, 'items_per_page': 200}, doseq=True)}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
+                        types.public_data.company_officers.OfficerSummary
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
+
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def get_officer_appointment(
@@ -512,55 +597,42 @@ class Client:
 
     @pydantic.validate_call
     async def search(
-        self, query: str
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.AnySearchResultT]:
+        self,
+        query: str,
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search.AnySearchResultT]:
         """Search for companies using the Companies House search API.
 
         Parameters
         ----------
             query: str
                 The search query string.
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_paginated_search_result(
-                output_t=types.public_data.search.AnySearchResultT,  # type: ignore[arg-type]
-                base_url=f"{self._settings.api_url}/search",
-                query_params={"q": query},
-                target=target,
-                items_per_page=200,
-            ),
-        )
-        await out._async_init()
-        return out
+        base_url = f"{self._settings.api_url}/search"
 
-    async def _get_paginated_advanced_search_result(
-        self,
-        output_t: typing.Type[ModelT],
-        base_url: str,
-        query_params: dict[str, typing.Union[str, list[str]]],
-        target: types.pagination.types.FetchPageCallArg[ModelT],
-    ) -> tuple[
-        typing.Optional[types.pagination.types.PaginatedResultInfo],
-        typing.Optional[types.public_data.search_companies.AdvancedSearchResult[ModelT]],
-    ]:
-        my_query_params = query_params.copy() | {
-            "start_index": target.current_total_list_len,
-        }
-        assert my_query_params
-        this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=this_url,
-        )
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
+                        types.public_data.search.AnySearchResultT
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
 
-        return await self._fetch_paginated_container(
-            request=request,
-            output_t=types.public_data.search_companies.AdvancedSearchResult[output_t],  # type: ignore[arg-type]
-            to_pagination_info_args=lambda result: {
-                "has_next": (target.current_total_list_len + len(result.items or [])) < result.hits,
-                "page": target.last_fetched_page + 1,
-            },
-        )
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def advanced_company_search(  # noqa: C901
@@ -577,14 +649,11 @@ class Client:
         incorporated_to: typing.Optional[datetime.date] = None,
         location: typing.Optional[str] = None,
         sic_codes: typing.Optional[typing.Sequence[str]] = None,
-        max_results: typing.Annotated[int, pydantic.conint(ge=1, le=5000)] = 100,
-    ) -> types.compound_api_types.public_data.search_companies.AdvancedSearchResult[
-        types.public_data.search.CompanySearchItem
-    ]:
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search_companies.AdvancedCompany]:
         """Perform an advanced search for companies using the Companies House search API."""
-        query_params = {
-            "size": str(max_results),
-        }
+        query_params: dict = {}
         if company_name_includes:
             query_params["company_name_includes"] = company_name_includes
         if company_name_excludes:
@@ -613,99 +682,71 @@ class Client:
             query_params["location"] = location
         if sic_codes:
             query_params["sic_codes"] = list(sic_codes)
+        base_url = f"{self._settings.api_url}/advanced-search/companies"
 
-        async def _fetch_page(
-            target: types.pagination.types.FetchPageCallArg[types.public_data.search_companies.AdvancedCompany],
-        ) -> types.pagination.types.FetchPageRvT[types.public_data.search_companies.AdvancedCompany]:
-            return await self._get_paginated_advanced_search_result(
-                output_t=types.public_data.search_companies.AdvancedCompany,
-                base_url=f"{self._settings.api_url}/advanced-search/companies",
-                query_params=query_params,
-                target=target,
-            )  # type: ignore[arg-type]
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            params = query_params | {"start_index": start_index}
+            url = f"{base_url}?{urllib.parse.urlencode(params, doseq=True)}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.AdvancedSearchResult[  # type: ignore[arg-type]
+                        types.public_data.search_companies.AdvancedCompany
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.hits
 
-        return await types.compound_api_types.public_data.search_companies.AdvancedSearchResult.from_api_paginated_list(  # type: ignore[return-value]
-            fetch_page_fn=_fetch_page,
-            convert_item_fn=lambda fetched_list: fetched_list.items or [],
-        )
-
-    async def _get_next_alphabetical_search_page(
-        self,
-        base_url: str,
-        output_t: typing.Type[ModelT],
-        query_params: dict[str, str],
-        target: types.pagination.types.FetchPageCallArg[ModelT],
-    ) -> typing.Tuple[
-        typing.Optional[types.pagination.types.PaginatedResultInfo],
-        typing.Optional[types.public_data.search_companies.AlphabeticalCompanySearchResult[ModelT]],
-    ]:
-        # Alphabetical search uses cursor-based pagination with search_above/search_below
-        # parameters. Currently only forward pagination (search_below) is implemented.
-        # Backward pagination would require tracking search_above cursors from previous pages.
-        if target.last_fetched_page > 0:
-            return (None, None)
-
-        search_below = (
-            target.last_known_item.ordered_alpha_key_with_id  # type: ignore[union-attr]
-            if target.last_known_item
-            else None
-        )
-        search_above = (
-            target.first_known_item.ordered_alpha_key_with_id  # type: ignore[union-attr]
-            if target.first_known_item
-            else None
-        )
-
-        if (None in (search_above, search_below)) and target.last_fetched_page > 0:
-            # search_below = None indicates start of list, so if we have already fetched at least one page
-            return (None, None)
-
-        my_query_params = query_params.copy()
-        if search_above is not None:
-            my_query_params["search_above"] = search_above
-        if search_below is not None:
-            my_query_params["search_below"] = search_below
-        assert my_query_params
-
-        this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        request = self._api_session.build_request(
-            method="GET",
-            url=this_url,
-        )
-
-        return await self._fetch_paginated_container(
-            request=request,
-            output_t=types.public_data.search_companies.AlphabeticalCompanySearchResult[output_t],  # type: ignore[arg-type]
-            to_pagination_info_args=lambda result: {
-                "page": target.last_fetched_page + 1,
-                "has_next": (len(result.items or []) > 0),
-            },
-        )
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def alphabetical_companies_search(
-        self, query: str, page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 10
-    ) -> types.compound_api_types.public_data.top_hit.TopHitList[
-        types.public_data.search_companies.AlphabeticalCompanySearchResult[
-            types.public_data.search_companies.AlphabeticalCompany
-        ],
-        types.public_data.search_companies.AlphabeticalCompany,
-    ]:
-        async def _fetch_page(target: types.pagination.types.FetchPageCallArg):
-            return await self._get_next_alphabetical_search_page(
-                base_url=f"{self._settings.api_url}/alphabetical-search/companies",
-                output_t=types.public_data.search_companies.AlphabeticalCompany,
-                query_params={
-                    "q": query,
-                    "size": str(page_size),
-                },
-                target=target,
-            )
+        self,
+        query: str,
+        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 10,
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search_companies.AlphabeticalCompany]:
+        """Search for companies alphabetically using the Companies House search API.
 
-        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(  # type: ignore[return-value]
-            fetch_page_fn=_fetch_page,
-            convert_item_fn=lambda fetched_list: fetched_list.items or [],
-        )
+        Parameters
+        ----------
+            query: str
+                The search query string.
+            page_size: int
+                Number of results per API page (1-100, default 10).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
+        """
+        base_url = f"{self._settings.api_url}/alphabetical-search/companies"
+
+        async def _fetch(
+            search_below: typing.Optional[str],
+        ) -> tuple[list, typing.Optional[str]]:
+            params: dict = {"q": query, "size": str(page_size)}
+            if search_below is not None:
+                params["search_below"] = search_below
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            result = await self._get_resource(
+                url,
+                types.public_data.search_companies.AlphabeticalCompanySearchResult[  # type: ignore[arg-type]
+                    types.public_data.search_companies.AlphabeticalCompany
+                ],
+            )
+            items = result.items if result is not None else []
+            if not items:
+                return [], None
+            next_cursor = items[-1].ordered_alpha_key_with_id
+            return items, next_cursor
+
+        return await self._fetch_paginated_cursor(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def search_dissolved_companies(
@@ -713,87 +754,163 @@ class Client:
         query: str,
         page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 10,
         type: typing.Literal["alphabetical", "best-match", "previous-name-dissolved"] = "alphabetical",  # noqa: A002
-    ) -> types.compound_api_types.public_data.top_hit.TopHitList[
-        types.public_data.search_companies.AlphabeticalCompanySearchResult[
-            types.public_data.search_companies.DissolvedCompany
-        ],
-        types.public_data.search_companies.DissolvedCompany,
-    ]:
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search_companies.DissolvedCompany]:
         """Search for dissolved companies using the Companies House search API.
 
         Parameters
         ----------
             query: str
                 The search query string.
+            page_size: int
+                Number of results per API page (1-100, default 10).
+            type: str
+                Search type (alphabetical, best-match, previous-name-dissolved).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
+        base_url = f"{self._settings.api_url}/dissolved-search/companies"
 
-        async def _fetch_page(target: types.pagination.types.FetchPageCallArg):
-            return await self._get_next_alphabetical_search_page(
-                base_url=f"{self._settings.api_url}/dissolved-search/companies",
-                output_t=types.public_data.search_companies.DissolvedCompany,
-                query_params={
-                    "q": query,
-                    "size": str(page_size),
-                    "search_type": type,
-                },
-                target=target,
+        async def _fetch(
+            search_below: typing.Optional[str],
+        ) -> tuple[list, typing.Optional[str]]:
+            params: dict = {"q": query, "size": str(page_size), "search_type": type}
+            if search_below is not None:
+                params["search_below"] = search_below
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            result = await self._get_resource(
+                url,
+                types.public_data.search_companies.AlphabeticalCompanySearchResult[  # type: ignore[arg-type]
+                    types.public_data.search_companies.DissolvedCompany
+                ],
             )
+            items = result.items if result is not None else []
+            if not items:
+                return [], None
+            next_cursor = items[-1].ordered_alpha_key_with_id
+            return items, next_cursor
 
-        return await types.compound_api_types.public_data.top_hit.TopHitList.from_api_paginated_list(  # type: ignore[return-value]
-            fetch_page_fn=_fetch_page,
-            convert_item_fn=lambda fetched_list: fetched_list.items or [],
-        )
+        return await self._fetch_paginated_cursor(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def search_companies(
-        self, query: str
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.CompanySearchItem]:
+        self,
+        query: str,
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search.CompanySearchItem]:
         """Search for companies using the Companies House search API.
 
         Parameters
         ----------
             query: str
                 The search query string.
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        return await self._create_paginated_list(
-            types.public_data.search.CompanySearchItem,
-            f"{self._settings.api_url}/search/companies",
-            {"q": query},
-        )
+        base_url = f"{self._settings.api_url}/search/companies"
+
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
+                        types.public_data.search.CompanySearchItem
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
+
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def search_officers(
-        self, query: str
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.OfficerSearchItem]:
+        self,
+        query: str,
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search.OfficerSearchItem]:
         """Search for officers using the Companies House search API.
 
         Parameters
         ----------
             query: str
                 The search query string.
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        return await self._create_paginated_list(
-            types.public_data.search.OfficerSearchItem,
-            f"{self._settings.api_url}/search/officers",
-            {"q": query},
-        )
+        base_url = f"{self._settings.api_url}/search/officers"
+
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
+                        types.public_data.search.OfficerSearchItem
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
+
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def search_disqualified_officers(
-        self, query: str
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.search.DisqualifiedOfficerSearchItem]:
+        self,
+        query: str,
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.search.DisqualifiedOfficerSearchItem]:
         """Search for disqualified officers using the Companies House search API.
 
         Parameters
         ----------
             query: str
                 The search query string.
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        return await self._create_paginated_list(
-            types.public_data.search.DisqualifiedOfficerSearchItem,
-            f"{self._settings.api_url}/search/disqualified-officers",
-            {"q": query},
-        )
+        base_url = f"{self._settings.api_url}/search/disqualified-officers"
+
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': 200})}"
+            try:
+                result = await self._get_resource(
+                    url,
+                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
+                        types.public_data.search.DisqualifiedOfficerSearchItem
+                    ],
+                )
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
+
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def get_company_charges(
@@ -842,45 +959,6 @@ class Client:
             types.public_data.charges.ChargeDetails,
         )
 
-    async def _get_filing_history_page(
-        self,
-        base_url: str,
-        query_params: dict[str, typing.Union[str, list[str]]],
-        target: types.pagination.types.FetchPageCallArg,
-        items_per_page: int = 20,
-    ) -> types.pagination.types.FetchPageRvT[types.public_data.filing_history.FilingHistoryItem]:
-        my_query_params = query_params.copy() | {
-            "start_index": target.current_total_list_len,
-            "items_per_page": items_per_page,
-        }
-        assert my_query_params
-        this_url = f"{base_url}?{urllib.parse.urlencode(my_query_params, doseq=True)}"
-        try:
-            result = await self._get_resource(this_url, types.public_data.filing_history.FilingHistoryList)
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                # No results
-                return (None, [])
-            else:
-                raise
-        assert result is not None
-        items = result.items or []
-        if not items:
-            has_next = False
-        else:
-            has_next = (result.start_index + len(items)) < result.total_count
-        return (
-            types.pagination.types.PaginatedResultInfo.model_validate(
-                {
-                    "page": target.last_fetched_page + 1,
-                    "per_page": result.items_per_page,
-                    "total_count": result.total_count,
-                    "has_next": has_next,
-                }
-            ),
-            items,
-        )
-
     @pydantic.validate_call
     async def get_company_filing_history(
         self,
@@ -903,32 +981,43 @@ class Client:
         ]
         | None = None,
         page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
-    ) -> types.pagination.paginated_list.MultipageList[types.public_data.filing_history.FilingHistoryItem]:
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.filing_history.FilingHistoryItem]:
         """Fetch the filing history for a given company.
 
         Parameters
         ----------
             company_number: str
                 The company number to fetch the filing history for.
-
-        Returns
-        -------
-            types.public_data.filing_history.FilingHistoryList
-                The filing history data.
+            categories: tuple, optional
+                Filter by filing categories.
+            page_size: int
+                Number of items per API page (1-100, default 25).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        query_params = {}
+        base_query_params: dict = {}
         if categories is not None:
-            query_params["category"] = ",".join(categories)
-        out = types.pagination.paginated_list.MultipageList(
-            fetch_page=lambda target: self._get_filing_history_page(
-                base_url=f"{self._settings.api_url}/company/{company_number}/filing-history",
-                items_per_page=page_size,
-                query_params=query_params,
-                target=target,
-            ),
-        )
-        await out._async_init()
-        return out
+            base_query_params["category"] = ",".join(categories)
+        base_url = f"{self._settings.api_url}/company/{company_number}/filing-history"
+
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            params = base_query_params | {"start_index": start_index, "items_per_page": page_size}
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            try:
+                result = await self._get_resource(url, types.public_data.filing_history.FilingHistoryList)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_count
+
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def get_filing_history_item(
@@ -1045,52 +1134,44 @@ class Client:
     async def get_officer_appointments(
         self,
         officer_id: OfficerIdStrT,
-        filter: typing.Optional[typing.Literal["active", "active"]] = None,  # noqa: A002
+        filter: typing.Optional[typing.Literal["active"]] = None,  # noqa: A002
         page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
-    ) -> types.compound_api_types.public_data.officer_appointments.OfficerAppointments:
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.officer_appointments.OfficerAppointmentSummary]:
         """Fetch the officer appointments for a given officer.
 
         Parameters
         ----------
             officer_id: str
                 The officer ID to fetch the appointments for.
-
-        Returns
-        -------
-            types.compound_api_types.OfficerAppointments
-                The officer appointments data.
+            filter: str, optional
+                Filter appointments (e.g. 'active').
+            page_size: int
+                Number of items per API page (1-100, default 25).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
-        url = f"{self._settings.api_url}/officers/{officer_id}/appointments"
+        base_url = f"{self._settings.api_url}/officers/{officer_id}/appointments"
 
-        async def _get_page(target: types.pagination.types.FetchPageCallArg):
-            query_params = {
-                "items_per_page": str(page_size),
-                "start_index": str(target.current_total_list_len),
-            }
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            params: dict = {"items_per_page": str(page_size), "start_index": str(start_index)}
             if filter is not None:
-                query_params["filter"] = filter
-            this_url = f"{url}?{urllib.parse.urlencode(query_params, doseq=True)}"
-            request = self._api_session.build_request(
-                method="GET",
-                url=this_url,
-            )
-            return await self._fetch_paginated_container(
-                request=request,
-                output_t=types.public_data.officer_appointments.AppointmentList,
-                to_pagination_info_args=lambda rv_list: {
-                    "page": (target.last_fetched_page + 1),
-                    "per_page": rv_list.items_per_page,
-                    "total_count": rv_list.total_results,
-                    "has_next": (rv_list.start_index + len(rv_list.items or [])) < rv_list.total_results,
-                },
-            )
+                params["filter"] = filter
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            try:
+                result = await self._get_resource(url, types.public_data.officer_appointments.AppointmentList)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
 
-        return (
-            await types.compound_api_types.public_data.officer_appointments.OfficerAppointments.from_api_paginated_list(  # type: ignore[return-value]
-                fetch_page_fn=_get_page,
-                convert_item_fn=lambda item: item.items or (),
-            )
-        )
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def get_company_uk_establishments(
@@ -1114,77 +1195,47 @@ class Client:
             types.public_data.uk_establishments.CompanyUKEstablishments,
         )
 
-    async def _fetch_paginated_container(
-        self,
-        request: httpx.Request,
-        output_t: typing.Type[ModelT],
-        to_pagination_info_args: typing.Callable[[ModelT], dict],
-    ) -> typing.Tuple[
-        typing.Optional[types.pagination.types.PaginatedResultInfo],
-        typing.Optional[ModelT],
-    ]:
-        try:
-            rv_list = await self._execute_request(request, output_t)
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                # No results
-                rv_list = None
-            else:
-                raise
-        if rv_list is None:
-            pagination_info = None
-        else:
-            pagination_info = types.pagination.types.PaginatedResultInfo.model_validate(
-                to_pagination_info_args(rv_list)
-            )
-        return pagination_info, rv_list
-
     @pydantic.validate_call
     async def get_company_psc_list(
         self,
         company_number: CompanyNumberStrT,
         register_view: bool = False,
         page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
-    ) -> types.compound_api_types.public_data.psc.OfficerAppointments:
-        """
-        register_view - Display register specific information. If register is held at Companies House and
-           register_view is set to true, only PSCs which are active or were terminated during election
-           period are shown.
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.psc.ListSummary]:
+        """Fetch the list of persons with significant control for a given company.
+
+        Parameters
+        ----------
+            company_number: str
+                The company number.
+            register_view: bool
+                If True, only show PSCs active or terminated during election period.
+            page_size: int
+                Number of items per API page (1-100, default 25).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
         base_url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control"
+        register_view_str = "true" if register_view else "false"
 
-        register_view_arg = {
-            True: "true",
-            False: "false",
-        }[register_view]
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            params = {"items_per_page": str(page_size), "start_index": str(start_index), "register_view": register_view_str}
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            try:
+                result = await self._get_resource(url, types.public_data.psc.PSCList)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
 
-        async def fetch_page(target: types.pagination.types.FetchPageCallArg):
-            query_params = {
-                "items_per_page": str(page_size),
-                "start_index": str(target.current_total_list_len),
-                "register_view": register_view_arg,
-            }
-
-            this_url = f"{base_url}?{urllib.parse.urlencode(query_params, doseq=True)}"
-            request = self._api_session.build_request(
-                method="GET",
-                url=this_url,
-            )
-            return await self._fetch_paginated_container(
-                request=request,
-                output_t=types.public_data.psc.PSCList,
-                to_pagination_info_args=lambda rv_list: {
-                    "page": (target.last_fetched_page + 1),
-                    "per_page": rv_list.items_per_page,
-                    "total_count": rv_list.total_results,
-                    "has_next": (rv_list.start_index + len(rv_list.items or [])) < rv_list.total_results,
-                },
-            )
-
-        return await types.compound_api_types.public_data.psc.OfficerAppointments.from_api_paginated_list(  # type: ignore[return-value]
-            fetch_page_fn=fetch_page,
-            convert_item_fn=lambda fetched_list: fetched_list.items or (),
-        )
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     @pydantic.validate_call
     async def get_company_psc_statements(
@@ -1192,46 +1243,41 @@ class Client:
         company_number: CompanyNumberStrT,
         register_view: bool = False,
         page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
-    ) -> types.compound_api_types.public_data.psc.StatementList:
-        """
-        register_view - Display register specific information. If register is held at Companies House and
-           register_view is set to true, only PSCs which are active or were terminated during election
-           period are shown.
+        next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
+        result_count: int = 1,
+    ) -> types.pagination.types.MultipageList[types.public_data.psc.Statement]:
+        """Fetch the PSC statements for a given company.
+
+        Parameters
+        ----------
+            company_number: str
+                The company number.
+            register_view: bool
+                If True, only show PSCs active or terminated during election period.
+            page_size: int
+                Number of items per API page (1-100, default 25).
+            next_page: str, optional
+                Cursor from a previous call to continue pagination.
+            result_count: int
+                Minimum number of results to return (default 1 = one API page).
         """
         base_url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control-statements"
+        register_view_str = "true" if register_view else "false"
 
-        register_view_arg = {
-            True: "true",
-            False: "false",
-        }[register_view]
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            params = {"items_per_page": str(page_size), "start_index": str(start_index), "register_view": register_view_str}
+            url = f"{base_url}?{urllib.parse.urlencode(params)}"
+            try:
+                result = await self._get_resource(url, types.public_data.psc.StatementList)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], result.total_results
 
-        async def fetch_page(target: types.pagination.types.FetchPageCallArg):
-            query_params = {
-                "items_per_page": str(page_size),
-                "start_index": str(target.current_total_list_len),
-                "register_view": register_view_arg,
-            }
-
-            this_url = f"{base_url}?{urllib.parse.urlencode(query_params, doseq=True)}"
-            request = self._api_session.build_request(
-                method="GET",
-                url=this_url,
-            )
-            return await self._fetch_paginated_container(
-                request=request,
-                output_t=types.public_data.psc.StatementList,
-                to_pagination_info_args=lambda rv_list: {
-                    "page": (target.last_fetched_page + 1),
-                    "per_page": rv_list.items_per_page,
-                    "total_count": rv_list.total_results,
-                    "has_next": (rv_list.start_index + len(rv_list.items or [])) < rv_list.total_results,
-                },
-            )
-
-        return await types.compound_api_types.public_data.psc.StatementList.from_api_paginated_list(  # type: ignore[return-value]
-            fetch_page_fn=fetch_page,
-            convert_item_fn=lambda fetched_list: fetched_list.items or (),
-        )
+        return await self._fetch_paginated(_fetch, next_page, result_count)
 
     async def _get_psc_by_type(
         self,

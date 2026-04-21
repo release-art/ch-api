@@ -10,7 +10,6 @@ Module Organization
 - :mod:`shared` - Shared types used across multiple models
 - :mod:`settings` - Global type configuration
 - :mod:`public_data` - Models for public data endpoints
-- :mod:`compound_api_types` - Complex wrapper types
 - :mod:`pagination` - Pagination support types
 - :mod:`test_data_generator` - Test data generator models
 
@@ -48,8 +47,7 @@ All Companies House API endpoints are represented in the ``public_data`` package
 Pagination
 -----
 Search and list endpoints return paginated results via:
-- :mod:`pagination.paginated_list` - MultipageList for lazy-loaded results
-- :mod:`pagination.types` - Pagination type definitions
+- :mod:`pagination.types` - MultipageList, PaginationInfo, NextPageToken
 
 Custom Field Types
 -----
@@ -69,8 +67,8 @@ Access API response types::
     >>> # Officers
     >>> officers: types.public_data.company_officers.OfficerSummary
     ...
-    >>> # Search results
-    >>> results: types.pagination.paginated_list.MultipageList[
+    >>> # Search results (paginated)
+    >>> results: types.pagination.types.MultipageList[
     ...     types.public_data.search.CompanySearchItem
     ... ]
 
@@ -83,7 +81,6 @@ https://developer-specs.company-information.service.gov.uk/ : API documentation
 
 from . import (
     base,
-    compound_api_types,
     field_types,
     pagination,
     public_data,

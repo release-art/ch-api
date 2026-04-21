@@ -1,182 +1,212 @@
-"""Pagination types and utilities for Companies House API responses.
+"""Pagination types for Companies House API responses.
 
-This module provides type definitions and models for handling paginated
-responses from the Companies House API.
+Public types (fca-api compatible):
+    NextPageToken: Opaque string cursor passed between calls to page through results.
+    PageTokenSerializer: Protocol for encrypting/decrypting pagination tokens.
+    PaginationInfo: Pagination metadata returned alongside each page of results.
+    MultipageList: Generic value object containing one page of results.
 
-Key Types
------
-- :class:`PaginatedResultInfo` - Metadata about a page of results
-- :class:`FetchPageCallArg` - Arguments for page fetch callbacks
-- :class:`FetchPageRvT` - Return type for page fetching functions
-- :class:`FetchPageCallableT` - Type signature for page fetch callbacks
-
-Pagination Model
------
-The Companies House API uses cursor-based pagination with:
-- ``start_index`` - Position to start retrieving items
-- ``items_per_page`` - Number of items to return
-- Response includes total count for pagination calculations
-
-See Also
---------
-ch_api.types.pagination.paginated_list : MultipageList container for paginated results
+Internal types (not part of the public API):
+    _PageState: Encodes CH API pagination state (start_index / search_below cursor).
 """
 
 import dataclasses
+import json
 import typing
 
 import pydantic
 
-T = typing.TypeVar("T", bound=pydantic.BaseModel)
+_ItemT = typing.TypeVar("_ItemT")
 
 
-class PaginatedResultInfo(pydantic.BaseModel):
-    """Pagination metadata from Companies House API responses.
+# ---------------------------------------------------------------------------
+# Internal: page state codec
+# ---------------------------------------------------------------------------
 
-    This model represents pagination information returned by the Companies House API,
-    including the current page number, whether more pages are available, and page size.
 
-    Attributes
-    ----------
-    page : int
-        The current page number (1-based). Page 1 is the first page of results.
+@dataclasses.dataclass(frozen=True)
+class _PageState:
+    """Encodes CH API pagination state as a portable JSON string.
 
-    has_next : bool
-        Whether there are more pages available after this one.
-        - ``True`` if there are additional pages to fetch
-        - ``False`` if this is the last page
+    Not part of the public API — callers only ever see ``NextPageToken`` (str).
 
-    per_page : int, optional
-        Number of items per page (if available from API response).
+    For offset-based endpoints (most CH API endpoints), ``start_index`` stores
+    the next offset to request. For cursor-based endpoints (alphabetical
+    search), ``search_below`` stores the ordered_alpha_key_with_id cursor.
+    """
 
-    total_count : int, optional
-        Total number of items across all pages (if available from API response).
+    start_index: int = 0
+    search_below: typing.Optional[str] = None
 
-    Example
-    -------
-    Access pagination metadata::
+    def encode(self) -> str:
+        data: dict[str, typing.Any] = {"start_index": self.start_index}
+        if self.search_below is not None:
+            data["search_below"] = self.search_below
+        return json.dumps(data)
 
-        info = PaginatedResultInfo(
-            page=1,
-            has_next=True,
-            per_page=50,
-            total_count=250
+    @classmethod
+    def decode(cls, token: str) -> "_PageState":
+        data = json.loads(token)
+        return cls(
+            start_index=data.get("start_index", 0),
+            search_below=data.get("search_below"),
         )
 
-        print(f"Page {info.page}")
-        if info.has_next:
-            print("More pages available")
-
-    Note
-    ----
-    This is used internally by the :class:`~ch_api.types.pagination.paginated_list.MultipageList`
-    class to manage pagination automatically. Most users don't interact with this directly.
-
-    See Also
-    --------
-    MultipageList : Automatically handles pagination using this metadata
-    """
-
-    page: int
-    has_next: bool
-    per_page: typing.Optional[int] = None
-    total_count: typing.Optional[int] = None
+    @classmethod
+    def first(cls) -> "_PageState":
+        return cls(start_index=0)
 
 
-#: Type alias for the return type of page fetch functions.
-#:
-#: This is a tuple containing:
-#: 1. Optional PaginatedResultInfo: Metadata about the fetched page (None if fetch failed)
-#: 2. Sequence of items: The actual items from this page
-#:
-#: Used internally for pagination callbacks.
-FetchPageRvT = typing.Tuple[
-    typing.Optional[PaginatedResultInfo],
-    typing.Sequence[T],
+# ---------------------------------------------------------------------------
+# Public: pagination token type
+# ---------------------------------------------------------------------------
+
+NextPageToken = typing.Annotated[
+    str,
+    pydantic.Field(
+        description=(
+            "Opaque pagination cursor. Pass this value unchanged to the same endpoint "
+            "to retrieve the next page of results. Treat it as an opaque string — "
+            "do not construct, parse, or modify it."
+        )
+    ),
 ]
+"""An opaque string cursor for retrieving the next page of results.
+
+Returned in ``PaginationInfo.next_page`` when more results exist. Pass it
+back to the same endpoint method (as the ``next_page`` argument) to fetch
+the next batch.
+
+The internal format is an implementation detail and may change. Always treat
+this value as opaque.
+"""
 
 
-@dataclasses.dataclass(frozen=True, kw_only=True)
-class FetchPageCallArg(typing.Generic[T]):
-    """Arguments passed to page fetch callback functions.
+# ---------------------------------------------------------------------------
+# Public: token serializer protocol
+# ---------------------------------------------------------------------------
 
-    This dataclass contains information about the current pagination state,
-    used by the pagination system to determine what page to fetch next.
 
-    Attributes
-    ----------
-    first_known_item : Optional[T]
-        The first item currently cached in the MultipageList (None if empty).
-        Used for cursor-based pagination strategies.
+@typing.runtime_checkable
+class PageTokenSerializer(typing.Protocol):
+    """Protocol for encrypting and decrypting pagination tokens.
 
-    last_known_item : Optional[T]
-        The last item currently cached (None if empty).
-        Used for cursor-based pagination strategies.
+    Implement this interface to protect ``next_page`` tokens from tampering
+    or inspection when they leave the service boundary (e.g. returned to API
+    callers and submitted back on a subsequent request).
 
-    current_total_list_len : int
-        Total number of items currently cached across all fetched pages.
-        Useful for calculating the start_index for the next page fetch.
+    Pass an instance to ``Client`` at construction time::
 
-    last_fetched_page : int
-        The page number of the most recently fetched page (0-based).
-        Use this to calculate which page to fetch next.
+        class HmacSerializer:
+            def serialize(self, token: str) -> str:
+                # sign / encrypt the raw token
+                ...
 
-    Example
-    -------
-    Use in a page fetch callback::
+            def deserialize(self, token: str) -> str:
+                # verify / decrypt back to the raw token
+                ...
 
-        async def fetch_page(target: FetchPageCallArg[MyItem]) -> FetchPageRvT[MyItem]:
-            # Calculate offset for next page
-            start_index = target.current_total_list_len
+        client = Client(
+            credentials=auth,
+            page_token_serializer=HmacSerializer(),
+        )
 
-            # Build API request for next page
-            response = await api.get_page(
-                start_index=start_index,
-                items_per_page=50
-            )
+    When a serializer is configured:
 
-            page_info = PaginatedResultInfo(
-                page=target.last_fetched_page + 1,
-                has_next=has_more_pages,
-                per_page=50,
-                total_count=response.total
-            )
-
-            return (page_info, response.items)
-
-    See Also
-    --------
-    FetchPageCallableT : Type alias for page fetch callbacks
+    * Tokens returned by endpoint methods are passed through ``serialize``
+      before being placed in ``PaginationInfo.next_page``.
+    * Tokens received by endpoint methods are passed through ``deserialize``
+      before being decoded internally.
     """
 
-    first_known_item: typing.Optional[T]
-    last_known_item: typing.Optional[T]
-    current_total_list_len: int
-    last_fetched_page: int
+    def serialize(self, token: str) -> str:
+        """Transform a raw pagination token for external use (e.g. encrypt or sign)."""
+        ...
+
+    def deserialize(self, token: str) -> str:
+        """Recover the raw pagination token from an external value (e.g. decrypt or verify)."""
+        ...
 
 
-#: Type alias for page fetch callback functions.
-#:
-#: A callable that takes :class:`FetchPageCallArg` and returns an awaitable
-#: that yields :class:`FetchPageRvT`.
-#:
-#: Example signature::
-#:
-#:     async def fetch_page(target: FetchPageCallArg[Item]) -> FetchPageRvT[Item]:
-#:         # Fetch and return page data
-#:         ...
-#:
-#: See Also:
-#:     FetchPageCallArg : Arguments to page fetch callbacks
-#:     FetchPageRvT : Return type of page fetch callbacks
-FetchPageCallableT = typing.Callable[[FetchPageCallArg], typing.Awaitable[FetchPageRvT[T]]]
+# ---------------------------------------------------------------------------
+# Public: pagination metadata model
+# ---------------------------------------------------------------------------
 
 
-#: Sentinel value representing the end of a paginated list.
-#:
-#: This is returned by page fetching to indicate no more pages are available.
-#: It's a tuple of (None, empty_sequence) to match the FetchPageRvT type.
-LIST_EOT = (
-    None,
-    (),
-)
+class PaginationInfo(pydantic.BaseModel):
+    """Pagination state for a result set returned by the CH API.
+
+    Returned alongside every page of results from the async client. Use
+    ``next_page`` in a subsequent call to the same endpoint to retrieve
+    the next batch of items.
+
+    Example::
+
+        page = await client.search_companies("Apple", result_count=25)
+
+        while page.pagination.has_next:
+            page = await client.search_companies(
+                "Apple",
+                next_page=page.pagination.next_page,
+                result_count=25,
+            )
+    """
+
+    model_config = pydantic.ConfigDict(frozen=True)
+
+    has_next: bool = pydantic.Field(description="True if more results are available beyond this page.")
+    next_page: typing.Optional[NextPageToken] = pydantic.Field(
+        default=None,
+        description="Cursor to pass to the same endpoint to fetch the next page. None when has_next is False.",
+    )
+    size: typing.Optional[int] = pydantic.Field(
+        default=None,
+        description=(
+            "Estimated total number of items in the collection as reported by the CH API. May be approximate."
+        ),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Public: result page model
+# ---------------------------------------------------------------------------
+
+
+class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
+    """A page of typed results from a paginated CH API endpoint.
+
+    Contains the fetched data items and the pagination metadata needed to
+    retrieve subsequent pages. Returned by all paginated methods on
+    ``Client``.
+
+    Type Parameters:
+        _ItemT: The type of items in ``data``.
+
+    Fetching pages::
+
+        # First page
+        page = await client.search_companies("Apple")
+        print(f"Got {len(page.data)} of ~{page.pagination.size} total results")
+
+        # Subsequent pages
+        while page.pagination.has_next:
+            page = await client.search_companies(
+                "Apple",
+                next_page=page.pagination.next_page,
+                result_count=25,
+            )
+            # process page.data ...
+
+    Fetching a larger batch in one call::
+
+        # Request at least 100 items (may trigger multiple underlying API calls)
+        page = await client.search_companies("Apple", result_count=100)
+        # page.data has >= 100 items (or all available if fewer exist)
+    """
+
+    model_config = pydantic.ConfigDict(frozen=True, arbitrary_types_allowed=True)
+
+    data: typing.List[_ItemT] = pydantic.Field(description="The result items for this page.")
+    pagination: PaginationInfo = pydantic.Field(
+        description="Pagination state, including whether more results exist and how to fetch them."
+    )
