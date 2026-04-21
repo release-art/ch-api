@@ -45,7 +45,6 @@ dev = [
     "sphinx-design>=0.7.0",
     "pydata-sphinx-theme>=0.16.1",
     "autodoc-pydantic>=2.2.0",
-    "ty>=0.0.14",
     "pytest-doctestplus>=1.7.1",
     "pyright>=1.1.408",
 ]
