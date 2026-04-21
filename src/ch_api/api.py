@@ -541,7 +541,8 @@ class Client:
         base_url = f"{self._settings.api_url}/company/{company_number}/officers"
 
         async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode(query_params | {'start_index': start_index, 'items_per_page': 200}, doseq=True)}"
+            params = query_params | {"start_index": start_index, "items_per_page": 200}
+            url = f"{base_url}?{urllib.parse.urlencode(params, doseq=True)}"
             try:
                 result = await self._get_resource(
                     url,
