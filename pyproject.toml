@@ -59,6 +59,9 @@ Repository = "https://github.com/release-art/ch-api/"
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
+[tool.pdm.build]
+includes = ["src/ch_api/py.typed"]
+
 
 [tool.ruff]
 target-version = "py313"
