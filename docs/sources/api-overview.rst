@@ -66,27 +66,17 @@ Key Endpoints
 Pagination
 ==========
 
-List endpoints return ``MultipageList`` with lazy-loading:
+List endpoints return ``MultipageList[T]`` with ``data`` (list) and ``pagination`` metadata.
+Pass ``result_count`` to control how many items are fetched, and ``next_page`` to continue:
 
     >>> async def pagination_example(client):
-    ...     results = await client.search_companies("tech")
-    ...     # Check total count
-    ...     print(f"Results: {len(results)}")
-    ...     # Iterate (pages fetched on demand)
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count <= 2:
-    ...             print(f"Company: {company.title}")
-    ...         if count >= 3:
-    ...             break
-    ...     # Or fetch all at once
-    ...     await results.fetch_all_pages()
+    ...     page = await client.search_companies("tech", result_count=1)
+    ...     print(f"Company: {page.data[0].title}")
+    ...     print(f"Has more: {page.pagination.has_next}")
     ...     return True
     >>> run_async_func(pagination_example)  # doctest: +ELLIPSIS
-    Results: ...
     Company: ...
-    Company: ...
+    Has more: True
     True
 
 Error Handling
@@ -125,15 +115,9 @@ All calls are async and must be awaited:
     >>> async def async_example(client):
     ...     company = await client.get_company_profile("09370755")
     ...     print(f"Company: {company.company_name}")
-    ...     
-    ...     results = await client.search_companies("Apple")
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count <= 1:
-    ...             print(f"Found: {company.title}")
-    ...         if count >= 2:
-    ...             break
+    ...     results = await client.search_companies("Apple", result_count=1)
+    ...     if results.data:
+    ...         print(f"Found: {results.data[0].title}")
     ...     return True
     >>> run_async_func(async_example)  # doctest: +ELLIPSIS
     Company: ...

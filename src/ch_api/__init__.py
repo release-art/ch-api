@@ -149,16 +149,15 @@ call, and ``next_page`` to continue from a previous response::
     >>> @run_async_func
     ... async def pagination_example(client):
     ...     page = await client.search_companies("Apple", result_count=25)
-    ...     for company in page.data:
-    ...         print(company.title)
-    ...     # Fetch next page
+    ...     # page.data is a plain list — iterate with a regular for loop
+    ...     assert len(page.data) >= 1
+    ...     # Fetch next page using the cursor
     ...     if page.pagination.has_next:
-    ...         next_page = await client.search_companies(
+    ...         page2 = await client.search_companies(
     ...             "Apple",
     ...             next_page=page.pagination.next_page,
     ...             result_count=25,
     ...         )
-    ...     return True
     ...
 
 Exception Handling

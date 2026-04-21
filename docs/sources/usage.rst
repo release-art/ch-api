@@ -36,7 +36,7 @@ Or using the test client with run_async_func::
     >>> run_async_func(get_company_demo)
     True
 
-The client returns rich Pydantic models defined in :mod:`ch_api.types` and uses :class:`ch_api.types.pagination.paginated_list.MultipageList` for all paginated results. See :doc:`api-reference` for the full API surface.
+The client returns rich Pydantic models defined in :mod:`ch_api.types` and uses :class:`ch_api.types.pagination.types.MultipageList` for all paginated results. See :doc:`api-reference` for the full API surface.
 
 .. _usage.authentication:
 
@@ -80,13 +80,8 @@ Officers
 Get information about company officers (directors, secretaries, etc.)::
 
     >>> async def officers_example(client):
-    ...     officers = await client.get_officer_list("09370755")
-    ...     count = 0
-    ...     async for officer in officers:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count >= 1
+    ...     officers = await client.get_officer_list("09370755", result_count=1)
+    ...     return len(officers.data) >= 1
     >>> run_async_func(officers_example)
     True
 
@@ -109,9 +104,8 @@ Access a company's filing history:
 .. code:: python
 
    # Get filing history
-   filings = await client.get_company_filing_history("09370755")
-   
-   async for filing in filings:
+   filings = await client.get_company_filing_history("09370755", result_count=100)
+   for filing in filings.data:
        print(f"Description: {filing.description}")
        print(f"Date: {filing.date}")
        print(f"Category: {filing.category}")
@@ -124,9 +118,8 @@ Get information about charges registered against a company:
 .. code:: python
 
    # Get charges
-   charges = await client.get_company_charges("09370755")
-   
-   async for charge in charges:
+   charges = await client.get_company_charges("09370755", result_count=100)
+   for charge in charges.data:
        print(f"Charge Number: {charge.charge_number}")
        print(f"Created: {charge.created_on}")
        print(f"Status: {charge.status}")
@@ -143,13 +136,8 @@ Company Search
 Search for companies by name::
 
     >>> async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple")
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count >= 1
+    ...     results = await client.search_companies("Apple", result_count=1)
+    ...     return len(results.data) >= 1
     >>> run_async_func(search_companies_example)
     True
 
@@ -167,10 +155,10 @@ Use advanced search with multiple criteria:
        company_name_includes="tech",
        company_status="active",
        company_type="ltd",
-       location="London"
+       location="London",
+       result_count=100,
    )
-   
-   async for company in results:
+   for company in results.data:
        print(f"{company.company_name} ({company.company_number})")
 
 Officer Search
@@ -180,9 +168,8 @@ Search for officers across all companies:
 
 .. code:: python
 
-   results = await client.search_officers("John Smith")
-   
-   async for officer in results:
+   results = await client.search_officers("John Smith", result_count=100)
+   for officer in results.data:
        print(f"Name: {officer.title}")
        print(f"Date of Birth: {officer.date_of_birth}")
        # Note: Appointments not included in search results
@@ -195,9 +182,8 @@ Search for disqualified officers:
 
 .. code:: python
 
-   results = await client.search_disqualified_officers("Smith")
-   
-   async for officer in results:
+   results = await client.search_disqualified_officers("Smith", result_count=100)
+   for officer in results.data:
        print(f"Name: {officer.title}")
        print(f"Date of Birth: {officer.date_of_birth}")
 
@@ -206,59 +192,36 @@ Search for disqualified officers:
 Working with Pagination
 =======================
 
-Many API endpoints return paginated results. This library handles pagination automatically using :class:`ch_api.types.pagination.paginated_list.MultipageList`.
+Many API endpoints return paginated results as :class:`ch_api.types.pagination.types.MultipageList`, a simple value object with ``data`` (list of items) and ``pagination`` (cursor metadata).
 
-Lazy Loading
-------------
-
-By default, pagination is lazy - pages are only fetched when you access them::
+Fetching a page::
 
     >>> async def lazy_loading_example(client):
-    ...     results = await client.search_companies("tech")
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count >= 1
+    ...     results = await client.search_companies("tech", result_count=1)
+    ...     return len(results.data) >= 1
     >>> run_async_func(lazy_loading_example)
     True
 
-Eager Loading
--------------
+Fetching multiple pages
+-----------------------
 
-You can fetch all pages at once if you need all data immediately:
+Use ``result_count`` to fetch more items in one call, or loop with ``next_page``:
 
 .. code:: python
 
-   results = await client.search_companies("tech")
-   
-   # Fetch all pages at once
-   await results.fetch_all_pages()
-   
-   # Now you can access all items without additional API calls
-   all_companies = results.local_items()
-   
-   for company in all_companies:
+   # Fetch at least 100 items (may make multiple underlying requests)
+   page = await client.search_companies("tech", result_count=100)
+   for company in page.data:
        print(company.title)
 
-Slicing and Indexing
---------------------
-
-You can access results by index or slice:
-
-.. code:: python
-
-   results = await client.search_companies("tech")
-   
-   # Access first item (fetches first page if needed)
-   first = results[0]
-   
-   # Access by slice (fetches pages as needed)
-   first_ten = results[0:10]
-   
-   # Note: Negative indexing is not supported
-   # This will raise an error: results[-1]
+   # Manual cursor-based paging
+   page = await client.search_companies("tech", result_count=25)
+   while page.pagination.has_next:
+       page = await client.search_companies(
+           "tech",
+           next_page=page.pagination.next_page,
+           result_count=25,
+       )
 
 .. _usage.rate-limiting:
 
@@ -410,10 +373,10 @@ All Pydantic models support conversion to dictionaries:
    company_json = company.model_dump_json()
    
    # For paginated results
-   results = await client.search_companies("Apple")
-   
+   results = await client.search_companies("Apple", result_count=25)
+
    # Convert all items to dictionaries
-   companies_list = results.model_dump()
+   companies_list = [c.model_dump() for c in results.data]
 
 .. _usage.examples:
 
@@ -432,19 +395,19 @@ Find Companies and Their Officers
    async def find_companies_and_officers():
        auth = api_settings.AuthSettings(api_key="your-api-key")
        client = Client(credentials=auth)
-       
+
        # Search for companies
-       companies = await client.search_companies("Technology Ltd", items_per_page=5)
-       
-       async for company in companies:
+       companies = await client.search_companies("Technology Ltd", result_count=5)
+
+       for company in companies.data:
            print(f"\\nCompany: {company.title} ({company.company_number})")
            print(f"Status: {company.company_status}")
-           
+
            # Get officers for each company
            try:
-               officers = await client.get_officer_list(company.company_number)
+               officers = await client.get_officer_list(company.company_number, result_count=100)
                print("Officers:")
-               async for officer in officers:
+               for officer in officers.data:
                    print(f"  - {officer.name} ({officer.officer_role})")
            except Exception as e:
                print(f"  Error getting officers: {e}")
@@ -474,21 +437,16 @@ Export Company Data
        data['profile'] = (await client.get_company_profile(company_number)).model_dump()
        
        # Officers
-       officers = await client.get_officer_list(company_number)
-       await officers.fetch_all_pages()
-       data['officers'] = officers.model_dump()
-       
+       officers = await client.get_officer_list(company_number, result_count=200)
+       data['officers'] = [o.model_dump() for o in officers.data]
+
        # PSCs
-       try:
-           psc_result = await client.get_company_psc_list(company_number)
-           await psc_result.items.fetch_all_pages()
-           data['pscs'] = psc_result.model_dump()
-       except:
-           data['pscs'] = []
-       
+       psc_result = await client.get_company_psc_list(company_number, result_count=200)
+       data['pscs'] = [p.model_dump() for p in psc_result.data]
+
        # Filing history (first 100)
-       filings = await client.get_company_filing_history(company_number, items_per_page=100)
-       data['filing_history'] = filings.model_dump()
+       filings = await client.get_company_filing_history(company_number, result_count=100)
+       data['filing_history'] = [f.model_dump() for f in filings.data]
        
        # Write to file
        with open(output_file, 'w') as f:
@@ -515,14 +473,13 @@ Monitor Company Changes
        client = Client(credentials=auth)
        
        # Get filing history
-       filings = await client.get_company_filing_history(company_number, items_per_page=100)
-       
+       filings = await client.get_company_filing_history(company_number, result_count=100)
+
        # Filter for recent filings (last 30 days)
        cutoff_date = datetime.now().date() - timedelta(days=30)
-       
+
        print(f"Recent filings for {company_number}:\\n")
-       
-       async for filing in filings:
+       for filing in filings.data:
            if filing.date >= cutoff_date:
                print(f"Date: {filing.date}")
                print(f"Description: {filing.description}")
@@ -584,6 +541,6 @@ Pagination Issues
 
 If pagination isn't working as expected:
 
-- Make sure you're using ``async for`` to iterate, not regular ``for``
-- Check you're awaiting the initial API call
-- Verify you're not trying to use negative indexing (not supported)
+- Use a regular ``for`` loop over ``result.data`` (it's a plain list)
+- Pass ``result_count`` to fetch more than one page's worth of items
+- Use ``result.pagination.next_page`` to fetch subsequent pages manually

@@ -9,7 +9,7 @@ class TestGenericSearch:
     @pytest.mark.asyncio
     async def test_search_company(self, live_env_test_client: ch_api.api.Client, r5e_company_number):
         search_response = await live_env_test_client.search("R5E ART LIMITED", result_count=300)
-        assert len(search_response.data) > 300
+        assert len(search_response.data) >= 300
 
         one_found = False
         for el in search_response.data:
@@ -80,7 +80,7 @@ async def test_alphabetical_companies_search(live_env_test_client: ch_api.api.Cl
 @pytest.mark.asyncio
 async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_company_number):
     search_response = await live_env_test_client.search_companies("R5E ART LIMITED", result_count=300)
-    assert len(search_response.data) > 300
+    assert len(search_response.data) >= 300
 
     one_found = False
     for el in search_response.data:
