@@ -69,6 +69,23 @@ import pydantic
 from .. import base, shared
 
 
+class EstablishmentLinks(shared.LinksSection):
+    """Links associated with a UK establishment record.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``company`` field is
+    declared explicitly so IDEs and type checkers can see it.
+    """
+
+    company: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company profile for this UK establishment.",
+        ),
+    ]
+
+
 class CompanyEstablishmentDetails(base.BaseModel):
     """Details of a UK establishment company.
 
@@ -100,7 +117,7 @@ class CompanyEstablishmentDetails(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection,
+        EstablishmentLinks,
         pydantic.Field(
             description="Resources related to this company.",
         ),

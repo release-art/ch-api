@@ -240,6 +240,23 @@ class PersonsEntitled(base.BaseModel):
     ]
 
 
+class TransactionLinks(shared.LinksSection):
+    """Links associated with a charge transaction filing.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``filing`` field is
+    declared explicitly so IDEs and type checkers can see it.
+    """
+
+    filing: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the filing history item for this transaction.",
+        ),
+    ]
+
+
 class Transactions(base.BaseModel):
     """Transaction that has been filed for the charge."""
 
@@ -268,7 +285,7 @@ class Transactions(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        TransactionLinks | None,
         pydantic.Field(
             description="The resources related to this filing",
             default=None,

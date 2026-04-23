@@ -404,6 +404,23 @@ class AlphabeticalCompany(base.BaseModel):
     ]
 
 
+class AdvancedCompanyLinks(shared.LinksSection):
+    """Links associated with an advanced company search result.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``company_profile``
+    field is declared explicitly so IDEs and type checkers can see it.
+    """
+
+    company_profile: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company profile.",
+        ),
+    ]
+
+
 class AdvancedCompany(base.BaseModel):
     """Advanced company search result."""
 
@@ -520,7 +537,7 @@ class AdvancedCompany(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        AdvancedCompanyLinks | None,
         pydantic.Field(
             description="The link to the company",
             default=None,

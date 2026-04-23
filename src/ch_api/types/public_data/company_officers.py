@@ -79,6 +79,23 @@ from .. import base, field_types, shared
 from . import officer_changes
 
 
+class OfficerLinks(shared.LinksSection):
+    """Links nested under the ``officer`` key of an officer list item.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``appointments`` field
+    is declared explicitly so IDEs and type checkers can see it.
+    """
+
+    appointments: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the officer's appointments list.",
+        ),
+    ]
+
+
 class ItemLinkTypes(base.BaseModel):
     """Links to other resources associated with this officer list item."""
 
@@ -90,7 +107,7 @@ class ItemLinkTypes(base.BaseModel):
     ]
 
     officer: typing.Annotated[
-        shared.LinksSection,
+        OfficerLinks,
         pydantic.Field(
             description="Links to other officer resources associated with this officer list item.",
         ),

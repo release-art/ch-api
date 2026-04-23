@@ -218,6 +218,30 @@ class Resolution(base.BaseModel):
     ]
 
 
+class FilingHistoryLinks(shared.LinksSection):
+    """Links associated with a filing history item.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``document_metadata``
+    field is declared explicitly so IDEs and type checkers can see it —
+    its value is a URL on the Document API host
+    (``document-api.company-information.service.gov.uk``).
+    """
+
+    document_metadata: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description=(
+                "Link to the document metadata on the Document API. "
+                "Pass the document ID extracted from this URL to "
+                ":meth:`~ch_api.Client.get_document_metadata` or "
+                ":meth:`~ch_api.Client.get_document_url`."
+            ),
+        ),
+    ]
+
+
 class FilingHistoryItem(base.BaseModel):
     """Individual filing history item."""
 
@@ -298,7 +322,7 @@ class FilingHistoryItem(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        FilingHistoryLinks | None,
         pydantic.Field(
             description="Links to other resources associated with this filing history item.",
             default=None,
