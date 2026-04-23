@@ -93,6 +93,14 @@ class ApiSettings:
         - Production: ``https://identity.company-information.service.gov.uk``
         - Sandbox: ``https://identity-sandbox.company-information.service.gov.uk``
 
+    document_api_url : str
+        Base URL for the Document API (separate host from the main API).
+        - Production: ``https://document-api.company-information.service.gov.uk``
+        - Sandbox: ``https://document-api-sandbox.company-information.service.gov.uk``
+
+        Used by :meth:`~ch_api.Client.get_document_metadata` and
+        :meth:`~ch_api.Client.get_document_url`.
+
     test_data_generator_url : str, optional
         Base URL for the Test Data Generator API (sandbox only).
         - Production: ``None`` (not available)
@@ -126,6 +134,7 @@ class ApiSettings:
 
     api_url: str
     identity_url: str
+    document_api_url: str = "https://document-api.company-information.service.gov.uk"
     test_data_generator_url: str | None = None
 
 
@@ -161,5 +170,6 @@ LIVE_API_SETTINGS = ApiSettings(
 TEST_API_SETTINGS = ApiSettings(
     api_url="https://api-sandbox.company-information.service.gov.uk",
     identity_url="https://identity-sandbox.company-information.service.gov.uk",
+    document_api_url="https://document-api-sandbox.company-information.service.gov.uk",
     test_data_generator_url="https://test-data-sandbox.company-information.service.gov.uk",
 )

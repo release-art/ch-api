@@ -200,6 +200,23 @@ class CaseDates(base.BaseModel):
     ]
 
 
+class InsolvencyCaseLinks(shared.LinksSection):
+    """Links associated with an insolvency case.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``charge`` field is
+    declared explicitly so IDEs and type checkers can see it.
+    """
+
+    charge: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the charge associated with this insolvency case.",
+        ),
+    ]
+
+
 class Case(base.BaseModel):
     """Individual insolvency case."""
 
@@ -250,9 +267,9 @@ class Case(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        InsolvencyCaseLinks | None,
         pydantic.Field(
-            description="The practitioners for the case.",
+            description="The links for this case.",
             default=None,
         ),
     ]

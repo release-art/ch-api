@@ -1,5 +1,9 @@
 """Unit tests for shared data types."""
 
+import typing
+
+import pydantic
+
 from ch_api.types import shared
 
 
@@ -137,3 +141,20 @@ class TestLinksSection:
         # This should return None due to the check on line 162
         result = links.get_link("any_link")
         assert result is None
+
+    def test_links_section_get_link_explicit_field(self):
+        """Test get_link finds values declared as explicit model fields in subclasses."""
+
+        class TypedLinks(shared.LinksSection):
+            document_metadata: typing.Annotated[str | None, pydantic.Field(default=None)]
+
+        data = {
+            "self": "/company/123/filing-history/XYZ",
+            "document_metadata": "https://document-api.example.com/document/XYZ",
+        }
+
+        links = TypedLinks.model_validate(data)
+
+        # Field is explicit — not in __pydantic_extra__, but get_link should still find it.
+        assert links.document_metadata == "https://document-api.example.com/document/XYZ"
+        assert links.get_link("document_metadata") == "https://document-api.example.com/document/XYZ"

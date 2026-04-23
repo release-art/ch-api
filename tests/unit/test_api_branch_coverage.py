@@ -8,7 +8,6 @@ import pydantic
 import pytest
 
 from ch_api import api, api_settings
-from ch_api.types import shared
 from ch_api.types.pagination import types as pagination_types
 from ch_api.types.public_data import search_companies as sc
 
@@ -34,7 +33,7 @@ def _alpha_company(cursor: str = "KEY:12345678") -> sc.AlphabeticalCompany:
         company_number="12345678",
         company_status="active",
         company_type="ltd",
-        links=shared.LinksSection(),
+        links=sc.AlphabeticalCompanyLinks(),
         ordered_alpha_key_with_id=cursor,
         kind="search-results#alphabetical-search",
     )
@@ -698,10 +697,8 @@ class TestSessionRestart:
     """_execute_request auto-restarts closed sessions (owns_session=True only)."""
 
     @pytest.mark.asyncio
-    async def test_restarts_owned_session_on_closed_error(self):
+    async def test_restarts_owned_session_on_closed_error(self, mocker):
         """Closed session is replaced and the request is retried successfully."""
-        import unittest.mock as mock
-
         auth = api_settings.AuthSettings(api_key="test-key")
         client = api.Client(credentials=auth, settings=api_settings.LIVE_API_SETTINGS)
 
@@ -709,13 +706,13 @@ class TestSessionRestart:
 
         closed_session = MagicMock()
         closed_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
-        closed_session.send = mock.AsyncMock(
+        closed_session.send = mocker.AsyncMock(
             side_effect=RuntimeError("Cannot send a request, as the client has been closed.")
         )
 
         fresh_session = MagicMock()
         fresh_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
-        fresh_session.send = mock.AsyncMock(return_value=ok_response)
+        fresh_session.send = mocker.AsyncMock(return_value=ok_response)
 
         client._api_session = closed_session
         client._new_session = MagicMock(return_value=fresh_session)
@@ -728,15 +725,13 @@ class TestSessionRestart:
         assert client._api_session is fresh_session
 
     @pytest.mark.asyncio
-    async def test_non_closed_runtime_error_propagates(self):
+    async def test_non_closed_runtime_error_propagates(self, mocker):
         """RuntimeError unrelated to session state is re-raised."""
-        import unittest.mock as mock
-
         auth = api_settings.AuthSettings(api_key="test-key")
         client = api.Client(credentials=auth, settings=api_settings.LIVE_API_SETTINGS)
 
         broken_session = MagicMock()
-        broken_session.send = mock.AsyncMock(side_effect=RuntimeError("some other problem"))
+        broken_session.send = mocker.AsyncMock(side_effect=RuntimeError("some other problem"))
         client._api_session = broken_session
 
         request = httpx.Request("GET", "http://example.com")
@@ -744,16 +739,14 @@ class TestSessionRestart:
             await client._execute_request(request, None)
 
     @pytest.mark.asyncio
-    async def test_closed_error_on_external_session_propagates(self):
+    async def test_closed_error_on_external_session_propagates(self, mocker):
         """Closed-session error is NOT swallowed when the session is externally owned."""
-        import unittest.mock as mock
-
         # Pass an AsyncClient directly → _owns_session = False
         external_session = httpx.AsyncClient()
         client = api.Client(credentials=external_session, settings=api_settings.LIVE_API_SETTINGS)
 
         broken_session = MagicMock()
-        broken_session.send = mock.AsyncMock(
+        broken_session.send = mocker.AsyncMock(
             side_effect=RuntimeError("Cannot send a request, as the client has been closed.")
         )
         client._api_session = broken_session
@@ -763,3 +756,155 @@ class TestSessionRestart:
             await client._execute_request(request, None)
 
         await external_session.aclose()
+
+
+class TestDocumentApi:
+    """Lines 1084-1156 — get_document_metadata + get_document_url."""
+
+    @pytest.mark.asyncio
+    async def test_get_document_metadata_calls_correct_url(self):
+        client = _make_client()
+        urls_seen = []
+
+        async def fake_get_resource(url, result_type):
+            urls_seen.append(url)
+            return None
+
+        client._get_resource = fake_get_resource
+        result = await client.get_document_metadata("DOC123")
+        assert result is None
+        assert any("document-api" in u and "DOC123" in u for u in urls_seen)
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_returns_location_on_302(self, mocker):
+        client = _make_client()
+        redirect_response = httpx.Response(
+            302,
+            headers={"Location": "https://s3.example.com/doc.pdf"},
+            request=httpx.Request("GET", "http://x"),
+        )
+        client._api_session.send = mocker.AsyncMock(return_value=redirect_response)
+
+        url = await client.get_document_url("DOC123", content_type="application/pdf")
+        assert url == "https://s3.example.com/doc.pdf"
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_returns_location_on_301(self, mocker):
+        client = _make_client()
+        redirect_response = httpx.Response(
+            301,
+            headers={"Location": "https://s3.example.com/doc.pdf"},
+            request=httpx.Request("GET", "http://x"),
+        )
+        client._api_session.send = mocker.AsyncMock(return_value=redirect_response)
+
+        url = await client.get_document_url("DOC123")
+        assert url == "https://s3.example.com/doc.pdf"
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_returns_none_on_404(self, mocker):
+        client = _make_client()
+        not_found = httpx.Response(404, request=httpx.Request("GET", "http://x"))
+        client._api_session.send = mocker.AsyncMock(return_value=not_found)
+
+        url = await client.get_document_url("DOC_MISSING")
+        assert url is None
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_raises_on_error_status(self, mocker):
+        client = _make_client()
+        error_response = httpx.Response(406, request=httpx.Request("GET", "http://x"))
+        client._api_session.send = mocker.AsyncMock(return_value=error_response)
+
+        with pytest.raises(httpx.HTTPStatusError):
+            await client.get_document_url("DOC123", content_type="text/plain")
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_unexpected_200_returns_location(self, mocker):
+        """Unexpected non-redirect 200: return Location if present."""
+        client = _make_client()
+        ok_response = httpx.Response(
+            200,
+            headers={"Location": "https://s3.example.com/doc.pdf"},
+            request=httpx.Request("GET", "http://x"),
+        )
+        client._api_session.send = mocker.AsyncMock(return_value=ok_response)
+
+        url = await client.get_document_url("DOC123")
+        assert url == "https://s3.example.com/doc.pdf"
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_session_restart(self, mocker):
+        """Closed session is restarted for document URL requests too."""
+        client = _make_client()
+        redirect_response = httpx.Response(
+            302,
+            headers={"Location": "https://s3.example.com/doc.pdf"},
+            request=httpx.Request("GET", "http://x"),
+        )
+        fresh_session = MagicMock()
+        fresh_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
+        fresh_session.send = mocker.AsyncMock(return_value=redirect_response)
+
+        client._api_session.send = mocker.AsyncMock(
+            side_effect=RuntimeError("Cannot send a request, as the client has been closed.")
+        )
+        client._new_session = MagicMock(return_value=fresh_session)
+
+        url = await client.get_document_url("DOC123")
+        assert url == "https://s3.example.com/doc.pdf"
+        client._new_session.assert_called_once()
+
+    @pytest.mark.asyncio
+    async def test_get_document_url_non_closed_runtime_error_propagates(self, mocker):
+        """RuntimeError unrelated to session state is re-raised in get_document_url."""
+        client = _make_client()
+        client._api_session.send = mocker.AsyncMock(side_effect=RuntimeError("some other error"))
+
+        with pytest.raises(RuntimeError, match="some other error"):
+            await client.get_document_url("DOC123")
+
+    @pytest.mark.asyncio
+    async def test_get_document_content_yields_response_on_success(self, mocker):
+        """get_document_content yields the httpx.Response within the context block."""
+        client = _make_client()
+        client.get_document_url = mocker.AsyncMock(return_value="https://s3.example.com/doc.pdf")
+
+        fake_response = httpx.Response(200, content=b"%PDF fake content", request=httpx.Request("GET", "http://x"))
+        mock_instance = mocker.AsyncMock()
+        mock_instance.__aenter__ = mocker.AsyncMock(return_value=mock_instance)
+        mock_instance.__aexit__ = mocker.AsyncMock(return_value=False)
+        mock_instance.get = mocker.AsyncMock(return_value=fake_response)
+        mocker.patch("httpx.AsyncClient", return_value=mock_instance)
+
+        async with client.get_document_content("DOC123", content_type="application/pdf") as result:
+            assert isinstance(result, httpx.Response)
+            assert result.content == b"%PDF fake content"
+
+        client.get_document_url.assert_awaited_once_with("DOC123", content_type="application/pdf")
+
+    @pytest.mark.asyncio
+    async def test_get_document_content_yields_none_when_not_found(self, mocker):
+        """get_document_content yields None when get_document_url returns None."""
+        client = _make_client()
+        client.get_document_url = mocker.AsyncMock(return_value=None)
+
+        async with client.get_document_content("MISSING_DOC") as result:
+            assert result is None
+
+    @pytest.mark.asyncio
+    async def test_get_document_content_raises_on_s3_error(self, mocker):
+        """get_document_content propagates S3 HTTP errors."""
+        client = _make_client()
+        client.get_document_url = mocker.AsyncMock(return_value="https://s3.example.com/doc.pdf")
+
+        error_response = httpx.Response(403, request=httpx.Request("GET", "https://s3.example.com/doc.pdf"))
+        mock_instance = mocker.AsyncMock()
+        mock_instance.__aenter__ = mocker.AsyncMock(return_value=mock_instance)
+        mock_instance.__aexit__ = mocker.AsyncMock(return_value=False)
+        mock_instance.get = mocker.AsyncMock(return_value=error_response)
+        mocker.patch("httpx.AsyncClient", return_value=mock_instance)
+
+        with pytest.raises(httpx.HTTPStatusError):
+            async with client.get_document_content("DOC123"):
+                pass

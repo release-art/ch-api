@@ -163,6 +163,11 @@ class LinksSection(base.BaseModel):
         --------
         self : Property for getting the 'self' link
         """
+        # Check explicit model fields first (subclasses may declare known link names
+        # as typed attributes — e.g. FilingHistoryLinks.document_metadata).
+        if name in self.model_fields and (value := getattr(self, name, None)) is not None:
+            return value
+        # Fall back to pydantic extra fields for undeclared / dynamic links.
         if self.__pydantic_extra__ is None:
             return None
         return self.__pydantic_extra__.get(name, None)

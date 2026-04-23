@@ -1046,6 +1046,179 @@ class Client:
             types.public_data.filing_history.FilingHistoryItem,
         )
 
+    # ------------------------------------------------------------------
+    # Document API  (separate host)
+    # ------------------------------------------------------------------
+
+    @pydantic.validate_call
+    async def get_document_metadata(
+        self,
+        document_id: str,
+    ) -> types.public_data.documents.DocumentMetadata | None:
+        """Fetch metadata for a Companies House filed document.
+
+        Queries the Document API (a separate host from the main API) and returns
+        metadata describing the document, including available content types and
+        their sizes.  Use :meth:`get_document_url` to obtain a download URL for
+        a specific content type.
+
+        Parameters
+        ----------
+        document_id : str
+            The document ID (typically found in a filing history item's links).
+
+        Returns
+        -------
+        types.public_data.documents.DocumentMetadata | None
+            Document metadata, or ``None`` if the document was not found.
+
+        Example
+        -------
+        ::
+
+            meta = await client.get_document_metadata("L_X0y9bwYnkyEMwLe3TNQUfmBpMG0FIj0tLzr5b5s2o")
+            if meta:
+                for mime_type, info in (meta.resources or {}).items():
+                    print(f"{mime_type}: {info.content_length} bytes")
+        """
+        url = f"{self._settings.document_api_url}/document/{document_id}"
+        return await self._get_resource(url, types.public_data.documents.DocumentMetadata)
+
+    @pydantic.validate_call
+    async def get_document_url(
+        self,
+        document_id: str,
+        content_type: str = "application/pdf",
+    ) -> str | None:
+        """Return a pre-signed download URL for a Companies House filed document.
+
+        Sends a request to the Document API content endpoint, which responds
+        with an HTTP 302 redirect.  This method follows the redirect one level
+        and returns the ``Location`` URL without downloading the content — callers
+        can fetch it with any HTTP client.
+
+        Parameters
+        ----------
+        document_id : str
+            The document ID (typically found in a filing history item's links).
+        content_type : str
+            MIME type of the desired format (default ``application/pdf``).
+            Available types for a document are listed in
+            :attr:`~types.public_data.documents.DocumentMetadata.resources`.
+            Common values: ``application/pdf``, ``application/json``,
+            ``application/xml``, ``application/xhtml+xml``, ``text/csv``.
+
+        Returns
+        -------
+        str | None
+            The pre-signed download URL, or ``None`` if the document was not found.
+
+        Raises
+        ------
+        httpx.HTTPStatusError
+            If the API returns an unexpected error status (e.g. 406 if the
+            requested content type is not available for this document).
+
+        Example
+        -------
+        ::
+
+            url = await client.get_document_url(
+                "L_X0y9bwYnkyEMwLe3TNQUfmBpMG0FIj0tLzr5b5s2o",
+                content_type="application/pdf",
+            )
+            if url:
+                print(url)
+        """
+        url = f"{self._settings.document_api_url}/document/{document_id}/content"
+        request = self._api_session.build_request(
+            method="GET",
+            url=url,
+            headers={"Accept": content_type},
+        )
+        async with self._api_limiter():
+            try:
+                # follow_redirects=False is the httpx default; stated explicitly for clarity
+                response = await self._api_session.send(request)
+            except RuntimeError as err:
+                if self._owns_session and "has been closed" in str(err):
+                    logger.warning("HTTP session was closed; reopening and retrying.")
+                    self._api_session = self._new_session()
+                    response = await self._api_session.send(request)
+                else:
+                    raise
+        if response.status_code == httpx.codes.NOT_FOUND:
+            return None
+        if response.status_code in (httpx.codes.FOUND, httpx.codes.MOVED_PERMANENTLY):
+            return response.headers.get("Location")
+        response.raise_for_status()
+        # Unexpected non-redirect success: return Location if present, else None
+        return response.headers.get("Location")
+
+    @contextlib.asynccontextmanager
+    async def get_document_content(
+        self,
+        document_id: str,
+        content_type: str = "application/pdf",
+    ) -> typing.AsyncIterator[httpx.Response | None]:
+        """Async context manager that downloads a Companies House filed document.
+
+        Resolves the pre-signed S3 download URL (via :meth:`get_document_url`)
+        and fetches the document using an unauthenticated request.  The underlying
+        HTTP client is kept alive for the duration of the ``async with`` block so
+        that callers can stream the response body without worrying about the
+        connection being closed prematurely.
+
+        Parameters
+        ----------
+        document_id : str
+            The document ID (typically found in a filing history item's links).
+        content_type : str
+            MIME type of the desired format (default ``application/pdf``).
+            Available types for a document are listed in
+            :attr:`~types.public_data.documents.DocumentMetadata.resources`.
+            Common values: ``application/pdf``, ``application/json``,
+            ``application/xml``, ``application/xhtml+xml``, ``text/csv``.
+
+        Yields
+        ------
+        httpx.Response | None
+            The HTTP response from S3, or ``None`` if the document was not found.
+            Call :attr:`httpx.Response.content` to read the full body into memory,
+            or use :meth:`httpx.Response.aiter_bytes` for streaming.
+
+        Raises
+        ------
+        httpx.HTTPStatusError
+            If the API or the S3 download returns an unexpected error status.
+
+        Example
+        -------
+        Read entire document into memory::
+
+            async with client.get_document_content(
+                "L_X0y9bwYnkyEMwLe3TNQUfmBpMG0FIj0tLzr5b5s2o",
+                content_type="application/pdf",
+            ) as response:
+                if response is not None:
+                    pathlib.Path("confirmation_statement.pdf").write_bytes(response.content)
+
+        Stream the document in chunks::
+
+            async with client.get_document_content("DOC_ID") as response:
+                if response is not None:
+                    async for chunk in response.aiter_bytes(chunk_size=65536):
+                        process(chunk)
+        """
+        download_url = await self.get_document_url(document_id, content_type=content_type)
+        if download_url is None:
+            yield None
+            return
+        async with httpx.AsyncClient() as download_client:
+            response = await download_client.get(download_url)
+            response.raise_for_status()
+            yield response
+
     @pydantic.validate_call
     async def get_company_insolvency(
         self,

@@ -13,7 +13,7 @@ async def test_get_r5e_company_filing_history(live_env_test_client: ch_api.api.C
             # the company changed its name to "R5E LIMITED" to "RELEASE.ART LIMITED" in 2026
             assert filing.type == "CERTNM"
             assert filing.date.year == 2026
-            assert filing.links.get_link("document_metadata") is not None
+            assert filing.links.document_metadata is not None
             break
     else:
         # No break encountered

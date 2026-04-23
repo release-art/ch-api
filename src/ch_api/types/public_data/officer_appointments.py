@@ -315,6 +315,23 @@ class ContactDetails(base.BaseModel):
     ]
 
 
+class OfficerAppointmentItemLinks(shared.LinksSection):
+    """Links associated with an officer appointment item.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``company`` field is
+    declared explicitly so IDEs and type checkers can see it.
+    """
+
+    company: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company profile for this appointment.",
+        ),
+    ]
+
+
 class OfficerAppointmentSummary(base.BaseModel):
     """Officer appointment summary."""
 
@@ -365,7 +382,7 @@ class OfficerAppointmentSummary(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection,
+        OfficerAppointmentItemLinks,
         pydantic.Field(
             description="Links to other resources associated with this officer appointment item.",
         ),

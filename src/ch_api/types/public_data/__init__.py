@@ -169,6 +169,7 @@ from . import (
     company_profile,
     company_registers,
     disqualifications,
+    documents,
     exemptions,
     filing_history,
     insolvency,

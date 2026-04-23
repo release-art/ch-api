@@ -240,6 +240,48 @@ class PersonsEntitled(base.BaseModel):
     ]
 
 
+class TransactionLinks(shared.LinksSection):
+    """Links associated with a charge transaction filing.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The fields below are
+    declared explicitly so IDEs and type checkers can see them.
+    """
+
+    filing: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the filing history item for this transaction.",
+        ),
+    ]
+
+    insolvency_case: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the insolvency case related to this transaction.",
+        ),
+    ]
+
+
+class InsolvencyCaseLinks(shared.LinksSection):
+    """Links associated with an insolvency case on a charge.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``case`` field is
+    declared explicitly so IDEs and type checkers can see it.
+    """
+
+    case: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the insolvency case.",
+        ),
+    ]
+
+
 class Transactions(base.BaseModel):
     """Transaction that has been filed for the charge."""
 
@@ -268,7 +310,7 @@ class Transactions(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        TransactionLinks | None,
         pydantic.Field(
             description="The resources related to this filing",
             default=None,
@@ -288,7 +330,7 @@ class InsolvencyCases(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection | None,
+        InsolvencyCaseLinks | None,
         pydantic.Field(
             description="The resources related to this insolvency case",
             default=None,

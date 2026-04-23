@@ -751,6 +751,87 @@ class BranchCompanyDetails(base.BaseModel):
     ]
 
 
+class CompanyProfileLinks(shared.LinksSection):
+    """Links associated with a company profile response.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The fields below are
+    declared explicitly so IDEs and type checkers can see them.
+    """
+
+    filing_history: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's filing history.",
+        ),
+    ]
+
+    officers: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's officers list.",
+        ),
+    ]
+
+    persons_with_significant_control: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's persons with significant control list.",
+        ),
+    ]
+
+    persons_with_significant_control_statements: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's PSC statements list.",
+        ),
+    ]
+
+    registers: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's registers.",
+        ),
+    ]
+
+    insolvency: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's insolvency information.",
+        ),
+    ]
+
+    charges: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's charges.",
+        ),
+    ]
+
+    exemptions: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's exemptions.",
+        ),
+    ]
+
+    overseas: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's overseas information.",
+        ),
+    ]
+
+
 class CompanyProfile(base.BaseModel):
     """Company profile information from Companies House."""
 
@@ -1104,7 +1185,7 @@ class CompanyProfile(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection,
+        CompanyProfileLinks,
         pydantic.Field(
             description="A set of URLs related to the resource, including self.",
         ),
