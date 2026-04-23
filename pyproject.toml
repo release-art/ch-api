@@ -60,7 +60,7 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm.build]
-includes = ["src/ch_api/py.typed"]
+includes = ["src/ch_api"]
 
 
 [tool.ruff]
