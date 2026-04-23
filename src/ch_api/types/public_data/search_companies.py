@@ -344,6 +344,23 @@ class DissolvedCompany(base.BaseModel):
     ]
 
 
+class AlphabeticalCompanyLinks(shared.LinksSection):
+    """Links associated with an alphabetical company search result.
+
+    Inherits ``self`` (and any other arbitrary links) from
+    :class:`~ch_api.types.shared.LinksSection`.  The ``company_profile``
+    field is declared explicitly so IDEs and type checkers can see it.
+    """
+
+    company_profile: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company profile.",
+        ),
+    ]
+
+
 class AlphabeticalCompany(base.BaseModel):
     """Alphabetical company search result."""
 
@@ -376,7 +393,7 @@ class AlphabeticalCompany(base.BaseModel):
     ]
 
     links: typing.Annotated[
-        shared.LinksSection,
+        AlphabeticalCompanyLinks,
         pydantic.Field(
             description="The link to the company",
         ),

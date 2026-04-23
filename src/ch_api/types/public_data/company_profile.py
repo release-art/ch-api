@@ -783,6 +783,54 @@ class CompanyProfileLinks(shared.LinksSection):
         ),
     ]
 
+    persons_with_significant_control_statements: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's PSC statements list.",
+        ),
+    ]
+
+    registers: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's registers.",
+        ),
+    ]
+
+    insolvency: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's insolvency information.",
+        ),
+    ]
+
+    charges: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's charges.",
+        ),
+    ]
+
+    exemptions: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's exemptions.",
+        ),
+    ]
+
+    overseas: typing.Annotated[
+        str | None,
+        pydantic.Field(
+            default=None,
+            description="Link to the company's overseas information.",
+        ),
+    ]
+
 
 class CompanyProfile(base.BaseModel):
     """Company profile information from Companies House."""

@@ -8,7 +8,6 @@ import pydantic
 import pytest
 
 from ch_api import api, api_settings
-from ch_api.types import shared
 from ch_api.types.pagination import types as pagination_types
 from ch_api.types.public_data import search_companies as sc
 
@@ -34,7 +33,7 @@ def _alpha_company(cursor: str = "KEY:12345678") -> sc.AlphabeticalCompany:
         company_number="12345678",
         company_status="active",
         company_type="ltd",
-        links=shared.LinksSection(),
+        links=sc.AlphabeticalCompanyLinks(),
         ordered_alpha_key_with_id=cursor,
         kind="search-results#alphabetical-search",
     )
