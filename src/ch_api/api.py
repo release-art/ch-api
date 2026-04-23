@@ -106,6 +106,7 @@ class Client:
     _api_limiter: LimiterContextT
     _settings: api_settings.ApiSettings
     _owns_session: bool  # Track if we created the session (for cleanup)
+    _session_auth: typing.Optional[httpx.BasicAuth]  # Stored to allow session restart
     _page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer]
 
     def __init__(
@@ -193,14 +194,10 @@ class Client:
         if isinstance(credentials, httpx.AsyncClient):
             self._api_session = credentials
             self._owns_session = False
+            self._session_auth = None
         elif isinstance(credentials, api_settings.AuthSettings):
-            auth = httpx.BasicAuth(username=credentials.api_key, password="")
-            self._api_session = httpx.AsyncClient(
-                auth=auth,
-                headers={
-                    "ACCEPT": "application/json",
-                },
-            )
+            self._session_auth = httpx.BasicAuth(username=credentials.api_key, password="")
+            self._api_session = self._new_session()
             self._owns_session = True
         else:
             raise ValueError(
@@ -212,6 +209,13 @@ class Client:
         else:
             self._api_limiter = api_limiter
         self._page_token_serializer = page_token_serializer
+
+    def _new_session(self) -> httpx.AsyncClient:
+        """Create a fresh AsyncClient using the stored auth credentials."""
+        return httpx.AsyncClient(
+            auth=self._session_auth,
+            headers={"ACCEPT": "application/json"},
+        )
 
     async def __aenter__(self) -> "Client":
         """Enter async context manager."""
@@ -264,7 +268,15 @@ class Client:
     ) -> ModelT | None:
         """Placeholder for request execution logic."""
         async with self._api_limiter():
-            response = await self._api_session.send(request)
+            try:
+                response = await self._api_session.send(request)
+            except RuntimeError as err:
+                if self._owns_session and "has been closed" in str(err):
+                    logger.warning("HTTP session was closed; reopening and retrying.")
+                    self._api_session = self._new_session()
+                    response = await self._api_session.send(request)
+                else:
+                    raise
         if response.status_code == 404:
             # Resource not found
             return None

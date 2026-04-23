@@ -692,3 +692,72 @@ class TestPscStatementsBranches:
         client._get_resource = fake_get_resource
         with pytest.raises(httpx.HTTPStatusError):
             await client.get_company_psc_statements("12345678")
+
+
+class TestSessionRestart:
+    """_execute_request auto-restarts closed sessions (owns_session=True only)."""
+
+    @pytest.mark.asyncio
+    async def test_restarts_owned_session_on_closed_error(self):
+        """Closed session is replaced and the request is retried successfully."""
+        import unittest.mock as mock
+
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth, settings=api_settings.LIVE_API_SETTINGS)
+
+        ok_response = httpx.Response(200, content=b"{}", request=httpx.Request("GET", "http://x"))
+
+        closed_session = MagicMock()
+        closed_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
+        closed_session.send = mock.AsyncMock(side_effect=RuntimeError("Cannot send a request, as the client has been closed."))
+
+        fresh_session = MagicMock()
+        fresh_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
+        fresh_session.send = mock.AsyncMock(return_value=ok_response)
+
+        client._api_session = closed_session
+        client._new_session = MagicMock(return_value=fresh_session)
+
+        # _execute_request should survive the closed-session error and return None (404-free 200)
+        request = httpx.Request("GET", "http://example.com")
+        await client._execute_request(request, None)
+
+        client._new_session.assert_called_once()
+        assert client._api_session is fresh_session
+
+    @pytest.mark.asyncio
+    async def test_non_closed_runtime_error_propagates(self):
+        """RuntimeError unrelated to session state is re-raised."""
+        import unittest.mock as mock
+
+        auth = api_settings.AuthSettings(api_key="test-key")
+        client = api.Client(credentials=auth, settings=api_settings.LIVE_API_SETTINGS)
+
+        broken_session = MagicMock()
+        broken_session.send = mock.AsyncMock(side_effect=RuntimeError("some other problem"))
+        client._api_session = broken_session
+
+        request = httpx.Request("GET", "http://example.com")
+        with pytest.raises(RuntimeError, match="some other problem"):
+            await client._execute_request(request, None)
+
+    @pytest.mark.asyncio
+    async def test_closed_error_on_external_session_propagates(self):
+        """Closed-session error is NOT swallowed when the session is externally owned."""
+        import unittest.mock as mock
+
+        # Pass an AsyncClient directly → _owns_session = False
+        external_session = httpx.AsyncClient()
+        client = api.Client(credentials=external_session, settings=api_settings.LIVE_API_SETTINGS)
+
+        broken_session = MagicMock()
+        broken_session.send = mock.AsyncMock(
+            side_effect=RuntimeError("Cannot send a request, as the client has been closed.")
+        )
+        client._api_session = broken_session
+
+        request = httpx.Request("GET", "http://example.com")
+        with pytest.raises(RuntimeError, match="has been closed"):
+            await client._execute_request(request, None)
+
+        await external_session.aclose()
