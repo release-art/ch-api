@@ -526,7 +526,7 @@ class OfficerSummary(base.BaseModel):
     ]
 
     identity_verification_details: typing.Annotated[
-        officer_changes.IdentityVerificationDetails,
+        field_types.UndocumentedNullable[officer_changes.IdentityVerificationDetails],
         pydantic.Field(
             description="Information relating to the identity verification of the officer",
             default=None,

@@ -8,9 +8,9 @@ import pydantic
 import pytest
 
 from ch_api import api, api_settings
+from ch_api.types import shared
 from ch_api.types.pagination import types as pagination_types
 from ch_api.types.public_data import search_companies as sc
-from ch_api.types import shared
 
 
 def _make_client(serializer=None):
@@ -709,7 +709,9 @@ class TestSessionRestart:
 
         closed_session = MagicMock()
         closed_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
-        closed_session.send = mock.AsyncMock(side_effect=RuntimeError("Cannot send a request, as the client has been closed."))
+        closed_session.send = mock.AsyncMock(
+            side_effect=RuntimeError("Cannot send a request, as the client has been closed.")
+        )
 
         fresh_session = MagicMock()
         fresh_session.build_request = MagicMock(return_value=httpx.Request("GET", "http://x"))
