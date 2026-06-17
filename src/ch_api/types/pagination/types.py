@@ -16,6 +16,8 @@ import typing
 
 import pydantic
 
+from ... import exc
+
 _ItemT = typing.TypeVar("_ItemT", bound=pydantic.BaseModel)
 
 
@@ -137,19 +139,15 @@ class PaginationInfo(pydantic.BaseModel):
     """Pagination state for a result set returned by the CH API.
 
     Returned alongside every page of results from the async client. Use
-    ``next_page`` in a subsequent call to the same endpoint to retrieve
-    the next batch of items.
+    ``MultipageList.get_next`` (or pass ``next_page`` back to the same
+    endpoint) to retrieve the next page of items.
 
     Example::
 
-        page = await client.search_companies("Apple", result_count=25)
+        page = await client.search_companies("Apple")
 
         while page.pagination.has_next:
-            page = await client.search_companies(
-                "Apple",
-                next_page=page.pagination.next_page,
-                result_count=25,
-            )
+            page = await page.get_next()
     """
 
     model_config = pydantic.ConfigDict(frozen=True)
@@ -173,35 +171,35 @@ class PaginationInfo(pydantic.BaseModel):
 
 
 class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
-    """A page of typed results from a paginated CH API endpoint.
+    """A single page of typed results from a paginated CH API endpoint.
 
-    Contains the fetched data items and the pagination metadata needed to
-    retrieve subsequent pages. Returned by all paginated methods on
-    ``Client``.
+    Contains exactly one API page of data items plus the pagination metadata
+    needed to retrieve the next page. Returned by all paginated methods on
+    ``Client``. Each instance holds one page only — it never accumulates a
+    unified list across pages. Advance one page at a time with :meth:`get_next`
+    (or by passing ``pagination.next_page`` back to the originating endpoint).
 
     Type Parameters:
         _ItemT: The type of items in ``data``.
 
-    Fetching pages::
+    Walking every page with ``get_next``::
 
-        # First page
         page = await client.search_companies("Apple")
-        print(f"Got {len(page.data)} of ~{page.pagination.size} total results")
+        while True:
+            for company in page.data:
+                ...  # process this page's items
+            if not page.pagination.has_next:
+                break
+            page = await page.get_next()
 
-        # Subsequent pages
-        while page.pagination.has_next:
-            page = await client.search_companies(
+    Resuming statelessly with a cursor token::
+
+        page = await client.search_companies("Apple")
+        if page.pagination.has_next:
+            page2 = await client.search_companies(
                 "Apple",
                 next_page=page.pagination.next_page,
-                result_count=25,
             )
-            # process page.data ...
-
-    Fetching a larger batch in one call::
-
-        # Request at least 100 items (may trigger multiple underlying API calls)
-        page = await client.search_companies("Apple", result_count=100)
-        # page.data has >= 100 items (or all available if fewer exist)
     """
 
     model_config = pydantic.ConfigDict(frozen=True, arbitrary_types_allowed=True)
@@ -210,3 +208,42 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
     pagination: PaginationInfo = pydantic.Field(
         description="Pagination state, including whether more results exist and how to fetch them."
     )
+
+    _fetch_next_page: typing.Optional[typing.Callable[[], typing.Awaitable["MultipageList[_ItemT]"]]] = (
+        pydantic.PrivateAttr(default=None)
+    )
+    """Bound closure that fetches the next page using the same endpoint and
+    arguments as the call that produced this list. Set by the client when the
+    list is produced; ``None`` on manually-constructed instances.
+    """
+
+    async def get_next(self) -> "MultipageList[_ItemT]":
+        """Fetch the next page from the same endpoint with the same arguments.
+
+        Returns a new ``MultipageList`` carrying the next page of results.
+        The returned list itself has ``get_next`` bound for further iteration.
+
+        Raises:
+            NoMorePagesError: If ``pagination.has_next`` is ``False`` — this
+                list is already the last page.
+            RuntimeError: If this list was constructed manually (e.g. in a
+                test or via deserialization) and has no fetcher attached.
+
+        Example:
+            Walk every page::
+
+                page = await client.search_companies("Apple")
+                while page.pagination.has_next:
+                    page = await page.get_next()
+                    for company in page.data:
+                        ...
+        """
+        if not self.pagination.has_next:
+            raise exc.NoMorePagesError("This is the last page; no more results to fetch.")
+        if self._fetch_next_page is None:
+            raise RuntimeError(
+                "MultipageList has no next-page fetcher attached — it was likely "
+                "constructed manually or deserialized. Call the originating endpoint "
+                "with `next_page=<token>` instead."
+            )
+        return await self._fetch_next_page()

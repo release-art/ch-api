@@ -73,8 +73,8 @@ Each search type returns results with:
 
 Pagination
 -----
-All searches are paginated. Use the client's search methods which handle
-pagination automatically through MultipageList interface.
+All searches are paginated. The client's search methods return a single-page
+MultipageList; advance one page at a time with ``get_next`` (or ``next_page``).
 
 Example Usage
 -----

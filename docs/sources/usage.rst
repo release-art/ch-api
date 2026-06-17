@@ -80,7 +80,7 @@ Officers
 Get information about company officers (directors, secretaries, etc.)::
 
     >>> async def officers_example(client):
-    ...     officers = await client.get_officer_list("09370755", result_count=1)
+    ...     officers = await client.get_officer_list("09370755")
     ...     return len(officers.data) >= 1
     >>> run_async_func(officers_example)
     True
@@ -103,8 +103,8 @@ Access a company's filing history:
 
 .. code:: python
 
-   # Get filing history
-   filings = await client.get_company_filing_history("09370755", result_count=100)
+   # Get one page of filing history (use page_size / get_next for more)
+   filings = await client.get_company_filing_history("09370755", page_size=100)
    for filing in filings.data:
        print(f"Description: {filing.description}")
        print(f"Date: {filing.date}")
@@ -117,9 +117,9 @@ Get information about charges registered against a company:
 
 .. code:: python
 
-   # Get charges
-   charges = await client.get_company_charges("09370755", result_count=100)
-   for charge in charges.data:
+   # Get charges (single response, not paginated)
+   charges = await client.get_company_charges("09370755")
+   for charge in charges.items or []:
        print(f"Charge Number: {charge.charge_number}")
        print(f"Created: {charge.created_on}")
        print(f"Status: {charge.status}")
@@ -136,7 +136,7 @@ Company Search
 Search for companies by name::
 
     >>> async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple", result_count=1)
+    ...     results = await client.search_companies("Apple")
     ...     return len(results.data) >= 1
     >>> run_async_func(search_companies_example)
     True
@@ -156,7 +156,7 @@ Use advanced search with multiple criteria:
        company_status="active",
        company_type="ltd",
        location="London",
-       result_count=100,
+       page_size=100,
    )
    for company in results.data:
        print(f"{company.company_name} ({company.company_number})")
@@ -168,7 +168,7 @@ Search for officers across all companies:
 
 .. code:: python
 
-   results = await client.search_officers("John Smith", result_count=100)
+   results = await client.search_officers("John Smith", page_size=100)
    for officer in results.data:
        print(f"Name: {officer.title}")
        print(f"Date of Birth: {officer.date_of_birth}")
@@ -182,7 +182,7 @@ Search for disqualified officers:
 
 .. code:: python
 
-   results = await client.search_disqualified_officers("Smith", result_count=100)
+   results = await client.search_disqualified_officers("Smith", page_size=100)
    for officer in results.data:
        print(f"Name: {officer.title}")
        print(f"Date of Birth: {officer.date_of_birth}")
@@ -192,12 +192,12 @@ Search for disqualified officers:
 Working with Pagination
 =======================
 
-Many API endpoints return paginated results as :class:`ch_api.types.pagination.types.MultipageList`, a simple value object with ``data`` (list of items) and ``pagination`` (cursor metadata).
+Many API endpoints return paginated results as :class:`ch_api.types.pagination.types.MultipageList`, a minimal value object holding a single API page: ``data`` (the items on this page), ``pagination`` (cursor metadata), and a ``get_next`` handle to fetch the next page. It never accumulates a unified list across pages — you advance one page at a time.
 
 Fetching a page::
 
     >>> async def lazy_loading_example(client):
-    ...     results = await client.search_companies("tech", result_count=1)
+    ...     results = await client.search_companies("tech")
     ...     return len(results.data) >= 1
     >>> run_async_func(lazy_loading_example)
     True
@@ -205,22 +205,27 @@ Fetching a page::
 Fetching multiple pages
 -----------------------
 
-Use ``result_count`` to fetch more items in one call, or loop with ``next_page``:
+Each call returns one page. Use ``page_size`` to control how many items a page
+holds, and walk the result set with ``get_next``:
 
 .. code:: python
 
-   # Fetch at least 100 items (may make multiple underlying requests)
-   page = await client.search_companies("tech", result_count=100)
-   for company in page.data:
-       print(company.title)
+   # Walk every page with the bound get_next handle
+   page = await client.search_companies("tech", page_size=100)
+   while True:
+       for company in page.data:
+           print(company.title)
+       if not page.pagination.has_next:
+           break
+       page = await page.get_next()
 
-   # Manual cursor-based paging
-   page = await client.search_companies("tech", result_count=25)
+   # Or resume statelessly with the opaque cursor token
+   page = await client.search_companies("tech", page_size=25)
    while page.pagination.has_next:
        page = await client.search_companies(
            "tech",
+           page_size=25,
            next_page=page.pagination.next_page,
-           result_count=25,
        )
 
 .. _usage.rate-limiting:
@@ -373,7 +378,7 @@ All Pydantic models support conversion to dictionaries:
    company_json = company.model_dump_json()
    
    # For paginated results
-   results = await client.search_companies("Apple", result_count=25)
+   results = await client.search_companies("Apple", page_size=25)
 
    # Convert all items to dictionaries
    companies_list = [c.model_dump() for c in results.data]
@@ -397,7 +402,7 @@ Find Companies and Their Officers
        client = Client(credentials=auth)
 
        # Search for companies
-       companies = await client.search_companies("Technology Ltd", result_count=5)
+       companies = await client.search_companies("Technology Ltd", page_size=5)
 
        for company in companies.data:
            print(f"\\nCompany: {company.title} ({company.company_number})")
@@ -405,7 +410,7 @@ Find Companies and Their Officers
 
            # Get officers for each company
            try:
-               officers = await client.get_officer_list(company.company_number, result_count=100)
+               officers = await client.get_officer_list(company.company_number, page_size=100)
                print("Officers:")
                for officer in officers.data:
                    print(f"  - {officer.name} ({officer.officer_role})")
@@ -437,15 +442,15 @@ Export Company Data
        data['profile'] = (await client.get_company_profile(company_number)).model_dump()
        
        # Officers
-       officers = await client.get_officer_list(company_number, result_count=200)
+       officers = await client.get_officer_list(company_number, page_size=200)
        data['officers'] = [o.model_dump() for o in officers.data]
 
        # PSCs
-       psc_result = await client.get_company_psc_list(company_number, result_count=200)
+       psc_result = await client.get_company_psc_list(company_number, page_size=200)
        data['pscs'] = [p.model_dump() for p in psc_result.data]
 
        # Filing history (first 100)
-       filings = await client.get_company_filing_history(company_number, result_count=100)
+       filings = await client.get_company_filing_history(company_number, page_size=100)
        data['filing_history'] = [f.model_dump() for f in filings.data]
        
        # Write to file
@@ -473,7 +478,7 @@ Monitor Company Changes
        client = Client(credentials=auth)
        
        # Get filing history
-       filings = await client.get_company_filing_history(company_number, result_count=100)
+       filings = await client.get_company_filing_history(company_number, page_size=100)
 
        # Filter for recent filings (last 30 days)
        cutoff_date = datetime.now().date() - timedelta(days=30)
@@ -541,6 +546,7 @@ Pagination Issues
 
 If pagination isn't working as expected:
 
-- Use a regular ``for`` loop over ``result.data`` (it's a plain list)
-- Pass ``result_count`` to fetch more than one page's worth of items
-- Use ``result.pagination.next_page`` to fetch subsequent pages manually
+- Use a regular ``for`` loop over ``result.data`` (it's a plain list for one page)
+- Pass ``page_size`` to control how many items each page holds
+- Call ``await result.get_next()`` (or pass ``result.pagination.next_page`` back to
+  the endpoint) to fetch the next page

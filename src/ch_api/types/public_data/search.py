@@ -53,24 +53,25 @@ Search for companies::
     auth = api_settings.AuthSettings(api_key="your-key")
     client = Client(credentials=auth)
 
-    # Simple search
+    # Simple search (one page; call results.get_next() for more)
     results = await client.search_companies("Apple")
-    async for company in results:
+    for company in results.data:
         print(f"{company.title} ({company.company_number})")
 
     # Search all types
     results = await client.search("Barclays")
-    async for result in results:
+    for result in results.data:
         print(f"{result.title}")
 
     # Search officers
     officers = await client.search_officers("Smith")
-    async for officer in officers:
+    for officer in officers.data:
         print(f"{officer.title}")
 
 Pagination
 -----
-Search results are returned as :class:`ch_api.types.pagination.types.MultipageList`.
+Search results are returned as a single-page :class:`ch_api.types.pagination.types.MultipageList`.
+Each call returns one page; advance with ``get_next`` (or pass ``next_page`` back to the endpoint).
 
 See Also
 --------

@@ -20,7 +20,7 @@ async def test_get_registered_office_address(live_env_test_client: ch_api.api.Cl
 
 @pytest.mark.asyncio
 async def test_get_officer_list(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    officer_list = await live_env_test_client.get_officer_list(r5e_company_number, result_count=100)
+    officer_list = await live_env_test_client.get_officer_list(r5e_company_number)
     assert officer_list is not None
     assert len(officer_list.data) == 1
     assert officer_list.data[0].name == "ORLOVS, Ilja"  # Hey there, it's me!

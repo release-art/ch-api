@@ -7,7 +7,7 @@ import httpx
 import pydantic
 import pytest
 
-from ch_api import api, api_settings
+from ch_api import api, api_settings, exc
 from ch_api.types.pagination import types as pagination_types
 from ch_api.types.public_data import search_companies as sc
 
@@ -73,12 +73,36 @@ class TestPageTokenSerializer:
         serializer.deserialize.assert_called_once_with("ENCRYPTED")
 
 
-class TestCursorPaginationContinuation:
-    """Line 422 — cursor=next_cursor loop continuation."""
+class TestMultipageListGetNext:
+    """MultipageList.get_next error paths on manually-constructed instances."""
 
     @pytest.mark.asyncio
-    async def test_cursor_loop_continues(self):
-        """Line 422: second iteration sets cursor = next_cursor."""
+    async def test_get_next_on_last_page_raises_no_more_pages(self):
+        """has_next is False → NoMorePagesError."""
+        page = pagination_types.MultipageList(
+            data=[],
+            pagination=pagination_types.PaginationInfo(has_next=False),
+        )
+        with pytest.raises(exc.NoMorePagesError):
+            await page.get_next()
+
+    @pytest.mark.asyncio
+    async def test_get_next_without_fetcher_raises_runtime_error(self):
+        """has_next True but no bound fetcher (e.g. deserialized) → RuntimeError."""
+        page = pagination_types.MultipageList(
+            data=[],
+            pagination=pagination_types.PaginationInfo(has_next=True, next_page="tok"),
+        )
+        with pytest.raises(RuntimeError, match="no next-page fetcher"):
+            await page.get_next()
+
+
+class TestCursorPaginationContinuation:
+    """Single cursor page + get_next advances via the bound fetcher."""
+
+    @pytest.mark.asyncio
+    async def test_get_next_advances_cursor(self):
+        """First page reports has_next; get_next fetches the next cursor page."""
         client = _make_client()
         call_count = 0
 
@@ -94,8 +118,14 @@ class TestCursorPaginationContinuation:
             assert cursor == "CURSOR_A"
             return [_Item(val=2)], None
 
-        page = await client._fetch_paginated_cursor(fetch_fn, None, 2)
-        assert len(page.data) == 2
+        page = await client._fetch_paginated_cursor(fetch_fn, None)
+        assert [i.val for i in page.data] == [1]
+        assert page.pagination.has_next
+        assert call_count == 1
+
+        page2 = await page.get_next()
+        assert [i.val for i in page2.data] == [2]
+        assert not page2.pagination.has_next
         assert call_count == 2
 
 
@@ -144,27 +174,31 @@ class TestAlphabeticalSearchBranches:
         assert page.data == []
 
     @pytest.mark.asyncio
-    async def test_cursor_loop_via_alphabetical_search(self):
-        """Line 422 via alphabetical_companies_search: second call uses search_below."""
+    async def test_get_next_via_alphabetical_search_uses_search_below(self):
+        """alphabetical_companies_search: get_next carries the search_below cursor."""
         client = _make_client()
         call_count = 0
         item = _alpha_company("KEY_ALPHA:00000001")
+        urls_seen = []
 
         async def fake_get_resource(url, result_type):
             nonlocal call_count
             call_count += 1
-            if call_count == 1:
-                result = MagicMock()
-                result.items = [item]
-                return result
+            urls_seen.append(url)
             result = MagicMock()
-            result.items = []
+            result.items = [item] if call_count == 1 else []
             return result
 
         client._get_resource = fake_get_resource
-        page = await client.alphabetical_companies_search("test", page_size=1, result_count=2)
+        page = await client.alphabetical_companies_search("test", page_size=1)
         assert len(page.data) == 1
+        assert page.pagination.has_next
+        assert call_count == 1
+
+        page2 = await page.get_next()
+        assert page2.data == []
         assert call_count == 2
+        assert any("search_below=KEY_ALPHA" in u for u in urls_seen)
 
 
 class TestDissolvedSearchBranches:
@@ -381,6 +415,18 @@ class TestAdvancedSearchParams:
 
         client._get_resource = fake_get_resource
         await client.advanced_company_search(sic_codes=["62012"])
+
+    @pytest.mark.asyncio
+    async def test_page_size_adds_size_param(self):
+        """page_size is forwarded as the ``size`` query parameter."""
+        client = _make_client()
+
+        async def fake_get_resource(url, result_type):
+            assert "size=50" in url
+            return MagicMock(items=[], hits=0)
+
+        client._get_resource = fake_get_resource
+        await client.advanced_company_search(company_name_includes="test", page_size=50)
 
     @pytest.mark.asyncio
     async def test_416_returns_empty(self):

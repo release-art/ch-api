@@ -5,7 +5,7 @@ import ch_api
 
 @pytest.mark.asyncio
 async def test_get_r5e_company_filing_history(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    response = await live_env_test_client.get_company_filing_history(r5e_company_number, result_count=100)
+    response = await live_env_test_client.get_company_filing_history(r5e_company_number)
     assert len(response.data) >= 8
     # Check that the name change filing is present
     for filing in response.data:
@@ -36,7 +36,7 @@ async def test_get_r5e_company_filing_history_w_filter(
     exp_result_count,
 ):
     response = await live_env_test_client.get_company_filing_history(
-        r5e_company_number, categories=cetegory_filter, result_count=100
+        r5e_company_number, categories=cetegory_filter
     )
     assert len(response.data) == exp_result_count
 

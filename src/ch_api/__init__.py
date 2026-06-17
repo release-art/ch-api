@@ -21,7 +21,7 @@ Get started with just a few lines of code::
     >>> # Search for companies
     >>> @run_async_func
     ... async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple", result_count=25)
+    ...     results = await client.search_companies("Apple")
     ...     for company in results.data:
     ...         print(f"Found: {company.title}")
     ...
@@ -30,7 +30,7 @@ Get started with just a few lines of code::
     >>> # Get officers
     >>> @run_async_func
     ... async def get_officers_example(client):
-    ...     officers = await client.get_officer_list("09370755", result_count=100)
+    ...     officers = await client.get_officer_list("09370755")
     ...     for officer in officers.data:
     ...         print(f"Officer: {officer.name}")
     Officer: ...
@@ -142,22 +142,19 @@ All API calls are asynchronous and must be called with ``await``::
 
 Pagination
 ----------
-Search and list endpoints return ``MultipageList[T]`` with a ``data`` list
-and ``pagination`` metadata. Pass ``result_count`` to fetch more items in one
-call, and ``next_page`` to continue from a previous response::
+Search and list endpoints return a single-page ``MultipageList[T]`` with a
+``data`` list and ``pagination`` metadata. Each call fetches exactly one API
+page; advance one page at a time with ``get_next`` (or pass ``next_page`` back
+to the same endpoint). Use ``page_size`` to control how many items a page holds::
 
     >>> @run_async_func
     ... async def pagination_example(client):
-    ...     page = await client.search_companies("Apple", result_count=25)
+    ...     page = await client.search_companies("Apple")
     ...     # page.data is a plain list — iterate with a regular for loop
     ...     assert len(page.data) >= 1
-    ...     # Fetch next page using the cursor
+    ...     # Fetch the next page with the bound get_next handle
     ...     if page.pagination.has_next:
-    ...         page2 = await client.search_companies(
-    ...             "Apple",
-    ...             next_page=page.pagination.next_page,
-    ...             result_count=25,
-    ...         )
+    ...         page2 = await page.get_next()
     ...
 
 Exception Handling

@@ -66,11 +66,12 @@ Key Endpoints
 Pagination
 ==========
 
-List endpoints return ``MultipageList[T]`` with ``data`` (list) and ``pagination`` metadata.
-Pass ``result_count`` to control how many items are fetched, and ``next_page`` to continue:
+List endpoints return a single-page ``MultipageList[T]`` with ``data`` (list) and
+``pagination`` metadata. Pass ``page_size`` to control how many items a page holds,
+and advance with ``get_next`` (or ``next_page``):
 
     >>> async def pagination_example(client):
-    ...     page = await client.search_companies("tech", result_count=1)
+    ...     page = await client.search_companies("tech")
     ...     print(f"Company: {page.data[0].title}")
     ...     print(f"Has more: {page.pagination.has_next}")
     ...     return True
@@ -115,7 +116,7 @@ All calls are async and must be awaited:
     >>> async def async_example(client):
     ...     company = await client.get_company_profile("09370755")
     ...     print(f"Company: {company.company_name}")
-    ...     results = await client.search_companies("Apple", result_count=1)
+    ...     results = await client.search_companies("Apple")
     ...     if results.data:
     ...         print(f"Found: {results.data[0].title}")
     ...     return True
