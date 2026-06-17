@@ -529,7 +529,7 @@ class Client:
             ]
         ] = None,
         order_by: typing.Literal["appointed_on", "resigned_on", "surname"] = "appointed_on",
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=200)] = 200,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=200)] = 200,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.company_officers.OfficerSummary]:
         """Fetch one page of company officers for a given company.
@@ -594,7 +594,7 @@ class Client:
     async def search(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=200)] = 200,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=200)] = 200,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search.AnySearchResultT]:
         """Search for companies using the Companies House search API.
@@ -644,7 +644,7 @@ class Client:
         incorporated_to: typing.Optional[datetime.date] = None,
         location: typing.Optional[str] = None,
         sic_codes: typing.Optional[typing.Sequence[str]] = None,
-        page_size: typing.Optional[typing.Annotated[int, pydantic.conint(ge=1, le=5000)]] = None,
+        page_size: typing.Optional[typing.Annotated[int, pydantic.Field(ge=1, le=5000)]] = None,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search_companies.AdvancedCompany]:
         """Perform an advanced search for companies using the Companies House search API.
@@ -714,7 +714,7 @@ class Client:
     async def alphabetical_companies_search(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 10,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 10,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search_companies.AlphabeticalCompany]:
         """Search for companies alphabetically using the Companies House search API.
@@ -755,7 +755,7 @@ class Client:
     async def search_dissolved_companies(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 10,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 10,
         type: typing.Literal["alphabetical", "best-match", "previous-name-dissolved"] = "alphabetical",  # noqa: A002
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search_companies.DissolvedCompany]:
@@ -799,7 +799,7 @@ class Client:
     async def search_companies(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=200)] = 200,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=200)] = 200,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search.CompanySearchItem]:
         """Search for companies using the Companies House search API.
@@ -838,7 +838,7 @@ class Client:
     async def search_officers(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=200)] = 200,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=200)] = 200,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search.OfficerSearchItem]:
         """Search for officers using the Companies House search API.
@@ -877,7 +877,7 @@ class Client:
     async def search_disqualified_officers(
         self,
         query: str,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=200)] = 200,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=200)] = 200,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.search.DisqualifiedOfficerSearchItem]:
         """Search for disqualified officers using the Companies House search API.
@@ -980,7 +980,7 @@ class Client:
             ...,
         ]
         | None = None,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 25,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.filing_history.FilingHistoryItem]:
         """Fetch the filing history for a given company.
@@ -1305,7 +1305,7 @@ class Client:
         self,
         officer_id: OfficerIdStrT,
         filter: typing.Optional[typing.Literal["active"]] = None,  # noqa: A002
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 25,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.officer_appointments.OfficerAppointmentSummary]:
         """Fetch the officer appointments for a given officer.
@@ -1367,7 +1367,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         register_view: bool = False,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 25,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.psc.ListSummary]:
         """Fetch the list of persons with significant control for a given company.
@@ -1410,7 +1410,7 @@ class Client:
         self,
         company_number: CompanyNumberStrT,
         register_view: bool = False,
-        page_size: typing.Annotated[int, pydantic.conint(ge=1, le=100)] = 25,
+        page_size: typing.Annotated[int, pydantic.Field(ge=1, le=100)] = 25,
         next_page: typing.Optional[types.pagination.types.NextPageToken] = None,
     ) -> types.pagination.types.MultipageList[types.public_data.psc.Statement]:
         """Fetch the PSC statements for a given company.

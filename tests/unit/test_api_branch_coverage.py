@@ -73,6 +73,32 @@ class TestPageTokenSerializer:
         serializer.deserialize.assert_called_once_with("ENCRYPTED")
 
 
+class TestPageSizeBoundsEnforced:
+    """page_size bounds must actually be enforced (regression: conint nested in
+    Annotated silently dropped the constraint — Field is required)."""
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 999])
+    async def test_search_companies_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.search_companies("x", page_size=page_size)
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 101])
+    async def test_filing_history_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.get_company_filing_history("12345678", page_size=page_size)
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 5001])
+    async def test_advanced_search_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.advanced_company_search(company_name_includes="x", page_size=page_size)
+
+
 class TestMultipageListGetNext:
     """MultipageList.get_next error paths on manually-constructed instances."""
 
