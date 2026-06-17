@@ -7,13 +7,12 @@ import ch_api
 
 class TestGenericSearch:
     @pytest.mark.asyncio
-    async def test_search_company(self, live_env_test_client: ch_api.api.Client, r5e_company_number, collect_pages):
-        first_page = await live_env_test_client.search("R5E ART LIMITED")
-        items = await collect_pages(first_page, minimum=300)
-        assert len(items) >= 300
+    async def test_search_company(self, live_env_test_client: ch_api.api.Client, r5e_company_number):
+        search_response = await live_env_test_client.search("R5E ART LIMITED", result_count=300)
+        assert len(search_response.data) >= 300
 
         one_found = False
-        for el in items:
+        for el in search_response.data:
             if el.company_number == r5e_company_number:
                 one_found = True
                 break
@@ -21,7 +20,7 @@ class TestGenericSearch:
 
     @pytest.mark.asyncio
     async def test_search_director(self, live_env_test_client: ch_api.api.Client):
-        search_response = await live_env_test_client.search("Orlovs")
+        search_response = await live_env_test_client.search("Orlovs", result_count=50)
         assert len(search_response.data) > 50
 
         one_found = False
@@ -66,26 +65,25 @@ class TestAdvancedSearch:
         ],
     )
     async def test_simple(self, live_env_test_client: ch_api.api.Client, query, expected_count):
-        search_response = await live_env_test_client.advanced_company_search(**query)
+        search_response = await live_env_test_client.advanced_company_search(**query, result_count=100)
         assert len(search_response.data) == expected_count
 
 
 @pytest.mark.asyncio
 async def test_alphabetical_companies_search(live_env_test_client: ch_api.api.Client):
-    result = await live_env_test_client.alphabetical_companies_search("Barclays", page_size=100)
+    result = await live_env_test_client.alphabetical_companies_search("Barclays", page_size=100, result_count=100)
     assert len(result.data) >= 100
     all_names = [el.company_name for el in result.data]
     assert all("BARCLAY" in name.upper() for name in all_names)
 
 
 @pytest.mark.asyncio
-async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_company_number, collect_pages):
-    first_page = await live_env_test_client.search_companies("R5E ART LIMITED")
-    items = await collect_pages(first_page, minimum=300)
-    assert len(items) >= 300
+async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_company_number):
+    search_response = await live_env_test_client.search_companies("R5E ART LIMITED", result_count=300)
+    assert len(search_response.data) >= 300
 
     one_found = False
-    for el in items:
+    for el in search_response.data:
         assert isinstance(el, ch_api.types.public_data.search.CompanySearchItem)
         if el.company_number == r5e_company_number:
             one_found = True
@@ -95,7 +93,7 @@ async def test_search_companies(live_env_test_client: ch_api.api.Client, r5e_com
 
 @pytest.mark.asyncio
 async def test_search_officers(live_env_test_client: ch_api.api.Client):
-    search_response = await live_env_test_client.search_officers("Ilja Orlovs")
+    search_response = await live_env_test_client.search_officers("Ilja Orlovs", result_count=10)
     assert len(search_response.data) > 10
 
     one_found = False
@@ -109,7 +107,7 @@ async def test_search_officers(live_env_test_client: ch_api.api.Client):
 
 @pytest.mark.asyncio
 async def test_search_disqualified_officers(live_env_test_client: ch_api.api.Client):
-    search_response = await live_env_test_client.search_disqualified_officers("bob")
+    search_response = await live_env_test_client.search_disqualified_officers("bob", result_count=10)
     assert len(search_response.data) > 0
 
     one_found = False
@@ -131,5 +129,5 @@ async def test_search_disqualified_officers(live_env_test_client: ch_api.api.Cli
     ],
 )
 async def test_search_dissolved_companies(live_env_test_client: ch_api.api.Client, query_type, exp_company_name):
-    search_response = await live_env_test_client.search_dissolved_companies("bob", type=query_type)
+    search_response = await live_env_test_client.search_dissolved_companies("bob", type=query_type, result_count=10)
     assert len(search_response.data) >= 10

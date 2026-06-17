@@ -73,8 +73,9 @@ Each search type returns results with:
 
 Pagination
 -----
-All searches are paginated. The client's search methods return a single-page
-MultipageList; advance one page at a time with ``get_next`` (or ``next_page``).
+All searches are paginated. The client's search methods return a MultipageList;
+pass ``result_count`` to collect more items per call and advance with ``get_next``
+(or ``next_page``).
 
 Example Usage
 -----

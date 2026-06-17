@@ -4,7 +4,7 @@ Public types (fca-api compatible):
     NextPageToken: Opaque string cursor passed between calls to page through results.
     PageTokenSerializer: Protocol for encrypting/decrypting pagination tokens.
     PaginationInfo: Pagination metadata returned alongside each page of results.
-    MultipageList: Generic value object containing one page of results.
+    MultipageList: Generic value object holding one batch of results plus a get_next handle.
 
 Internal types (not part of the public API):
     _PageState: Encodes CH API pagination state (start_index / search_below cursor).
@@ -171,26 +171,34 @@ class PaginationInfo(pydantic.BaseModel):
 
 
 class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
-    """A single page of typed results from a paginated CH API endpoint.
+    """A batch of typed results from a paginated CH API endpoint.
 
-    Contains exactly one API page of data items plus the pagination metadata
-    needed to retrieve the next page. Returned by all paginated methods on
-    ``Client``. Each instance holds one page only — it never accumulates a
-    unified list across pages. Advance one page at a time with :meth:`get_next`
-    (or by passing ``pagination.next_page`` back to the originating endpoint).
+    Contains the items collected by one client call — at least ``result_count``
+    items, or all remaining items if fewer exist — plus the pagination metadata
+    needed to retrieve the next batch. Returned by all paginated methods on
+    ``Client``. ``MultipageList`` itself is a plain value object: it holds the
+    already-fetched ``data`` and a single :meth:`get_next` handle, and does not
+    fetch lazily or merge across calls. Advance with :meth:`get_next` (or by
+    passing ``pagination.next_page`` back to the originating endpoint).
 
     Type Parameters:
         _ItemT: The type of items in ``data``.
 
-    Walking every page with ``get_next``::
+    Walking the whole result set with ``get_next``::
 
         page = await client.search_companies("Apple")
         while True:
             for company in page.data:
-                ...  # process this page's items
+                ...  # process this batch's items
             if not page.pagination.has_next:
                 break
             page = await page.get_next()
+
+    Fetching a larger batch in one call::
+
+        # Collect at least 100 items (may issue several underlying requests)
+        page = await client.search_companies("Apple", result_count=100)
+        # page.data has >= 100 items (or all available if fewer exist)
 
     Resuming statelessly with a cursor token::
 

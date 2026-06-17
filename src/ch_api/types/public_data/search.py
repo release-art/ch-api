@@ -70,8 +70,9 @@ Search for companies::
 
 Pagination
 -----
-Search results are returned as a single-page :class:`ch_api.types.pagination.types.MultipageList`.
-Each call returns one page; advance with ``get_next`` (or pass ``next_page`` back to the endpoint).
+Search results are returned as a :class:`ch_api.types.pagination.types.MultipageList`.
+Pass ``result_count`` to collect at least that many items in one call; advance with
+``get_next`` (or pass ``next_page`` back to the endpoint).
 
 See Also
 --------

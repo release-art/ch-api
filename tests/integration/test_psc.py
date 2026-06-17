@@ -5,7 +5,7 @@ import ch_api
 
 @pytest.mark.asyncio
 async def test_get_psc_list(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    result = await live_env_test_client.get_company_psc_list(r5e_company_number)
+    result = await live_env_test_client.get_company_psc_list(r5e_company_number, result_count=100)
     assert result
     assert len(result.data) == 1
     assert result.data[0].name == "Mr Ilja Orlovs"
@@ -13,7 +13,7 @@ async def test_get_psc_list(live_env_test_client: ch_api.api.Client, r5e_company
 
 @pytest.mark.asyncio
 async def test_get_lloyds_psc_list(live_env_test_client: ch_api.api.Client, lloyds_company_number):
-    result = await live_env_test_client.get_company_psc_list(lloyds_company_number)
+    result = await live_env_test_client.get_company_psc_list(lloyds_company_number, result_count=100)
     assert result
     assert len(result.data) == 1
     assert result.data[0].name == "Lloyds Banking Group Plc"
@@ -21,7 +21,7 @@ async def test_get_lloyds_psc_list(live_env_test_client: ch_api.api.Client, lloy
 
 @pytest.mark.asyncio
 async def test_get_r5e_statements(live_env_test_client: ch_api.api.Client, r5e_company_number):
-    result = await live_env_test_client.get_company_psc_statements(r5e_company_number)
+    result = await live_env_test_client.get_company_psc_statements(r5e_company_number, result_count=100)
     assert result
     # no statements for R5E
     assert len(result.data) == 0
@@ -29,7 +29,7 @@ async def test_get_r5e_statements(live_env_test_client: ch_api.api.Client, r5e_c
 
 @pytest.mark.asyncio
 async def test_someones_psc_statements(live_env_test_client: ch_api.api.Client):
-    result = await live_env_test_client.get_company_psc_statements("SC549056")
+    result = await live_env_test_client.get_company_psc_statements("SC549056", result_count=100)
     assert result
     assert len(result.data) == 1
     assert result.data[0].statement == "no-individual-or-entity-with-signficant-control"

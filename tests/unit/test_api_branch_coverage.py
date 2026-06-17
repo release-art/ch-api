@@ -123,12 +123,41 @@ class TestMultipageListGetNext:
             await page.get_next()
 
 
-class TestCursorPaginationContinuation:
-    """Single cursor page + get_next advances via the bound fetcher."""
+class TestOffsetPagination:
+    """Offset accumulation to result_count + get_next advances the batch."""
 
     @pytest.mark.asyncio
-    async def test_get_next_advances_cursor(self):
-        """First page reports has_next; get_next fetches the next cursor page."""
+    async def test_get_next_offset(self):
+        """get_next fetches the next result_count batch from the next offset."""
+        client = _make_client()
+        calls = []
+
+        class _Item(pydantic.BaseModel):
+            val: int = 0
+
+        async def fetch(start):
+            calls.append(start)
+            if start == 0:
+                return [_Item(val=0), _Item(val=1)], 4
+            return [_Item(val=2), _Item(val=3)], 4
+
+        page = await client._fetch_paginated(fetch, None, 1)
+        assert [i.val for i in page.data] == [0, 1]
+        assert page.pagination.has_next
+        assert calls == [0]
+
+        page2 = await page.get_next()
+        assert [i.val for i in page2.data] == [2, 3]
+        assert not page2.pagination.has_next
+        assert calls == [0, 2]
+
+
+class TestCursorPaginationContinuation:
+    """Cursor accumulation loop continuation + get_next via the bound fetcher."""
+
+    @pytest.mark.asyncio
+    async def test_cursor_loop_continues(self):
+        """result_count spanning pages drives a second loop iteration (cursor = next_cursor)."""
         client = _make_client()
         call_count = 0
 
@@ -144,7 +173,30 @@ class TestCursorPaginationContinuation:
             assert cursor == "CURSOR_A"
             return [_Item(val=2)], None
 
-        page = await client._fetch_paginated_cursor(fetch_fn, None)
+        page = await client._fetch_paginated_cursor(fetch_fn, None, 2)
+        assert [i.val for i in page.data] == [1, 2]
+        assert call_count == 2
+        assert not page.pagination.has_next
+
+    @pytest.mark.asyncio
+    async def test_get_next_advances_cursor(self):
+        """With result_count=1 each batch is one page; get_next fetches the next."""
+        client = _make_client()
+        call_count = 0
+
+        class _Item(pydantic.BaseModel):
+            val: int = 0
+
+        async def fetch_fn(cursor):
+            nonlocal call_count
+            call_count += 1
+            if call_count == 1:
+                assert cursor is None
+                return [_Item(val=1)], "CURSOR_A"
+            assert cursor == "CURSOR_A"
+            return [_Item(val=2)], None
+
+        page = await client._fetch_paginated_cursor(fetch_fn, None, 1)
         assert [i.val for i in page.data] == [1]
         assert page.pagination.has_next
         assert call_count == 1
