@@ -21,7 +21,7 @@ Get started with just a few lines of code::
     >>> # Search for companies
     >>> @run_async_func
     ... async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple", result_count=25)
+    ...     results = await client.search_companies("Apple")
     ...     for company in results.data:
     ...         print(f"Found: {company.title}")
     ...
@@ -30,7 +30,7 @@ Get started with just a few lines of code::
     >>> # Get officers
     >>> @run_async_func
     ... async def get_officers_example(client):
-    ...     officers = await client.get_officer_list("09370755", result_count=100)
+    ...     officers = await client.get_officer_list("09370755")
     ...     for officer in officers.data:
     ...         print(f"Officer: {officer.name}")
     Officer: ...
@@ -142,23 +142,26 @@ All API calls are asynchronous and must be called with ``await``::
 
 Pagination
 ----------
-Search and list endpoints return ``MultipageList[T]`` with a ``data`` list
-and ``pagination`` metadata. Pass ``result_count`` to fetch more items in one
-call, and ``next_page`` to continue from a previous response::
+Search and list endpoints return a ``MultipageList[T]`` with a ``data`` tuple and
+``pagination`` metadata. Pass ``result_count`` to collect at least that many
+items in one call (issuing multiple underlying requests if needed), advance with
+``client.fetch_next_page``, and use ``page_size`` to control the underlying
+per-request size::
 
     >>> @run_async_func
     ... async def pagination_example(client):
-    ...     page = await client.search_companies("Apple", result_count=25)
-    ...     # page.data is a plain list — iterate with a regular for loop
+    ...     page = await client.search_companies("Apple")
+    ...     # page.data is a tuple — iterate with a regular for loop
     ...     assert len(page.data) >= 1
-    ...     # Fetch next page using the cursor
+    ...     # Fetch the next page via the client and this page's token
     ...     if page.pagination.has_next:
-    ...         page2 = await client.search_companies(
-    ...             "Apple",
-    ...             next_page=page.pagination.next_page,
-    ...             result_count=25,
-    ...         )
+    ...         page2 = await client.fetch_next_page(page.pagination.next_page)
     ...
+
+``pagination.next_page`` is a **self-contained** cursor: it embeds the endpoint and
+its arguments, so a fresh process can resume with only the token via
+``client.fetch_next_page(token)`` — ideal for stateless servers or agent tools. Pair
+it with a ``PageTokenSerializer`` to sign or encrypt the token on the wire.
 
 Exception Handling
 ------------------

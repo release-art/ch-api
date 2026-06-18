@@ -245,21 +245,21 @@ class Case(base.BaseModel):
     ]
 
     dates: typing.Annotated[
-        list[CaseDates],
+        tuple[CaseDates, ...],
         pydantic.Field(
             description="The dates specific to the case.",
         ),
     ]
 
     practitioners: typing.Annotated[
-        list[Practitioners],
+        tuple[Practitioners, ...],
         pydantic.Field(
             description="The practitioners for the case.",
         ),
     ]
 
     notes: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="The dates specific to the case.",
             default=None,
@@ -295,14 +295,14 @@ class CompanyInsolvency(base.BaseModel):
     ]
 
     cases: typing.Annotated[
-        list[Case],
+        tuple[Case, ...],
         pydantic.Field(
             description="List of insolvency cases.",
         ),
     ]
 
     status: typing.Annotated[
-        list[
+        tuple[
             typing.Annotated[
                 str,
                 field_types.RelaxedLiteral(
@@ -316,7 +316,8 @@ class CompanyInsolvency(base.BaseModel):
                     "voluntary-arrangement",
                     "voluntary-arrangement-receivership",
                 ),
-            ]
+            ],
+            ...,
         ]
         | None,
         pydantic.Field(

@@ -1,15 +1,19 @@
 """Branch coverage tests for api.py — covers all remaining uncovered lines."""
 
 import datetime
+import json
 from unittest.mock import MagicMock
 
 import httpx
 import pydantic
 import pytest
 
-from ch_api import api, api_settings
+from ch_api import api, api_settings, exc
 from ch_api.types.pagination import types as pagination_types
-from ch_api.types.public_data import search_companies as sc
+from ch_api.types.public_data import (
+    search as search_types,
+    search_companies as sc,
+)
 
 
 def _make_client(serializer=None):
@@ -73,41 +77,224 @@ class TestPageTokenSerializer:
         serializer.deserialize.assert_called_once_with("ENCRYPTED")
 
 
+class TestPageSizeBoundsEnforced:
+    """page_size bounds must actually be enforced (regression: conint nested in
+    Annotated silently dropped the constraint — Field is required)."""
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 999])
+    async def test_search_companies_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.search_companies("x", page_size=page_size)
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 101])
+    async def test_filing_history_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.get_company_filing_history("12345678", page_size=page_size)
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("page_size", [0, 5001])
+    async def test_advanced_search_rejects_out_of_range(self, page_size):
+        client = _make_client()
+        with pytest.raises(pydantic.ValidationError):
+            await client.advanced_company_search(company_name_includes="x", page_size=page_size)
+
+
+class TestFetchNextPage:
+    """Self-contained next_page token: stateless resume via Client.fetch_next_page."""
+
+    @pytest.mark.asyncio
+    async def test_token_is_self_contained_and_resumes(self):
+        """Token embeds endpoint + params; fetch_next_page resumes from token alone."""
+        client = _make_client()
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("Apple", page_size=2)
+        token = page.pagination.next_page
+        decoded = json.loads(token)
+        assert decoded["endpoint"] == "search_companies"
+        assert decoded["params"]["query"] == "Apple"
+        assert decoded["params"]["page_size"] == 2
+        assert decoded["start_index"] == 2
+
+        urls.clear()
+        # a fresh call with ONLY the token — no query re-supplied
+        page2 = await client.fetch_next_page(token)
+        assert len(page2.data) == 2
+        assert any("start_index=2" in u and "q=Apple" in u for u in urls)
+
+    @pytest.mark.asyncio
+    async def test_cursor_token_is_self_contained(self):
+        """Cursor endpoints embed endpoint + params + search_below."""
+        client = _make_client()
+        calls = 0
+
+        async def fake(url, result_type):
+            nonlocal calls
+            calls += 1
+            result = MagicMock()
+            result.items = [_alpha_company("KEY:1")] if calls == 1 else []
+            return result
+
+        client._get_resource = fake
+        page = await client.alphabetical_companies_search("Barclays", page_size=1)
+        decoded = json.loads(page.pagination.next_page)
+        assert decoded["endpoint"] == "alphabetical_companies_search"
+        assert decoded["search_below"] == "KEY:1"
+        assert decoded["params"]["query"] == "Barclays"
+
+    @pytest.mark.asyncio
+    async def test_date_params_round_trip(self):
+        """datetime.date args serialise to ISO and coerce back on resume."""
+        client = _make_client()
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [sc.AdvancedCompany.model_construct() for _ in range(2)]
+            result.hits = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.advanced_company_search(
+            company_name_includes="x", dissolved_from=datetime.date(2020, 1, 1), page_size=2
+        )
+        assert json.loads(page.pagination.next_page)["params"]["dissolved_from"] == "2020-01-01"
+
+        urls.clear()
+        await client.fetch_next_page(page.pagination.next_page)  # must coerce "2020-01-01" -> date
+        assert any("dissolved_from=2020-01-01" in u for u in urls)
+
+    @pytest.mark.asyncio
+    async def test_tampered_endpoint_rejected(self):
+        """A token naming a non-resumable method is rejected (no arbitrary dispatch)."""
+        client = _make_client()
+        bad = json.dumps({"endpoint": "aclose", "params": {}, "start_index": 0})
+        with pytest.raises(ValueError, match="resumable endpoint"):
+            await client.fetch_next_page(bad)
+
+    @pytest.mark.asyncio
+    async def test_unknown_endpoint_rejected(self):
+        """A token naming a method that does not exist is rejected, not an AttributeError."""
+        client = _make_client()
+        bad = json.dumps({"endpoint": "does_not_exist", "params": {}, "start_index": 0})
+        with pytest.raises(ValueError, match="resumable endpoint"):
+            await client.fetch_next_page(bad)
+
+    @pytest.mark.asyncio
+    async def test_resume_via_serializer(self):
+        """fetch_next_page works through a PageTokenSerializer (opaque/encrypted token)."""
+        serializer = MagicMock()
+        serializer.serialize = lambda t: "ENC:" + t
+        serializer.deserialize = lambda t: t[len("ENC:") :]
+        client = _make_client(serializer=serializer)
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("Apple", page_size=2)
+        assert page.pagination.next_page.startswith("ENC:")
+
+        urls.clear()
+        await client.fetch_next_page(page.pagination.next_page)
+        assert any("start_index=2" in u for u in urls)
+
+
+class TestFetchNextPageTerminal:
+    """fetch_next_page on a terminal token."""
+
+    @pytest.mark.asyncio
+    async def test_fetch_next_page_none_raises_no_more_pages(self):
+        """A None token (the last page's next_page) → NoMorePagesError."""
+        client = _make_client()
+        with pytest.raises(exc.NoMorePagesError):
+            await client.fetch_next_page(None)
+
+
+class TestOffsetPagination:
+    """Offset accumulation to result_count + fetch_next_page advances the batch."""
+
+    @pytest.mark.asyncio
+    async def test_fetch_next_page_offset(self):
+        """fetch_next_page fetches the next batch from the next offset (page_size 2, total 4)."""
+        client = _make_client()
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("x", page_size=2)
+        assert len(page.data) == 2
+        assert page.pagination.has_next
+        assert any("start_index=0" in u for u in urls)
+
+        urls.clear()
+        page2 = await client.fetch_next_page(page.pagination.next_page)
+        assert len(page2.data) == 2
+        assert not page2.pagination.has_next
+        assert any("start_index=2" in u for u in urls)
+
+
 class TestCursorPaginationContinuation:
-    """Line 422 — cursor=next_cursor loop continuation."""
+    """Cursor accumulation loop continuation (result_count spanning pages)."""
 
     @pytest.mark.asyncio
     async def test_cursor_loop_continues(self):
-        """Line 422: second iteration sets cursor = next_cursor."""
+        """result_count spanning pages drives a second loop iteration (cursor = next_cursor)."""
         client = _make_client()
-        call_count = 0
+        calls = 0
 
-        class _Item(pydantic.BaseModel):
-            val: int = 0
+        async def fake(url, result_type):
+            nonlocal calls
+            calls += 1
+            result = MagicMock()
+            result.items = [_alpha_company(f"KEY:{calls}")] if calls <= 2 else []
+            return result
 
-        async def fetch_fn(cursor):
-            nonlocal call_count
-            call_count += 1
-            if call_count == 1:
-                assert cursor is None
-                return [_Item(val=1)], "CURSOR_A"
-            assert cursor == "CURSOR_A"
-            return [_Item(val=2)], None
-
-        page = await client._fetch_paginated_cursor(fetch_fn, None, 2)
-        assert len(page.data) == 2
-        assert call_count == 2
+        client._get_resource = fake
+        page = await client.alphabetical_companies_search("q", page_size=1, result_count=2)
+        assert len(page.data) == 2  # accumulated across two cursor pages
+        assert calls == 2
+        assert page.pagination.has_next
 
 
 class TestAlphabeticalSearchBranches:
     """Lines 719, 729 — search_below param + empty items in alphabetical search."""
 
     @pytest.mark.asyncio
-    async def test_search_below_added_from_next_page_token(self):
-        """Line 719: search_below query param added when cursor from token."""
+    async def test_search_below_added_via_fetch_next_page(self):
+        """Resuming a cursor token via fetch_next_page adds the search_below param."""
         client = _make_client()
-        state = pagination_types._PageState(search_below="KEY:12345678")
-        next_page_token = state.encode()
+        token = client._encode_next_page(
+            pagination_types._PageState(
+                search_below="KEY:12345678",
+                endpoint="alphabetical_companies_search",
+                params={"query": "test", "page_size": 10, "result_count": 1},
+            )
+        )
         urls_seen = []
 
         async def fake_get_resource(url, result_type):
@@ -115,7 +302,7 @@ class TestAlphabeticalSearchBranches:
             return MagicMock(items=[])
 
         client._get_resource = fake_get_resource
-        await client.alphabetical_companies_search("test", next_page=next_page_token)
+        await client.fetch_next_page(token)
         assert any("search_below=KEY%3A12345678" in u or "search_below=KEY:12345678" in u for u in urls_seen)
 
     @pytest.mark.asyncio
@@ -128,7 +315,7 @@ class TestAlphabeticalSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.alphabetical_companies_search("test")
-        assert page.data == []
+        assert page.data == ()
         assert not page.pagination.has_next
 
     @pytest.mark.asyncio
@@ -141,41 +328,50 @@ class TestAlphabeticalSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.alphabetical_companies_search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
-    async def test_cursor_loop_via_alphabetical_search(self):
-        """Line 422 via alphabetical_companies_search: second call uses search_below."""
+    async def test_fetch_next_page_via_alphabetical_search_uses_search_below(self):
+        """alphabetical_companies_search: fetch_next_page carries the search_below cursor."""
         client = _make_client()
         call_count = 0
         item = _alpha_company("KEY_ALPHA:00000001")
+        urls_seen = []
 
         async def fake_get_resource(url, result_type):
             nonlocal call_count
             call_count += 1
-            if call_count == 1:
-                result = MagicMock()
-                result.items = [item]
-                return result
+            urls_seen.append(url)
             result = MagicMock()
-            result.items = []
+            result.items = [item] if call_count == 1 else []
             return result
 
         client._get_resource = fake_get_resource
-        page = await client.alphabetical_companies_search("test", page_size=1, result_count=2)
+        page = await client.alphabetical_companies_search("test", page_size=1)
         assert len(page.data) == 1
+        assert page.pagination.has_next
+        assert call_count == 1
+
+        page2 = await client.fetch_next_page(page.pagination.next_page)
+        assert page2.data == ()
         assert call_count == 2
+        assert any("search_below=KEY_ALPHA" in u for u in urls_seen)
 
 
 class TestDissolvedSearchBranches:
     """Lines 766, 776 — search_below param + empty items in dissolved search."""
 
     @pytest.mark.asyncio
-    async def test_search_below_added_from_next_page_token(self):
-        """Line 766: search_below query param added when cursor from token."""
+    async def test_search_below_added_via_fetch_next_page(self):
+        """Resuming a cursor token via fetch_next_page adds the search_below param."""
         client = _make_client()
-        state = pagination_types._PageState(search_below="OLD:12345678")
-        next_page_token = state.encode()
+        token = client._encode_next_page(
+            pagination_types._PageState(
+                search_below="OLD:12345678",
+                endpoint="search_dissolved_companies",
+                params={"query": "test", "page_size": 10, "type": "alphabetical", "result_count": 1},
+            )
+        )
         urls_seen = []
 
         async def fake_get_resource(url, result_type):
@@ -183,7 +379,7 @@ class TestDissolvedSearchBranches:
             return MagicMock(items=[])
 
         client._get_resource = fake_get_resource
-        await client.search_dissolved_companies("test", next_page=next_page_token)
+        await client.fetch_next_page(token)
         assert any("search_below" in u for u in urls_seen)
 
     @pytest.mark.asyncio
@@ -196,7 +392,7 @@ class TestDissolvedSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_dissolved_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
 
 class TestOfficerListBranches:
@@ -227,7 +423,7 @@ class TestOfficerListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_result_returns_empty(self):
@@ -239,7 +435,7 @@ class TestOfficerListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_http_error_propagates(self):
@@ -266,7 +462,7 @@ class TestSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_search_none_returns_empty(self):
@@ -277,7 +473,7 @@ class TestSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_search_non_416_propagates(self):
@@ -383,6 +579,18 @@ class TestAdvancedSearchParams:
         await client.advanced_company_search(sic_codes=["62012"])
 
     @pytest.mark.asyncio
+    async def test_page_size_adds_size_param(self):
+        """page_size is forwarded as the ``size`` query parameter."""
+        client = _make_client()
+
+        async def fake_get_resource(url, result_type):
+            assert "size=50" in url
+            return MagicMock(items=[], hits=0)
+
+        client._get_resource = fake_get_resource
+        await client.advanced_company_search(company_name_includes="test", page_size=50)
+
+    @pytest.mark.asyncio
     async def test_416_returns_empty(self):
         """Lines 681-684: 416 → return [], None."""
         client = _make_client()
@@ -392,7 +600,7 @@ class TestAdvancedSearchParams:
 
         client._get_resource = fake_get_resource
         page = await client.advanced_company_search(company_name_includes="test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -404,7 +612,7 @@ class TestAdvancedSearchParams:
 
         client._get_resource = fake_get_resource
         page = await client.advanced_company_search(company_name_includes="test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -430,7 +638,7 @@ class TestSearchCompaniesBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -441,7 +649,7 @@ class TestSearchCompaniesBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -467,7 +675,7 @@ class TestSearchOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -478,7 +686,7 @@ class TestSearchOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -504,7 +712,7 @@ class TestSearchDisqualifiedOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_disqualified_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -515,7 +723,7 @@ class TestSearchDisqualifiedOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_disqualified_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -541,7 +749,7 @@ class TestFilingHistoryBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_filing_history("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -552,7 +760,7 @@ class TestFilingHistoryBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_filing_history("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -593,7 +801,7 @@ class TestOfficerAppointmentsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_appointments("_y4370DCOaJgIqvAlmHtJ7HdiqU")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -605,7 +813,7 @@ class TestOfficerAppointmentsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_appointments("_y4370DCOaJgIqvAlmHtJ7HdiqU")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -631,7 +839,7 @@ class TestPscListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -642,7 +850,7 @@ class TestPscListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -668,7 +876,7 @@ class TestPscStatementsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_statements("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -679,7 +887,7 @@ class TestPscStatementsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_statements("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):

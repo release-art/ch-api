@@ -390,13 +390,14 @@
         },
         {
           "address": {
-            "address_line_1": "Cuthbert Road",
+            "address_line_1": "Bradmore Court",
+            "address_line_2": "2 Enstone Road",
             "country": "England",
-            "locality": "London",
-            "postal_code": "N18 2QL",
-            "premises": "6"
+            "locality": "Enfield",
+            "postal_code": "EN3 7WJ",
+            "premises": "20"
           },
-          "address_snippet": "6 Cuthbert Road, London, England, N18 2QL",
+          "address_snippet": "20 Bradmore Court, 2 Enstone Road, Enfield, England, EN3 7WJ",
           "company_number": "14290999",
           "company_status": "active",
           "company_type": "ltd",
@@ -441,6 +442,33 @@
           },
           "snippet": "",
           "title": "A&F FLORAL ART AND DESIGN LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "23 Highbury New Park",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "N5 2EN",
+            "premises": "Flat D-G"
+          },
+          "address_snippet": "Flat D-G, 23 Highbury New Park, London, England, N5 2EN",
+          "company_number": "17218021",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-05-13",
+          "description": "17218021 - Incorporated on 13 May 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17218021"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "A&G FINE ART LTD"
         },
         {
           "address": {
@@ -860,36 +888,6 @@
         },
         {
           "address": {
-            "address_line_1": "Regency House",
-            "address_line_2": "Harold Wood",
-            "country": "United Kingdom",
-            "locality": "Romford",
-            "postal_code": "RM3 0BP",
-            "premises": "Suite 2",
-            "region": "Essex"
-          },
-          "address_snippet": "Suite 2 Regency House, Harold Wood, Romford, Essex, United Kingdom, RM3 0BP",
-          "company_number": "14370867",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-04-29",
-          "date_of_creation": "2022-09-22",
-          "description": "14370867 - Dissolved on 29 April 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/14370867"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AARON ARTHUR WASTE CO. LIMITED"
-        },
-        {
-          "address": {
             "address_line_1": "Block E",
             "country": "England",
             "locality": "London",
@@ -1038,12 +1036,13 @@
           },
           "address_snippet": "29 Mara Drive, Oakmere, Northwich, England, CW8 2FT",
           "company_number": "15617808",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-05-19",
           "date_of_creation": "2024-04-05",
-          "description": "15617808 - Incorporated on 5 April 2024",
+          "description": "15617808 - Dissolved on 19 May 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1669,13 +1668,13 @@
         },
         {
           "address": {
-            "address_line_1": "Little Houghton",
+            "address_line_1": "Hollowell",
             "country": "England",
             "locality": "Northampton",
-            "postal_code": "NN7 1AB",
-            "premises": "Little Houghton House Bedford Road"
+            "postal_code": "NN6 8RN",
+            "premises": "Keepers Lodge Guilsborough Hill"
           },
-          "address_snippet": "Little Houghton House Bedford Road, Little Houghton, Northampton, England, NN7 1AB",
+          "address_snippet": "Keepers Lodge Guilsborough Hill, Hollowell, Northampton, England, NN6 8RN",
           "company_number": "10988599",
           "company_status": "active",
           "company_type": "ltd",
@@ -1940,7 +1939,7 @@
             "postal_code": "HA1 1BQ",
             "premises": "Metroline House, 4th Floor, 118-122 College Road, 118-122 College Road,"
           },
-          "address_snippet": "Metroline House, 4th Floor, 118-122 College Road, 118-122 College Road, Harrow, England, HA1 1BQ",
+          "address_snippet": "Metroline House, 4th Floor, 118-122 College Road, 118-122 College Road,, Harrow, England, HA1 1BQ",
           "company_number": "12716005",
           "company_status": "active",
           "company_type": "private-limited-guarant-nsc-limited-exemption",
@@ -2262,15 +2261,13 @@
         },
         {
           "address": {
-            "address_line_1": "Windsor Gate",
-            "address_line_2": "Boyatt Wood",
+            "address_line_1": "Mountview Rd 12 Mount View Road",
             "country": "England",
-            "locality": "Eastleigh",
-            "postal_code": "SO50 4PU",
-            "premises": "30",
-            "region": "Hampshire"
+            "locality": "Winchester",
+            "postal_code": "SO22 4JJ",
+            "premises": "12"
           },
-          "address_snippet": "30 Windsor Gate, Boyatt Wood, Eastleigh, Hampshire, England, SO50 4PU",
+          "address_snippet": "12 Mountview Rd 12 Mount View Road, Winchester, England, SO22 4JJ",
           "company_number": "08102792",
           "company_status": "active",
           "company_type": "ltd",
@@ -2288,6 +2285,34 @@
           },
           "snippet": "",
           "title": "THE ACADEMY OF ARTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "High Street",
+            "address_line_2": "Hampton Hill",
+            "country": "England",
+            "locality": "Hampton",
+            "postal_code": "TW12 1NB",
+            "premises": "29"
+          },
+          "address_snippet": "29 High Street, Hampton Hill, Hampton, England, TW12 1NB",
+          "company_number": "17182776",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2026-04-27",
+          "description": "17182776 - Incorporated on 27 April 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17182776"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACADEMY OF ARTS AND ANTIQUES STEWARDSHIP LTD"
         },
         {
           "address": {
@@ -2410,12 +2435,13 @@
           },
           "address_snippet": "16 A&B South Cliff Tower, Bolsover Road, Eastbourne, England, BN20 7JW",
           "company_number": "11929207",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-06-16",
           "date_of_creation": "2019-04-05",
-          "description": "11929207 - Incorporated on 5 April 2019",
+          "description": "11929207 - Dissolved on 16 June 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -2701,34 +2727,6 @@
           },
           "snippet": "",
           "title": "THE ACADEMY PERFORMING ARTS SCHOOL ESSEX LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Lodge Avenue",
-            "country": "England",
-            "locality": "Romford",
-            "postal_code": "RM2 5AL",
-            "premises": "20"
-          },
-          "address_snippet": "20 Lodge Avenue, Romford, England, RM2 5AL",
-          "company_number": "12046368",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-11-18",
-          "date_of_creation": "2019-06-12",
-          "description": "12046368 - Dissolved on 18 November 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/12046368"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ACA PERFORMING ARTS LTD"
         }
       ],
       "items_per_page": 100,
@@ -2746,16 +2744,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:27 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=880E6AD474CE588CBE25ADC25D100919; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=3556D9152EA9719DFBEE8F0B406ED6B8; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "554",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "556",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

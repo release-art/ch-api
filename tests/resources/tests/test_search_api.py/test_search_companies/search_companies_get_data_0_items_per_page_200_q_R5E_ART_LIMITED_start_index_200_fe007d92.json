@@ -4,6 +4,147 @@
       "items": [
         {
           "address": {
+            "address_line_1": "Comet House",
+            "address_line_2": "Calleva Park",
+            "country": "England",
+            "locality": "Aldermaston",
+            "postal_code": "RG7 8JA",
+            "premises": "4",
+            "region": "Berkshire"
+          },
+          "address_snippet": "4 Comet House, Calleva Park, Aldermaston, Berkshire, England, RG7 8JA",
+          "company_number": "11246293",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2018-03-09",
+          "description": "11246293 - Incorporated on 9 March 2018",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/11246293"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADDITAE ARTES LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Hillersdon Avenue",
+            "country": "England",
+            "locality": "Edgware",
+            "postal_code": "HA8 7FG",
+            "premises": "3",
+            "region": "Middlesex"
+          },
+          "address_snippet": "3 Hillersdon Avenue, Edgware, Middlesex, England, HA8 7FG",
+          "company_number": "09282558",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2014-10-27",
+          "description": "09282558 - Incorporated on 27 October 2014",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09282558"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADDO ARTS LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "Waterside",
+            "country": "United Kingdom",
+            "locality": "Ely",
+            "postal_code": "CB7 4AU",
+            "premises": "Babylon Gallery Babylon Bridge",
+            "region": "Cambridgeshire"
+          },
+          "address_snippet": "Babylon Gallery Babylon Bridge, Waterside, Ely, Cambridgeshire, United Kingdom, CB7 4AU",
+          "company_number": "02999055",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc-limited-exemption",
+          "date_of_creation": "1994-12-07",
+          "description": "02999055 - Incorporated on 7 December 1994",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/02999055"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADEC (ARTS DEVELOPMENT IN EAST CAMBRIDGESHIRE)"
+        },
+        {
+          "address": {
+            "address_line_1": "Floor Suite",
+            "address_line_2": "207 Regent Street",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1B 3HH",
+            "premises": "3rd"
+          },
+          "address_snippet": "3rd Floor Suite, 207 Regent Street, London, England, W1B 3HH",
+          "company_number": "06604862",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc-limited-exemption",
+          "date_of_creation": "2008-05-28",
+          "description": "06604862 - Incorporated on 28 May 2008",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/06604862"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADEJOJU ADEYEMI FOUNDATION - CARING ART"
+        },
+        {
+          "address": {
+            "address_line_1": "Felpham",
+            "country": "England",
+            "locality": "Bognor Regis",
+            "postal_code": "PO22 7LQ",
+            "premises": "Gloucester Lodge 2 West Close",
+            "region": "West Sussex"
+          },
+          "address_snippet": "Gloucester Lodge 2 West Close, Felpham, Bognor Regis, West Sussex, England, PO22 7LQ",
+          "company_number": "09509556",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2015-03-25",
+          "description": "09509556 - Incorporated on 25 March 2015",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/09509556"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADELE PETERS PERFORMING ARTS SCHOOL LIMITED"
+        },
+        {
+          "address": {
             "address_line_1": "High Street",
             "address_line_2": "Wavertree",
             "country": "England",
@@ -86,35 +227,6 @@
           },
           "snippet": "",
           "title": "AD ENTERTAINMENT ARTS LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Freeland Park Wareham Road",
-            "address_line_2": "Lytchett Matravers",
-            "country": "England",
-            "locality": "Poole",
-            "postal_code": "BH16 6FA",
-            "premises": "Unit 13"
-          },
-          "address_snippet": "Unit 13 Freeland Park Wareham Road, Lytchett Matravers, Poole, England, BH16 6FA",
-          "company_number": "15285943",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-04-22",
-          "date_of_creation": "2023-11-15",
-          "description": "15285943 - Dissolved on 22 April 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/15285943"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADH ART LTD"
         },
         {
           "address": {
@@ -1000,6 +1112,33 @@
         },
         {
           "address": {
+            "address_line_1": "2 Chichester Street",
+            "country": "England",
+            "locality": "Rochdale",
+            "postal_code": "OL16 2AX",
+            "premises": "Ccm Chichester House"
+          },
+          "address_snippet": "Ccm Chichester House, 2 Chichester Street, Rochdale, England, OL16 2AX",
+          "company_number": "17240609",
+          "company_status": "active",
+          "company_type": "private-limited-guarant-nsc",
+          "date_of_creation": "2026-05-25",
+          "description": "17240609 - Incorporated on 25 May 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17240609"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADVENTURE ARTS CIC"
+        },
+        {
+          "address": {
             "address_line_1": "Kingsdale Avenue",
             "country": "United Kingdom",
             "locality": "Washington",
@@ -1024,6 +1163,34 @@
           },
           "snippet": "",
           "title": "ADVENTURE INTO ART CIC"
+        },
+        {
+          "address": {
+            "address_line_1": "Great Portland Street",
+            "address_line_2": "Fifth Floor",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W1W 5PF",
+            "premises": "167-169"
+          },
+          "address_snippet": "167-169 Great Portland Street, Fifth Floor, London, England, W1W 5PF",
+          "company_number": "17246192",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-05-27",
+          "description": "17246192 - Incorporated on 27 May 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17246192"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ADVENTURES IN ART & WONDER LTD"
         },
         {
           "address": {
@@ -1231,12 +1398,13 @@
           },
           "address_snippet": "Bidwell Accountancy Suite 103 Milton Keynes Business Centre, Linford Wood East, Milton Keynes, Buckinghamshire, England, MK14 6GD",
           "company_number": "15949574",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-05-26",
           "date_of_creation": "2024-09-11",
-          "description": "15949574 - Incorporated on 11 September 2024",
+          "description": "15949574 - Dissolved on 26 May 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -2100,12 +2268,13 @@
           },
           "address_snippet": "Studio High Mcgowanston Farm, Turnberry, Girvan, Ayrshire, KA26 9JT",
           "company_number": "SC301330",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-05-05",
           "date_of_creation": "2006-04-25",
-          "description": "SC301330 - Incorporated on 25 April 2006",
+          "description": "SC301330 - Dissolved on 5 May 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -2584,163 +2753,6 @@
           },
           "snippet": "",
           "title": "AFRICAN CULTURAL DEVELOPMENT (ACD ARTS)"
-        },
-        {
-          "address": {
-            "address_line_1": "27- 43 Eastern Road",
-            "country": "England",
-            "locality": "Romford",
-            "postal_code": "RM1 3NH",
-            "premises": "St. James House",
-            "region": "Essex"
-          },
-          "address_snippet": "St. James House, 27- 43 Eastern Road, Romford, Essex, England, RM1 3NH",
-          "company_number": "09113128",
-          "company_status": "active",
-          "company_type": "private-limited-guarant-nsc-limited-exemption",
-          "date_of_creation": "2014-07-02",
-          "description": "09113128 - Incorporated on 2 July 2014",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/09113128"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICAN CULTURE ARTS AND SPORT NETWORK"
-        },
-        {
-          "address": {
-            "address_line_1": "A Enterprise House",
-            "address_line_2": "44-46 Terrace Road",
-            "country": "England",
-            "locality": "Walton-On-Thames",
-            "postal_code": "KT12 2SD",
-            "premises": "36",
-            "region": "Surrey"
-          },
-          "address_snippet": "36 A Enterprise House, 44-46 Terrace Road, Walton-On-Thames, Surrey, England, KT12 2SD",
-          "company_number": "15553840",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2024-03-11",
-          "description": "15553840 - Incorporated on 11 March 2024",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/15553840"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICAN FINE ARTS LIMITED"
-        },
-        {
-          "address": {},
-          "company_number": "RS004898",
-          "company_type": "registered-society-non-jurisdictional",
-          "description": "RS004898",
-          "description_identifier": [
-            null
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/RS004898"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICANFUTURIST ARTS COOPERATIVE SOCIETY LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Nightingale Court",
-            "address_line_2": "Sillitoe Drive",
-            "country": "England",
-            "locality": "Wigan",
-            "postal_code": "WN6 7AB",
-            "premises": "Flat 12"
-          },
-          "address_snippet": "Flat 12 Nightingale Court, Sillitoe Drive, Wigan, England, WN6 7AB",
-          "company_number": "15451929",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2024-01-30",
-          "description": "15451929 - Incorporated on 30 January 2024",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/15451929"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICAN TRIBAL ART LTD"
-        },
-        {
-          "address": {
-            "address_line_1": "Queen Isabels Avenue",
-            "country": "England",
-            "locality": "Coventry",
-            "postal_code": "CV3 5GE",
-            "premises": "61"
-          },
-          "address_snippet": "61 Queen Isabels Avenue, Coventry, England, CV3 5GE",
-          "company_number": "12059533",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2019-06-19",
-          "description": "12059533 - Incorporated on 19 June 2019",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/12059533"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICA PERFORMING ARTS THEATRE LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Purves Road",
-            "country": "United Kingdom",
-            "locality": "London",
-            "postal_code": "NW10 5TG",
-            "premises": "152"
-          },
-          "address_snippet": "152 Purves Road, London, United Kingdom, NW10 5TG",
-          "company_number": "11850405",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2019-02-27",
-          "description": "11850405 - Incorporated on 27 February 2019",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/11850405"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "AFRICA'S BEST ARTISANS LIMITED"
         }
       ],
       "items_per_page": 100,
@@ -2758,16 +2770,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:27 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=8766228CC1D33679882F56434C8C048C; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=07BA42257167CE76C91D082C2A503E09; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "552",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "554",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

@@ -202,7 +202,7 @@ class RegisterListDirectors(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered directors.",
         ),
@@ -229,7 +229,7 @@ class RegisterListSecretaries(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered secretaries.",
         ),
@@ -256,7 +256,7 @@ class RegisterListPersonsWithSignificantControl(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered persons with significant control.",
         ),
@@ -283,7 +283,7 @@ class RegisterListUsualResidentialAddress(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered addresses.",
         ),
@@ -310,7 +310,7 @@ class RegisterListLLPUsualResidentialAddress(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered LLP addresses.",
         ),
@@ -337,7 +337,7 @@ class RegisterListMembers(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered members.",
         ),
@@ -364,7 +364,7 @@ class RegisterListLLPMembers(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[RegisteredItems],
+        tuple[RegisteredItems, ...],
         pydantic.Field(
             description="List of registered LLP members.",
         ),

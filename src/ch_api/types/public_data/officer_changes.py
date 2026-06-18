@@ -226,7 +226,7 @@ class IdentityVerificationDetails(base.BaseModel):
     """Information relating to the identity verification of the officer."""
 
     anti_money_laundering_supervisory_bodies: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description=(
                 "The Anti-Money Laundering supervisory bodies that the authorised "
@@ -445,7 +445,7 @@ class OfficerChange(base.BaseModel):
     ]
 
     former_names: typing.Annotated[
-        list[FormerNames] | None,
+        tuple[FormerNames, ...] | None,
         pydantic.Field(
             description="Former names for the officer.",
             default=None,

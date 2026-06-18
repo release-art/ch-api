@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "764536682dd47f57e48d3238d8c6f6c6b9a14919",
+      "etag": "b8e02fb57d48ac34e02a57a467695e1ab4c82f45",
       "items": [],
       "kind": "related-companies",
       "links": {
@@ -17,16 +17,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:06:14 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:24 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=4836B389323BA837BAD06C166346C622; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=3299F8F2495D62F2AD6E02176C5C733F; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "581",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "583",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

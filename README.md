@@ -38,13 +38,19 @@ Example of getting company information:
 
 ## Pagination
 
-List endpoints return `MultipageList[T]` with `.data` (list) and `.pagination` metadata:
+List endpoints return a `MultipageList[T]` with `.data` (tuple) and `.pagination`
+metadata. Pass `result_count` to collect more items per call, and advance with
+`client.fetch_next_page(page.pagination.next_page)`:
 
     >>> async def search_example(client):
-    ...     results = await client.search_companies("tech", result_count=1)
+    ...     results = await client.search_companies("tech")
     ...     return len(results.data) >= 1
     >>> run_async_func(search_example)
     True
+
+`pagination.next_page` is a **self-contained** cursor — it embeds the endpoint and
+its arguments, so a fresh process can resume with just the token via
+`await client.fetch_next_page(token)` (ideal for stateless servers or agent tools).
 
 ## Rate Limiting
 

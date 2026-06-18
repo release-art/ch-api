@@ -1430,13 +1430,18 @@
           },
           "address_snippet": "128 City Road, London, United Kingdom, EC1V 2NX",
           "appointment_count": 1,
-          "description": "Total number of appointments 1",
+          "date_of_birth": {
+            "month": 3,
+            "year": 1980
+          },
+          "description": "Total number of appointments 1 - Born March 1980",
           "description_identifiers": [
-            "appointment-count"
+            "appointment-count",
+            "born-on"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/_PMexMkJMw9LfhIK2acCfiPijn4/appointments"
+            "self": "/officers/Kf3tDk4id4I8kRXJNdyxJ_uVbv4/appointments"
           },
           "title": "Stoyan ORLOVSKI"
         },
@@ -1450,18 +1455,13 @@
           },
           "address_snippet": "128 City Road, London, United Kingdom, EC1V 2NX",
           "appointment_count": 1,
-          "date_of_birth": {
-            "month": 3,
-            "year": 1980
-          },
-          "description": "Total number of appointments 1 - Born March 1980",
+          "description": "Total number of appointments 1",
           "description_identifiers": [
-            "appointment-count",
-            "born-on"
+            "appointment-count"
           ],
           "kind": "searchresults#officer",
           "links": {
-            "self": "/officers/Kf3tDk4id4I8kRXJNdyxJ_uVbv4/appointments"
+            "self": "/officers/_PMexMkJMw9LfhIK2acCfiPijn4/appointments"
           },
           "title": "Stoyan ORLOVSKI"
         },
@@ -1867,6 +1867,31 @@
         },
         {
           "address": {
+            "address_line_1": "Skelton Road",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "E7 9NJ",
+            "premises": "32a"
+          },
+          "address_snippet": "32a, Skelton Road, London, England, E7 9NJ",
+          "appointment_count": 1,
+          "date_of_birth": {
+            "month": 4,
+            "year": 2002
+          },
+          "description": "Total number of appointments 1 - Born April 2002",
+          "description_identifiers": [
+            "appointment-count",
+            "born-on"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/fKOg3S0ft1l3NYYJ1EKP58CwOPs/appointments"
+          },
+          "title": "Andrii ORLOVSKYI"
+        },
+        {
+          "address": {
             "address_line_1": "West Park Close",
             "address_line_2": "4",
             "country": "England",
@@ -2177,7 +2202,7 @@
       "kind": "search#all",
       "page_number": 1,
       "start_index": 0,
-      "total_results": 81
+      "total_results": 82
     }
   },
   "headers": {
@@ -2188,16 +2213,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:07:41 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:26 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=A3DB2B3845A5B29269658B1100D188D9; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=F0C6D10A802FD0C0C4EB2A71C685EC77; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "561",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "563",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

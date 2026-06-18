@@ -80,7 +80,7 @@ Officers
 Get information about company officers (directors, secretaries, etc.)::
 
     >>> async def officers_example(client):
-    ...     officers = await client.get_officer_list("09370755", result_count=1)
+    ...     officers = await client.get_officer_list("09370755")
     ...     return len(officers.data) >= 1
     >>> run_async_func(officers_example)
     True
@@ -103,7 +103,7 @@ Access a company's filing history:
 
 .. code:: python
 
-   # Get filing history
+   # Get up to 100 filings (issues several requests as needed)
    filings = await client.get_company_filing_history("09370755", result_count=100)
    for filing in filings.data:
        print(f"Description: {filing.description}")
@@ -117,9 +117,9 @@ Get information about charges registered against a company:
 
 .. code:: python
 
-   # Get charges
-   charges = await client.get_company_charges("09370755", result_count=100)
-   for charge in charges.data:
+   # Get charges (single response, not paginated)
+   charges = await client.get_company_charges("09370755")
+   for charge in charges.items or []:
        print(f"Charge Number: {charge.charge_number}")
        print(f"Created: {charge.created_on}")
        print(f"Status: {charge.status}")
@@ -136,7 +136,7 @@ Company Search
 Search for companies by name::
 
     >>> async def search_companies_example(client):
-    ...     results = await client.search_companies("Apple", result_count=1)
+    ...     results = await client.search_companies("Apple")
     ...     return len(results.data) >= 1
     >>> run_async_func(search_companies_example)
     True
@@ -192,12 +192,12 @@ Search for disqualified officers:
 Working with Pagination
 =======================
 
-Many API endpoints return paginated results as :class:`ch_api.types.pagination.types.MultipageList`, a simple value object with ``data`` (list of items) and ``pagination`` (cursor metadata).
+Many endpoints return a :class:`ch_api.types.pagination.types.MultipageList`: an immutable value object with ``data`` (this call's items, a tuple) and ``pagination`` (cursor metadata). Pass ``result_count`` to collect at least that many items in one call (the client issues multiple ``page_size`` requests as needed).
 
 Fetching a page::
 
     >>> async def lazy_loading_example(client):
-    ...     results = await client.search_companies("tech", result_count=1)
+    ...     results = await client.search_companies("tech")
     ...     return len(results.data) >= 1
     >>> run_async_func(lazy_loading_example)
     True
@@ -205,23 +205,49 @@ Fetching a page::
 Fetching multiple pages
 -----------------------
 
-Use ``result_count`` to fetch more items in one call, or loop with ``next_page``:
+Pass ``result_count`` to collect more items in one call, then walk the rest of
+the result set with ``client.fetch_next_page``:
 
 .. code:: python
 
-   # Fetch at least 100 items (may make multiple underlying requests)
+   # Collect at least 100 items (may issue several underlying requests)
    page = await client.search_companies("tech", result_count=100)
-   for company in page.data:
-       print(company.title)
+   while True:
+       for company in page.data:
+           print(company.title)
+       if not page.pagination.has_next:
+           break
+       # fetches the next batch of result_count items
+       page = await client.fetch_next_page(page.pagination.next_page)
 
-   # Manual cursor-based paging
+   # Or resume statelessly with the opaque cursor token (see "Restarting from a
+   # token" below) — endpoints themselves take no next_page argument
    page = await client.search_companies("tech", result_count=25)
    while page.pagination.has_next:
-       page = await client.search_companies(
-           "tech",
-           next_page=page.pagination.next_page,
-           result_count=25,
-       )
+       page = await client.fetch_next_page(page.pagination.next_page)
+
+Restarting from a token (servers / agent tools)
+-----------------------------------------------
+
+``pagination.next_page`` is **self-contained**: it embeds the endpoint and its
+arguments, so a separate process can resume from just the token via
+:meth:`~ch_api.api.Client.fetch_next_page` — no in-memory state, no re-supplying the
+query. Ideal for an async service or agent tool that returns a page plus a cursor
+and continues on a later, independent request:
+
+.. code:: python
+
+   # First request: return a page and a cursor to the caller
+   page = await client.search_companies("tech", page_size=20)
+   payload = {"items": [c.model_dump() for c in page.data],
+              "next": page.pagination.next_page}  # opaque token
+
+   # ... later, a fresh request arrives carrying only `next` ...
+   page2 = await client.fetch_next_page(payload["next"])
+
+Only the 12 paginated endpoints can be resumed this way; a token naming anything
+else is rejected. Configure a :class:`~ch_api.types.pagination.types.PageTokenSerializer`
+on the client to sign or encrypt the token before it leaves your service.
 
 .. _usage.rate-limiting:
 
@@ -541,6 +567,8 @@ Pagination Issues
 
 If pagination isn't working as expected:
 
-- Use a regular ``for`` loop over ``result.data`` (it's a plain list)
-- Pass ``result_count`` to fetch more than one page's worth of items
-- Use ``result.pagination.next_page`` to fetch subsequent pages manually
+- Use a regular ``for`` loop over ``result.data`` (it's a tuple)
+- Pass ``result_count`` to collect more items per call; ``page_size`` controls the
+  underlying per-request size
+- Call ``await client.fetch_next_page(result.pagination.next_page)`` to fetch the
+  next batch

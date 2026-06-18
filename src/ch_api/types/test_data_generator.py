@@ -303,7 +303,7 @@ class FilingHistoryItem(base.BaseModel):
         pydantic.Field(description="The sub category of the filing history"),
     ]
     resolutions: typing.Annotated[
-        list[FilingHistoryResolution] | None,
+        tuple[FilingHistoryResolution, ...] | None,
         pydantic.Field(
             description=(
                 "The resolutions associated with the filing history. Maximum of 20 resolutions can be specified"
@@ -460,7 +460,7 @@ class CreateTestCompanyRequest(base.BaseModel):
     ]
 
     filing_history: typing.Annotated[
-        list[FilingHistoryItem] | None,
+        tuple[FilingHistoryItem, ...] | None,
         pydantic.Field(
             description=(
                 "The filing history of the test company to generate. "
@@ -480,7 +480,7 @@ class CreateTestCompanyRequest(base.BaseModel):
     ]
 
     registers: typing.Annotated[
-        list[RegisterItem] | None,
+        tuple[RegisterItem, ...] | None,
         pydantic.Field(
             description=("The registers for the test company to generate. Maximum of 20 registers can be specified"),
             max_length=20,
@@ -512,7 +512,7 @@ class CreateTestCompanyRequest(base.BaseModel):
     ]
 
     officer_roles: typing.Annotated[
-        list[
+        tuple[
             typing.Literal[
                 "cic-manager",
                 "corporate-director",
@@ -544,7 +544,8 @@ class CreateTestCompanyRequest(base.BaseModel):
                 "person-authorised-to-represent-and-accept",
                 "receiver-and-manager",
                 "secretary",
-            ]
+            ],
+            ...,
         ]
         | None,
         pydantic.Field(

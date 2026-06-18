@@ -21,6 +21,7 @@ See Also:
 __all__ = [
     "CompaniesHouseApiError",
     "UnexpectedApiResponseError",
+    "NoMorePagesError",
 ]
 
 
@@ -78,6 +79,27 @@ class UnexpectedApiResponseError(CompaniesHouseApiError):
     changed unexpectedly, possibly due to an API upgrade or regression.
     If you encounter this error frequently, check the Companies House API
     documentation for any announced changes.
+
+    See Also
+    --------
+    CompaniesHouseApiError : Base exception class
+    """
+
+
+class NoMorePagesError(CompaniesHouseApiError):
+    """Raised when :meth:`Client.fetch_next_page` is called with a terminal token.
+
+    Indicates the caller asked for a page beyond the end of the result set (the
+    prior page's ``pagination.next_page`` was ``None``). Check
+    ``MultipageList.pagination.has_next`` before calling to avoid this exception.
+
+    Example
+    -------
+    Iterate safely to exhaustion::
+
+        page = await client.search_companies("Apple")
+        while page.pagination.has_next:
+            page = await client.fetch_next_page(page.pagination.next_page)
 
     See Also
     --------

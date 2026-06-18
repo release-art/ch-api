@@ -6,36 +6,45 @@
       "items": [
         {
           "address": {
-            "address_line_1": "The Mound",
+            "address_line_1": "City Road",
             "country": "United Kingdom",
-            "locality": "Edinburgh",
-            "postal_code": "EH1 1YZ"
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "124"
           },
           "ceased": false,
-          "etag": "0110718503ce0622dd453f7f01c75cc97c3b80c8",
-          "identification": {
-            "country_registered": "Scotland",
-            "legal_authority": "United Kingdom (Scotland)",
-            "legal_form": "Public Limited Company",
-            "place_registered": "Companies House",
-            "registration_number": "Sc095000"
+          "country_of_residence": "United Kingdom",
+          "date_of_birth": {
+            "month": 5,
+            "year": 1986
           },
-          "kind": "corporate-entity-person-with-significant-control",
+          "etag": "f6b09a94807be2cef1b7cb585fc3891bba8212fa",
+          "identity_verification_details": {
+            "appointment_verification_statement_date": "2026-06-28",
+            "appointment_verification_statement_due_on": "2026-07-11"
+          },
+          "kind": "individual-person-with-significant-control",
           "links": {
-            "self": "/company/00002065/persons-with-significant-control/corporate-entity/rTHhnY4-WO4nqU_grhl-RUEB6z0"
+            "self": "/company/14200734/persons-with-significant-control/individual/okPgMloal1WI0_Og6oKOaBbbyvE"
           },
-          "name": "Lloyds Banking Group Plc",
+          "name": "Mr Ilja Orlovs",
+          "name_elements": {
+            "forename": "Ilja",
+            "surname": "Orlovs",
+            "title": "Mr"
+          },
+          "nationality": "Latvian",
           "natures_of_control": [
             "ownership-of-shares-75-to-100-percent",
             "voting-rights-75-to-100-percent",
             "right-to-appoint-and-remove-directors"
           ],
-          "notified_on": "2016-04-06"
+          "notified_on": "2022-06-28"
         }
       ],
       "items_per_page": 25,
       "links": {
-        "self": "/company/00002065/persons-with-significant-control"
+        "self": "/company/14200734/persons-with-significant-control"
       },
       "start_index": 0,
       "total_results": 1
@@ -49,16 +58,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:06:15 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:24 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=128AC0DDFF784D63C441D6EBDF118956; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=13389A01D4F457F847C70ACC6A4D102A; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "573",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "576",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
@@ -71,8 +80,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?items_per_page=25&start_index=0&register_view=false"
+    "url": "https://api.company-information.service.gov.uk/company/14200734/persons-with-significant-control?register_view=false&start_index=0&items_per_page=25"
   },
   "status_code": 200,
-  "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?items_per_page=25&start_index=0&register_view=false"
+  "url": "https://api.company-information.service.gov.uk/company/14200734/persons-with-significant-control?register_view=false&start_index=0&items_per_page=25"
 }

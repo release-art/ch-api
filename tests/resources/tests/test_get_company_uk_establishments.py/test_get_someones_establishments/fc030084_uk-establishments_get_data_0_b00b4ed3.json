@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "5c0dc116051bf6e1a99d3c57c12a397c23f398a2",
+      "etag": "f2acc7eac829530b55bef857d2394827c5db608d",
       "items": [
         {
           "company_name": "EBI",
@@ -27,16 +27,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:06:14 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:24 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=D5326ACA1BB80F4FD9863833F15E9319; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=BA7CABDFF4A1ED1C89B79E9366C450DE; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "580",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "582",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

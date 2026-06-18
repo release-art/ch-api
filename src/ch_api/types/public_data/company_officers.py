@@ -523,7 +523,7 @@ class OfficerSummary(base.BaseModel):
     ]
 
     former_names: typing.Annotated[
-        list[FormerNames] | None,
+        tuple[FormerNames, ...] | None,
         pydantic.Field(
             description="Former names for the officer.",
             default=None,

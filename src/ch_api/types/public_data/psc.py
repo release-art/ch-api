@@ -575,7 +575,7 @@ class IdentityVerificationDetails(base.BaseModel):
     """Identity verification details for a PSC."""
 
     anti_money_laundering_supervisory_bodies: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description=(
                 "The Anti-Money Laundering supervisory bodies that the "
@@ -787,7 +787,7 @@ class ListSummary(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str],
+        tuple[str, ...],
         pydantic.Field(description=("Indicates the nature of control the person with significant control holds.")),
     ]
 
@@ -826,7 +826,7 @@ class PSCList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ListSummary],
+        tuple[ListSummary, ...],
         pydantic.Field(description="The list of persons with significant control."),
     ]
 
@@ -875,7 +875,7 @@ class IndividualList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ListSummary],
+        tuple[ListSummary, ...],
         pydantic.Field(description="The list of individual persons with significant control."),
     ]
 
@@ -928,7 +928,7 @@ class CorporateEntityList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ListSummary],
+        tuple[ListSummary, ...],
         pydantic.Field(description="The list of corporate entity persons with significant control."),
     ]
 
@@ -979,7 +979,7 @@ class LegalPersonList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ListSummary],
+        tuple[ListSummary, ...],
         pydantic.Field(description="The list of legal persons with significant control."),
     ]
 
@@ -1018,7 +1018,7 @@ class StatementList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list["Statement"],
+        tuple["Statement", ...],
         pydantic.Field(description="The list of persons with significant control statements."),
     ]
 
@@ -1272,7 +1272,7 @@ class Individual(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str],
+        tuple[str, ...],
         pydantic.Field(description=("Indicates the nature of control the person with significant control holds.")),
     ]
 
@@ -1364,7 +1364,7 @@ class IndividualBeneficialOwner(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description=("Indicates the nature of control the beneficial owner holds."),
             default=None,
@@ -1439,7 +1439,7 @@ class CorporateEntity(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str],
+        tuple[str, ...],
         pydantic.Field(description=("Indicates the nature of control the person with significant control holds.")),
     ]
 
@@ -1512,7 +1512,7 @@ class CorporateEntityBeneficialOwner(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description=("Indicates the nature of control the beneficial owner holds."),
             default=None,
@@ -1587,7 +1587,7 @@ class LegalPerson(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str],
+        tuple[str, ...],
         pydantic.Field(description="Indicates the nature of control the person with significant control holds."),
     ]
 
@@ -1660,7 +1660,7 @@ class LegalPersonBeneficialOwner(base.BaseModel):
     ]
 
     natures_of_control: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="Indicates the nature of control the beneficial owner holds.",
             default=None,

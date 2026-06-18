@@ -53,24 +53,26 @@ Search for companies::
     auth = api_settings.AuthSettings(api_key="your-key")
     client = Client(credentials=auth)
 
-    # Simple search
+    # Simple search (one page; fetch_next_page(results.pagination.next_page) for more)
     results = await client.search_companies("Apple")
-    async for company in results:
+    for company in results.data:
         print(f"{company.title} ({company.company_number})")
 
     # Search all types
     results = await client.search("Barclays")
-    async for result in results:
+    for result in results.data:
         print(f"{result.title}")
 
     # Search officers
     officers = await client.search_officers("Smith")
-    async for officer in officers:
+    for officer in officers.data:
         print(f"{officer.title}")
 
 Pagination
 -----
-Search results are returned as :class:`ch_api.types.pagination.types.MultipageList`.
+Search results are returned as a :class:`ch_api.types.pagination.types.MultipageList`.
+Pass ``result_count`` to collect at least that many items in one call; advance with
+``Client.fetch_next_page`` (the basis for stateless resume).
 
 See Also
 --------
@@ -98,7 +100,7 @@ class MatchesModel(base.BaseModel):
     """Character offsets defining substrings that matched the search terms."""
 
     title: typing.Annotated[
-        list[int] | None,
+        tuple[int, ...] | None,
         pydantic.Field(
             description=(
                 "An array of character offset into the `title` string. These always occur in pairs "
@@ -110,7 +112,7 @@ class MatchesModel(base.BaseModel):
     ]
 
     snippet: typing.Annotated[
-        list[int] | None,
+        tuple[int, ...] | None,
         pydantic.Field(
             description=(
                 "An array of character offset into the `snippet` string. These always occur in pairs "
@@ -122,7 +124,7 @@ class MatchesModel(base.BaseModel):
     ]
 
     address_snippet: typing.Annotated[
-        list[int] | None,
+        tuple[int, ...] | None,
         pydantic.Field(
             description=(
                 "An array of character offset into the `address_snippet` string. These always occur "
@@ -484,7 +486,7 @@ class CompanySearchItem(base.BaseModel):
     ]
 
     description_identifier: typing.Annotated[
-        list[
+        tuple[
             typing.Annotated[
                 str,
                 field_types.RelaxedLiteral(
@@ -506,7 +508,8 @@ class CompanySearchItem(base.BaseModel):
                     "removed",
                     "registered-externally",
                 ),
-            ]
+            ],
+            ...,
         ]
         | None,
         pydantic.Field(
@@ -619,7 +622,7 @@ class OfficerSearchItem(base.BaseModel):
     ]
 
     description_identifiers: typing.Annotated[
-        list[typing.Annotated[str, field_types.RelaxedLiteral("appointment-count", "born-on")]] | None,
+        tuple[typing.Annotated[str, field_types.RelaxedLiteral("appointment-count", "born-on")], ...] | None,
         pydantic.Field(
             description=(
                 "An array of enumeration types that make up the search description. "
@@ -698,7 +701,7 @@ class DisqualifiedOfficerSearchItem(base.BaseModel):
     ]
 
     description_identifiers: typing.Annotated[
-        list[typing.Annotated[str, field_types.RelaxedLiteral("born-on")]] | None,
+        tuple[typing.Annotated[str, field_types.RelaxedLiteral("born-on")], ...] | None,
         pydantic.Field(
             description=(
                 "An array of enumeration types that make up the search description. "
