@@ -311,11 +311,16 @@ class TestAlphabeticalSearchBranches:
     """Lines 719, 729 — search_below param + empty items in alphabetical search."""
 
     @pytest.mark.asyncio
-    async def test_search_below_added_from_next_page_token(self):
-        """Line 719: search_below query param added when cursor from token."""
+    async def test_search_below_added_via_fetch_next_page(self):
+        """Resuming a cursor token via fetch_next_page adds the search_below param."""
         client = _make_client()
-        state = pagination_types._PageState(search_below="KEY:12345678")
-        next_page_token = state.encode()
+        token = client._encode_next_page(
+            pagination_types._PageState(
+                search_below="KEY:12345678",
+                endpoint="alphabetical_companies_search",
+                params={"query": "test", "page_size": 10, "result_count": 1},
+            )
+        )
         urls_seen = []
 
         async def fake_get_resource(url, result_type):
@@ -323,7 +328,7 @@ class TestAlphabeticalSearchBranches:
             return MagicMock(items=[])
 
         client._get_resource = fake_get_resource
-        await client.alphabetical_companies_search("test", next_page=next_page_token)
+        await client.fetch_next_page(token)
         assert any("search_below=KEY%3A12345678" in u or "search_below=KEY:12345678" in u for u in urls_seen)
 
     @pytest.mark.asyncio
@@ -383,11 +388,16 @@ class TestDissolvedSearchBranches:
     """Lines 766, 776 — search_below param + empty items in dissolved search."""
 
     @pytest.mark.asyncio
-    async def test_search_below_added_from_next_page_token(self):
-        """Line 766: search_below query param added when cursor from token."""
+    async def test_search_below_added_via_fetch_next_page(self):
+        """Resuming a cursor token via fetch_next_page adds the search_below param."""
         client = _make_client()
-        state = pagination_types._PageState(search_below="OLD:12345678")
-        next_page_token = state.encode()
+        token = client._encode_next_page(
+            pagination_types._PageState(
+                search_below="OLD:12345678",
+                endpoint="search_dissolved_companies",
+                params={"query": "test", "page_size": 10, "type": "alphabetical", "result_count": 1},
+            )
+        )
         urls_seen = []
 
         async def fake_get_resource(url, result_type):
@@ -395,7 +405,7 @@ class TestDissolvedSearchBranches:
             return MagicMock(items=[])
 
         client._get_resource = fake_get_resource
-        await client.search_dissolved_companies("test", next_page=next_page_token)
+        await client.fetch_next_page(token)
         assert any("search_below" in u for u in urls_seen)
 
     @pytest.mark.asyncio

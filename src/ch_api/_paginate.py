@@ -51,9 +51,7 @@ def current_resume_state() -> _ResumeState:
     return _resume_ctx.get() or _ResumeState()
 
 
-def paginated(
-    *, exclude: typing.Collection[str] = ("self", "next_page")
-) -> typing.Callable[[_PaginatedFn], _PaginatedFn]:
+def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable[[_PaginatedFn], _PaginatedFn]:
     """Decorator for async ``Client`` methods that return a ``MultipageList``.
 
     Folds three concerns together so endpoint bodies stay minimal:
@@ -69,8 +67,8 @@ def paginated(
 
     Args:
         exclude: Argument names omitted from the resume token's ``params``.
-            Defaults to ``self`` and ``next_page`` (cursor position is tracked
-            separately by the fetch helpers).
+            Defaults to just ``self`` (cursor position is tracked separately by
+            :meth:`ch_api.api.Client.fetch_next_page`).
     """
     excluded = set(exclude)
 

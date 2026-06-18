@@ -72,7 +72,7 @@ Pagination
 -----
 Search results are returned as a :class:`ch_api.types.pagination.types.MultipageList`.
 Pass ``result_count`` to collect at least that many items in one call; advance with
-``get_next`` (or pass ``next_page`` back to the endpoint).
+``get_next`` (or ``Client.fetch_next_page`` for stateless resume).
 
 See Also
 --------

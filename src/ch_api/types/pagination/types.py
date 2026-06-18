@@ -70,17 +70,17 @@ NextPageToken = typing.Annotated[
     str,
     pydantic.Field(
         description=(
-            "Opaque pagination cursor. Pass this value unchanged to the same endpoint "
-            "to retrieve the next page of results. Treat it as an opaque string — "
-            "do not construct, parse, or modify it."
+            "Opaque pagination cursor. Pass this value unchanged to "
+            "``Client.fetch_next_page`` to retrieve the next page of results. Treat "
+            "it as an opaque string — do not construct, parse, or modify it."
         )
     ),
 ]
 """An opaque string cursor for retrieving the next page of results.
 
-Returned in ``PaginationInfo.next_page`` when more results exist. Pass it
-back to the same endpoint method (as the ``next_page`` argument) to fetch
-the next batch.
+Returned in ``PaginationInfo.next_page`` when more results exist. Pass it to
+``Client.fetch_next_page`` to fetch the next batch (or call
+``MultipageList.get_next``, which does this for you).
 
 The internal format is an implementation detail and may change. Always treat
 this value as opaque.
@@ -142,8 +142,8 @@ class PaginationInfo(pydantic.BaseModel):
     """Pagination state for a result set returned by the CH API.
 
     Returned alongside every page of results from the async client. Use
-    ``MultipageList.get_next`` (or pass ``next_page`` back to the same
-    endpoint) to retrieve the next page of items.
+    ``MultipageList.get_next`` (or pass ``next_page`` to
+    ``Client.fetch_next_page``) to retrieve the next page of items.
 
     Example::
 
@@ -158,7 +158,7 @@ class PaginationInfo(pydantic.BaseModel):
     has_next: bool = pydantic.Field(description="True if more results are available beyond this page.")
     next_page: typing.Optional[NextPageToken] = pydantic.Field(
         default=None,
-        description="Cursor to pass to the same endpoint to fetch the next page. None when has_next is False.",
+        description="Cursor to pass to Client.fetch_next_page to fetch the next page. None when has_next is False.",
     )
     size: typing.Optional[int] = pydantic.Field(
         default=None,
@@ -198,7 +198,7 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
     ``Client``. ``MultipageList`` itself is a plain value object: it holds the
     already-fetched ``data`` and a single :meth:`get_next` handle, and does not
     fetch lazily or merge across calls. Advance with :meth:`get_next` (or by
-    passing ``pagination.next_page`` back to the originating endpoint).
+    passing ``pagination.next_page`` to :meth:`Client.fetch_next_page`).
 
     Type Parameters:
         _ItemT: The type of items in ``data``.

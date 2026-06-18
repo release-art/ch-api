@@ -68,8 +68,8 @@ Pagination
 
 List endpoints return a ``MultipageList[T]`` with ``data`` (list) and ``pagination``
 metadata. Pass ``result_count`` to collect at least that many items in one call,
-advance with ``get_next`` (or ``next_page``), and use ``page_size`` to control the
-underlying per-request size:
+advance with ``get_next`` (or ``Client.fetch_next_page`` for stateless resume), and
+use ``page_size`` to control the underlying per-request size:
 
     >>> async def pagination_example(client):
     ...     page = await client.search_companies("tech")

@@ -145,8 +145,7 @@ Pagination
 Search and list endpoints return a ``MultipageList[T]`` with a ``data`` list and
 ``pagination`` metadata. Pass ``result_count`` to collect at least that many
 items in one call (issuing multiple underlying requests if needed), advance with
-``get_next`` (or ``next_page``), and use ``page_size`` to control the underlying
-per-request size::
+``get_next``, and use ``page_size`` to control the underlying per-request size::
 
     >>> @run_async_func
     ... async def pagination_example(client):

@@ -219,14 +219,11 @@ the result set with ``get_next``:
            break
        page = await page.get_next()  # fetches the next batch of result_count items
 
-   # Or resume statelessly with the opaque cursor token
+   # Or resume statelessly with the opaque cursor token (see "Restarting from a
+   # token" below) — endpoints themselves take no next_page argument
    page = await client.search_companies("tech", result_count=25)
    while page.pagination.has_next:
-       page = await client.search_companies(
-           "tech",
-           result_count=25,
-           next_page=page.pagination.next_page,
-       )
+       page = await client.fetch_next_page(page.pagination.next_page)
 
 Restarting from a token (servers / agent tools)
 -----------------------------------------------
@@ -573,5 +570,5 @@ If pagination isn't working as expected:
 - Use a regular ``for`` loop over ``result.data`` (it's a plain list)
 - Pass ``result_count`` to collect more items per call; ``page_size`` controls the
   underlying per-request size
-- Call ``await result.get_next()`` (or pass ``result.pagination.next_page`` back to
-  the endpoint) to fetch the next batch
+- Call ``await result.get_next()`` (or ``await client.fetch_next_page(result.pagination.next_page)``
+  for stateless resume) to fetch the next batch

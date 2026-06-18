@@ -75,7 +75,7 @@ Pagination
 -----
 All searches are paginated. The client's search methods return a MultipageList;
 pass ``result_count`` to collect more items per call and advance with ``get_next``
-(or ``next_page``).
+(or ``Client.fetch_next_page`` for stateless resume).
 
 Example Usage
 -----
