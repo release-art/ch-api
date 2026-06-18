@@ -85,31 +85,21 @@ Advanced company search::
     ...     results = await client.advanced_company_search(
     ...         company_name_includes="Apple"
     ...     )
-    ...     return len(results.items) if results.items else 0
+    ...     return len(results.data)
     >>> count = await run_async_func(search_companies_example)  # doctest: +SKIP
 
 Alphabetical search::
 
     >>> async def alphabetical_search_example(client):
     ...     results = await client.alphabetical_companies_search("BBC")
-    ...     count = 0
-    ...     async for company in results:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count
+    ...     return len(results.data)
     >>> count = await run_async_func(alphabetical_search_example)  # doctest: +SKIP
 
 Dissolved company search::
 
     >>> async def dissolved_search_example(client):
     ...     dissolved = await client.search_dissolved_companies("Enron")
-    ...     count = 0
-    ...     async for company in dissolved:
-    ...         count += 1
-    ...         if count >= 1:
-    ...             break
-    ...     return count
+    ...     return len(dissolved.data)
     >>> count = await run_async_func(dissolved_search_example)  # doctest: +SKIP
 
 See Also
@@ -166,8 +156,8 @@ class PreviousCompanyName(base.BaseModel):
     ]
 
 
-class DissolvedCompanyRegisteredOfficeAddress(base.BaseModel):
-    """Registered Office Address for dissolved companies.
+class _SearchRegisteredOfficeAddress(base.BaseModel):
+    """Registered Office Address fields common to search-result companies.
 
     This will only appear if there are ROA details in the company record.
     """
@@ -205,43 +195,12 @@ class DissolvedCompanyRegisteredOfficeAddress(base.BaseModel):
     ]
 
 
-class AdvancedCompanyRegisteredOfficeAddress(base.BaseModel):
-    """Registered Office Address for advanced search results.
+class DissolvedCompanyRegisteredOfficeAddress(_SearchRegisteredOfficeAddress):
+    """Registered Office Address for dissolved companies."""
 
-    This will only appear if there are ROA details in the company record.
-    """
 
-    address_line_1: typing.Annotated[
-        str | None,
-        pydantic.Field(
-            description="The first line of the address e.g Crown Way",
-            default=None,
-        ),
-    ]
-
-    address_line_2: typing.Annotated[
-        str | None,
-        pydantic.Field(
-            description="The second line of the address",
-            default=None,
-        ),
-    ]
-
-    locality: typing.Annotated[
-        str | None,
-        pydantic.Field(
-            description="The town associated to the ROA e.g Cardiff",
-            default=None,
-        ),
-    ]
-
-    postal_code: typing.Annotated[
-        str | None,
-        pydantic.Field(
-            description="The postal code e.g CF14 3UZ",
-            default=None,
-        ),
-    ]
+class AdvancedCompanyRegisteredOfficeAddress(_SearchRegisteredOfficeAddress):
+    """Registered Office Address for advanced search results."""
 
     region: typing.Annotated[
         str | None,
@@ -414,7 +373,8 @@ class AlphabeticalCompany(base.BaseModel):
             "search-results#company",
             "searchresults#alphabetical-search",
             "searchresults#company",
-        ],
+        ]
+        | None,
         pydantic.Field(
             description="The type of search result",
             default=None,
@@ -584,52 +544,6 @@ class AdvancedCompany(base.BaseModel):
             default=None,
         ),
     ]
-
-
-# class DissolvedCompanySearch(base.BaseModel):
-#     """List of dissolved companies."""
-
-#     etag: typing.Annotated[
-#         str | None,
-#         pydantic.Field(
-#             default=None,
-#         ),
-#     ]
-
-#     items: typing.Annotated[
-#         list[DissolvedCompany] | None,
-#         pydantic.Field(
-#             default=None,
-#         ),
-#     ]
-
-#     kind: typing.Annotated[
-#         typing.Literal[
-#             "search#alphabetical-dissolved",
-#             "search#dissolved",
-#             "search#previous-name-dissolved",
-#         ]
-#         | None,
-#         pydantic.Field(
-#             default=None,
-#         ),
-#     ]
-
-#     top_hit: typing.Annotated[
-#         DissolvedCompany | None,
-#         pydantic.Field(
-#             description="The best matching company in dissolved search results",
-#             default=None,
-#         ),
-#     ]
-
-#     hits: typing.Annotated[
-#         str | None,
-#         pydantic.Field(
-#             description="The number of hits returned on a best-match or previous-company-names search",
-#             default=None,
-#         ),
-#     ]
 
 
 class AlphabeticalCompanySearchResult(base.BaseModel, typing.Generic[T]):

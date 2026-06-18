@@ -46,15 +46,15 @@ CompanyNumberStrT = typing.Annotated[
     pydantic.StringConstraints(min_length=1, pattern="^[A-Za-z0-9]{1,8}$"),
 ]
 
-OfficerIdStrT = typing.Annotated[
+#: A non-empty string identifier. Officer and PSC ids share the same constraint;
+#: the distinct aliases document intent at the call sites.
+_NonEmptyStrT = typing.Annotated[
     str,
     pydantic.StringConstraints(min_length=1),
 ]
 
-PscIdStrT = typing.Annotated[
-    str,
-    pydantic.StringConstraints(min_length=1),
-]
+OfficerIdStrT = _NonEmptyStrT
+PscIdStrT = _NonEmptyStrT
 
 
 @contextlib.asynccontextmanager
@@ -121,26 +121,6 @@ class Client:
     _owns_session: bool  # Track if we created the session (for cleanup)
     _session_auth: typing.Optional[httpx.BasicAuth]  # Stored to allow session restart
     _page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer]
-
-    #: Methods :meth:`fetch_next_page` may re-dispatch to. Allowlisting the
-    #: endpoint named in a token stops a tampered token from invoking an arbitrary
-    #: client method.
-    _RESUMABLE_ENDPOINTS: typing.ClassVar[frozenset[str]] = frozenset(
-        {
-            "get_officer_list",
-            "search",
-            "advanced_company_search",
-            "alphabetical_companies_search",
-            "search_dissolved_companies",
-            "search_companies",
-            "search_officers",
-            "search_disqualified_officers",
-            "get_company_filing_history",
-            "get_officer_appointments",
-            "get_company_psc_list",
-            "get_company_psc_statements",
-        }
-    )
 
     def __init__(
         self,
@@ -250,6 +230,23 @@ class Client:
             headers={"ACCEPT": "application/json"},
         )
 
+    async def _send(self, request: httpx.Request) -> httpx.Response:
+        """Send ``request`` under the rate limiter, reopening a closed owned session.
+
+        If the underlying session was closed out from under a client that owns it,
+        transparently rebuild the session and retry once. Sessions supplied by the
+        caller are left untouched (the ``RuntimeError`` propagates).
+        """
+        async with self._api_limiter():
+            try:
+                return await self._api_session.send(request)
+            except RuntimeError as err:
+                if self._owns_session and "has been closed" in str(err):
+                    logger.warning("HTTP session was closed; reopening and retrying.")
+                    self._api_session = self._new_session()
+                    return await self._api_session.send(request)
+                raise
+
     async def __aenter__(self) -> "Client":
         """Enter async context manager."""
         return self
@@ -299,17 +296,14 @@ class Client:
         request: httpx.Request,
         expected_out: typing.Type[ModelT] | None,
     ) -> ModelT | None:
-        """Placeholder for request execution logic."""
-        async with self._api_limiter():
-            try:
-                response = await self._api_session.send(request)
-            except RuntimeError as err:
-                if self._owns_session and "has been closed" in str(err):
-                    logger.warning("HTTP session was closed; reopening and retrying.")
-                    self._api_session = self._new_session()
-                    response = await self._api_session.send(request)
-                else:
-                    raise
+        """Send a request through the rate limiter and validate the response.
+
+        Applies the configured rate limiter, sends the request (reopening a
+        client-owned session if it was closed underneath us), maps ``404`` to
+        ``None``, raises for other error statuses, and validates the body against
+        ``expected_out`` when one is given.
+        """
+        response = await self._send(request)
         if response.status_code == 404:
             # Resource not found
             return None
@@ -327,7 +321,7 @@ class Client:
         self,
         url: str,
         result_type: typing.Type[ModelT],
-    ) -> typing.Optional[ModelT]:  # noqa: C901
+    ) -> typing.Optional[ModelT]:
         """Helper method for simple GET requests.
 
         Reduces duplication for endpoints that just need to fetch a resource.
@@ -473,6 +467,86 @@ class Client:
             ),
         )
 
+    async def _fetch_offset_endpoint(
+        self,
+        *,
+        base_url: str,
+        result_type: typing.Any,
+        result_count: int,
+        params: typing.Optional[dict] = None,
+        total_attr: str = "total_results",
+        page_size: typing.Optional[int] = None,
+        page_size_param: str = "items_per_page",
+    ) -> types.pagination.types.MultipageList:
+        """Collect pages from an offset-based list endpoint.
+
+        Builds the per-page ``_fetch`` closure shared by every offset endpoint —
+        URL assembly, the ``416 Range Not Satisfiable`` end-of-results guard, and
+        reading ``items``/total off the response — and feeds it to
+        :meth:`_fetch_paginated`.
+
+        Args:
+            base_url: Endpoint URL without query string.
+            result_type: Response model exposing ``items`` and ``total_attr``.
+            params: Static query params common to every page.
+            total_attr: Attribute holding the total result count (``total_results``,
+                ``total_count`` or ``hits`` depending on the endpoint).
+            page_size: Items per request; omitted from the query when ``None``.
+            page_size_param: Query parameter name for ``page_size`` (the search
+                endpoints use ``items_per_page``; advanced search uses ``size``).
+        """
+        base_params = params or {}
+
+        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
+            page_params = {**base_params, "start_index": start_index}
+            if page_size is not None:
+                page_params[page_size_param] = page_size
+            url = f"{base_url}?{urllib.parse.urlencode(page_params, doseq=True)}"
+            try:
+                result = await self._get_resource(url, result_type)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
+                    return [], None
+                raise
+            if result is None:
+                return [], None
+            return result.items or [], getattr(result, total_attr)
+
+        return await self._fetch_paginated(_fetch, result_count)
+
+    async def _fetch_cursor_endpoint(
+        self,
+        *,
+        base_url: str,
+        result_type: typing.Any,
+        result_count: int,
+        params: dict,
+    ) -> types.pagination.types.MultipageList:
+        """Collect pages from a ``search_below`` cursor endpoint.
+
+        Shared body for the alphabetical and dissolved searches: the next cursor is
+        the last item's ``ordered_alpha_key_with_id``, and an empty page ends
+        pagination.
+
+        Args:
+            base_url: Endpoint URL without query string.
+            result_type: Response model exposing an ``items`` list.
+            params: Static query params common to every page.
+        """
+
+        async def _fetch(search_below: typing.Optional[str]) -> tuple[list, typing.Optional[str]]:
+            page_params = dict(params)
+            if search_below is not None:
+                page_params["search_below"] = search_below
+            url = f"{base_url}?{urllib.parse.urlencode(page_params)}"
+            result = await self._get_resource(url, result_type)
+            items = result.items if result is not None else []
+            if not items:
+                return [], None
+            return items, items[-1].ordered_alpha_key_with_id
+
+        return await self._fetch_paginated_cursor(_fetch, result_count)
+
     async def fetch_next_page(
         self, next_page: types.pagination.types.NextPageToken
     ) -> types.pagination.types.MultipageList:
@@ -503,12 +577,15 @@ class Client:
             page2 = await client.fetch_next_page(token)
         """
         state = self._decode_next_page(next_page)
-        if state.endpoint not in self._RESUMABLE_ENDPOINTS:
+        # Only ``@paginated`` methods carry ``_ch_paginated``; gating on it stops a
+        # tampered token from re-dispatching to an arbitrary client method, and the
+        # allowlist can never drift out of sync with the decorated endpoints.
+        method = getattr(self, state.endpoint, None)
+        if method is None or not getattr(method, "_ch_paginated", False):
             raise ValueError(
                 f"next_page token does not identify a resumable endpoint (got {state.endpoint!r}); "
                 "it may be position-only, malformed, or tampered."
             )
-        method = getattr(self, state.endpoint)
         # Publish the resume position, then call the endpoint with the token's args.
         ctx_token = _resume_from_ctx.set(state)
         try:
@@ -620,27 +697,15 @@ class Client:
         query_params: dict[str, typing.Union[str, list[str]]] = {"order_by": order_by}
         if only_type is not None:
             query_params |= {"register_type": only_type, "register_view": "true"}
-        base_url = f"{self._settings.api_url}/company/{company_number}/officers"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = query_params | {"start_index": start_index, "items_per_page": page_size}
-            url = f"{base_url}?{urllib.parse.urlencode(params, doseq=True)}"
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
-                        types.public_data.company_officers.OfficerSummary
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/company/{company_number}/officers",
+            result_type=types.public_data.search_companies.GenericSearchResult[
+                types.public_data.company_officers.OfficerSummary
+            ],
+            result_count=result_count,
+            params=query_params,
+            page_size=page_size,
+        )
 
     @pydantic.validate_call
     async def get_officer_appointment(
@@ -678,26 +743,15 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/search"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': page_size})}"  # noqa: E501
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
-                        types.public_data.search.AnySearchResultT
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/search",
+            result_type=types.public_data.search_companies.GenericSearchResult[
+                types.public_data.search.AnySearchResultT
+            ],
+            result_count=result_count,
+            params={"q": query},
+            page_size=page_size,
+        )
 
     @paginated()
     async def advanced_company_search(  # noqa: C901
@@ -757,29 +811,17 @@ class Client:
             query_params["location"] = location
         if sic_codes:
             query_params["sic_codes"] = list(sic_codes)
-        if page_size is not None:
-            query_params["size"] = page_size
-        base_url = f"{self._settings.api_url}/advanced-search/companies"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = query_params | {"start_index": start_index}
-            url = f"{base_url}?{urllib.parse.urlencode(params, doseq=True)}"
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.AdvancedSearchResult[  # type: ignore[arg-type]
-                        types.public_data.search_companies.AdvancedCompany
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.hits
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/advanced-search/companies",
+            result_type=types.public_data.search_companies.AdvancedSearchResult[
+                types.public_data.search_companies.AdvancedCompany
+            ],
+            result_count=result_count,
+            params=query_params,
+            total_attr="hits",
+            page_size=page_size,
+            page_size_param="size",
+        )
 
     @paginated()
     async def alphabetical_companies_search(
@@ -800,28 +842,14 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/alphabetical-search/companies"
-
-        async def _fetch(
-            search_below: typing.Optional[str],
-        ) -> tuple[list, typing.Optional[str]]:
-            params: dict = {"q": query, "size": str(page_size)}
-            if search_below is not None:
-                params["search_below"] = search_below
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            result = await self._get_resource(
-                url,
-                types.public_data.search_companies.AlphabeticalCompanySearchResult[  # type: ignore[arg-type]
-                    types.public_data.search_companies.AlphabeticalCompany
-                ],
-            )
-            items = result.items if result is not None else []
-            if not items:
-                return [], None
-            next_cursor = items[-1].ordered_alpha_key_with_id
-            return items, next_cursor
-
-        return await self._fetch_paginated_cursor(_fetch, result_count)
+        return await self._fetch_cursor_endpoint(
+            base_url=f"{self._settings.api_url}/alphabetical-search/companies",
+            result_type=types.public_data.search_companies.AlphabeticalCompanySearchResult[
+                types.public_data.search_companies.AlphabeticalCompany
+            ],
+            result_count=result_count,
+            params={"q": query, "size": str(page_size)},
+        )
 
     @paginated()
     async def search_dissolved_companies(
@@ -845,28 +873,14 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/dissolved-search/companies"
-
-        async def _fetch(
-            search_below: typing.Optional[str],
-        ) -> tuple[list, typing.Optional[str]]:
-            params: dict = {"q": query, "size": str(page_size), "search_type": type}
-            if search_below is not None:
-                params["search_below"] = search_below
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            result = await self._get_resource(
-                url,
-                types.public_data.search_companies.AlphabeticalCompanySearchResult[  # type: ignore[arg-type]
-                    types.public_data.search_companies.DissolvedCompany
-                ],
-            )
-            items = result.items if result is not None else []
-            if not items:
-                return [], None
-            next_cursor = items[-1].ordered_alpha_key_with_id
-            return items, next_cursor
-
-        return await self._fetch_paginated_cursor(_fetch, result_count)
+        return await self._fetch_cursor_endpoint(
+            base_url=f"{self._settings.api_url}/dissolved-search/companies",
+            result_type=types.public_data.search_companies.AlphabeticalCompanySearchResult[
+                types.public_data.search_companies.DissolvedCompany
+            ],
+            result_count=result_count,
+            params={"q": query, "size": str(page_size), "search_type": type},
+        )
 
     @paginated()
     async def search_companies(
@@ -887,26 +901,15 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/search/companies"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': page_size})}"  # noqa: E501
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
-                        types.public_data.search.CompanySearchItem
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/search/companies",
+            result_type=types.public_data.search_companies.GenericSearchResult[
+                types.public_data.search.CompanySearchItem
+            ],
+            result_count=result_count,
+            params={"q": query},
+            page_size=page_size,
+        )
 
     @paginated()
     async def search_officers(
@@ -927,26 +930,15 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/search/officers"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': page_size})}"  # noqa: E501
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
-                        types.public_data.search.OfficerSearchItem
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/search/officers",
+            result_type=types.public_data.search_companies.GenericSearchResult[
+                types.public_data.search.OfficerSearchItem
+            ],
+            result_count=result_count,
+            params={"q": query},
+            page_size=page_size,
+        )
 
     @paginated()
     async def search_disqualified_officers(
@@ -967,26 +959,15 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/search/disqualified-officers"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            url = f"{base_url}?{urllib.parse.urlencode({'q': query, 'start_index': start_index, 'items_per_page': page_size})}"  # noqa: E501
-            try:
-                result = await self._get_resource(
-                    url,
-                    types.public_data.search_companies.GenericSearchResult[  # type: ignore[arg-type]
-                        types.public_data.search.DisqualifiedOfficerSearchItem
-                    ],
-                )
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/search/disqualified-officers",
+            result_type=types.public_data.search_companies.GenericSearchResult[
+                types.public_data.search.DisqualifiedOfficerSearchItem
+            ],
+            result_count=result_count,
+            params={"q": query},
+            page_size=page_size,
+        )
 
     @pydantic.validate_call
     async def get_company_charges(
@@ -1076,22 +1057,14 @@ class Client:
         base_query_params: dict = {}
         if categories is not None:
             base_query_params["category"] = ",".join(categories)
-        base_url = f"{self._settings.api_url}/company/{company_number}/filing-history"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = base_query_params | {"start_index": start_index, "items_per_page": page_size}
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            try:
-                result = await self._get_resource(url, types.public_data.filing_history.FilingHistoryList)
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_count
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/company/{company_number}/filing-history",
+            result_type=types.public_data.filing_history.FilingHistoryList,
+            result_count=result_count,
+            params=base_query_params,
+            total_attr="total_count",
+            page_size=page_size,
+        )
 
     @pydantic.validate_call
     async def get_filing_history_item(
@@ -1203,22 +1176,13 @@ class Client:
                 print(url)
         """
         url = f"{self._settings.document_api_url}/document/{document_id}/content"
+        # follow_redirects=False is the httpx default; the redirect is resolved here by hand.
         request = self._api_session.build_request(
             method="GET",
             url=url,
             headers={"Accept": content_type},
         )
-        async with self._api_limiter():
-            try:
-                # follow_redirects=False is the httpx default; stated explicitly for clarity
-                response = await self._api_session.send(request)
-            except RuntimeError as err:
-                if self._owns_session and "has been closed" in str(err):
-                    logger.warning("HTTP session was closed; reopening and retrying.")
-                    self._api_session = self._new_session()
-                    response = await self._api_session.send(request)
-                else:
-                    raise
+        response = await self._send(request)
         if response.status_code == httpx.codes.NOT_FOUND:
             return None
         if response.status_code in (httpx.codes.FOUND, httpx.codes.MOVED_PERMANENTLY):
@@ -1399,24 +1363,16 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/officers/{officer_id}/appointments"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params: dict = {"items_per_page": str(page_size), "start_index": str(start_index)}
-            if filter is not None:
-                params["filter"] = filter
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            try:
-                result = await self._get_resource(url, types.public_data.officer_appointments.AppointmentList)
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        base_query_params: dict = {}
+        if filter is not None:
+            base_query_params["filter"] = filter
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/officers/{officer_id}/appointments",
+            result_type=types.public_data.officer_appointments.AppointmentList,
+            result_count=result_count,
+            params=base_query_params,
+            page_size=page_size,
+        )
 
     @pydantic.validate_call
     async def get_company_uk_establishments(
@@ -1462,27 +1418,13 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control"
-        register_view_str = "true" if register_view else "false"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = {
-                "items_per_page": str(page_size),
-                "start_index": str(start_index),
-                "register_view": register_view_str,
-            }
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            try:
-                result = await self._get_resource(url, types.public_data.psc.PSCList)
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control",
+            result_type=types.public_data.psc.PSCList,
+            result_count=result_count,
+            params={"register_view": "true" if register_view else "false"},
+            page_size=page_size,
+        )
 
     @paginated()
     async def get_company_psc_statements(
@@ -1506,27 +1448,13 @@ class Client:
                 Minimum number of items to collect, issuing multiple underlying
                 requests of ``page_size`` if needed (default 1 = one page).
         """
-        base_url = f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control-statements"
-        register_view_str = "true" if register_view else "false"
-
-        async def _fetch(start_index: int) -> tuple[list, typing.Optional[int]]:
-            params = {
-                "items_per_page": str(page_size),
-                "start_index": str(start_index),
-                "register_view": register_view_str,
-            }
-            url = f"{base_url}?{urllib.parse.urlencode(params)}"
-            try:
-                result = await self._get_resource(url, types.public_data.psc.StatementList)
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == httpx.codes.REQUESTED_RANGE_NOT_SATISFIABLE:
-                    return [], None
-                raise
-            if result is None:
-                return [], None
-            return result.items or [], result.total_results
-
-        return await self._fetch_paginated(_fetch, result_count)
+        return await self._fetch_offset_endpoint(
+            base_url=f"{self._settings.api_url}/company/{company_number}/persons-with-significant-control-statements",
+            result_type=types.public_data.psc.StatementList,
+            result_count=result_count,
+            params={"register_view": "true" if register_view else "false"},
+            page_size=page_size,
+        )
 
     async def _get_psc_by_type(
         self,

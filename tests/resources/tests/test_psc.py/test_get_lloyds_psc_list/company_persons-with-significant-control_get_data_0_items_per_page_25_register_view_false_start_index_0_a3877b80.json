@@ -71,8 +71,8 @@
       "user-agent": "python-httpx/0.28.1"
     },
     "params": null,
-    "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?items_per_page=25&start_index=0&register_view=false"
+    "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?register_view=false&start_index=0&items_per_page=25"
   },
   "status_code": 200,
-  "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?items_per_page=25&start_index=0&register_view=false"
+  "url": "https://api.company-information.service.gov.uk/company/00002065/persons-with-significant-control?register_view=false&start_index=0&items_per_page=25"
 }

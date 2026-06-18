@@ -186,6 +186,14 @@ class TestFetchNextPage:
             await client.fetch_next_page(bad)
 
     @pytest.mark.asyncio
+    async def test_unknown_endpoint_rejected(self):
+        """A token naming a method that does not exist is rejected, not an AttributeError."""
+        client = _make_client()
+        bad = json.dumps({"endpoint": "does_not_exist", "params": {}, "start_index": 0})
+        with pytest.raises(ValueError, match="resumable endpoint"):
+            await client.fetch_next_page(bad)
+
+    @pytest.mark.asyncio
     async def test_resume_via_serializer(self):
         """fetch_next_page works through a PageTokenSerializer (opaque/encrypted token)."""
         serializer = MagicMock()

@@ -71,6 +71,10 @@ def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable
             result._client = args[0]  # bind the Client (self) for get_next()
             return result
 
+        #: Marks the method as a resumable paginated endpoint. ``Client.fetch_next_page``
+        #: only re-dispatches to methods carrying this flag, so the allowlist can never
+        #: drift out of sync with the set of ``@paginated`` methods.
+        wrapper._ch_paginated = True  # type: ignore[attr-defined]
         return typing.cast(_PaginatedFn, wrapper)
 
     return decorate
