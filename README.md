@@ -49,10 +49,8 @@ metadata. Pass `result_count` to collect more items per call, and advance with
     True
 
 `pagination.next_page` is a **self-contained** cursor — it embeds the endpoint and
-its arguments, so a fresh process can resume statelessly with just the token via
-`await client.fetch_next_page(token)`. This makes pagination restartable across
-requests (e.g. for an async server or AI-agent tool) without walking the chain or
-re-supplying the query.
+its arguments, so a fresh process can resume with just the token via
+`await client.fetch_next_page(token)` (ideal for stateless servers or agent tools).
 
 ## Rate Limiting
 

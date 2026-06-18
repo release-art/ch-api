@@ -157,12 +157,10 @@ items in one call (issuing multiple underlying requests if needed), advance with
     ...         page2 = await page.get_next()
     ...
 
-``pagination.next_page`` is a **self-contained** cursor: it embeds the originating
-endpoint and its arguments, so a fresh process can resume with only the token via
-``client.fetch_next_page(token)`` — no need to walk the chain or re-supply the
-query. This makes pagination restartable across requests, e.g. for an async server
-or AI-agent tool that returns one page plus an opaque cursor and resumes later.
-Pair it with a ``PageTokenSerializer`` to sign/encrypt the token on the wire.
+``pagination.next_page`` is a **self-contained** cursor: it embeds the endpoint and
+its arguments, so a fresh process can resume with only the token via
+``client.fetch_next_page(token)`` — ideal for stateless servers or agent tools. Pair
+it with a ``PageTokenSerializer`` to sign or encrypt the token on the wire.
 
 Exception Handling
 ------------------

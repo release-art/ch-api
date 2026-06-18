@@ -31,10 +31,9 @@ from ._paginate import current_resume_state, paginated
 
 logger = logging.getLogger(__name__)
 
-#: Task-local channel carrying the position to resume from, published by
-#: :meth:`Client.fetch_next_page` and read by the fetch helpers. Empty (``None``)
-#: for fresh calls — endpoints no longer accept a ``next_page`` parameter, so
-#: ``fetch_next_page`` is the sole resume path.
+#: Task-local channel for the position to resume from, set by
+#: :meth:`Client.fetch_next_page` and read by the fetch helpers. ``None`` for a
+#: fresh call (start from the beginning).
 _resume_from_ctx: contextvars.ContextVar[typing.Optional[types.pagination.types._PageState]] = (
     contextvars.ContextVar("ch_api_resume_from", default=None)
 )
@@ -123,10 +122,9 @@ class Client:
     _session_auth: typing.Optional[httpx.BasicAuth]  # Stored to allow session restart
     _page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer]
 
-    #: Paginated methods that :meth:`fetch_next_page` may re-dispatch to. A
-    #: self-contained ``next_page`` token names the method that produced it; this
-    #: allowlist ensures a tampered or malformed token can only ever resume a real
-    #: paginated endpoint, never an arbitrary client method.
+    #: Methods :meth:`fetch_next_page` may re-dispatch to. Allowlisting the
+    #: endpoint named in a token stops a tampered token from invoking an arbitrary
+    #: client method.
     _RESUMABLE_ENDPOINTS: typing.ClassVar[frozenset[str]] = frozenset(
         {
             "get_officer_list",
@@ -376,27 +374,16 @@ class Client:
         fetch_page_fn: typing.Callable[[int], typing.Awaitable[tuple[list, typing.Optional[int]]]],
         result_count: int,
     ) -> types.pagination.types.MultipageList:
-        """Fetch offset-based API pages until ``result_count`` items are collected.
+        """Collect offset-based API pages until ``result_count`` items are gathered.
 
-        Issues one or more underlying API requests (each of the endpoint's
-        ``page_size``) until at least ``result_count`` items are gathered or no
-        further pages exist. Starts from offset 0 for a fresh call, or from the
-        position published on :data:`_resume_from_ctx` when invoked via
-        :meth:`fetch_next_page`. The ``next_page`` token on the returned list is
-        self-contained — the endpoint name and call arguments come from
-        :func:`~ch_api._paginate.current_resume_state` (populated by the
-        :func:`~ch_api._paginate.paginated` decorator) and are embedded so the
-        request can be resumed from a fresh process.
+        Fetches successive pages from the resume position (offset 0 for a fresh
+        call) until ``result_count`` items are collected or pages run out, and
+        embeds a self-contained ``next_page`` token in the result.
 
         Args:
-            fetch_page_fn: Callable taking ``start_index`` (int), returning a
-                tuple of ``(items, total_count)``. ``total_count`` may be None
-                if unknown; in that case no further pages will be fetched.
-            result_count: Minimum number of items to collect. At least one
-                underlying page is always fetched regardless of this value.
-
-        Returns:
-            A MultipageList holding the collected items and pagination metadata.
+            fetch_page_fn: Takes a ``start_index`` and returns ``(items, total_count)``;
+                ``total_count`` may be None, which stops pagination.
+            result_count: Minimum items to collect; at least one page is fetched.
         """
         resume = current_resume_state()
         page_state = _resume_from_ctx.get() or types.pagination.types._PageState.first()
@@ -441,27 +428,17 @@ class Client:
         fetch_page_fn: typing.Callable[[typing.Optional[str]], typing.Awaitable[tuple[list, typing.Optional[str]]]],
         result_count: int,
     ) -> types.pagination.types.MultipageList:
-        """Fetch cursor-based API pages until ``result_count`` items are collected.
+        """Collect cursor-based API pages until ``result_count`` items are gathered.
 
-        Used for endpoints that paginate via ``search_below`` / ``search_above``
-        cursors (e.g. alphabetical company search) rather than ``start_index``.
-        Issues one or more underlying API requests until at least ``result_count``
-        items are gathered or no further pages exist. Starts from the beginning for
-        a fresh call, or from the cursor published on :data:`_resume_from_ctx` when
-        invoked via :meth:`fetch_next_page`. The endpoint name and call arguments
-        come from :func:`~ch_api._paginate.current_resume_state` (populated by the
-        :func:`~ch_api._paginate.paginated` decorator) and are embedded in the
-        ``next_page`` token so the request can be resumed.
+        For endpoints paginating by a ``search_below`` cursor (e.g. alphabetical
+        search) rather than an offset. Like :meth:`_fetch_paginated`, but tracks a
+        cursor instead of an index; ``pagination.size`` is always None.
 
         Args:
-            fetch_page_fn: Callable taking the current ``search_below`` cursor
-                (None for the first page), returning ``(items, next_cursor)``.
-                ``next_cursor`` is None when no further pages exist.
-            result_count: Minimum number of items to collect.
-
-        Returns:
-            A MultipageList holding the collected items and pagination metadata.
-            ``pagination.size`` is always None for cursor-based endpoints.
+            fetch_page_fn: Takes the current ``search_below`` cursor (None for the
+                first page) and returns ``(items, next_cursor)``; ``next_cursor`` is
+                None when no further pages exist.
+            result_count: Minimum items to collect.
         """
         resume = current_resume_state()
         page_state = _resume_from_ctx.get() or types.pagination.types._PageState.first()
@@ -499,24 +476,23 @@ class Client:
     async def fetch_next_page(
         self, next_page: types.pagination.types.NextPageToken
     ) -> types.pagination.types.MultipageList:
-        """Resume a paginated request from a self-contained ``next_page`` token.
+        """Resume a paginated request from a ``next_page`` token.
 
-        The token (taken from ``MultipageList.pagination.next_page``) embeds the
-        originating endpoint and its arguments, so a fresh process can fetch the
-        next batch with only the token — there is no need to walk the page chain
-        or reconstruct the original query. This is the building block for stateless
-        services such as an AI-agent tool that returns one page plus an opaque
-        cursor, then resumes on a later, independent request.
+        The token (from ``MultipageList.pagination.next_page``) embeds the endpoint
+        and its arguments, so a fresh process can fetch the next batch from the
+        token alone — no need to keep the original query. This is the basis for
+        stateless resume, e.g. an agent tool that returns a page plus a cursor and
+        continues on a later, independent request.
 
         Args:
             next_page: A ``pagination.next_page`` token from a prior result.
 
         Returns:
-            The next ``MultipageList``, itself bound for further iteration.
+            The next ``MultipageList``, bound for further iteration.
 
         Raises:
-            ValueError: If the token does not name a known, resumable endpoint —
-                e.g. a position-only token, or a malformed / tampered value.
+            ValueError: If the token does not name a resumable endpoint
+                (e.g. malformed or tampered).
 
         Example::
 
@@ -533,8 +509,7 @@ class Client:
                 "it may be position-only, malformed, or tampered."
             )
         method = getattr(self, state.endpoint)
-        # Publish the resume position for the fetch helpers; the endpoint is called
-        # fresh (no next_page parameter) with the token's captured arguments.
+        # Publish the resume position, then call the endpoint with the token's args.
         ctx_token = _resume_from_ctx.set(state)
         try:
             return await method(**state.params)

@@ -192,7 +192,7 @@ Search for disqualified officers:
 Working with Pagination
 =======================
 
-Many API endpoints return paginated results as :class:`ch_api.types.pagination.types.MultipageList`, a minimal value object with ``data`` (the items collected by this call), ``pagination`` (cursor metadata), and a ``get_next`` handle to fetch the next batch. Pass ``result_count`` to collect at least that many items in one call (the client issues multiple underlying requests of ``page_size`` as needed); call ``get_next`` to fetch the next batch.
+Many endpoints return a :class:`ch_api.types.pagination.types.MultipageList`: a value object with ``data`` (this call's items), ``pagination`` (cursor metadata), and a ``get_next`` handle. Pass ``result_count`` to collect at least that many items in one call (the client issues multiple ``page_size`` requests as needed).
 
 Fetching a page::
 
@@ -228,12 +228,11 @@ the result set with ``get_next``:
 Restarting from a token (servers / agent tools)
 -----------------------------------------------
 
-``pagination.next_page`` is **self-contained**: it embeds the originating endpoint
-and its arguments, so a separate process — with no in-memory state and without
-re-supplying the query — can resume from just the token via
-:meth:`~ch_api.api.Client.fetch_next_page`. This is the building block for an async
-service or AI-agent tool that returns one page plus an opaque cursor, then continues
-on a later, independent request:
+``pagination.next_page`` is **self-contained**: it embeds the endpoint and its
+arguments, so a separate process can resume from just the token via
+:meth:`~ch_api.api.Client.fetch_next_page` — no in-memory state, no re-supplying the
+query. Ideal for an async service or agent tool that returns a page plus a cursor
+and continues on a later, independent request:
 
 .. code:: python
 
