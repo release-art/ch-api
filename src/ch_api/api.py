@@ -26,6 +26,7 @@ import httpx
 import pydantic
 
 from . import api_settings, exc, types
+from ._paginate import current_resume_identity, paginated
 
 logger = logging.getLogger(__name__)
 
@@ -112,6 +113,27 @@ class Client:
     _owns_session: bool  # Track if we created the session (for cleanup)
     _session_auth: typing.Optional[httpx.BasicAuth]  # Stored to allow session restart
     _page_token_serializer: typing.Optional[types.pagination.types.PageTokenSerializer]
+
+    #: Paginated methods that :meth:`fetch_next_page` may re-dispatch to. A
+    #: self-contained ``next_page`` token names the method that produced it; this
+    #: allowlist ensures a tampered or malformed token can only ever resume a real
+    #: paginated endpoint, never an arbitrary client method.
+    _RESUMABLE_ENDPOINTS: typing.ClassVar[frozenset[str]] = frozenset(
+        {
+            "get_officer_list",
+            "search",
+            "advanced_company_search",
+            "alphabetical_companies_search",
+            "search_dissolved_companies",
+            "search_companies",
+            "search_officers",
+            "search_disqualified_officers",
+            "get_company_filing_history",
+            "get_officer_appointments",
+            "get_company_psc_list",
+            "get_company_psc_statements",
+        }
+    )
 
     def __init__(
         self,
@@ -350,9 +372,12 @@ class Client:
 
         Issues one or more underlying API requests (each of the endpoint's
         ``page_size``) until at least ``result_count`` items are gathered or no
-        further pages exist. The returned list carries a ``get_next`` handle that
-        fetches the next batch of ``result_count`` items via the same
-        ``fetch_page_fn``.
+        further pages exist. The ``next_page`` token on the returned list is
+        self-contained — the originating endpoint name and call arguments are read
+        from the :func:`~ch_api._paginate.current_resume_identity` helper (populated by
+        embedded, so the request can be resumed via :meth:`fetch_next_page` from a
+        fresh process. (Called outside a ``paginated`` method — e.g. directly in a
+        test — the context is empty and a position-only token is produced.)
 
         Args:
             fetch_page_fn: Callable taking ``start_index`` (int), returning a
@@ -365,6 +390,7 @@ class Client:
         Returns:
             A MultipageList holding the collected items and pagination metadata.
         """
+        endpoint, params = current_resume_identity()
         page_state = (
             self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
@@ -390,10 +416,12 @@ class Client:
 
         next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
         if has_next:
-            next_state = types.pagination.types._PageState(start_index=current_start + last_page_len)
+            next_state = types.pagination.types._PageState(
+                start_index=current_start + last_page_len, endpoint=endpoint, params=params
+            )
             next_page_out = self._encode_next_page(next_state)
 
-        result = types.pagination.types.MultipageList(
+        return types.pagination.types.MultipageList(
             data=items,
             pagination=types.pagination.types.PaginationInfo(
                 has_next=has_next,
@@ -401,16 +429,6 @@ class Client:
                 size=total_count,
             ),
         )
-
-        if has_next and next_page_out is not None:
-            captured_next_page = next_page_out
-
-            async def _fetch_next() -> types.pagination.types.MultipageList:
-                return await self._fetch_paginated(fetch_page_fn, captured_next_page, result_count)
-
-            result._fetch_next_page = _fetch_next
-
-        return result
 
     async def _fetch_paginated_cursor(
         self,
@@ -423,8 +441,10 @@ class Client:
         Used for endpoints that paginate via ``search_below`` / ``search_above``
         cursors (e.g. alphabetical company search) rather than ``start_index``.
         Issues one or more underlying API requests until at least ``result_count``
-        items are gathered or no further pages exist. The returned list carries a
-        ``get_next`` handle that fetches the next batch.
+        items are gathered or no further pages exist. The originating endpoint name
+        and call arguments come from :func:`~ch_api._paginate.current_resume_identity` (populated by
+        :func:`paginated`) and embedded in the ``next_page`` token, so the request
+        can be resumed via :meth:`fetch_next_page`.
 
         Args:
             fetch_page_fn: Callable taking the current ``search_below`` cursor
@@ -438,6 +458,7 @@ class Client:
             A MultipageList holding the collected items and pagination metadata.
             ``pagination.size`` is always None for cursor-based endpoints.
         """
+        endpoint, params = current_resume_identity()
         page_state = (
             self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
@@ -458,10 +479,12 @@ class Client:
 
         next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
         if has_next and next_cursor is not None:
-            next_state = types.pagination.types._PageState(search_below=next_cursor)
+            next_state = types.pagination.types._PageState(
+                search_below=next_cursor, endpoint=endpoint, params=params
+            )
             next_page_out = self._encode_next_page(next_state)
 
-        result = types.pagination.types.MultipageList(
+        return types.pagination.types.MultipageList(
             data=items,
             pagination=types.pagination.types.PaginationInfo(
                 has_next=has_next,
@@ -470,15 +493,44 @@ class Client:
             ),
         )
 
-        if has_next and next_page_out is not None:
-            captured_next_page = next_page_out
+    async def fetch_next_page(
+        self, next_page: types.pagination.types.NextPageToken
+    ) -> types.pagination.types.MultipageList:
+        """Resume a paginated request from a self-contained ``next_page`` token.
 
-            async def _fetch_next() -> types.pagination.types.MultipageList:
-                return await self._fetch_paginated_cursor(fetch_page_fn, captured_next_page, result_count)
+        The token (taken from ``MultipageList.pagination.next_page``) embeds the
+        originating endpoint and its arguments, so a fresh process can fetch the
+        next batch with only the token — there is no need to walk the page chain
+        or reconstruct the original query. This is the building block for stateless
+        services such as an AI-agent tool that returns one page plus an opaque
+        cursor, then resumes on a later, independent request.
 
-            result._fetch_next_page = _fetch_next
+        Args:
+            next_page: A ``pagination.next_page`` token from a prior result.
 
-        return result
+        Returns:
+            The next ``MultipageList``, itself bound for further iteration.
+
+        Raises:
+            ValueError: If the token does not name a known, resumable endpoint —
+                e.g. a position-only token, or a malformed / tampered value.
+
+        Example::
+
+            page = await client.search_companies("Apple", page_size=20)
+            token = page.pagination.next_page  # hand this to the caller
+
+            # ... later, in a new request with only `token` in hand ...
+            page2 = await client.fetch_next_page(token)
+        """
+        state = self._decode_next_page(next_page)
+        if state.endpoint not in self._RESUMABLE_ENDPOINTS:
+            raise ValueError(
+                f"next_page token does not identify a resumable endpoint (got {state.endpoint!r}); "
+                "it may be position-only, malformed, or tampered."
+            )
+        method = getattr(self, state.endpoint)
+        return await method(**state.params, next_page=next_page)
 
     @pydantic.validate_call
     async def create_test_company(
@@ -549,7 +601,7 @@ class Client:
             types.public_data.registered_office.RegisteredOfficeAddress,
         )
 
-    @pydantic.validate_call
+    @paginated()
     async def get_officer_list(
         self,
         company_number: CompanyNumberStrT,
@@ -626,7 +678,7 @@ class Client:
         url = f"{self._settings.api_url}/company/{company_number}/registers"
         return await self._get_resource(url, types.public_data.company_registers.CompanyRegister)
 
-    @pydantic.validate_call
+    @paginated()
     async def search(
         self,
         query: str,
@@ -669,7 +721,7 @@ class Client:
 
         return await self._fetch_paginated(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def advanced_company_search(  # noqa: C901
         self,
         /,
@@ -754,7 +806,7 @@ class Client:
 
         return await self._fetch_paginated(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def alphabetical_companies_search(
         self,
         query: str,
@@ -799,7 +851,7 @@ class Client:
 
         return await self._fetch_paginated_cursor(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def search_dissolved_companies(
         self,
         query: str,
@@ -847,7 +899,7 @@ class Client:
 
         return await self._fetch_paginated_cursor(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def search_companies(
         self,
         query: str,
@@ -890,7 +942,7 @@ class Client:
 
         return await self._fetch_paginated(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def search_officers(
         self,
         query: str,
@@ -933,7 +985,7 @@ class Client:
 
         return await self._fetch_paginated(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def search_disqualified_officers(
         self,
         query: str,
@@ -1023,7 +1075,7 @@ class Client:
             types.public_data.charges.ChargeDetails,
         )
 
-    @pydantic.validate_call
+    @paginated()
     async def get_company_filing_history(
         self,
         company_number: CompanyNumberStrT,
@@ -1368,7 +1420,7 @@ class Client:
             types.public_data.disqualifications.NaturalDisqualification,
         )
 
-    @pydantic.validate_call
+    @paginated()
     async def get_officer_appointments(
         self,
         officer_id: OfficerIdStrT,
@@ -1434,7 +1486,7 @@ class Client:
             types.public_data.uk_establishments.CompanyUKEstablishments,
         )
 
-    @pydantic.validate_call
+    @paginated()
     async def get_company_psc_list(
         self,
         company_number: CompanyNumberStrT,
@@ -1481,7 +1533,7 @@ class Client:
 
         return await self._fetch_paginated(_fetch, next_page, result_count)
 
-    @pydantic.validate_call
+    @paginated()
     async def get_company_psc_statements(
         self,
         company_number: CompanyNumberStrT,

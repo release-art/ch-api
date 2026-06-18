@@ -10,8 +10,6 @@ Internal types (not part of the public API):
     _PageState: Encodes CH API pagination state (start_index / search_below cursor).
 """
 
-import dataclasses
-import json
 import typing
 
 import pydantic
@@ -26,33 +24,38 @@ _ItemT = typing.TypeVar("_ItemT", bound=pydantic.BaseModel)
 # ---------------------------------------------------------------------------
 
 
-@dataclasses.dataclass(frozen=True)
-class _PageState:
-    """Encodes CH API pagination state as a portable JSON string.
+class _PageState(pydantic.BaseModel, frozen=True):
+    """A self-contained, restartable pagination cursor encoded as JSON.
 
     Not part of the public API — callers only ever see ``NextPageToken`` (str).
 
-    For offset-based endpoints (most CH API endpoints), ``start_index`` stores
-    the next offset to request. For cursor-based endpoints (alphabetical
-    search), ``search_below`` stores the ordered_alpha_key_with_id cursor.
+    The state captures everything needed to resume a paginated request from a
+    fresh process with no in-memory context:
+
+    * ``endpoint`` — the name of the ``Client`` method that produced the page
+      (used to re-dispatch on resume; validated against an allowlist).
+    * ``params`` — the originating call's keyword arguments (query, filters,
+      ``page_size``, ``result_count``, path parameters, …), as JSON-safe values.
+    * ``start_index`` — next offset for offset-based endpoints.
+    * ``search_below`` — ``ordered_alpha_key_with_id`` cursor for cursor-based
+      endpoints (alphabetical / dissolved search).
+
+    A position-only state (``endpoint``/``params`` empty) is still valid: the
+    originating endpoint resumes from the position, it just cannot be replayed
+    blindly via :meth:`Client.fetch_next_page`.
     """
 
     start_index: int = 0
     search_below: typing.Optional[str] = None
+    endpoint: str = ""
+    params: typing.Dict[str, typing.Any] = pydantic.Field(default_factory=dict)
 
     def encode(self) -> str:
-        data: dict[str, typing.Any] = {"start_index": self.start_index}
-        if self.search_below is not None:
-            data["search_below"] = self.search_below
-        return json.dumps(data)
+        return self.model_dump_json()
 
     @classmethod
     def decode(cls, token: str) -> "_PageState":
-        data = json.loads(token)
-        return cls(
-            start_index=data.get("start_index", 0),
-            search_below=data.get("search_below"),
-        )
+        return cls.model_validate_json(token)
 
     @classmethod
     def first(cls) -> "_PageState":
@@ -166,6 +169,22 @@ class PaginationInfo(pydantic.BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# Internal: client handle used by MultipageList.get_next
+# ---------------------------------------------------------------------------
+
+
+@typing.runtime_checkable
+class _NextPageFetcher(typing.Protocol):
+    """Minimal interface :meth:`MultipageList.get_next` needs from a client.
+
+    ``Client`` satisfies this structurally; kept here to avoid importing the
+    client into the types package.
+    """
+
+    async def fetch_next_page(self, next_page: str) -> typing.Any: ...
+
+
+# ---------------------------------------------------------------------------
 # Public: result page model
 # ---------------------------------------------------------------------------
 
@@ -200,14 +219,14 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
         page = await client.search_companies("Apple", result_count=100)
         # page.data has >= 100 items (or all available if fewer exist)
 
-    Resuming statelessly with a cursor token::
+    Resuming statelessly from a self-contained token (e.g. a fresh request in an
+    async server or agent tool — only the token is needed, not the query)::
 
         page = await client.search_companies("Apple")
-        if page.pagination.has_next:
-            page2 = await client.search_companies(
-                "Apple",
-                next_page=page.pagination.next_page,
-            )
+        token = page.pagination.next_page  # opaque, restartable cursor
+
+        # ... later, in a new process with only `token` ...
+        page2 = await client.fetch_next_page(token)
     """
 
     model_config = pydantic.ConfigDict(frozen=True, arbitrary_types_allowed=True)
@@ -217,28 +236,38 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
         description="Pagination state, including whether more results exist and how to fetch them."
     )
 
-    _fetch_next_page: typing.Optional[typing.Callable[[], typing.Awaitable["MultipageList[_ItemT]"]]] = (
-        pydantic.PrivateAttr(default=None)
-    )
-    """Bound closure that fetches the next page using the same endpoint and
-    arguments as the call that produced this list. Set by the client when the
-    list is produced; ``None`` on manually-constructed instances.
+    _client: typing.Optional[_NextPageFetcher] = pydantic.PrivateAttr(default=None)
+    """Client used to fetch the next batch via the self-contained ``next_page``
+    token. Set by the client when the list is produced; ``None`` on
+    manually-constructed or deserialized instances. Bind one with
+    :meth:`with_client` to re-enable :meth:`get_next` on a reconstructed list.
     """
 
-    async def get_next(self) -> "MultipageList[_ItemT]":
-        """Fetch the next page from the same endpoint with the same arguments.
+    def with_client(self, client: _NextPageFetcher) -> "MultipageList[_ItemT]":
+        """Bind a client so :meth:`get_next` works on this (e.g. deserialized) list.
 
-        Returns a new ``MultipageList`` carrying the next page of results.
-        The returned list itself has ``get_next`` bound for further iteration.
+        Returns ``self`` for chaining. The token itself is self-contained, so
+        the bound client only supplies the HTTP session — any ``Client`` will do.
+        """
+        self._client = client
+        return self
+
+    async def get_next(self) -> "MultipageList[_ItemT]":
+        """Fetch the next batch from the same endpoint with the same arguments.
+
+        Convenience wrapper over :meth:`Client.fetch_next_page` using this
+        list's self-contained ``pagination.next_page`` token. The returned
+        ``MultipageList`` is itself bound for further iteration.
 
         Raises:
             NoMorePagesError: If ``pagination.has_next`` is ``False`` — this
-                list is already the last page.
-            RuntimeError: If this list was constructed manually (e.g. in a
-                test or via deserialization) and has no fetcher attached.
+                list is already the last batch.
+            RuntimeError: If no client is bound (e.g. a manually-constructed or
+                deserialized list). Either call ``client.fetch_next_page(token)``
+                directly, or bind one first via :meth:`with_client`.
 
         Example:
-            Walk every page::
+            Walk every batch::
 
                 page = await client.search_companies("Apple")
                 while page.pagination.has_next:
@@ -248,10 +277,10 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
         """
         if not self.pagination.has_next:
             raise exc.NoMorePagesError("This is the last page; no more results to fetch.")
-        if self._fetch_next_page is None:
+        if self._client is None or self.pagination.next_page is None:
             raise RuntimeError(
-                "MultipageList has no next-page fetcher attached — it was likely "
-                "constructed manually or deserialized. Call the originating endpoint "
-                "with `next_page=<token>` instead."
+                "MultipageList has no client bound — it was likely constructed manually "
+                "or deserialized. Call `client.fetch_next_page(pagination.next_page)` "
+                "directly, or bind a client with `.with_client(client)` first."
             )
-        return await self._fetch_next_page()
+        return await self._client.fetch_next_page(self.pagination.next_page)

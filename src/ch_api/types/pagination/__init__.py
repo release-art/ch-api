@@ -9,9 +9,15 @@ batch::
     while page.pagination.has_next:
         page = await page.get_next()
 
+``pagination.next_page`` is a self-contained cursor (it embeds the endpoint and
+its arguments), so a fresh process can resume statelessly with only the token::
+
+    page2 = await client.fetch_next_page(token)
+
 Key Classes
 -----------
 - :class:`types.MultipageList` - Result-batch container with a ``get_next`` handle
+- :class:`types.NextPageToken` - Self-contained, restartable opaque cursor
 - :class:`types.PaginationInfo` - Pagination metadata
 - :class:`types.NextPageToken` - Opaque cursor type
 - :class:`types.PageTokenSerializer` - Optional token encryption protocol

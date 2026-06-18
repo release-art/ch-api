@@ -228,6 +228,30 @@ the result set with ``get_next``:
            next_page=page.pagination.next_page,
        )
 
+Restarting from a token (servers / agent tools)
+-----------------------------------------------
+
+``pagination.next_page`` is **self-contained**: it embeds the originating endpoint
+and its arguments, so a separate process — with no in-memory state and without
+re-supplying the query — can resume from just the token via
+:meth:`~ch_api.api.Client.fetch_next_page`. This is the building block for an async
+service or AI-agent tool that returns one page plus an opaque cursor, then continues
+on a later, independent request:
+
+.. code:: python
+
+   # First request: return a page and a cursor to the caller
+   page = await client.search_companies("tech", page_size=20)
+   payload = {"items": [c.model_dump() for c in page.data],
+              "next": page.pagination.next_page}  # opaque token
+
+   # ... later, a fresh request arrives carrying only `next` ...
+   page2 = await client.fetch_next_page(payload["next"])
+
+Only the 12 paginated endpoints can be resumed this way; a token naming anything
+else is rejected. Configure a :class:`~ch_api.types.pagination.types.PageTokenSerializer`
+on the client to sign or encrypt the token before it leaves your service.
+
 .. _usage.rate-limiting:
 
 Rate Limiting

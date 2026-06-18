@@ -158,6 +158,13 @@ per-request size::
     ...         page2 = await page.get_next()
     ...
 
+``pagination.next_page`` is a **self-contained** cursor: it embeds the originating
+endpoint and its arguments, so a fresh process can resume with only the token via
+``client.fetch_next_page(token)`` — no need to walk the chain or re-supply the
+query. This makes pagination restartable across requests, e.g. for an async server
+or AI-agent tool that returns one page plus an opaque cursor and resumes later.
+Pair it with a ``PageTokenSerializer`` to sign/encrypt the token on the wire.
+
 Exception Handling
 ------------------
 Handle API errors with custom exceptions::

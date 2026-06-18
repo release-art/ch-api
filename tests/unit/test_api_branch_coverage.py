@@ -1,6 +1,7 @@
 """Branch coverage tests for api.py — covers all remaining uncovered lines."""
 
 import datetime
+import json
 from unittest.mock import MagicMock
 
 import httpx
@@ -9,7 +10,10 @@ import pytest
 
 from ch_api import api, api_settings, exc
 from ch_api.types.pagination import types as pagination_types
-from ch_api.types.public_data import search_companies as sc
+from ch_api.types.public_data import (
+    search as search_types,
+    search_companies as sc,
+)
 
 
 def _make_client(serializer=None):
@@ -99,6 +103,134 @@ class TestPageSizeBoundsEnforced:
             await client.advanced_company_search(company_name_includes="x", page_size=page_size)
 
 
+class TestFetchNextPage:
+    """Self-contained next_page token: stateless resume via Client.fetch_next_page."""
+
+    @pytest.mark.asyncio
+    async def test_token_is_self_contained_and_resumes(self):
+        """Token embeds endpoint + params; fetch_next_page resumes from token alone."""
+        client = _make_client()
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("Apple", page_size=2)
+        token = page.pagination.next_page
+        decoded = json.loads(token)
+        assert decoded["endpoint"] == "search_companies"
+        assert decoded["params"]["query"] == "Apple"
+        assert decoded["params"]["page_size"] == 2
+        assert decoded["start_index"] == 2
+
+        urls.clear()
+        # a fresh call with ONLY the token — no query re-supplied
+        page2 = await client.fetch_next_page(token)
+        assert len(page2.data) == 2
+        assert any("start_index=2" in u and "q=Apple" in u for u in urls)
+
+    @pytest.mark.asyncio
+    async def test_cursor_token_is_self_contained(self):
+        """Cursor endpoints embed endpoint + params + search_below."""
+        client = _make_client()
+        calls = 0
+
+        async def fake(url, result_type):
+            nonlocal calls
+            calls += 1
+            result = MagicMock()
+            result.items = [_alpha_company("KEY:1")] if calls == 1 else []
+            return result
+
+        client._get_resource = fake
+        page = await client.alphabetical_companies_search("Barclays", page_size=1)
+        decoded = json.loads(page.pagination.next_page)
+        assert decoded["endpoint"] == "alphabetical_companies_search"
+        assert decoded["search_below"] == "KEY:1"
+        assert decoded["params"]["query"] == "Barclays"
+
+    @pytest.mark.asyncio
+    async def test_date_params_round_trip(self):
+        """datetime.date args serialise to ISO and coerce back on resume."""
+        client = _make_client()
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [sc.AdvancedCompany.model_construct() for _ in range(2)]
+            result.hits = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.advanced_company_search(
+            company_name_includes="x", dissolved_from=datetime.date(2020, 1, 1), page_size=2
+        )
+        assert json.loads(page.pagination.next_page)["params"]["dissolved_from"] == "2020-01-01"
+
+        urls.clear()
+        await client.fetch_next_page(page.pagination.next_page)  # must coerce "2020-01-01" -> date
+        assert any("dissolved_from=2020-01-01" in u for u in urls)
+
+    @pytest.mark.asyncio
+    async def test_tampered_endpoint_rejected(self):
+        """A token naming a non-resumable method is rejected (no arbitrary dispatch)."""
+        client = _make_client()
+        bad = json.dumps({"endpoint": "aclose", "params": {}, "start_index": 0})
+        with pytest.raises(ValueError, match="resumable endpoint"):
+            await client.fetch_next_page(bad)
+
+    @pytest.mark.asyncio
+    async def test_resume_via_serializer(self):
+        """fetch_next_page works through a PageTokenSerializer (opaque/encrypted token)."""
+        serializer = MagicMock()
+        serializer.serialize = lambda t: "ENC:" + t
+        serializer.deserialize = lambda t: t[len("ENC:") :]
+        client = _make_client(serializer=serializer)
+        urls = []
+
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("Apple", page_size=2)
+        assert page.pagination.next_page.startswith("ENC:")
+
+        urls.clear()
+        await client.fetch_next_page(page.pagination.next_page)
+        assert any("start_index=2" in u for u in urls)
+
+    @pytest.mark.asyncio
+    async def test_with_client_rebinds_get_next(self):
+        """A page with no client can be re-bound so get_next works again."""
+        client = _make_client()
+
+        async def fake(url, result_type):
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
+
+        client._get_resource = fake
+        page = await client.search_companies("Apple", page_size=2)
+        # simulate a reconstructed page that lost its client binding
+        page._client = None
+        with pytest.raises(RuntimeError, match="no client bound"):
+            await page.get_next()
+        page.with_client(client)
+        page2 = await page.get_next()
+        assert len(page2.data) == 2
+
+
 class TestMultipageListGetNext:
     """MultipageList.get_next error paths on manually-constructed instances."""
 
@@ -113,98 +245,66 @@ class TestMultipageListGetNext:
             await page.get_next()
 
     @pytest.mark.asyncio
-    async def test_get_next_without_fetcher_raises_runtime_error(self):
-        """has_next True but no bound fetcher (e.g. deserialized) → RuntimeError."""
+    async def test_get_next_without_client_raises_runtime_error(self):
+        """has_next True but no bound client (e.g. deserialized) → RuntimeError."""
         page = pagination_types.MultipageList(
             data=[],
             pagination=pagination_types.PaginationInfo(has_next=True, next_page="tok"),
         )
-        with pytest.raises(RuntimeError, match="no next-page fetcher"):
+        with pytest.raises(RuntimeError, match="no client bound"):
             await page.get_next()
 
 
 class TestOffsetPagination:
-    """Offset accumulation to result_count + get_next advances the batch."""
+    """Offset accumulation to result_count + get_next advances the batch via fetch_next_page."""
 
     @pytest.mark.asyncio
     async def test_get_next_offset(self):
-        """get_next fetches the next result_count batch from the next offset."""
+        """get_next fetches the next batch from the next offset (page_size 2, total 4)."""
         client = _make_client()
-        calls = []
+        urls = []
 
-        class _Item(pydantic.BaseModel):
-            val: int = 0
+        async def fake(url, result_type):
+            urls.append(url)
+            result = MagicMock()
+            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
+            result.total_results = 4
+            return result
 
-        async def fetch(start):
-            calls.append(start)
-            if start == 0:
-                return [_Item(val=0), _Item(val=1)], 4
-            return [_Item(val=2), _Item(val=3)], 4
-
-        page = await client._fetch_paginated(fetch, None, 1)
-        assert [i.val for i in page.data] == [0, 1]
+        client._get_resource = fake
+        page = await client.search_companies("x", page_size=2)
+        assert len(page.data) == 2
         assert page.pagination.has_next
-        assert calls == [0]
+        assert any("start_index=0" in u for u in urls)
 
+        urls.clear()
         page2 = await page.get_next()
-        assert [i.val for i in page2.data] == [2, 3]
+        assert len(page2.data) == 2
         assert not page2.pagination.has_next
-        assert calls == [0, 2]
+        assert any("start_index=2" in u for u in urls)
 
 
 class TestCursorPaginationContinuation:
-    """Cursor accumulation loop continuation + get_next via the bound fetcher."""
+    """Cursor accumulation loop continuation (result_count spanning pages)."""
 
     @pytest.mark.asyncio
     async def test_cursor_loop_continues(self):
         """result_count spanning pages drives a second loop iteration (cursor = next_cursor)."""
         client = _make_client()
-        call_count = 0
+        calls = 0
 
-        class _Item(pydantic.BaseModel):
-            val: int = 0
+        async def fake(url, result_type):
+            nonlocal calls
+            calls += 1
+            result = MagicMock()
+            result.items = [_alpha_company(f"KEY:{calls}")] if calls <= 2 else []
+            return result
 
-        async def fetch_fn(cursor):
-            nonlocal call_count
-            call_count += 1
-            if call_count == 1:
-                assert cursor is None
-                return [_Item(val=1)], "CURSOR_A"
-            assert cursor == "CURSOR_A"
-            return [_Item(val=2)], None
-
-        page = await client._fetch_paginated_cursor(fetch_fn, None, 2)
-        assert [i.val for i in page.data] == [1, 2]
-        assert call_count == 2
-        assert not page.pagination.has_next
-
-    @pytest.mark.asyncio
-    async def test_get_next_advances_cursor(self):
-        """With result_count=1 each batch is one page; get_next fetches the next."""
-        client = _make_client()
-        call_count = 0
-
-        class _Item(pydantic.BaseModel):
-            val: int = 0
-
-        async def fetch_fn(cursor):
-            nonlocal call_count
-            call_count += 1
-            if call_count == 1:
-                assert cursor is None
-                return [_Item(val=1)], "CURSOR_A"
-            assert cursor == "CURSOR_A"
-            return [_Item(val=2)], None
-
-        page = await client._fetch_paginated_cursor(fetch_fn, None, 1)
-        assert [i.val for i in page.data] == [1]
+        client._get_resource = fake
+        page = await client.alphabetical_companies_search("q", page_size=1, result_count=2)
+        assert len(page.data) == 2  # accumulated across two cursor pages
+        assert calls == 2
         assert page.pagination.has_next
-        assert call_count == 1
-
-        page2 = await page.get_next()
-        assert [i.val for i in page2.data] == [2]
-        assert not page2.pagination.has_next
-        assert call_count == 2
 
 
 class TestAlphabeticalSearchBranches:

@@ -48,6 +48,12 @@ metadata. Pass `result_count` to collect more items per call, and advance with
     >>> run_async_func(search_example)
     True
 
+`pagination.next_page` is a **self-contained** cursor — it embeds the endpoint and
+its arguments, so a fresh process can resume statelessly with just the token via
+`await client.fetch_next_page(token)`. This makes pagination restartable across
+requests (e.g. for an async server or AI-agent tool) without walking the chain or
+re-supplying the query.
+
 ## Rate Limiting
 
 The API allows 600 requests per 5 minutes. Use an async rate limiter:
