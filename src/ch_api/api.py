@@ -26,7 +26,7 @@ import httpx
 import pydantic
 
 from . import api_settings, exc, types
-from ._paginate import current_resume_identity, paginated
+from ._paginate import current_resume_state, paginated
 
 logger = logging.getLogger(__name__)
 
@@ -374,10 +374,11 @@ class Client:
         ``page_size``) until at least ``result_count`` items are gathered or no
         further pages exist. The ``next_page`` token on the returned list is
         self-contained — the originating endpoint name and call arguments are read
-        from the :func:`~ch_api._paginate.current_resume_identity` helper (populated by
-        embedded, so the request can be resumed via :meth:`fetch_next_page` from a
-        fresh process. (Called outside a ``paginated`` method — e.g. directly in a
-        test — the context is empty and a position-only token is produced.)
+        from :func:`~ch_api._paginate.current_resume_state` (populated by the
+        :func:`~ch_api._paginate.paginated` decorator) and embedded, so the request
+        can be resumed via :meth:`fetch_next_page` from a fresh process. (Called
+        outside a ``paginated`` method — e.g. directly in a test — the resume state
+        is empty and a position-only token is produced.)
 
         Args:
             fetch_page_fn: Callable taking ``start_index`` (int), returning a
@@ -390,7 +391,7 @@ class Client:
         Returns:
             A MultipageList holding the collected items and pagination metadata.
         """
-        endpoint, params = current_resume_identity()
+        resume = current_resume_state()
         page_state = (
             self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
@@ -417,7 +418,7 @@ class Client:
         next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
         if has_next:
             next_state = types.pagination.types._PageState(
-                start_index=current_start + last_page_len, endpoint=endpoint, params=params
+                start_index=current_start + last_page_len, endpoint=resume.endpoint, params=resume.params
             )
             next_page_out = self._encode_next_page(next_state)
 
@@ -442,9 +443,10 @@ class Client:
         cursors (e.g. alphabetical company search) rather than ``start_index``.
         Issues one or more underlying API requests until at least ``result_count``
         items are gathered or no further pages exist. The originating endpoint name
-        and call arguments come from :func:`~ch_api._paginate.current_resume_identity` (populated by
-        :func:`paginated`) and embedded in the ``next_page`` token, so the request
-        can be resumed via :meth:`fetch_next_page`.
+        and call arguments come from :func:`~ch_api._paginate.current_resume_state`
+        (populated by the :func:`~ch_api._paginate.paginated` decorator) and are
+        embedded in the ``next_page`` token, so the request can be resumed via
+        :meth:`fetch_next_page`.
 
         Args:
             fetch_page_fn: Callable taking the current ``search_below`` cursor
@@ -458,7 +460,7 @@ class Client:
             A MultipageList holding the collected items and pagination metadata.
             ``pagination.size`` is always None for cursor-based endpoints.
         """
-        endpoint, params = current_resume_identity()
+        resume = current_resume_state()
         page_state = (
             self._decode_next_page(next_page) if next_page is not None else types.pagination.types._PageState.first()
         )
@@ -480,7 +482,7 @@ class Client:
         next_page_out: typing.Optional[types.pagination.types.NextPageToken] = None
         if has_next and next_cursor is not None:
             next_state = types.pagination.types._PageState(
-                search_below=next_cursor, endpoint=endpoint, params=params
+                search_below=next_cursor, endpoint=resume.endpoint, params=resume.params
             )
             next_page_out = self._encode_next_page(next_state)
 
