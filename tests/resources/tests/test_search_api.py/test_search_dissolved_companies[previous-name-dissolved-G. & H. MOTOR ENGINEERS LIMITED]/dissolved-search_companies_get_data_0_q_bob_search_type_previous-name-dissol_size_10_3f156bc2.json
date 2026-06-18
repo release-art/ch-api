@@ -1,7 +1,7 @@
 {
   "content": {
     "json": {
-      "etag": "fd9ca0b9a13506e54e5778aeb4414f7b7f1a5012",
+      "etag": "430a054e6480cdba9a2331b3557de09f4b6f2626",
       "hits": 49,
       "items": [
         {
@@ -74,13 +74,7 @@
               "effective_from": "1973-02-02",
               "name": "BOB GURNEY LIMITED"
             }
-          ],
-          "registered_office_address": {
-            "address_line_1": "38 Bromborough Village Road",
-            "address_line_2": "Wirral",
-            "locality": "Merseyside",
-            "postal_code": "CH62 7ET"
-          }
+          ]
         },
         {
           "company_name": "BYKER BOTTLE GLASS COMPANY LTD",
@@ -330,16 +324,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:08:03 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:28 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=1EBAA42F04360FB758BB77838F2577BA; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=B086460A7700D6E8AEB0ED6803E56238; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "547",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "549",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

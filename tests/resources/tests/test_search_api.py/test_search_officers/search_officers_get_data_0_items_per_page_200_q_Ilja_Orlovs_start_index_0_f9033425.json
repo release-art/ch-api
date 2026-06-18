@@ -1110,12 +1110,12 @@
             "premises": "3"
           },
           "address_snippet": "3 Harte Road, Hounslow, England, TW3 4LD",
-          "appointment_count": 1,
+          "appointment_count": 2,
           "date_of_birth": {
             "month": 5,
             "year": 1973
           },
-          "description": "Total number of appointments 1 - Born May 1973",
+          "description": "Total number of appointments 2 - Born May 1973",
           "description_identifiers": [
             "appointment-count",
             "born-on"
@@ -1597,35 +1597,6 @@
         },
         {
           "address": {
-            "address_line_1": "Green Lanes",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "N13 4BS",
-            "premises": "483"
-          },
-          "address_snippet": "483 Green Lanes, London, England, N13 4BS",
-          "appointment_count": 1,
-          "date_of_birth": {
-            "month": 12,
-            "year": 2000
-          },
-          "description": "Total number of appointments 1 - Born December 2000",
-          "description_identifiers": [
-            "appointment-count",
-            "born-on"
-          ],
-          "kind": "searchresults#officer",
-          "links": {
-            "self": "/officers/_XDRuCrjdd52b6vHkk3_LlHBEOE/appointments"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "Ilja CAIKOVSKIS"
-        },
-        {
-          "address": {
             "address_line_1": "8 Gainsborough Road",
             "country": "England",
             "locality": "London",
@@ -1937,13 +1908,13 @@
         },
         {
           "address": {
-            "address_line_1": "15 Belmont Road",
-            "country": "England",
+            "address_line_1": "7 Dampier Close",
+            "country": "United Kingdom",
             "locality": "London",
-            "postal_code": "N15 3LS",
-            "premises": "Flat B"
+            "postal_code": "E16 2RW",
+            "premises": "E16 2rw"
           },
-          "address_snippet": "Flat B, 15 Belmont Road, London, England, N15 3LS",
+          "address_snippet": "E16 2rw, 7 Dampier Close, London, United Kingdom, E16 2RW",
           "appointment_count": 1,
           "date_of_birth": {
             "month": 9,
@@ -2407,13 +2378,14 @@
         {
           "address": {
             "address_line_1": "Central Boulevard",
-            "address_line_2": "Blythe Valley Park, Shirley",
+            "address_line_2": "Shirley",
             "country": "England",
             "locality": "Solihull",
             "postal_code": "B90 8BG",
-            "premises": "One"
+            "premises": "2nd Floor, The Hub, Blythe Valley Park",
+            "region": "West Midlands"
           },
-          "address_snippet": "One, Central Boulevard, Blythe Valley Park, Shirley, Solihull, England, B90 8BG",
+          "address_snippet": "2nd Floor, The Hub, Blythe Valley Park, Central Boulevard, Shirley, Solihull, West Midlands, England, B90 8BG",
           "appointment_count": 1,
           "date_of_birth": {
             "month": 6,
@@ -2467,13 +2439,14 @@
         {
           "address": {
             "address_line_1": "Central Boulevard",
-            "address_line_2": "Blythe Valley Park, Shirley",
+            "address_line_2": "Shirley",
             "country": "England",
             "locality": "Solihull",
             "postal_code": "B90 8BG",
-            "premises": "One"
+            "premises": "2nd Floor, The Hub, Blythe Valley Park",
+            "region": "West Midlands"
           },
-          "address_snippet": "One, Central Boulevard, Blythe Valley Park, Shirley, Solihull, England, B90 8BG",
+          "address_snippet": "2nd Floor, The Hub, Blythe Valley Park, Central Boulevard, Shirley, Solihull, West Midlands, England, B90 8BG",
           "appointment_count": 4,
           "date_of_birth": {
             "month": 5,
@@ -2501,9 +2474,10 @@
             "country": "England",
             "locality": "Solihull",
             "postal_code": "B90 8BG",
-            "premises": "One"
+            "premises": "2nd Floor, The Hub, Blythe Valley Park",
+            "region": "West Midlands"
           },
-          "address_snippet": "One, Central Boulevard, Shirley, Solihull, England, B90 8BG",
+          "address_snippet": "2nd Floor, The Hub, Blythe Valley Park, Central Boulevard, Shirley, Solihull, West Midlands, England, B90 8BG",
           "appointment_count": 2,
           "date_of_birth": {
             "month": 5,
@@ -2703,14 +2677,13 @@
         },
         {
           "address": {
-            "address_line_1": "London Road",
-            "address_line_2": "Old Basing",
+            "address_line_1": "Chamberlayne Road",
             "country": "England",
-            "locality": "Basingstoke",
-            "postal_code": "RG24 7JL",
-            "premises": "17 Freya House"
+            "locality": "Eastleigh",
+            "postal_code": "SO50 5JG",
+            "premises": "133a Chamberlayne Road"
           },
-          "address_snippet": "17 Freya House, London Road, Old Basing, Basingstoke, England, RG24 7JL",
+          "address_snippet": "133a Chamberlayne Road, Chamberlayne Road, Eastleigh, England, SO50 5JG",
           "appointment_count": 1,
           "date_of_birth": {
             "month": 12,
@@ -2907,13 +2880,37 @@
           },
           "snippet": "",
           "title": "Ilja HONY"
+        },
+        {
+          "address": {
+            "address_line_1": "Prazakova 22",
+            "country": "Czech Republic",
+            "locality": "61900 Brno",
+            "postal_code": "FOREIGN",
+            "region": "Czech Republic"
+          },
+          "address_snippet": "Prazakova 22, 61900 Brno, Czech Republic, Czech Republic, FOREIGN",
+          "appointment_count": 1,
+          "description": "Total number of appointments 1",
+          "description_identifiers": [
+            "appointment-count"
+          ],
+          "kind": "searchresults#officer",
+          "links": {
+            "self": "/officers/IgM1Tm2oupU2QVYRXrbPc6PHrPo/appointments"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "Ilja HUSTY"
         }
       ],
       "items_per_page": 100,
       "kind": "search#officers",
       "page_number": 1,
       "start_index": 0,
-      "total_results": 323
+      "total_results": 325
     }
   },
   "headers": {
@@ -2924,16 +2921,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:08:02 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:27 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=4A40765C77C8DD16EE433A6E0F2476D7; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=EE278FE933F4834BAFCE014F5A3B0577; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "551",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "553",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },

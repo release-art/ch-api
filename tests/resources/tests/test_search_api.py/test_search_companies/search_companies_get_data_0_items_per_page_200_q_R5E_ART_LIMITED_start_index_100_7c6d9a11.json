@@ -4,6 +4,34 @@
       "items": [
         {
           "address": {
+            "address_line_1": "Lodge Avenue",
+            "country": "England",
+            "locality": "Romford",
+            "postal_code": "RM2 5AL",
+            "premises": "20"
+          },
+          "address_snippet": "20 Lodge Avenue, Romford, England, RM2 5AL",
+          "company_number": "12046368",
+          "company_status": "dissolved",
+          "company_type": "ltd",
+          "date_of_cessation": "2025-11-18",
+          "date_of_creation": "2019-06-12",
+          "description": "12046368 - Dissolved on 18 November 2025",
+          "description_identifier": [
+            "dissolved-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/12046368"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACA PERFORMING ARTS LTD"
+        },
+        {
+          "address": {
             "address_line_1": "Ritz Parade",
             "address_line_2": "Western Avenue",
             "locality": "London",
@@ -336,6 +364,33 @@
           "title": "ACCESS ARTS TW CIC"
         },
         {
+          "address": {
+            "address_line_1": "City Road",
+            "country": "United Kingdom",
+            "locality": "London",
+            "postal_code": "EC1V 2NX",
+            "premises": "128"
+          },
+          "address_snippet": "128 City Road, London, United Kingdom, EC1V 2NX",
+          "company_number": "17234167",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-05-21",
+          "description": "17234167 - Incorporated on 21 May 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17234167"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACCESS COMMUNITY ARTS LTD"
+        },
+        {
           "address": {},
           "company_number": "CS005109",
           "company_type": "scottish-charitable-incorporated-organisation",
@@ -515,7 +570,7 @@
           "matches": {
             "snippet": []
           },
-          "snippet": "ACCOMMODATION ARTISTRY",
+          "snippet": "ACCOMMODATION ARTISTRY LTD",
           "title": "ACCOMADATION ARTIST LTD"
         },
         {
@@ -611,7 +666,7 @@
             "postal_code": "CO16 0BG",
             "premises": "Offices 5&"
           },
-          "address_snippet": "Offices 5& 6 Mauds Court, Long Lane, Tendring, Clacton-On-Sea, England, CO16 0BG",
+          "address_snippet": "Offices 5&6 Mauds Court, Long Lane, Tendring, Clacton-On-Sea, England, CO16 0BG",
           "company_number": "14307780",
           "company_status": "active",
           "company_type": "ltd",
@@ -656,6 +711,33 @@
           },
           "snippet": "",
           "title": "ACCURATE GLASS ART LTD"
+        },
+        {
+          "address": {
+            "address_line_1": "Ashley Drive",
+            "country": "England",
+            "locality": "Borehamwood",
+            "postal_code": "WD6 2JD",
+            "premises": "30"
+          },
+          "address_snippet": "30 Ashley Drive, Borehamwood, England, WD6 2JD",
+          "company_number": "14494613",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2022-11-20",
+          "description": "14494613 - Incorporated on 20 November 2022",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/14494613"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "FADEDKARMA ART GALLARY LTD",
+          "title": "ACCURATEPAY SOLUTIONS LTD"
         },
         {
           "address": {
@@ -768,6 +850,33 @@
         },
         {
           "address": {
+            "address_line_1": "Innings Way",
+            "country": "England",
+            "locality": "Rochdale",
+            "postal_code": "OL11 3DE",
+            "premises": "15"
+          },
+          "address_snippet": "15 Innings Way, Rochdale, England, OL11 3DE",
+          "company_number": "15931845",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2024-09-03",
+          "description": "15931845 - Incorporated on 3 September 2024",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/15931845"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "ARTY & HAIR PRODUCT LTD",
+          "title": "ACE CUTZ & HAIR STYLE LTD"
+        },
+        {
+          "address": {
             "address_line_1": "Conisborough Crescent",
             "country": "England",
             "locality": "London",
@@ -848,6 +957,33 @@
           },
           "snippet": "",
           "title": "ACES HIGH FINE ART LIMITED"
+        },
+        {
+          "address": {
+            "address_line_1": "71-75 Uxbridge Road, Ealing",
+            "country": "England",
+            "locality": "London",
+            "postal_code": "W5 5SL",
+            "premises": "Spaces Ealing Aurora C/O Specialised Travel Ltd"
+          },
+          "address_snippet": "Spaces Ealing Aurora C/O Specialised Travel Ltd, 71-75 Uxbridge Road, Ealing, London, England, W5 5SL",
+          "company_number": "03054214",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "1995-05-09",
+          "description": "03054214 - Incorporated on 9 May 1995",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/03054214"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "TRAVEL FOR THE ARTS LIMITED",
+          "title": "ACFEA TOUR CONSULTANTS LIMITED"
         },
         {
           "address": {
@@ -1110,6 +1246,34 @@
           },
           "snippet": "",
           "title": "ACQUISITION FINE ART"
+        },
+        {
+          "address": {
+            "address_line_1": "Freeland Park",
+            "address_line_2": "Wareham Road",
+            "country": "United Kingdom",
+            "locality": "Poole",
+            "postal_code": "BH16 6FH",
+            "premises": "Unit 13,"
+          },
+          "address_snippet": "Unit 13, Freeland Park, Wareham Road, Poole, United Kingdom, BH16 6FH",
+          "company_number": "17254813",
+          "company_status": "active",
+          "company_type": "ltd",
+          "date_of_creation": "2026-06-01",
+          "description": "17254813 - Incorporated on 1 June 2026",
+          "description_identifier": [
+            "incorporated-on"
+          ],
+          "kind": "searchresults#company",
+          "links": {
+            "self": "/company/17254813"
+          },
+          "matches": {
+            "snippet": []
+          },
+          "snippet": "",
+          "title": "ACRE & ARTISAN LTD"
         },
         {
           "address": {
@@ -1567,12 +1731,13 @@
           },
           "address_snippet": "34 Larch Grove 34 Larch Grove, Prenton, Merseyside, England, CH43 7FF",
           "company_number": "16350645",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "private-limited-guarant-nsc",
+          "date_of_cessation": "2026-05-19",
           "date_of_creation": "2025-03-28",
-          "description": "16350645 - Incorporated on 28 March 2025",
+          "description": "16350645 - Dissolved on 19 May 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -1946,35 +2111,6 @@
         },
         {
           "address": {
-            "address_line_1": "Pixies Holt Flats",
-            "address_line_2": "Buller Street",
-            "country": "England",
-            "locality": "Looe",
-            "postal_code": "PL13 1AR",
-            "premises": "1"
-          },
-          "address_snippet": "1 Pixies Holt Flats, Buller Street, Looe, England, PL13 1AR",
-          "company_number": "14737322",
-          "company_status": "dissolved",
-          "company_type": "ltd",
-          "date_of_cessation": "2025-04-29",
-          "date_of_creation": "2023-03-17",
-          "description": "14737322 - Dissolved on 29 April 2025",
-          "description_identifier": [
-            "dissolved-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/14737322"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADA - ART LTD"
-        },
-        {
-          "address": {
             "address_line_1": "Latimer Road",
             "country": "United Kingdom",
             "locality": "London",
@@ -2067,12 +2203,13 @@
           },
           "address_snippet": "66 Grove Hall Court, Hall Road, London, United Kingdom, NW8 9NY",
           "company_number": "16967935",
-          "company_status": "active",
+          "company_status": "dissolved",
           "company_type": "ltd",
+          "date_of_cessation": "2026-06-16",
           "date_of_creation": "2026-01-16",
-          "description": "16967935 - Incorporated on 16 January 2026",
+          "description": "16967935 - Dissolved on 16 June 2026",
           "description_identifier": [
-            "incorporated-on"
+            "dissolved-on"
           ],
           "kind": "searchresults#company",
           "links": {
@@ -2459,13 +2596,13 @@
         },
         {
           "address": {
-            "address_line_1": "Bruce House Kemble Street",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "WC2B 4AW",
-            "premises": "Flat 281,"
+            "address_line_1": "Chester Street",
+            "country": "United Kingdom",
+            "locality": "Wallasey",
+            "postal_code": "CH44 5SJ",
+            "premises": "1"
           },
-          "address_snippet": "Flat 281, Bruce House Kemble Street, London, England, WC2B 4AW",
+          "address_snippet": "1 Chester Street, Wallasey, United Kingdom, CH44 5SJ",
           "company_number": "15056073",
           "company_status": "active",
           "company_type": "private-limited-guarant-nsc",
@@ -2593,147 +2730,6 @@
           },
           "snippet": "",
           "title": "ADDIS FINE ART LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Comet House",
-            "address_line_2": "Calleva Park",
-            "country": "England",
-            "locality": "Aldermaston",
-            "postal_code": "RG7 8JA",
-            "premises": "4",
-            "region": "Berkshire"
-          },
-          "address_snippet": "4 Comet House, Calleva Park, Aldermaston, Berkshire, England, RG7 8JA",
-          "company_number": "11246293",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2018-03-09",
-          "description": "11246293 - Incorporated on 9 March 2018",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/11246293"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADDITAE ARTES LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Hillersdon Avenue",
-            "country": "England",
-            "locality": "Edgware",
-            "postal_code": "HA8 7FG",
-            "premises": "3",
-            "region": "Middlesex"
-          },
-          "address_snippet": "3 Hillersdon Avenue, Edgware, Middlesex, England, HA8 7FG",
-          "company_number": "09282558",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2014-10-27",
-          "description": "09282558 - Incorporated on 27 October 2014",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/09282558"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADDO ARTS LIMITED"
-        },
-        {
-          "address": {
-            "address_line_1": "Waterside",
-            "country": "United Kingdom",
-            "locality": "Ely",
-            "postal_code": "CB7 4AU",
-            "premises": "Babylon Gallery Babylon Bridge",
-            "region": "Cambridgeshire"
-          },
-          "address_snippet": "Babylon Gallery Babylon Bridge, Waterside, Ely, Cambridgeshire, United Kingdom, CB7 4AU",
-          "company_number": "02999055",
-          "company_status": "active",
-          "company_type": "private-limited-guarant-nsc-limited-exemption",
-          "date_of_creation": "1994-12-07",
-          "description": "02999055 - Incorporated on 7 December 1994",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/02999055"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADEC (ARTS DEVELOPMENT IN EAST CAMBRIDGESHIRE)"
-        },
-        {
-          "address": {
-            "address_line_1": "Floor Suite",
-            "address_line_2": "207 Regent Street",
-            "country": "England",
-            "locality": "London",
-            "postal_code": "W1B 3HH",
-            "premises": "3rd"
-          },
-          "address_snippet": "3rd Floor Suite, 207 Regent Street, London, England, W1B 3HH",
-          "company_number": "06604862",
-          "company_status": "active",
-          "company_type": "private-limited-guarant-nsc-limited-exemption",
-          "date_of_creation": "2008-05-28",
-          "description": "06604862 - Incorporated on 28 May 2008",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/06604862"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADEJOJU ADEYEMI FOUNDATION - CARING ART"
-        },
-        {
-          "address": {
-            "address_line_1": "Felpham",
-            "country": "England",
-            "locality": "Bognor Regis",
-            "postal_code": "PO22 7LQ",
-            "premises": "Gloucester Lodge 2 West Close",
-            "region": "West Sussex"
-          },
-          "address_snippet": "Gloucester Lodge 2 West Close Felpham, Bognor Regis, West Sussex, England, PO22 7LQ",
-          "company_number": "09509556",
-          "company_status": "active",
-          "company_type": "ltd",
-          "date_of_creation": "2015-03-25",
-          "description": "09509556 - Incorporated on 25 March 2015",
-          "description_identifier": [
-            "incorporated-on"
-          ],
-          "kind": "searchresults#company",
-          "links": {
-            "self": "/company/09509556"
-          },
-          "matches": {
-            "snippet": []
-          },
-          "snippet": "",
-          "title": "ADELE PETERS PERFORMING ARTS SCHOOL LIMITED"
         }
       ],
       "items_per_page": 100,
@@ -2751,16 +2747,16 @@
     "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
     "connection": "keep-alive",
     "content-type": "application/json",
-    "date": "Tue, 21 Apr 2026 11:07:43 GMT",
+    "date": "Thu, 18 Jun 2026 12:00:27 GMT",
     "expires": "0",
     "pragma": "no-cache",
-    "set-cookie": "JSESSIONID=4EE9B2B7464E4E1B1FDE2426FC7AF31D; Path=/; HttpOnly",
+    "set-cookie": "JSESSIONID=2137BC85CC3B2A5C0DCFFD9BFF5B7874; Path=/; HttpOnly",
     "transfer-encoding": "chunked",
     "x-content-type-options": "nosniff",
     "x-frame-options": "DENY",
     "x-ratelimit-limit": "600",
-    "x-ratelimit-remain": "553",
-    "x-ratelimit-reset": "1776769792",
+    "x-ratelimit-remain": "555",
+    "x-ratelimit-reset": "1781784313",
     "x-ratelimit-window": "5m",
     "x-xss-protection": "0"
   },
