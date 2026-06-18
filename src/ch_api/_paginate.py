@@ -4,38 +4,30 @@ Internal; not part of the public API.
 """
 
 import contextvars
-import dataclasses
 import functools
 import inspect
 import typing
 
 import pydantic
 
+from .types.pagination.types import _PageState
+
 _PaginatedFn = typing.TypeVar("_PaginatedFn", bound=typing.Callable[..., typing.Awaitable[typing.Any]])
 
 
-@dataclasses.dataclass(frozen=True, slots=True)
-class _ResumeState:
-    """Endpoint name and call arguments of the active ``@paginated`` call.
-
-    The fetch helpers read it to build the ``next_page`` token; an empty
-    ``endpoint`` means no paginated call is active.
-    """
-
-    endpoint: str = ""
-    params: typing.Dict[str, typing.Any] = dataclasses.field(default_factory=dict)
-
-
-#: Task-local channel from :func:`paginated` to the fetch helpers. Task-local so
-#: concurrent paginated calls on one client don't clash.
-_resume_ctx: contextvars.ContextVar[typing.Optional[_ResumeState]] = contextvars.ContextVar(
+#: Task-local channel from :func:`paginated` to the fetch helpers, carrying the
+#: active call's endpoint name and arguments (its position fields are unset here;
+#: the helpers add those when stamping the ``next_page`` token). Task-local so
+#: concurrent paginated calls on one client don't clash. An empty ``endpoint``
+#: means no paginated call is active.
+_resume_ctx: contextvars.ContextVar[typing.Optional[_PageState]] = contextvars.ContextVar(
     "ch_api_resume_ctx", default=None
 )
 
 
-def current_resume_state() -> _ResumeState:
-    """The active ``@paginated`` call's :class:`_ResumeState`, or an empty one."""
-    return _resume_ctx.get() or _ResumeState()
+def current_resume_state() -> _PageState:
+    """The active ``@paginated`` call's :class:`_PageState`, or an empty one."""
+    return _resume_ctx.get() or _PageState()
 
 
 def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable[[_PaginatedFn], _PaginatedFn]:
@@ -63,7 +55,7 @@ def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable
             bound = sig.bind(*args, **kwargs)
             bound.apply_defaults()
             params = {name: value for name, value in bound.arguments.items() if name not in excluded}
-            ctx_token = _resume_ctx.set(_ResumeState(endpoint=endpoint, params=params))
+            ctx_token = _resume_ctx.set(_PageState(endpoint=endpoint, params=params))
             try:
                 result = await validated(*args, **kwargs)
             finally:

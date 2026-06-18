@@ -218,8 +218,8 @@ class TestFetchNextPage:
         assert any("start_index=2" in u for u in urls)
 
     @pytest.mark.asyncio
-    async def test_with_client_rebinds_get_next(self):
-        """A page with no client can be re-bound so get_next works again."""
+    async def test_get_next_without_client_raises(self):
+        """A page that lost its client binding (e.g. deserialized) raises on get_next."""
         client = _make_client()
 
         async def fake(url, result_type):
@@ -234,9 +234,6 @@ class TestFetchNextPage:
         page._client = None
         with pytest.raises(RuntimeError, match="no client bound"):
             await page.get_next()
-        page.with_client(client)
-        page2 = await page.get_next()
-        assert len(page2.data) == 2
 
 
 class TestMultipageListGetNext:

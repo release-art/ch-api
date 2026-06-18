@@ -34,6 +34,10 @@ class _PageState(pydantic.BaseModel, frozen=True):
       re-dispatch (params are JSON-safe values).
     * ``start_index`` — next offset for offset-based endpoints.
     * ``search_below`` — cursor for cursor-based endpoints (alphabetical / dissolved).
+
+    The ``@paginated`` decorator also publishes a position-less instance (just
+    ``endpoint`` / ``params``) as the active call's resume context; the fetch
+    helpers read it and fill in the position when stamping the next token.
     """
 
     start_index: int = 0
@@ -222,31 +226,21 @@ class MultipageList(pydantic.BaseModel, typing.Generic[_ItemT]):
 
     _client: typing.Optional[_NextPageFetcher] = pydantic.PrivateAttr(default=None)
     """Client used by :meth:`get_next`. Set when the list is produced; ``None`` on
-    deserialized instances (rebind with :meth:`with_client`)."""
-
-    def with_client(self, client: _NextPageFetcher) -> "MultipageList[_ItemT]":
-        """Bind a client so :meth:`get_next` works (e.g. on a deserialized list); returns ``self``.
-
-        The token is self-contained, so any ``Client`` will do — it only supplies
-        the HTTP session.
-        """
-        self._client = client
-        return self
+    deserialized instances (resume those via ``Client.fetch_next_page(token)``)."""
 
     async def get_next(self) -> "MultipageList[_ItemT]":
         """Fetch the next batch via :meth:`Client.fetch_next_page` and this list's token.
 
         Raises:
             NoMorePagesError: If ``pagination.has_next`` is ``False``.
-            RuntimeError: If no client is bound (e.g. a deserialized list); call
-                ``client.fetch_next_page(token)`` or :meth:`with_client` first.
+            RuntimeError: If no client is bound (e.g. a deserialized list); resume
+                with ``client.fetch_next_page(pagination.next_page)`` instead.
         """
         if not self.pagination.has_next:
             raise exc.NoMorePagesError("This is the last page; no more results to fetch.")
         if self._client is None or self.pagination.next_page is None:
             raise RuntimeError(
                 "MultipageList has no client bound — it was likely constructed manually "
-                "or deserialized. Call `client.fetch_next_page(pagination.next_page)` "
-                "directly, or bind a client with `.with_client(client)` first."
+                "or deserialized. Resume with `client.fetch_next_page(pagination.next_page)`."
             )
         return await self._client.fetch_next_page(self.pagination.next_page)
