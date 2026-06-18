@@ -544,8 +544,9 @@ class CreateTestCompanyRequest(base.BaseModel):
                 "person-authorised-to-represent-and-accept",
                 "receiver-and-manager",
                 "secretary",
-            ]
-        , ...]
+            ],
+            ...,
+        ]
         | None,
         pydantic.Field(
             description=(

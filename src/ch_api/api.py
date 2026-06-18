@@ -34,8 +34,8 @@ logger = logging.getLogger(__name__)
 #: Task-local channel for the position to resume from, set by
 #: :meth:`Client.fetch_next_page` and read by the fetch helpers. ``None`` for a
 #: fresh call (start from the beginning).
-_resume_from_ctx: contextvars.ContextVar[typing.Optional[types.pagination.types._PageState]] = (
-    contextvars.ContextVar("ch_api_resume_from", default=None)
+_resume_from_ctx: contextvars.ContextVar[typing.Optional[types.pagination.types._PageState]] = contextvars.ContextVar(
+    "ch_api_resume_from", default=None
 )
 
 LimiterContextT = typing.Callable[[], typing.AsyncContextManager[None]]

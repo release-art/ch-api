@@ -508,8 +508,9 @@ class CompanySearchItem(base.BaseModel):
                     "removed",
                     "registered-externally",
                 ),
-            ]
-        , ...]
+            ],
+            ...,
+        ]
         | None,
         pydantic.Field(
             description=(

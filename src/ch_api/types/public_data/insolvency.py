@@ -316,8 +316,9 @@ class CompanyInsolvency(base.BaseModel):
                     "voluntary-arrangement",
                     "voluntary-arrangement-receivership",
                 ),
-            ]
-        , ...]
+            ],
+            ...,
+        ]
         | None,
         pydantic.Field(
             description="Company insolvency status details",
