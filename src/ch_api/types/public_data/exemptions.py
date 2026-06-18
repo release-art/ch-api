@@ -93,7 +93,7 @@ class PscExemptAsTradingOnRegulatedMarketItem(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ExemptionItem],
+        tuple[ExemptionItem, ...],
         pydantic.Field(
             description="List of dates",
         ),
@@ -111,7 +111,7 @@ class PscExemptAsSharesAdmittedOnMarketItem(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ExemptionItem],
+        tuple[ExemptionItem, ...],
         pydantic.Field(
             description="List of dates",
         ),
@@ -129,7 +129,7 @@ class PscExemptAsTradingOnUkRegulatedMarketItem(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ExemptionItem],
+        tuple[ExemptionItem, ...],
         pydantic.Field(
             description="List of dates",
         ),
@@ -147,7 +147,7 @@ class PscExemptAsTradingOnEuRegulatedMarketItem(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ExemptionItem],
+        tuple[ExemptionItem, ...],
         pydantic.Field(
             description="List of dates",
         ),
@@ -165,7 +165,7 @@ class DisclosureTransparencyRulesChapterFiveAppliesItem(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ExemptionItem],
+        tuple[ExemptionItem, ...],
         pydantic.Field(
             description="List of exemption periods.",
         ),

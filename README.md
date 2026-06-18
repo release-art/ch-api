@@ -38,9 +38,9 @@ Example of getting company information:
 
 ## Pagination
 
-List endpoints return a `MultipageList[T]` with `.data` (list) and `.pagination`
+List endpoints return a `MultipageList[T]` with `.data` (tuple) and `.pagination`
 metadata. Pass `result_count` to collect more items per call, and advance with
-`.get_next()`:
+`client.fetch_next_page(page.pagination.next_page)`:
 
     >>> async def search_example(client):
     ...     results = await client.search_companies("tech")

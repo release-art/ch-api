@@ -18,10 +18,15 @@ class BaseModel(pydantic.BaseModel):
 
     Automatically normalizes field names to lowercase for consistency.
     Inherits from this class for all API response models.
+
+    Instances are immutable (``frozen``) and therefore hashable: collection
+    fields are declared as tuples rather than lists so a whole response — and a
+    ``MultipageList`` of them — can be used in sets or as dict keys.
     """
 
     model_config = pydantic.ConfigDict(
         extra=settings.model_validate_extra,
+        frozen=True,
     )
 
     @classmethod

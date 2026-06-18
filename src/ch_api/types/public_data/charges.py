@@ -495,7 +495,7 @@ class ChargeDetails(base.BaseModel):
     ]
 
     persons_entitled: typing.Annotated[
-        list[PersonsEntitled] | None,
+        tuple[PersonsEntitled, ...] | None,
         pydantic.Field(
             description="People that are entitled to the charge",
             default=None,
@@ -503,7 +503,7 @@ class ChargeDetails(base.BaseModel):
     ]
 
     transactions: typing.Annotated[
-        list[Transactions] | None,
+        tuple[Transactions, ...] | None,
         pydantic.Field(
             description="Transactions that have been filed for the charge.",
             default=None,
@@ -511,7 +511,7 @@ class ChargeDetails(base.BaseModel):
     ]
 
     insolvency_cases: typing.Annotated[
-        list[InsolvencyCases] | None,
+        tuple[InsolvencyCases, ...] | None,
         pydantic.Field(
             description="Transactions that have been filed for the charge.",
             default=None,
@@ -538,7 +538,7 @@ class ChargeList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[ChargeDetails],
+        tuple[ChargeDetails, ...],
         pydantic.Field(
             description="List of charges",
         ),

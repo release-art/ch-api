@@ -142,19 +142,20 @@ All API calls are asynchronous and must be called with ``await``::
 
 Pagination
 ----------
-Search and list endpoints return a ``MultipageList[T]`` with a ``data`` list and
+Search and list endpoints return a ``MultipageList[T]`` with a ``data`` tuple and
 ``pagination`` metadata. Pass ``result_count`` to collect at least that many
 items in one call (issuing multiple underlying requests if needed), advance with
-``get_next``, and use ``page_size`` to control the underlying per-request size::
+``client.fetch_next_page``, and use ``page_size`` to control the underlying
+per-request size::
 
     >>> @run_async_func
     ... async def pagination_example(client):
     ...     page = await client.search_companies("Apple")
-    ...     # page.data is a plain list — iterate with a regular for loop
+    ...     # page.data is a tuple — iterate with a regular for loop
     ...     assert len(page.data) >= 1
-    ...     # Fetch the next page with the bound get_next handle
+    ...     # Fetch the next page via the client and this page's token
     ...     if page.pagination.has_next:
-    ...         page2 = await page.get_next()
+    ...         page2 = await client.fetch_next_page(page.pagination.next_page)
     ...
 
 ``pagination.next_page`` is a **self-contained** cursor: it embeds the endpoint and

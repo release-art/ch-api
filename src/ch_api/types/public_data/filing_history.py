@@ -298,7 +298,7 @@ class FilingHistoryItem(base.BaseModel):
     ]
 
     annotations: typing.Annotated[
-        list[Annotation] | None,
+        tuple[Annotation, ...] | None,
         pydantic.Field(
             description="Annotations for the filing",
             default=None,
@@ -306,7 +306,7 @@ class FilingHistoryItem(base.BaseModel):
     ]
 
     associated_filings: typing.Annotated[
-        list[AssociatedFiling] | None,
+        tuple[AssociatedFiling, ...] | None,
         pydantic.Field(
             description="Any filings associated with the current item",
             default=None,
@@ -346,7 +346,7 @@ class FilingHistoryItem(base.BaseModel):
     ]
 
     resolutions: typing.Annotated[
-        list[Resolution] | None,
+        tuple[Resolution, ...] | None,
         pydantic.Field(
             description="Resolutions for the filing",
             default=None,
@@ -378,7 +378,7 @@ class FilingHistoryList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[FilingHistoryItem],
+        tuple[FilingHistoryItem, ...],
         pydantic.Field(
             description="The filing history items.",
         ),

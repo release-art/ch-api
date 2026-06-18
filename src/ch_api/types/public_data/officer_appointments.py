@@ -436,7 +436,7 @@ class OfficerAppointmentSummary(base.BaseModel):
     ]
 
     former_names: typing.Annotated[
-        list[FormerNames] | None,
+        tuple[FormerNames, ...] | None,
         pydantic.Field(
             description="Former names for the officer, if there are any.",
             default=None,
@@ -544,7 +544,7 @@ class AppointmentList(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        list[OfficerAppointmentSummary],
+        tuple[OfficerAppointmentSummary, ...],
         pydantic.Field(
             description="The list of officer appointments.",
         ),

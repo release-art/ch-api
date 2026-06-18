@@ -37,7 +37,6 @@ def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable
       method's annotations).
     * Publishes the endpoint name and arguments on :data:`_resume_ctx` so the
       fetch helpers can build a replayable ``next_page`` token.
-    * Binds the client to the result so :meth:`MultipageList.get_next` works.
 
     Args:
         exclude: Argument names left out of the resume token's ``params``
@@ -60,7 +59,6 @@ def paginated(*, exclude: typing.Collection[str] = ("self",)) -> typing.Callable
                 result = await validated(*args, **kwargs)
             finally:
                 _resume_ctx.reset(ctx_token)
-            result._client = args[0]  # bind the Client (self) for get_next()
             return result
 
         #: Marks the method as a resumable paginated endpoint. ``Client.fetch_next_page``

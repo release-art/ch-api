@@ -217,55 +217,24 @@ class TestFetchNextPage:
         await client.fetch_next_page(page.pagination.next_page)
         assert any("start_index=2" in u for u in urls)
 
+
+class TestFetchNextPageTerminal:
+    """fetch_next_page on a terminal token."""
+
     @pytest.mark.asyncio
-    async def test_get_next_without_client_raises(self):
-        """A page that lost its client binding (e.g. deserialized) raises on get_next."""
+    async def test_fetch_next_page_none_raises_no_more_pages(self):
+        """A None token (the last page's next_page) → NoMorePagesError."""
         client = _make_client()
-
-        async def fake(url, result_type):
-            result = MagicMock()
-            result.items = [search_types.CompanySearchItem.model_construct() for _ in range(2)]
-            result.total_results = 4
-            return result
-
-        client._get_resource = fake
-        page = await client.search_companies("Apple", page_size=2)
-        # simulate a reconstructed page that lost its client binding
-        page._client = None
-        with pytest.raises(RuntimeError, match="no client bound"):
-            await page.get_next()
-
-
-class TestMultipageListGetNext:
-    """MultipageList.get_next error paths on manually-constructed instances."""
-
-    @pytest.mark.asyncio
-    async def test_get_next_on_last_page_raises_no_more_pages(self):
-        """has_next is False → NoMorePagesError."""
-        page = pagination_types.MultipageList(
-            data=[],
-            pagination=pagination_types.PaginationInfo(has_next=False),
-        )
         with pytest.raises(exc.NoMorePagesError):
-            await page.get_next()
-
-    @pytest.mark.asyncio
-    async def test_get_next_without_client_raises_runtime_error(self):
-        """has_next True but no bound client (e.g. deserialized) → RuntimeError."""
-        page = pagination_types.MultipageList(
-            data=[],
-            pagination=pagination_types.PaginationInfo(has_next=True, next_page="tok"),
-        )
-        with pytest.raises(RuntimeError, match="no client bound"):
-            await page.get_next()
+            await client.fetch_next_page(None)
 
 
 class TestOffsetPagination:
-    """Offset accumulation to result_count + get_next advances the batch via fetch_next_page."""
+    """Offset accumulation to result_count + fetch_next_page advances the batch."""
 
     @pytest.mark.asyncio
-    async def test_get_next_offset(self):
-        """get_next fetches the next batch from the next offset (page_size 2, total 4)."""
+    async def test_fetch_next_page_offset(self):
+        """fetch_next_page fetches the next batch from the next offset (page_size 2, total 4)."""
         client = _make_client()
         urls = []
 
@@ -283,7 +252,7 @@ class TestOffsetPagination:
         assert any("start_index=0" in u for u in urls)
 
         urls.clear()
-        page2 = await page.get_next()
+        page2 = await client.fetch_next_page(page.pagination.next_page)
         assert len(page2.data) == 2
         assert not page2.pagination.has_next
         assert any("start_index=2" in u for u in urls)
@@ -346,7 +315,7 @@ class TestAlphabeticalSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.alphabetical_companies_search("test")
-        assert page.data == []
+        assert page.data == ()
         assert not page.pagination.has_next
 
     @pytest.mark.asyncio
@@ -359,11 +328,11 @@ class TestAlphabeticalSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.alphabetical_companies_search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
-    async def test_get_next_via_alphabetical_search_uses_search_below(self):
-        """alphabetical_companies_search: get_next carries the search_below cursor."""
+    async def test_fetch_next_page_via_alphabetical_search_uses_search_below(self):
+        """alphabetical_companies_search: fetch_next_page carries the search_below cursor."""
         client = _make_client()
         call_count = 0
         item = _alpha_company("KEY_ALPHA:00000001")
@@ -383,8 +352,8 @@ class TestAlphabeticalSearchBranches:
         assert page.pagination.has_next
         assert call_count == 1
 
-        page2 = await page.get_next()
-        assert page2.data == []
+        page2 = await client.fetch_next_page(page.pagination.next_page)
+        assert page2.data == ()
         assert call_count == 2
         assert any("search_below=KEY_ALPHA" in u for u in urls_seen)
 
@@ -423,7 +392,7 @@ class TestDissolvedSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_dissolved_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
 
 class TestOfficerListBranches:
@@ -454,7 +423,7 @@ class TestOfficerListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_result_returns_empty(self):
@@ -466,7 +435,7 @@ class TestOfficerListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_http_error_propagates(self):
@@ -493,7 +462,7 @@ class TestSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_search_none_returns_empty(self):
@@ -504,7 +473,7 @@ class TestSearchBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_search_non_416_propagates(self):
@@ -631,7 +600,7 @@ class TestAdvancedSearchParams:
 
         client._get_resource = fake_get_resource
         page = await client.advanced_company_search(company_name_includes="test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -643,7 +612,7 @@ class TestAdvancedSearchParams:
 
         client._get_resource = fake_get_resource
         page = await client.advanced_company_search(company_name_includes="test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -669,7 +638,7 @@ class TestSearchCompaniesBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -680,7 +649,7 @@ class TestSearchCompaniesBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_companies("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -706,7 +675,7 @@ class TestSearchOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -717,7 +686,7 @@ class TestSearchOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -743,7 +712,7 @@ class TestSearchDisqualifiedOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_disqualified_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -754,7 +723,7 @@ class TestSearchDisqualifiedOfficersBranches:
 
         client._get_resource = fake_get_resource
         page = await client.search_disqualified_officers("test")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -780,7 +749,7 @@ class TestFilingHistoryBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_filing_history("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -791,7 +760,7 @@ class TestFilingHistoryBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_filing_history("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -832,7 +801,7 @@ class TestOfficerAppointmentsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_appointments("_y4370DCOaJgIqvAlmHtJ7HdiqU")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -844,7 +813,7 @@ class TestOfficerAppointmentsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_officer_appointments("_y4370DCOaJgIqvAlmHtJ7HdiqU")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -870,7 +839,7 @@ class TestPscListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -881,7 +850,7 @@ class TestPscListBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_list("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):
@@ -907,7 +876,7 @@ class TestPscStatementsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_statements("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_none_returns_empty(self):
@@ -918,7 +887,7 @@ class TestPscStatementsBranches:
 
         client._get_resource = fake_get_resource
         page = await client.get_company_psc_statements("12345678")
-        assert page.data == []
+        assert page.data == ()
 
     @pytest.mark.asyncio
     async def test_non_416_propagates(self):

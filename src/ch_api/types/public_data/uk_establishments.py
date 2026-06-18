@@ -156,7 +156,7 @@ class CompanyUKEstablishments(base.BaseModel):
     ]
 
     items: typing.Annotated[
-        typing.Sequence[CompanyEstablishmentDetails],
+        tuple[CompanyEstablishmentDetails, ...],
         pydantic.Field(
             description="List of UK Establishment companies.",
         ),

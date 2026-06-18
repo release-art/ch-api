@@ -223,7 +223,7 @@ class Disqualification(base.BaseModel):
     ]
 
     company_names: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="The companies in which the misconduct took place.",
             default=None,
@@ -280,7 +280,7 @@ class Disqualification(base.BaseModel):
     ]
 
     last_variation: typing.Annotated[
-        list[LastVariation] | None,
+        tuple[LastVariation, ...] | None,
         pydantic.Field(
             description="The latest variation made to the disqualification.",
             default=None,
@@ -299,7 +299,7 @@ class PermissionToAct(base.BaseModel):
     """Permission to act that has been granted for the disqualified officer."""
 
     company_names: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="The companies for which the disqualified officer has permission to act.",
             default=None,
@@ -409,14 +409,14 @@ class NaturalDisqualification(base.BaseModel):
     ]
 
     disqualifications: typing.Annotated[
-        list[Disqualification],
+        tuple[Disqualification, ...],
         pydantic.Field(
             description="The officer's disqualifications.",
         ),
     ]
 
     permissions_to_act: typing.Annotated[
-        list[PermissionToAct] | None,
+        tuple[PermissionToAct, ...] | None,
         pydantic.Field(
             description="Permissions to act that have been granted for the disqualified officer.",
             default=None,
@@ -480,14 +480,14 @@ class CorporateDisqualification(base.BaseModel):
     ]
 
     disqualifications: typing.Annotated[
-        list[Disqualification],
+        tuple[Disqualification, ...],
         pydantic.Field(
             description="The officer's disqualifications.",
         ),
     ]
 
     permissions_to_act: typing.Annotated[
-        list[PermissionToAct] | None,
+        tuple[PermissionToAct, ...] | None,
         pydantic.Field(
             description="Permissions that the disqualified officer has to act outside of their disqualification.",
             default=None,

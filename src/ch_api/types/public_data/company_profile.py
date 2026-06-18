@@ -1038,7 +1038,7 @@ class CompanyProfile(base.BaseModel):
     ]
 
     sic_codes: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="SIC codes for this company.",
             default=None,
@@ -1046,7 +1046,7 @@ class CompanyProfile(base.BaseModel):
     ]
 
     previous_company_names: typing.Annotated[
-        list[PreviousCompanyNames] | None,
+        tuple[PreviousCompanyNames, ...] | None,
         pydantic.Field(
             description="The previous names of this company.",
             default=None,
@@ -1054,7 +1054,7 @@ class CompanyProfile(base.BaseModel):
     ]
 
     corporate_annotation: typing.Annotated[
-        list[CorporateAnnotation] | None,
+        tuple[CorporateAnnotation, ...] | None,
         pydantic.Field(
             description=(
                 "A corporate level message published by Companies House about a company, "

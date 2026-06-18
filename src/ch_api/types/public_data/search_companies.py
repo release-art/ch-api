@@ -74,8 +74,8 @@ Each search type returns results with:
 Pagination
 -----
 All searches are paginated. The client's search methods return a MultipageList;
-pass ``result_count`` to collect more items per call and advance with ``get_next``
-(or ``Client.fetch_next_page`` for stateless resume).
+pass ``result_count`` to collect more items per call and advance with
+``Client.fetch_next_page`` (the basis for stateless resume).
 
 Example Usage
 -----
@@ -290,7 +290,7 @@ class DissolvedCompany(base.BaseModel):
     ]
 
     previous_company_names: typing.Annotated[
-        list[PreviousCompanyName] | None,
+        tuple[PreviousCompanyName, ...] | None,
         pydantic.Field(
             default=None,
         ),
@@ -538,7 +538,7 @@ class AdvancedCompany(base.BaseModel):
     ]
 
     sic_codes: typing.Annotated[
-        list[str] | None,
+        tuple[str, ...] | None,
         pydantic.Field(
             description="SIC codes for this company",
             default=None,
@@ -550,7 +550,7 @@ class AlphabeticalCompanySearchResult(base.BaseModel, typing.Generic[T]):
     """List of companies from alphabetical search."""
 
     items: typing.Annotated[
-        list[T] | None,
+        tuple[T, ...] | None,
         pydantic.Field(
             default=None,
         ),
@@ -613,7 +613,7 @@ class GenericSearchResult(base.BaseModel, typing.Generic[T]):
     ]
 
     items: typing.Annotated[
-        list[T] | None,
+        tuple[T, ...] | None,
         pydantic.Field(
             description="The results of the completed search.",
             default=None,
@@ -640,7 +640,7 @@ class AdvancedSearchResult(base.BaseModel, typing.Generic[T]):
     ]
 
     items: typing.Annotated[
-        list[T] | None,
+        tuple[T, ...] | None,
         pydantic.Field(
             description="The results of the completed search.",
             default=None,

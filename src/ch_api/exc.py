@@ -87,11 +87,11 @@ class UnexpectedApiResponseError(CompaniesHouseApiError):
 
 
 class NoMorePagesError(CompaniesHouseApiError):
-    """Raised when :meth:`MultipageList.get_next` is called on the last page.
+    """Raised when :meth:`Client.fetch_next_page` is called with a terminal token.
 
-    Indicates the caller asked for a page beyond the end of the result set.
-    Check ``MultipageList.pagination.has_next`` before calling ``get_next``
-    to avoid this exception.
+    Indicates the caller asked for a page beyond the end of the result set (the
+    prior page's ``pagination.next_page`` was ``None``). Check
+    ``MultipageList.pagination.has_next`` before calling to avoid this exception.
 
     Example
     -------
@@ -99,7 +99,7 @@ class NoMorePagesError(CompaniesHouseApiError):
 
         page = await client.search_companies("Apple")
         while page.pagination.has_next:
-            page = await page.get_next()
+            page = await client.fetch_next_page(page.pagination.next_page)
 
     See Also
     --------

@@ -94,14 +94,14 @@ class Client:
             ...     officers = await client.get_officer_list("09370755")
             ...     for officer in officers.data:
             ...         print(f"Officer: {officer.name}")
-            ...     # Search for companies; walk every page with get_next
+            ...     # Search for companies; walk every page via fetch_next_page
             ...     results = await client.search_companies("Apple")
             ...     while True:
             ...         for result in results.data:
             ...             print(f"Found: {result.title} ({result.company_number})")
             ...         if not results.pagination.has_next:
             ...             break
-            ...         results = await results.get_next()
+            ...         results = await client.fetch_next_page(results.pagination.next_page)
             ...
             ...  # doctest: +SKIP
 
@@ -409,7 +409,7 @@ class Client:
             next_page_out = self._encode_next_page(next_state)
 
         return types.pagination.types.MultipageList(
-            data=items,
+            data=tuple(items),
             pagination=types.pagination.types.PaginationInfo(
                 has_next=has_next,
                 next_page=next_page_out,
@@ -459,7 +459,7 @@ class Client:
             next_page_out = self._encode_next_page(next_state)
 
         return types.pagination.types.MultipageList(
-            data=items,
+            data=tuple(items),
             pagination=types.pagination.types.PaginationInfo(
                 has_next=has_next,
                 next_page=next_page_out,
@@ -548,7 +548,7 @@ class Client:
         return await self._fetch_paginated_cursor(_fetch, result_count)
 
     async def fetch_next_page(
-        self, next_page: types.pagination.types.NextPageToken
+        self, next_page: typing.Optional[types.pagination.types.NextPageToken]
     ) -> types.pagination.types.MultipageList:
         """Resume a paginated request from a ``next_page`` token.
 
@@ -562,20 +562,22 @@ class Client:
             next_page: A ``pagination.next_page`` token from a prior result.
 
         Returns:
-            The next ``MultipageList``, bound for further iteration.
+            The next ``MultipageList``.
 
         Raises:
+            NoMorePagesError: If ``next_page`` is ``None`` (the prior page was the
+                last one — check ``pagination.has_next`` before calling).
             ValueError: If the token does not name a resumable endpoint
                 (e.g. malformed or tampered).
 
         Example::
 
             page = await client.search_companies("Apple", page_size=20)
-            token = page.pagination.next_page  # hand this to the caller
-
-            # ... later, in a new request with only `token` in hand ...
-            page2 = await client.fetch_next_page(token)
+            while page.pagination.has_next:
+                page = await client.fetch_next_page(page.pagination.next_page)
         """
+        if next_page is None:
+            raise exc.NoMorePagesError("This is the last page; no more results to fetch.")
         state = self._decode_next_page(next_page)
         # Only ``@paginated`` methods carry ``_ch_paginated``; gating on it stops a
         # tampered token from re-dispatching to an arbitrary client method, and the

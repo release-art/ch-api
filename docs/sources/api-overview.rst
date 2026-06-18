@@ -66,9 +66,9 @@ Key Endpoints
 Pagination
 ==========
 
-List endpoints return a ``MultipageList[T]`` with ``data`` (list) and ``pagination``
+List endpoints return a ``MultipageList[T]`` with ``data`` (tuple) and ``pagination``
 metadata. Pass ``result_count`` to collect at least that many items in one call,
-advance with ``get_next`` (or ``Client.fetch_next_page`` for stateless resume), and
+advance with ``Client.fetch_next_page`` (the basis for stateless resume), and
 use ``page_size`` to control the underlying per-request size:
 
     >>> async def pagination_example(client):

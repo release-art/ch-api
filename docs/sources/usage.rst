@@ -192,7 +192,7 @@ Search for disqualified officers:
 Working with Pagination
 =======================
 
-Many endpoints return a :class:`ch_api.types.pagination.types.MultipageList`: a value object with ``data`` (this call's items), ``pagination`` (cursor metadata), and a ``get_next`` handle. Pass ``result_count`` to collect at least that many items in one call (the client issues multiple ``page_size`` requests as needed).
+Many endpoints return a :class:`ch_api.types.pagination.types.MultipageList`: an immutable value object with ``data`` (this call's items, a tuple) and ``pagination`` (cursor metadata). Pass ``result_count`` to collect at least that many items in one call (the client issues multiple ``page_size`` requests as needed).
 
 Fetching a page::
 
@@ -206,7 +206,7 @@ Fetching multiple pages
 -----------------------
 
 Pass ``result_count`` to collect more items in one call, then walk the rest of
-the result set with ``get_next``:
+the result set with ``client.fetch_next_page``:
 
 .. code:: python
 
@@ -217,7 +217,8 @@ the result set with ``get_next``:
            print(company.title)
        if not page.pagination.has_next:
            break
-       page = await page.get_next()  # fetches the next batch of result_count items
+       # fetches the next batch of result_count items
+       page = await client.fetch_next_page(page.pagination.next_page)
 
    # Or resume statelessly with the opaque cursor token (see "Restarting from a
    # token" below) — endpoints themselves take no next_page argument
@@ -566,8 +567,8 @@ Pagination Issues
 
 If pagination isn't working as expected:
 
-- Use a regular ``for`` loop over ``result.data`` (it's a plain list)
+- Use a regular ``for`` loop over ``result.data`` (it's a tuple)
 - Pass ``result_count`` to collect more items per call; ``page_size`` controls the
   underlying per-request size
-- Call ``await result.get_next()`` (or ``await client.fetch_next_page(result.pagination.next_page)``
-  for stateless resume) to fetch the next batch
+- Call ``await client.fetch_next_page(result.pagination.next_page)`` to fetch the
+  next batch
